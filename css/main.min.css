@@ -14047,6 +14047,10 @@ form.pmpro_form #other_discount_code.input {
 .register #red_registration_form {
   margin: 0;
 }
+.register #red_registration_form button {
+  width: 100%;
+  display: block;
+}
 
 .registration-confirmation {
   min-height: 400px;

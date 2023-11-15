@@ -106,10 +106,22 @@ function red_registration_fields($reg_form_role) {	?>
 			<input id="website" type="hidden" name="website" value=""/>
 			<input type="hidden" name="red_csrf" value="<?php echo wp_create_nonce('red-csrf'); ?>"/>
 			<input type="hidden" name="red_role" value="<?php echo $reg_form_role; ?>"/>
-			<input type="submit" value="<?php _e('Register Now'); ?>"/>
+			<!--<input type="submit" value="<?php /*_e('Register Now'); */?>"/>-->
+			<button id="submit_form_button"
+			        class="g-recaptcha"
+			        data-sitekey="6LeyQekUAAAAAFh_9Jmiy8YbcupXBYz0zBy4J4Rt"
+			        data-callback='onSubmit'
+			        data-action='submit'>Register Now</button>
 		</p>
 
 	</form>
+	<script src="https://www.google.com/recaptcha/api.js"></script>
+	<script>
+		function onSubmit(token) {
+			document.getElementById('submit_form_button').disabled = true;
+			document.getElementById("red_registration_form").submit();
+		}
+	</script>
 	<style>
         .red_errors {
             margin-bottom: 20px;
@@ -275,11 +287,9 @@ function verify_user_code(){
 			wp_set_current_user($user->ID, $user->user_login);
 			do_action('wp_login', $user->user_login, wp_get_current_user());
 			wp_redirect( get_site_url() . '/membership-account/membership-levels/');
+			exit();
 		} else {
-			echo "code: " . $code;
-			//wp_redirect( get_site_url() );
-			echo "actCode: " . $actCode;
-			echo "id: " . $id;
+			wp_redirect( get_site_url() );
 		}
 	}
 }

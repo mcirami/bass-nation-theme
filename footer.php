@@ -178,7 +178,7 @@ $username = $current_user->user_login;
 					<p>
 						If you are not redirected soon...
 					</p>
-					<a href="<?php get_site_url() . '/membership-account/membership-levels/'?>">Click here to be redirect manually</a>
+					<a href="<?php echo get_site_url() . '/membership-account/membership-levels/'?>">Click here to redirect manually</a>
 				</div>
 			</div>
 		</div>
@@ -229,7 +229,7 @@ $username = $current_user->user_login;
 
 
 			function getCookie(cname) {
-				const = cname + "=";
+				const name = cname + "=";
 				const ca = document.cookie.split(';');
 				for(var i = 0; i <ca.length; i++) {
 					var c = ca[i];

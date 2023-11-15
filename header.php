@@ -194,20 +194,21 @@ $username = $current_user->user_login;
 
 								<div class="content_wrap_buttons">
 									<p class="desktop">
-									<?php the_sub_field('header_text_desktop'); ?>
-									<a href="<?php the_sub_field('link'); ?>">
-									<?php the_sub_field('text_link'); ?>
-									</a>
+										<?php the_sub_field('header_text_desktop'); ?>
+										<a href="<?php the_sub_field('link'); ?>">
+											<?php the_sub_field('text_link'); ?>
+										</a>
 									</p>
-									<p class="mobile"><?php the_sub_field('header_text_mobile'); ?>
-									<a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('text_link', 'option'); ?>
-									</a>
+									<p class="mobile">
+										<?php the_sub_field('header_text_mobile'); ?>
+										<a href="<?php the_sub_field('link'); ?>">
+										<?php the_sub_field('text_link', 'option'); ?>
+										</a>
 									</p>
-
 									<div class="buttons">
 										<div class="button_wrap">
 										<?php  the_field('white_button_link');?>
-											<a class="button white" href="<?php the_field('white_button_link'); ?>">
+											<a class="button white" href="<?php the_sub_field('white_button_link'); ?>">
 											<?php the_sub_field('white_button_text'); ?>
 											</a>
 										</div>

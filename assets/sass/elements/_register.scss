@@ -1,0 +1,200 @@
+
+.register {
+    padding: 60px 0;
+
+    #red_registration_form {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+
+        @include media($tablet) {
+            width: auto !important;
+        }
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: $black;
+        text-align: center;
+    }
+
+    h3 {
+        @include robotomed;
+        color: $black;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .wp-block-columns {
+        justify-content: center;
+        -webkit-justify-content: center;
+        box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px;
+        background: #f1f1f1;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+
+        @media all and (max-width: 781px) and (min-width: 550px) {
+            max-width: 85%;
+        }
+
+        .wp-block-column {
+            max-width: 500px;
+
+            &:first-child {
+                background: url("../images/bass-head.png")  no-repeat;
+                background-size: contain;
+                background-position: center;
+                border-right: 1px solid $borderGray;
+                padding-right: 40px;
+
+                @media all and (max-width: 781px) {
+                    border-right: none;
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .list {
+
+        p {
+            color: $black;
+            width: 100%;
+            font-family: "robotoregular", sans-serif;
+            border-bottom: 1px solid #c8c8c8;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            font-size: 15px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            gap: 10px;
+            justify-content: flex-start;
+            -webkit-justify-content: flex-start;
+            align-items: center;
+            -webkit-align-items: center;
+        }
+
+        span {
+            display: inline-block;
+            padding: 1px 7px;
+            background: #131313;
+            color: #fff;
+            font-size: 15px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+        }
+    }
+
+    #red_registration_form {
+        margin: 0;
+    }
+}
+
+.registration-confirmation {
+    min-height: 400px;
+    color: $black;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+    max-width: 1000px;
+    float: none;
+    margin-right: auto !important;
+    margin-left: auto;
+
+    h2 {
+        margin-bottom: 20px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid;
+        border-color: rgba(200, 200, 200, .4)
+    }
+
+    h3 {
+        @include robotobold;
+        margin-bottom: 10px;
+        color: $red;
+    }
+
+    h4 {
+        @include robotomed;
+        margin-top: 0;
+    }
+
+    p {
+        max-width: 1000px;
+        margin: 0 auto;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+    }
+}
+
+#verifying_popup {
+    position: fixed;
+    background: rgba(0,0,0,.6);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    z-index: 9999;
+
+    .message_box {
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        background: $white;
+        color: $black;
+        text-align: center;
+
+        .heading {
+            border-top-left-radius: 6px;
+            -webkit-border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            -webkit-border-top-right-radius: 6px;
+            background: $red;
+            color: $white;
+            padding: 10px;
+        }
+
+        .loading_gif {
+            max-width: 100px;
+            margin: 0 auto;
+        }
+
+        .content_wrap {
+            padding: 20px;
+
+            p {
+                font-size: 2rem;
+            }
+        }
+    }
+
+}

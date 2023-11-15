@@ -1,0 +1,327 @@
+
+.directory_wrapper {
+    @include span-columns(12);
+    margin: 100px 0;
+
+    @include media($tablet){
+        margin: 50px 0;
+    }
+
+    #pmpro_member_directory_subheading {
+        display: none;
+    }
+
+    .pmpro_pagination {
+        margin-top: 20px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+
+        .pmpro_page_numbers a {
+            @include robotolight;
+            padding: 5px 10px;
+            background: $red;
+            color: $white;
+            margin: 0 5px;
+            border-radius: 4px;
+            font-size: 2rem;
+
+            &:hover {
+                background: $darkRed;
+            }
+
+            &.pmpro_page_active {
+                @include robotobold;
+            }
+        }
+    }
+
+    .pmpro_member_directory hr {
+        display: none;
+    }
+
+    .pmpro_member_directory {
+
+        > h3 {
+            @include robotoreg;
+            text-transform: none;
+            font-size: 28px;
+            margin: 0 0 20px;
+
+            @include media($mobile){
+                font-size: 22px;
+                margin: 0 0 10px;
+            }
+        }
+
+        &.pmpro_member_directory-3col {
+            grid-row-gap: 2.9rem;
+
+            @include media($tablet) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include media($smallMobile) {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pmpro_member_directory-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.14);
+            -webkit-box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.14);
+            -moz-box-shadow: 0 0 16px -4px rgba(0, 0, 0, 0.14);
+            padding: 20px;
+            border-radius: 8px;
+            -webkit-border-radius: 8px;
+            -moz-border-radius: 8px;
+
+            @media all and (max-width: 768px) and (min-width: 551px) {
+                grid-template-columns: 1fr;
+            }
+
+            @include media($smallMobile) {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .pmpro_member_directory_avatar {
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            flex-grow: .5;
+            -webkit-flex-grow: .5;
+            padding-right: 20px;
+            flex-shrink: 5;
+            -webkit-flex-shrink: 5;
+
+            @include media($mobile) {
+                padding-right: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            @include media($smallMobile) {
+                padding-right: 10px;
+                width: auto;
+                margin-bottom: 0;
+            }
+
+            a {
+
+                @include media($smallMobile){
+                    float: none;
+                    display: inline-block;
+                }
+            }
+
+            img {
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+
+                @include media($smallMobile){
+                    width: 150px;
+                }
+            }
+        }
+
+        .content_wrap {
+            flex-grow: 1.5;
+            -webkit-flex-grow: 1.5;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+
+            .span {
+                margin-bottom: 10px;
+
+                .label {
+                    width: 100%;
+
+                    p {
+                        @include robotobold;
+                    }
+                }
+
+                a {
+                    text-align: left;
+                    float: left;
+                }
+            }
+
+            p {
+                @include robotoreg;
+                font-size: 14px;
+                color: $red;
+                line-height: 1.5;
+                text-align: left;
+                margin: 0;
+
+                @include media($tablet){
+                    font-size: 12px;
+                }
+
+                @include media($smallMobile){
+                    margin: 0;
+                }
+
+                &.pmpro_member_directory_link {
+                    margin-top: auto;
+
+                    a {
+                        display: block;
+                        color: $white;
+                    }
+
+                }
+
+                strong {
+                    color: $black;
+                }
+            }
+
+            a {
+                text-align: center;
+                color: $red;
+                margin: 0;
+            }
+
+            .profile_link a {
+                display: block;
+                text-align: left;
+                color: $red;
+                padding: 0;
+                margin: 0;
+            }
+
+            .send_message {
+
+                @include media($mobile){
+                    display: inline-block;
+                    width: 48%;
+                }
+
+                a {
+                    @include media($tablet){
+                        padding: 3px 12px;
+                    }
+
+                    @include media($mobile){
+                        padding: 2px 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.directory_profile_wrap {
+    margin: 100px 0;
+    text-align: center;
+
+    @include media($mobile){
+        margin: 40px 0;
+    }
+
+    .pmpro_member_directory_avatar {
+        margin-bottom: 10px;
+    }
+
+    .pmpro_member_profile {
+        //background: $lightGray;
+        padding: 40px;
+        -webkit-box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.14);
+        box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.14);
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        grid-column-gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto 60px;
+        text-align: left;
+
+        @include media($smallMobile) {
+            grid-template-columns: 1fr;
+        }
+
+        @include media($tablet){
+            padding: 20px;
+        }
+
+        .label {
+            @include robotobold;
+            font-size: 1.8rem;
+
+            @include media($mobile) {
+                font-size: 1.5rem;
+            }
+        }
+
+        p {
+            @include robotolight;
+            font-size: 1.8rem;
+
+            @include media($mobile) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .content_wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .bass_guitars, .bass_amps {
+            grid-row: 3;
+        }
+
+        .membership_level {
+            grid-column: 1/4;
+        }
+
+        .directory_bio {
+            grid-row: 4;
+            grid-column: 1/4;
+        }
+
+        .send_message {
+            grid-row: 5;
+            grid-column: 1/4;
+        }
+    }
+
+    .pmpro_actions_nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}

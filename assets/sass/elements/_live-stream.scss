@@ -1,0 +1,271 @@
+.live_stream {
+
+    .epyt-gallery {
+        padding: 0 10%;
+    }
+
+    .columns_wrap {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+        -webkit-align-items: stretch;
+        align-items: stretch;
+        gap: 20px;
+        column-gap: 20px;
+        -moz-column-gap: 20px;
+        -webkit-column-gap: 20px;
+
+        @include media($tablet) {
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+        }
+
+        .video_column, .epyt-video-wrapper {
+            display: -webkit-inline-flex;
+            display: -ms-inline-flexbox;
+            display: inline-flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            justify-content: center;
+            -webkit-justify-content: center;
+            align-items: center;
+            -webkit-align-items: center;
+            //flex-grow: 3;
+            width: 65%;
+            position: relative;
+
+            @include media($tablet) {
+                width: 100%;
+            }
+
+            p {
+                position: absolute;
+                color: $white;
+                font-size: 3em;
+                margin: 0;
+
+                @include media($tablet) {
+                    font-size: 4vw;
+                }
+            }
+        }
+    }
+
+    .gallery .epyt-video-wrapper, .epyt-video-wrapper > div {
+        width: 100%;
+    }
+
+    .epyt-facade {
+        width: 100%;
+    }
+
+    .epyt-gallery-list {
+        padding-top: 40px;
+    }
+
+    .epyt-pagination {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        align-items: center;
+        -webkit-align-items: center;
+
+        &:first-child {
+            display: none;
+        }
+
+        .epyt-pagebutton {
+            @include robotoreg;
+            font-size: 16px;
+            padding: 7px 15px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            background: $red;
+            color: $white;
+
+            &:hover {
+                background: $darkRed;
+            }
+        }
+
+        .epyt-loader {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+
+            img {
+                width: auto;
+                padding: 10px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .button_row {
+        margin-top: 40px;
+        text-align: right;
+    }
+}
+
+
+.chatbox{
+    width: 100%;
+    height: 350px;
+    overflow-y:scroll;
+    background: rgba(146, 121, 110, 0.26);
+    border-radius: 0px;
+    border: solid 1px #BDBDBD;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    margin: 0px !important;
+}
+.chatbox li{
+    clear: both;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 20px 0px 0px 20px;
+}
+.actual_msg{
+    float: left;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 25px 34px;
+    min-width: 160px;
+    min-height: 10px;
+    max-width: 510px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(172, 172, 172, 0.73);
+    line-height: 1.4;
+    word-wrap: break-word;
+    color: #1A1A1A;
+    background-color: rgba(0, 0, 0, 0.11);
+}
+.date{
+    font-size: 9px;
+    float: left;
+    margin-top: 10px;
+}
+
+.wcWindowTitle {
+    background-color: #f1f1f1 !important;
+    color: #f1f1f1 !important;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    font-size: 0;
+    height: 5px  !important;
+}
+
+.wcContainer {
+    width: 33% !important;
+
+    @include media($tablet) {
+        width: 100% !important;
+    }
+
+    input.wcInput {
+        background: $white !important;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        padding: 10px;
+        height: 40px;
+        margin: 10px 0;
+    }
+
+
+    input[type="button"] {
+        padding: 0 20px;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        height: 40px;
+        color: $white !important;
+        margin: 10px 0;
+    }
+}
+.wcContainer {
+
+    input[type="button"] {
+        background: #f20f2b !important;
+
+        &:hover {
+            background: #880415 !important;
+        }
+    }
+
+    .wcMessages {
+        @include robotoreg;
+        background-color: $white !important;
+
+        .wcMessage {
+            background-color: $white !important;
+
+            img.wcMessageAvatar {
+                width: 38px;
+            }
+
+            .wcMessageContent {
+                background-color: rgba(241,241,241,.7) !important;
+                border-radius: 50px !important;
+                -webkit-border-radius: 50px !important;
+                -moz-border-radius: 50px !important;
+            }
+
+            > .wcMessageUser {
+                background-color: $white;
+            }
+        }
+    }
+
+    .wcControls {
+        background: rgba(241,241,241,.7) !important;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        -webkit-border-bottom-left-radius: 6px;
+        -webkit-border-bottom-right-radius: 6px;
+        -moz-border-radius-bottomleft: 6px;
+        -moz-border-radius-bottomright: 6px;
+
+        a {
+            background-color: transparent !important;
+            width: 22px !important;
+            background-size: 100% !important;
+            margin-left: 5px;
+
+            &.wcAddFileAttachment {
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .wcControls span {
+        background: rgba(241,241,241,.7) !important;
+    }
+}

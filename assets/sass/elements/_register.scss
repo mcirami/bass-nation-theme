@@ -1,6 +1,4 @@
-
 .register {
-    padding: 60px 0;
 
     #red_registration_form {
         border: none;
@@ -115,7 +113,7 @@
     color: $black;
     display: flex;
     flex-direction: column;
-    padding: 60px;
+    padding-bottom: 60px;
     max-width: 1000px;
     float: none;
     margin-right: auto !important;
@@ -202,4 +200,32 @@
         }
     }
 
+}
+
+.verify-account {
+    min-height: 300px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    -webkit-justify-content: center;
+
+    h2 {
+        margin-bottom: 40px;
+    }
+
+    p {
+        margin-bottom: 20px;
+    }
+
+    form {
+        width: 100%;
+        text-align: center;
+    }
 }

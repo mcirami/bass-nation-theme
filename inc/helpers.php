@@ -266,12 +266,53 @@ function getVideoEmbedCode($videoLink) {
 	return $embedCode;
 }
 
+add_action( 'init', 'verify_user_code' );
+function verify_user_code(){
+	if( isset($_GET['act']) && isset($_GET['id']) ) {
+		$actCode = base64_decode($_GET['act']);
+		$id = base64_decode($_GET['id']);
+		$code = get_user_meta($id, 'activation_code', true);
+		// verify whether the code given is the same as ours
+		if($code == $actCode){
+			// update the user meta
+			update_user_meta($id, 'is_activated', 1);
+			update_user_meta($id, 'activation_code', "");
+			$user = get_user_by( 'id', $id  );
+			wp_set_auth_cookie($user->ID, true);
+			wp_set_current_user($user->ID, $user->user_login);
+			do_action('wp_login', $user->user_login, wp_get_current_user());
+			wp_redirect( get_site_url() . '/membership-account/membership-levels/');
+			exit();
+		} else {
+			wp_redirect( get_site_url() );
+		}
+	}
+}
+
 function my_redirect()
 {
-	if( ( is_page( 'membership-checkout' ) || is_page( 'membership-levels' ) ) && ! is_user_logged_in() )
+	$approved = check_user_verified();
+
+	if( ( is_page( 'membership-checkout' ) || is_page( 'membership-levels' ) ) && (! is_user_logged_in() || ! $approved ))
 	{
-		wp_redirect( home_url() );
+		if (! is_user_logged_in()) {
+			wp_redirect( home_url() );
+		} else {
+			wp_redirect( get_site_url() . '/verify-account');
+		}
 		die;
 	}
 }
 add_action( 'template_redirect', 'my_redirect' );
+
+function check_user_verified() {
+	$userID = get_current_user_id();
+
+	$status = get_user_meta($userID, 'is_activated', 1);
+
+	if ($status == 0) {
+		return false;
+	}
+
+	return true;
+}

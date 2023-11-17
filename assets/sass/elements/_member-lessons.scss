@@ -910,6 +910,10 @@
         padding: 40px 0;
         border-bottom: 1px solid $darkGray;
 
+        &:first-child {
+            padding-top: 0;
+        }
+
         &.open_player {
             padding-bottom: 0;
             margin-bottom: 0;

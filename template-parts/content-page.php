@@ -27,7 +27,8 @@
 		          is_page('logout')||
 		          is_page('reset-password') ||
 		          is_page('register') ||
-		          is_page('registration-confirmation')) :
+		          is_page('registration-confirmation') ||
+		          is_page('verify-account') ) :
 			?>
 			<div class="container">
 

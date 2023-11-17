@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.2.0' );
+	define( '_S_VERSION', '1.4.0' );
 }
 
 /**
@@ -222,7 +222,6 @@ require_once get_template_directory() . '/inc/plugin-functions/front-end-pm-func
  */
 require_once get_template_directory() . '/inc/shortcodes.php';
 
-
 /**
  * Custom Post Types
  */
@@ -236,3 +235,5 @@ require_once get_template_directory() . '/inc/post-types/cpt-course.php';
  */
 require_once get_template_directory() . '/inc/taxonomies/tax-lessons-category.php';
 require_once get_template_directory() . '/inc/taxonomies/tax-lessons-level.php';
+
+require_once get_template_directory() . '/inc/custom_register_methods.php';

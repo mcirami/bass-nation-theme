@@ -21,15 +21,16 @@
  	
 	 	<section class="page_content full_width<?php if (is_user_logged_in()){ echo " member";} ?>">
 
-		    <?php if (pmpro_hasMembershipLevel()) : ?>
+
 		 	
 			 	<header class="sub_header full_width">
 					 <div class="container">
 							<h2>Home Page</h2>
 					</div><!-- .container -->
 				 </header>
+		    <?php if (pmpro_hasMembershipLevel()) : ?>
 			 	<div class="container">
-				 	
+
 				 	<div class="member_home full_width">
 					 	<?php if ($current_user->user_firstname !== '') : ?>
 				 			<h2> Welcome To Daric Bennett's Bass Nation, <?php echo $current_user->user_firstname; ?>!</h2>
@@ -89,13 +90,14 @@
 				 		</div>
 				 	</div>
 				 	<?php // endif; ?>
-				 	
+			    </div><!-- .container -->
+
 				 <?php else :
 				 
 				 	get_template_part( 'template-parts/content', 'not-member' );
 				 	
 				endif; ?>
-		 	</div><!-- .container -->
+
 	 	</section>
 	 
  <?php get_footer(); ?>

@@ -1,5 +1,9 @@
 .testimonials {
-	
+
+	header {
+		margin-bottom: 0;
+	}
+
 	.top_section {
 		background: url('../images/testimonials-background.jpg') no-repeat;
 		background-size: cover;
@@ -27,7 +31,6 @@
 	}
 
 	.testimonials_content {
-		padding: 40px 0 12%;
 		margin-top: -164px;
 		
 		@include media($mobile){

@@ -1958,6 +1958,24 @@ img {
   }
 }
 
+header {
+  margin-bottom: 80px;
+}
+@media screen and (max-width: 1023px) {
+  header {
+    margin-bottom: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  header {
+    margin-bottom: 40px;
+  }
+}
+
+main {
+  padding-bottom: 80px;
+}
+
 .button {
   font-family: "robotoregular", sans-serif;
   font-weight: 300;
@@ -2085,6 +2103,9 @@ img {
   .page_content.member {
     padding-top: 115px;
   }
+}
+.page_content.forum {
+  padding-bottom: 80px;
 }
 
 .mc4wp-form {
@@ -2956,7 +2977,6 @@ h3, p {
   font-size: 36px;
   padding: 30px 0;
   text-align: center;
-  margin: 0;
   text-transform: uppercase;
   box-shadow: -1px 2px 4px 2px rgba(0, 0, 0, 0.14);
 }
@@ -4862,7 +4882,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin: 100px auto;
   color: #131313;
   text-align: center;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
@@ -5028,7 +5047,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #131313;
 }
 .lessons_page .videos {
-  padding: 30px 0;
   text-align: center;
 }
 @media screen and (max-width: 1023px) {
@@ -6769,6 +6787,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 40px 0;
   border-bottom: 1px solid #827d7d;
 }
+.lessons_page.courses .row:first-child {
+  padding-top: 0;
+}
 .lessons_page.courses .row.open_player {
   padding-bottom: 0;
   margin-bottom: 0;
@@ -6993,10 +7014,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .passions h2 {
-  font-family: "robotomedium";
+  font-family: "robotomedium", sans-serif;
+  font-weight: 500;
 }
 .passions .top_section {
-  padding: 40px 0;
+  padding-bottom: 40px;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
@@ -7192,12 +7214,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .contact_us .top_section {
-  padding: 60px 0;
+  padding-bottom: 60px;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
   .contact_us .top_section {
-    padding: 40px 0 100px;
+    padding-bottom: 40px;
   }
 }
 .contact_us .top_section h2 {
@@ -7474,20 +7496,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 100%;
   text-align: center;
-  margin: 100px 0;
 }
 #pmpro_account:last-child {
   margin-right: 0;
-}
-@media screen and (max-width: 1023px) {
-  #pmpro_account {
-    margin: 80px 0;
-  }
-}
-@media screen and (max-width: 768px) {
-  #pmpro_account {
-    margin: 40px 0;
-  }
 }
 #pmpro_account #pmpro_account-membership .content_wrap {
   padding-bottom: 39px;
@@ -7649,6 +7660,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
+  margin-bottom: 20px;
 }
 .pmpro_member_directory_search.search-form:last-child {
   margin-right: 0;
@@ -7851,7 +7863,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .forum_wrapper {
-  padding: 40px 0;
   color: #131313;
   font-family: "robotoregular", sans-serif;
 }
@@ -9605,7 +9616,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background: #f1f1f1;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
-  margin: 80px 0;
   padding: 40px;
   color: #131313;
 }
@@ -10816,12 +10826,7 @@ form.pmpro_form #other_discount_code.input {
 .member_home {
   font-family: "robotoregular", sans-serif;
   text-align: center;
-  padding: 40px 0;
-}
-@media screen and (max-width: 768px) {
-  .member_home {
-    padding: 40px 0;
-  }
+  padding-bottom: 40px;
 }
 .member_home h2 {
   float: left;
@@ -10830,6 +10835,7 @@ form.pmpro_form #other_discount_code.input {
   width: 100%;
   font-size: 30px;
   font-family: "robotoregular", sans-serif;
+  margin-bottom: 20px;
 }
 .member_home h2:last-child {
   margin-right: 0;
@@ -11074,7 +11080,7 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .banner_wrap {
-  margin: 40px 0 20px !important;
+  margin: 0 0 20px !important;
   padding: 0 !important;
 }
 @media screen and (max-width: 768px) {
@@ -11105,14 +11111,14 @@ form.pmpro_form #other_discount_code.input {
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  margin: 40px 0;
+  padding-bottom: 80px;
 }
 .profile_wrap:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 768px) {
   .profile_wrap {
-    margin: 20px 0;
+    padding-bottom: 40px;
   }
 }
 .profile_wrap .pmpro_message.pmpro_success {
@@ -11686,7 +11692,17 @@ form.pmpro_form #other_discount_code.input {
 .not_member {
   text-align: center;
   color: #131313;
-  padding: 40px 0;
+  padding-bottom: 80px;
+}
+@media screen and (max-width: 1023px) {
+  .not_member {
+    padding-bottom: 60px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .not_member {
+    padding-bottom: 40px;
+  }
 }
 .not_member .content_wrap {
   display: flex;
@@ -11896,9 +11912,6 @@ form.pmpro_form #other_discount_code.input {
   font-size: 14px;
 }
 
-#fep-wrapper {
-  padding: 40px 0;
-}
 #fep-wrapper #fep-header {
   font-family: "robotomedium", sans-serif;
   display: block;
@@ -12829,6 +12842,9 @@ form.pmpro_form #other_discount_code.input {
   color: #f20f2b;
 }
 
+.testimonials header {
+  margin-bottom: 0;
+}
 .testimonials .top_section {
   background: url("../images/testimonials-background.jpg") no-repeat;
   background-size: cover;
@@ -12856,7 +12872,6 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .testimonials .testimonials_content {
-  padding: 40px 0 12%;
   margin-top: -164px;
 }
 @media screen and (max-width: 768px) {
@@ -13011,7 +13026,7 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .video_submit .top_section {
-  padding: 20px 0;
+  padding-bottom: 20px;
   text-align: center;
 }
 .video_submit .top_section h3 {
@@ -13666,15 +13681,9 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  margin: 100px 0;
 }
 .directory_wrapper:last-child {
   margin-right: 0;
-}
-@media screen and (max-width: 1023px) {
-  .directory_wrapper {
-    margin: 50px 0;
-  }
 }
 .directory_wrapper #pmpro_member_directory_subheading {
   display: none;
@@ -13874,7 +13883,6 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .directory_profile_wrap {
-  margin: 100px 0;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
@@ -13956,9 +13964,6 @@ form.pmpro_form #other_discount_code.input {
   margin: 0 auto;
 }
 
-.register {
-  padding: 60px 0;
-}
 .register #red_registration_form {
   border: none;
   box-shadow: none;
@@ -14057,7 +14062,7 @@ form.pmpro_form #other_discount_code.input {
   color: #131313;
   display: flex;
   flex-direction: column;
-  padding: 60px;
+  padding-bottom: 60px;
   max-width: 1000px;
   float: none;
   margin-right: auto !important;
@@ -14130,4 +14135,23 @@ form.pmpro_form #other_discount_code.input {
 }
 #verifying_popup .message_box .content_wrap p {
   font-size: 2rem;
+}
+
+.verify-account {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+.verify-account h2 {
+  margin-bottom: 40px;
+}
+.verify-account p {
+  margin-bottom: 20px;
+}
+.verify-account form {
+  width: 100%;
+  text-align: center;
 }

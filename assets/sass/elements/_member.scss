@@ -41,15 +41,6 @@
 #pmpro_account {
 	@include span-columns(12);
 	text-align: center;
-	margin: 100px 0;
-	
-	@include media($tablet){
-		margin: 80px 0;
-	}
-	
-	@include media($mobile){
-		margin: 40px 0;
-	}
 	
 	#pmpro_account-membership {
 		.content_wrap {
@@ -190,6 +181,7 @@
 	
 	&.search-form {
 		@include span-columns(12);
+		margin-bottom: 20px;
 		
 		label {
 			width: 85%;

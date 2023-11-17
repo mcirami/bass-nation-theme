@@ -1,16 +1,13 @@
 .member_home {
 	font-family: 'robotoregular', sans-serif;
 	text-align: center;
-	padding: 40px 0;
-	
-	@include media($mobile){
-		padding: 40px 0;
-	}
+	padding-bottom: 40px;
 	
 	h2 {
         @include span-columns(12);
 		font-size: 30px;
 		font-family: 'robotoregular', sans-serif;
+		margin-bottom: 20px;
 		
 		@include media($tablet){
 			font-size: 28px;
@@ -229,7 +226,7 @@
 }
 
 .banner_wrap {
-	margin: 40px 0 20px !important;
+	margin: 0 0 20px !important;
 	padding: 0 !important;
 
     @include media($mobile) {

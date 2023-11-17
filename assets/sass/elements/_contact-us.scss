@@ -1,11 +1,11 @@
 .contact_us {
 	
 	.top_section {
-		padding: 60px 0;
+		padding-bottom: 60px;
 		text-align: center;
 		
 		@include media($mobile){
-			padding: 40px 0 100px;
+			padding-bottom: 40px;
 		}
 		
 		h2 {

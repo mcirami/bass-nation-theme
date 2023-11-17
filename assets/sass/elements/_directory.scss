@@ -1,11 +1,6 @@
 
 .directory_wrapper {
     @include span-columns(12);
-    margin: 100px 0;
-
-    @include media($tablet){
-        margin: 50px 0;
-    }
 
     #pmpro_member_directory_subheading {
         display: none;
@@ -232,7 +227,6 @@
 }
 
 .directory_profile_wrap {
-    margin: 100px 0;
     text-align: center;
 
     @include media($mobile){

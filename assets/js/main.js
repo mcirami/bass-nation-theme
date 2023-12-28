@@ -127,6 +127,16 @@ jQuery( document ).ready( function( $ ) {
 
 			mobileSubMenu();
 		}
+
+		const chatWindow = document.querySelector('.live_stream .wp-block-columns');
+		if ( chatWindow) {
+			if ($(window).width() < 1023) {
+				chatWindow.classList.remove('resize');
+			} else {
+				chatWindow.classList.add('resize');
+			}
+		}
+
 	} );
 
 	function subMenuHover() {
@@ -157,7 +167,7 @@ jQuery( document ).ready( function( $ ) {
 		} );
 	}
 
-	$( '.mobile_menu_icon' ).on( 'touchstart click', function( e ) {
+	$( '.mobile_menu_icon' ).on( 'click', function( e ) {
 		e.preventDefault();
 
 		$( this ).toggleClass( 'open' );
@@ -837,5 +847,11 @@ jQuery( document ).ready( function( $ ) {
 			} );
 		}
 	}
+
+	const chatWindow = document.querySelector('.live_stream .wp-block-columns');
+	if ( chatWindow && $( window ).width() > 1023 ) {
+		chatWindow.classList.add('resize');
+	}
+
 } );
 

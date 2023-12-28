@@ -1,4 +1,5 @@
 .live_stream {
+    padding-bottom: 80px;
 
     .epyt-gallery {
         padding: 0 10%;
@@ -39,12 +40,11 @@
             flex-direction: row;
             -ms-flex-wrap: wrap;
             flex-wrap: wrap;
-            justify-content: center;
-            -webkit-justify-content: center;
-            align-items: center;
-            -webkit-align-items: center;
-            //flex-grow: 3;
-            width: 65%;
+            justify-content: flex-start;
+            -webkit-justify-content: flex-start;
+            align-items: flex-start;
+            -webkit-align-items: flex-start;
+            width: 60%;
             position: relative;
 
             @include media($tablet) {
@@ -182,8 +182,17 @@
     height: 5px  !important;
 }
 
+.live_stream .wp-block-columns {
+    width: 100%;
+    transition: 500ms ease-in-out width;
+
+    &.resize {
+        width: 40%;
+    }
+}
+
 .wcContainer {
-    width: 33% !important;
+    //width: 33% !important;
 
     @include media($tablet) {
         width: 100% !important;

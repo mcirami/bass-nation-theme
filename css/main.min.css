@@ -1896,6 +1896,8 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.4);
   z-index: 999;
+  left: 0;
+  top: 0;
 }
 
 .full_width {
@@ -2096,7 +2098,7 @@ main {
 }
 @media screen and (max-width: 1023px) {
   .page_content.member {
-    padding-top: 190px;
+    padding-top: 210px;
   }
 }
 @media screen and (max-width: 768px) {
@@ -3114,6 +3116,7 @@ h3, p {
   width: 100%;
   padding: 0;
   text-align: left;
+  margin: 0;
 }
 .mobile_menu ul:last-child {
   margin-right: 0;
@@ -13449,6 +13452,9 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 
+.live_stream {
+  padding-bottom: 80px;
+}
 .live_stream .epyt-gallery {
   padding: 0 10%;
 }
@@ -13473,11 +13479,11 @@ form.pmpro_form #other_discount_code.input {
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  -webkit-justify-content: center;
-  align-items: center;
-  -webkit-align-items: center;
-  width: 65%;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  width: 60%;
   position: relative;
 }
 @media screen and (max-width: 1023px) {
@@ -13601,9 +13607,14 @@ form.pmpro_form #other_discount_code.input {
   height: 5px !important;
 }
 
-.wcContainer {
-  width: 33% !important;
+.live_stream .wp-block-columns {
+  width: 100%;
+  transition: 500ms ease-in-out width;
 }
+.live_stream .wp-block-columns.resize {
+  width: 40%;
+}
+
 @media screen and (max-width: 1023px) {
   .wcContainer {
     width: 100% !important;

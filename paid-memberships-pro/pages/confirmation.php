@@ -1,9 +1,20 @@
-<?php 
+<?php
+/**
+ * Template: Confirmation
+ * Version: 3.0
+ *
+ * See documentation for how to override the PMPro templates.
+ * @link https://www.paidmembershipspro.com/documentation/templates/
+ *
+ * @version 3.0
+ *
+ * @author Paid Memberships Pro
+ */
 	$confirmLevel = $_GET["level"];
-	
+
 	if($confirmLevel == 1) : ?>
-		
-		
+
+
 		<!-- Facebook Pixel Code -->
 		<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -20,9 +31,9 @@
 		/></noscript>
 		<!-- DO NOT MODIFY -->
 		<!-- End Facebook Pixel Code -->
- 
+
  <?php elseif ($confirmLevel == 2) : ?>
-  		
+
   		<!-- Facebook Pixel Code -->
 		<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?

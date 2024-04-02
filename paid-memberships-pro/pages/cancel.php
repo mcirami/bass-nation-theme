@@ -1,29 +1,44 @@
 <?php 
-	global $pmpro_msg, $pmpro_msgt, $pmpro_confirm, $current_user, $wpdb;
+/**
+ * Template: Cancel
+ * Version: 3.0
+ *
+ * See documentation for how to override the PMPro templates.
+ * @link https://www.paidmembershipspro.com/documentation/templates/
+ *
+ * @version 3.0
+ *
+ * @author Paid Memberships Pro
+ */
+global $pmpro_msg, $pmpro_msgt, $current_user, $wpdb;
 	
 	if(isset($_REQUEST['levelstocancel']) && $_REQUEST['levelstocancel'] !== 'all') {
+	// Odd input format here (1+2+3). These values are sanitized.
+	// phpcs:disable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		//convert spaces back to +
 		$_REQUEST['levelstocancel'] = str_replace(array(' ', '%20'), '+', $_REQUEST['levelstocancel']);
 		
 		//get the ids
 		$old_level_ids = array_map('intval', explode("+", preg_replace("/[^0-9al\+]/", "", $_REQUEST['levelstocancel'])));
-
+	// phpcs:enable WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 	} elseif(isset($_REQUEST['levelstocancel']) && $_REQUEST['levelstocancel'] == 'all') {
 		$old_level_ids = 'all';
 	} else {
 		$old_level_ids = false;
 	}
+
+$user_levels = pmpro_getMembershipLevelsForUser( $current_user->ID );
 ?>
-<div id="pmpro_cancel">
-		<div class="content_wrap">
-			<!--<?php
+<div id="pmpro_cancel" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_cancel_wrap', 'pmpro_cancel' ) ); ?>">
+	<div class="content_wrap">
+	<?php
 				if($pmpro_msg) 
 				{
 					?>
-					<div class="pmpro_message <?php echo $pmpro_msgt?>"><?php echo $pmpro_msg?></div>
+			<div role="alert" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_message ' . $pmpro_msgt, $pmpro_msgt ) ); ?>"><?php echo wp_kses_post( $pmpro_msg );?></div>
 					<?php
 				}
-			?>-->
+			?>
             <?php
                 $current_user->membership_levels = pmpro_getMembershipLevelsForUser($current_user->ID);
                 foreach($current_user->membership_levels as $level) {
@@ -68,7 +83,7 @@
                                     <a class="pmpro_btn pmpro_yeslink yeslink button red" href="<?php echo pmpro_url("cancel", "?levelstocancel=" . esc_attr($_REQUEST['levelstocancel']) . "&confirm=true")?>"><?php _e('Yes - I\'m Resigning from Bass Nation', 'pmpro');?></a>
                                 </div>
                                 <div class="full_width">
-                                    <a class="pmpro_btn pmpro_cancel pmpro_nolink nolink button yellow" href="/user/"><?php _e('No - Go To My Profile', 'pmpro');?></a>
+                                    <a class="pmpro_btn pmpro_cancel pmpro_nolink nolink button yellow" href="/membership-account/your-profile"><?php _e('No - Go To My Profile', 'pmpro');?></a>
                                 </div>
                             </div>
                             <?php

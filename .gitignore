@@ -6,3 +6,4 @@ bower.json
 .DS_Store
 temp/
 vendor/
+webpack.mix.js

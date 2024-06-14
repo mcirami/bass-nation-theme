@@ -198,18 +198,8 @@
         width: 100% !important;
     }
 
-    input.wcInput {
-        background: $white !important;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        padding: 10px;
-        height: 40px;
-        margin: 10px 0;
-    }
-
-
     input[type="button"] {
+        background: #f20f2b !important;
         padding: 0 20px;
         border-radius: 50px;
         -webkit-border-radius: 50px;
@@ -217,16 +207,33 @@
         height: 40px;
         color: $white !important;
         margin: 10px 0;
-    }
-}
-.wcContainer {
-
-    input[type="button"] {
-        background: #f20f2b !important;
 
         &:hover {
             background: #880415 !important;
         }
+    }
+
+    .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
+        width: 100%;
+
+        .wcReactionButton {
+            width: 100%;
+            justify-content: flex-end;
+            -webkit-justify-content: flex-end;
+
+            span {
+                display: none;
+            }
+
+            &.wcReactionLike img {
+                height: 1.5rem;
+                width: auto;
+            }
+        }
+    }
+    .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsCounters .wcReactionCounter.wcReactionLike img {
+        height: 1.2rem;
+        width: auto;
     }
 
     .wcMessages {
@@ -272,9 +279,19 @@
                 margin-right: 5px;
             }
         }
+
+        span {
+            background: rgba(241,241,241,.7) !important;
+        }
     }
 
-    .wcControls span {
-        background: rgba(241,241,241,.7) !important;
+    input.wcInput {
+        background: $white !important;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        padding: 10px;
+        height: 40px;
+        margin: 10px 0;
     }
 }

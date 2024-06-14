@@ -13620,16 +13620,8 @@ form.pmpro_form #other_discount_code.input {
     width: 100% !important;
   }
 }
-.wcContainer input.wcInput {
-  background: #fff !important;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  padding: 10px;
-  height: 40px;
-  margin: 10px 0;
-}
 .wcContainer input[type=button] {
+  background: #f20f2b !important;
   padding: 0 20px;
   border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -13638,12 +13630,27 @@ form.pmpro_form #other_discount_code.input {
   color: #fff !important;
   margin: 10px 0;
 }
-
-.wcContainer input[type=button] {
-  background: #f20f2b !important;
-}
 .wcContainer input[type=button]:hover {
   background: #880415 !important;
+}
+.wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
+  width: 100%;
+}
+.wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList .wcReactionButton {
+  width: 100%;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+.wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList .wcReactionButton span {
+  display: none;
+}
+.wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList .wcReactionButton.wcReactionLike img {
+  height: 1.5rem;
+  width: auto;
+}
+.wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsCounters .wcReactionCounter.wcReactionLike img {
+  height: 1.2rem;
+  width: auto;
 }
 .wcContainer .wcMessages {
   font-family: "robotoregular", sans-serif;
@@ -13685,6 +13692,15 @@ form.pmpro_form #other_discount_code.input {
 }
 .wcContainer .wcControls span {
   background: rgba(241, 241, 241, 0.7) !important;
+}
+.wcContainer input.wcInput {
+  background: #fff !important;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  padding: 10px;
+  height: 40px;
+  margin: 10px 0;
 }
 
 .directory_wrapper {

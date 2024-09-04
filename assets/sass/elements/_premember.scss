@@ -14,20 +14,26 @@
 	text-align: center;
 	position: relative;
 
-	hr{
+	hr {
 		display: none;
 	}
 
-	.pmpro_actions_nav {
-		position: absolute;
-		bottom: 30px;
-		left: 50%;
-		transform: translateX(-90px);
-		-ms-transform: translateX(-90px);
+	&.pmpro_card {
+		border: none;
+		box-shadow: none;
+		margin: 0;
+	}
+	.pmpro_card_content {
+		padding-top: 0 !important;
+		padding-bottom: 20px;
+	}
+	.pmpro_card_actions {
+		background-color: unset;
+		border: none !important;
+		padding: 0;
+	}
 
-		@include media($mobile) {
-			bottom: -5px;
-		}
+	.pmpro_actions_nav {
 
 		a {
 			@include robotomed;
@@ -45,10 +51,45 @@
 }
 
 
+
 .pmpro_lost_password_wrap .pmpro_actions_nav {
 	display: none;
 }
+.pmpro_section {
 
+	#loginform {
+		
+		.login-submit {
+		
+			.button:not(#pmpro_btn-password-toggle-1) {
+				font-family: 'robotoregular', sans-serif;
+				background: $black;
+				padding: 8px 24px 12px;
+				color: $white;
+				font-size: 18px;
+				border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				height: 40px;
+				border: none;
+		
+				@include media($tablet) {
+					font-size: 16px;
+				}
+		
+				@include media($mobile){
+					font-size: 14px;
+					height: 35px;
+					padding: 0;
+				}
+		
+				&:hover {
+					background: #4D4D54;
+				}
+			}
+		}
+	}
+}
 
 #loginform, #password-lost-form-wrap, #red_registration_form {
 	float: none;
@@ -82,7 +123,7 @@
         width: 100%;
     }
 
-	input[type="submit"], button {
+	input[type="submit"], button:not(#pmpro_btn-password-toggle-1) {
 		font-family: 'robotoregular', sans-serif;
 		background: $black;
 		padding: 8px 24px 12px;
@@ -105,7 +146,7 @@
 		}
 
 		&:hover {
-			background: #4D4D54 !important;
+			background: #4D4D54;
 		}
 	}
 

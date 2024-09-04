@@ -281,7 +281,7 @@ function verify_user_code(){
 			wp_set_auth_cookie($user->ID, true);
 			wp_set_current_user($user->ID, $user->user_login);
 			do_action('wp_login', $user->user_login, wp_get_current_user());
-			wp_redirect( get_site_url() . '/membership-account/membership-levels/');
+			wp_redirect( get_site_url() . '/register');
 			exit();
 		} else {
 			wp_redirect( get_site_url() );

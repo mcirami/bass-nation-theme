@@ -146,7 +146,7 @@ input[type="text"], input[type="email"], input[type="password"], textarea, selec
 	}
 }
 
-header {
+/* header {
 	margin-bottom: 80px;
 
 	@include media($tablet) {
@@ -156,7 +156,7 @@ header {
 	@include media($mobile) {
 		margin-bottom: 40px;
 	}
-}
+} */
 
 main {
 	padding-bottom: 80px;

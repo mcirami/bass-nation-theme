@@ -47,7 +47,7 @@ global $post;
                     <div class="top_video_section full_width">
                         <div class="video_wrap">
                             <div class="button_wrap">
-                                <a class="button yellow" href="/membership-account/membership-levels/">Start My Full Access Free Trial Now!</a>
+                                <a class="button yellow" href="/register">Start My Full Access Free Trial Now!</a>
                             </div>
                             <div class="video_wrapper full_width">
                                 <iframe src="<?php the_field('intro_video_link'); ?>" allowfullscreen></iframe>
@@ -168,7 +168,7 @@ global $post;
         <img src="<?php  echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Logo"/>
         <h2>This Lesson Is For Members Only</h2>
         <div class="button_wrap">
-            <a class="button red" href="/membership-account/membership-levels/">Start My Free Trial For Full Access!</a>
+            <a class="button red" href="/register">Start My Free Trial For Full Access!</a>
         </div>
     </div>
 

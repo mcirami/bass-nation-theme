@@ -1960,20 +1960,17 @@ img {
   }
 }
 
-header {
-  margin-bottom: 80px;
-}
-@media screen and (max-width: 1023px) {
-  header {
-    margin-bottom: 60px;
-  }
-}
-@media screen and (max-width: 768px) {
-  header {
-    margin-bottom: 40px;
-  }
-}
+/* header {
+	margin-bottom: 80px;
 
+	@include media($tablet) {
+		margin-bottom: 60px;
+	}
+
+	@include media($mobile) {
+		margin-bottom: 40px;
+	}
+} */
 main {
   padding-bottom: 80px;
 }
@@ -2981,6 +2978,7 @@ h3, p {
   text-align: center;
   text-transform: uppercase;
   box-shadow: -1px 2px 4px 2px rgba(0, 0, 0, 0.14);
+  margin: 0 0 40px 0;
 }
 @media screen and (max-width: 1023px) {
   .sub_header {
@@ -4663,17 +4661,19 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .pmpro_login_wrap hr, .pmpro_lost_password_wrap hr {
   display: none;
 }
-.pmpro_login_wrap .pmpro_actions_nav, .pmpro_lost_password_wrap .pmpro_actions_nav {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-90px);
-  -ms-transform: translateX(-90px);
+.pmpro_login_wrap.pmpro_card, .pmpro_lost_password_wrap.pmpro_card {
+  border: none;
+  box-shadow: none;
+  margin: 0;
 }
-@media screen and (max-width: 768px) {
-  .pmpro_login_wrap .pmpro_actions_nav, .pmpro_lost_password_wrap .pmpro_actions_nav {
-    bottom: -5px;
-  }
+.pmpro_login_wrap .pmpro_card_content, .pmpro_lost_password_wrap .pmpro_card_content {
+  padding-top: 0 !important;
+  padding-bottom: 20px;
+}
+.pmpro_login_wrap .pmpro_card_actions, .pmpro_lost_password_wrap .pmpro_card_actions {
+  background-color: unset;
+  border: none !important;
+  padding: 0;
 }
 .pmpro_login_wrap .pmpro_actions_nav a, .pmpro_lost_password_wrap .pmpro_actions_nav a {
   font-family: "robotomedium", sans-serif;
@@ -4691,6 +4691,34 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 
 .pmpro_lost_password_wrap .pmpro_actions_nav {
   display: none;
+}
+
+.pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1) {
+  font-family: "robotoregular", sans-serif;
+  background: #131313;
+  padding: 8px 24px 12px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  height: 40px;
+  border: none;
+}
+@media screen and (max-width: 1023px) {
+  .pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1) {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1) {
+    font-size: 14px;
+    height: 35px;
+    padding: 0;
+  }
+}
+.pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1):hover {
+  background: #4D4D54;
 }
 
 #loginform, #password-lost-form-wrap, #red_registration_form {
@@ -4727,7 +4755,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     width: 100%;
   }
 }
-#loginform input[type=submit], #loginform button, #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button, #red_registration_form input[type=submit], #red_registration_form button {
+#loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
   font-family: "robotoregular", sans-serif;
   background: #131313;
   padding: 8px 24px 12px;
@@ -4740,19 +4768,19 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: none;
 }
 @media screen and (max-width: 1023px) {
-  #loginform input[type=submit], #loginform button, #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button, #red_registration_form input[type=submit], #red_registration_form button {
+  #loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 768px) {
-  #loginform input[type=submit], #loginform button, #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button, #red_registration_form input[type=submit], #red_registration_form button {
+  #loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
     font-size: 14px;
     height: 35px;
     padding: 0;
   }
 }
-#loginform input[type=submit]:hover, #loginform button:hover, #password-lost-form-wrap input[type=submit]:hover, #password-lost-form-wrap button:hover, #red_registration_form input[type=submit]:hover, #red_registration_form button:hover {
-  background: #4D4D54 !important;
+#loginform input[type=submit]:hover, #loginform button:not(#pmpro_btn-password-toggle-1):hover, #password-lost-form-wrap input[type=submit]:hover, #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1):hover, #red_registration_form input[type=submit]:hover, #red_registration_form button:not(#pmpro_btn-password-toggle-1):hover {
+  background: #4D4D54;
 }
 #loginform legend, #password-lost-form-wrap legend, #red_registration_form legend {
   display: none;

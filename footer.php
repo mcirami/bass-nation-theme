@@ -178,7 +178,7 @@ $username = $current_user->user_login;
 					<p>
 						If you are not redirected soon...
 					</p>
-					<a href="<?php echo get_site_url() . '/membership-account/membership-levels/'?>">Click here to redirect manually</a>
+					<a href="<?php echo get_site_url() . '/register'?>">Click here to redirect manually</a>
 				</div>
 			</div>
 		</div>

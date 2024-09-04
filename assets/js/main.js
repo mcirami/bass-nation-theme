@@ -1,4 +1,3 @@
-
 // eslint-disable-next-line no-undef
 jQuery( document ).ready( function( $ ) {
 	const navIcon = $( '.user_mobile_nav p span' );
@@ -9,7 +8,10 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	const fancybox = $( '.fancybox' );
-	fancyboxInit();
+
+	if ( fancybox.length > 0 ) {
+		fancyboxInit();
+	}
 
 	function fancyboxInit() {
 		if ( fancybox.length ) {
@@ -515,7 +517,7 @@ jQuery( document ).ready( function( $ ) {
 	const commentReply = $( 'a.comment-reply-link' );
 	let commentParent = 0;
 	let replyToUser = null;
-	let commentReplyURL = null;
+	//let commentReplyURL = null;
 
 	if ( commentReply.length ) {
 		replyToComment( commentReply );
@@ -542,25 +544,25 @@ jQuery( document ).ready( function( $ ) {
 			replyToUser = $( this ).attr( 'aria-label' ).split( 'to' );
 			replyToUser = replyToUser[ 1 ].trim();
 
-			commentReplyURL = window.location.href;
+			//commentReplyURL = window.location.href;
 
 			commentParent = parseInt( $( this ).closest( 'li.comment' ).attr( 'id' ).replace( /[^\d]/g, '' ), 10 );
 
 			// eslint-disable-next-line no-undef
 			if ( currentPage.pageName === 'Lessons' || ( currentPage.postType && currentPage.postType === 'courses' ) ) {
-                const postID = $( this ).data( 'postid' );
-                const ajaxURL = myAjaxurl.ajaxurl;
-                const commentForm = $.ajax( {
-		            type: 'post',
-		            dataType: 'html',
-		            data: { action: 'get_comment_form', id: postID },
-		            url: ajaxURL,
-		            global: false,
-		            async: false,
-		            success( response ) {
-			            //alert ("Email Sent");
-			            return response;
-		            },
+				const postID = $( this ).data( 'postid' );
+				const ajaxURL = myAjaxurl.ajaxurl;
+				const commentForm = $.ajax( {
+					type: 'post',
+					dataType: 'html',
+					data: { action: 'get_comment_form', id: postID },
+					url: ajaxURL,
+					global: false,
+					async: false,
+					success( response ) {
+					//alert ("Email Sent");
+						return response;
+					},
 		            error( xhRequest, errorThrown, resp ) {
 			            console.error( errorThrown );
 			            console.error( JSON.stringify( resp ) );
@@ -585,7 +587,7 @@ jQuery( document ).ready( function( $ ) {
 			if ( $( '.comment_reply_wrap' ).hasClass( 'open' ) ) {
 				$( '.comment_reply_wrap' ).removeClass( 'open' ).slideUp( 600 );
 				commentParent = 0;
-				commentReplyURL = null;
+				//commentReplyURL = null;
 				replyToUser = null;
 				//commentSubmitButton.next('.loading_gif').html('');
 				$( this ).closest( '.reply' ).children( '.reply_button' ).css( 'display', 'block' );
@@ -628,35 +630,34 @@ jQuery( document ).ready( function( $ ) {
 	} );
 
 	$( '.play_video' ).on( 'click', function() {
-
-	    let videoPlayer = '';
-	    const htmlBody = $( 'html, body' );
+		let videoPlayer = '';
+		const htmlBody = $( 'html, body' );
 		const clickHash = $( this ).attr( 'href' );
 
 		createCookie( 'clickHash', clickHash, 5 );
 
-	    if ( currentPage.postType && currentPage.postType !== 'courses' ) {
-		    htmlBody.animate( { scrollTop: $( '#video_player' ).offset().top - $( '#global_header' ).height() }, 1000 );
-	    } else {
-		    var hash = clickHash + '-video';
-		    videoPlayer = $( this ).closest( '.row' ).children( '.course_video_player' );
-	    }
+		if ( currentPage.postType && currentPage.postType !== 'courses' ) {
+			htmlBody.animate( { scrollTop: $( '#video_player' ).offset().top - $( '#global_header' ).height() }, 1000 );
+		} else {
+			var hash = clickHash + '-video';
+			videoPlayer = $( this ).closest( '.row' ).children( '.course_video_player' );
+		}
 
-	    const videoSrc = $( this ).data( 'src' );
-	    const videoType = $( this ).data( 'type' );
-	    const replaceVideoLink = $( this ).data( 'replace' );
-	    const videoTitle = $( this ).data( 'title' );
-	    const notation = $( this ).data( 'notation' );
-	    const postID = $( this ).data( 'postid' );
-	    const desc = $( this ).data( 'desc' );
-	    let favoriteButton = '';
+		const videoSrc = $( this ).data( 'src' );
+		const videoType = $( this ).data( 'type' );
+		const replaceVideoLink = $( this ).data( 'replace' );
+		const videoTitle = $( this ).data( 'title' );
+		const notation = $( this ).data( 'notation' );
+		const postID = $( this ).data( 'postid' );
+		const desc = $( this ).data( 'desc' );
+		let favoriteButton = '';
 		// eslint-disable-next-line no-undef
-	    const ajaxURL = myAjaxurl.ajaxurl;
+		const ajaxURL = myAjaxurl.ajaxurl;
 
 		let videoDesc = '';
 
-	    if ( desc ) {
-	        videoDesc = '<div class="full_width description"><p>' + desc + '</p></div>';
+		if ( desc ) {
+			videoDesc = '<div class="full_width description"><p>' + desc + '</p></div>';
 		}
 
 		if ( currentPage.postType && currentPage.postType !== 'courses' ) {
@@ -693,7 +694,7 @@ jQuery( document ).ready( function( $ ) {
 	    }
 
 		commentsAjaxCall( ajaxURL, postID )
-		.then( function( response ) {
+			.then( function( response ) {
 
 		    const commentContent = response;
 
@@ -723,7 +724,7 @@ jQuery( document ).ready( function( $ ) {
 			        '</div>';
 	        }
 
-			html += replaceVideo + '</div>';
+				html += replaceVideo + '</div>';
 
 	        if ( notation === 'yes' ) {
 		        html += '<div class="video_wrapper video_notation">';
@@ -848,10 +849,12 @@ jQuery( document ).ready( function( $ ) {
 		}
 	}
 
-	const chatWindow = document.querySelector('.live_stream .wp-block-columns');
+	const chatWindow = document.querySelector( '.live_stream .wp-block-columns' );
 	if ( chatWindow && $( window ).width() > 1023 ) {
-		chatWindow.classList.add('resize');
+		chatWindow.classList.add( 'resize' );
 	}
 
+	const headerHeight = document.querySelector( '#global_header' ).height;
+	console.log(headerHeight);
 } );
 

@@ -34,7 +34,7 @@
 
 				<?php
 				if(is_page('login')) : ?>
-					<p class="join_text">Not a member yet? <a href="/membership-account/membership-levels/">Join Free Now!</a></p>
+					<p class="join_text">Not a member yet? <a href="/register">Join Free Now!</a></p>
 				<?php endif;
 					$slug = get_post_field( 'post_name', get_post() );
 				?>

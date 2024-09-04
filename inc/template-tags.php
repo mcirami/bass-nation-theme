@@ -241,7 +241,7 @@ if ( ! function_exists( 'bass_nation_comment' ) ) :
 					<div class="reply">
 						<?php if (!is_user_logged_in()) : ?>
 							<div class="button_wrap">
-								<a class="button yellow" href="/membership-account/membership-levels/">Start My Free Trial</a>
+								<a class="button yellow" href="/register">Start My Free Trial</a>
 							</div>
 						<?php endif; ?>
 

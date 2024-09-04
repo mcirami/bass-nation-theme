@@ -48,7 +48,7 @@ get_header(); ?>
 				<div class="text_wrap">
 					<h3>Are You Ready for Full Access to Every <span>Complete lesson?</span></h3>
 					<div class="button_wrap">
-						<a class="button yellow" href="<?php echo home_url(); ?>/membership-account/membership-levels/">Start My Full Access Free Trial Now!</a>
+						<a class="button yellow" href="<?php echo home_url(); ?>/register/">Start My Full Access Free Trial Now!</a>
 					</div>
 					
 					<?php get_template_part( 'template-parts/content', 'social-media' ); ?>
@@ -81,7 +81,7 @@ get_header(); ?>
 					</div><!-- columns -->
 					<h4 class="full_width">Don't Delay, Start Your Free Trial Now!</h4>
 					<div class="button_wrap">
-						<a class="button yellow" href="/membership-account/membership-levels/">Start My Full Access Free Trial Now!</a>
+						<a class="button yellow" href="/register">Start My Full Access Free Trial Now!</a>
 					</div>
 				</div><!-- container -->
 			</div><!-- bottom_section -->
@@ -96,7 +96,7 @@ get_header(); ?>
         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Logo"/>
         <h2>This Lesson Is For Members Only</h2>
         <div class="button_wrap">
-            <a class="button red" href="<?php echo home_url(); ?>/membership-account/membership-levels/">Start My Free Trial For Full Access!</a>
+            <a class="button red" href="<?php echo home_url(); ?>/register">Start My Free Trial For Full Access!</a>
         </div>
     </div>
 

@@ -37,10 +37,6 @@
 				 		<?php else : ?>
 				 			<h2>Welcome To Daric Bennett's Bass Nation!</h2>
 				 		<?php endif; ?>
-
-				 		<?php if ($username === "admin" || $username === "mat@77jef@79") : ?>
-				 			<a style="text-align: center;" class="full_width" href="/wp-admin">Admin</a>
-				 		<?php endif; ?>
 					    <!--<div class="fb-group" style="margin: 20px 0; max-width: 100%;" data-href="https://www.facebook.com/groups/3889857837810354/" data-width="500" data-show-social-context="false" data-show-metadata="true">
 						    <blockquote cite="https://www.facebook.com/groups/3889857837810354/" class="fb-xfbml-parse-ignore">Bass Nation Fanatics</blockquote>
 					    </div>-->

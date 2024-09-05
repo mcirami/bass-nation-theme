@@ -13486,50 +13486,6 @@ form.pmpro_form #other_discount_code.input {
 .live_stream .epyt-gallery {
   padding: 0 10%;
 }
-.live_stream .columns_wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-around;
-  align-items: stretch;
-  gap: 20px;
-  column-gap: 20px;
-  -moz-column-gap: 20px;
-  -webkit-column-gap: 20px;
-}
-@media screen and (max-width: 1023px) {
-  .live_stream .columns_wrap {
-    flex-flow: row wrap;
-  }
-}
-.live_stream .columns_wrap .video_column, .live_stream .columns_wrap .epyt-video-wrapper {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  -webkit-justify-content: flex-start;
-  align-items: flex-start;
-  -webkit-align-items: flex-start;
-  width: 60%;
-  position: relative;
-}
-@media screen and (max-width: 1023px) {
-  .live_stream .columns_wrap .video_column, .live_stream .columns_wrap .epyt-video-wrapper {
-    width: 100%;
-  }
-}
-.live_stream .columns_wrap .video_column p, .live_stream .columns_wrap .epyt-video-wrapper p {
-  position: absolute;
-  color: #fff;
-  font-size: 3em;
-  margin: 0;
-}
-@media screen and (max-width: 1023px) {
-  .live_stream .columns_wrap .video_column p, .live_stream .columns_wrap .epyt-video-wrapper p {
-    font-size: 4vw;
-  }
-}
 .live_stream .gallery .epyt-video-wrapper, .live_stream .epyt-video-wrapper > div {
   width: 100%;
 }
@@ -13601,7 +13557,6 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .actual_msg {
-  float: left;
   display: inline-block;
   margin-right: 20px;
   padding: 25px 34px;
@@ -13638,14 +13593,63 @@ form.pmpro_form #other_discount_code.input {
 .live_stream .wp-block-columns {
   width: 100%;
   transition: 500ms ease-in-out width;
+  /* &.resize {
+      width: 40%;
+  } */
 }
-.live_stream .wp-block-columns.resize {
-  width: 40%;
+.live_stream .wp-block-columns .wp-block-column {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 20px;
+  column-gap: 20px;
+  -moz-column-gap: 20px;
+  -webkit-column-gap: 20px;
+}
+@media screen and (max-width: 1023px) {
+  .live_stream .wp-block-columns .wp-block-column {
+    flex-flow: row wrap;
+  }
+}
+.live_stream .wp-block-columns .wp-block-column .epyt-video-wrapper {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  -webkit-justify-content: flex-start;
+  align-items: flex-start;
+  -webkit-align-items: flex-start;
+  width: 100%;
+  position: relative;
+}
+@media screen and (max-width: 1023px) {
+  .live_stream .wp-block-columns .wp-block-column .epyt-video-wrapper {
+    width: 100%;
+  }
+}
+.live_stream .wp-block-columns .wp-block-column .epyt-video-wrapper p {
+  position: absolute;
+  color: #fff;
+  font-size: 3em;
+  margin: 0;
+}
+@media screen and (max-width: 1023px) {
+  .live_stream .wp-block-columns .wp-block-column .epyt-video-wrapper p {
+    font-size: 4vw;
+  }
 }
 
+.wcContainer {
+  width: 50% !important;
+  height: 100% !important;
+}
 @media screen and (max-width: 1023px) {
   .wcContainer {
     width: 100% !important;
+    height: 500px !important;
   }
 }
 .wcContainer input[type=button] {
@@ -13660,6 +13664,14 @@ form.pmpro_form #other_discount_code.input {
 }
 .wcContainer input[type=button]:hover {
   background: #880415 !important;
+}
+.wcContainer.wcCrystalTheme .wcChannel .wcChannelInput {
+  padding: 0;
+  border-top: 1px solid #c8c8c8;
+}
+.wcContainer.wcCrystalTheme .wcChannel .wcChannelInput .wcInputs div.wcInput {
+  width: 100%;
+  margin-bottom: 10px;
 }
 .wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
   width: 100%;

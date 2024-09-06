@@ -143,9 +143,49 @@
 	
 	form {
 		@include span-columns(12);
+		padding: 40px 40px 40px 0;
 
 		.pmpro_checkout-field {
 			@include span-columns(12);
+		}
+
+		.pmpro_btn {
+			@include robotoreg;
+			font-size: 16px;
+			padding: 7px 15px;
+			border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			background: $red;
+			color: $white;
+			border: none;
+			
+			&:hover {
+				background: $darkRed;
+				color: $white;
+			}
+
+			&.pmpro_btn-cancel {
+				background: $black;
+
+				&:hover {
+					background: #4D4D54;
+				}
+			}
+			
+			@include media($tablet){
+				padding: 6px 12px;
+				font-size: 14px;
+			}
+			
+			@include media($mobile){
+				padding: 7px 10px;
+				font-size: 12px;
+			}
+			
+			@include media($smallMobile){
+				padding: 5px 8px;
+			}
 		}
 
 		input[type="text"], input[type="email"], select, textarea {
@@ -310,7 +350,7 @@
 			}
 
 			input[type="submit"] {
-				@include robotobold;
+				@include robotoreg;
 				font-size: 16px;
 				padding: 7px 15px;
 				border-radius: 4px;
@@ -320,7 +360,6 @@
 				background: $red;
 				color: $white;
 				border: none;
-				margin-top: auto;
 				margin-bottom: 0;
 				width: 150px;
 

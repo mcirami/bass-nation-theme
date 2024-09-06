@@ -231,7 +231,8 @@ jQuery( document ).ready( function( $ ) {
 			contentType: 'application/json; charset=utf-8',
 			error( error ) {
 				// According to jquery docs, this is never called for cross-domain JSONP requests
-				console.log(error);
+				// eslint-disable-next-line no-console
+				console.log( error );
 			},
 			success( data ) {
 				if ( data.result !== 'success' ) {
@@ -853,8 +854,5 @@ jQuery( document ).ready( function( $ ) {
 	if ( chatWindow && $( window ).width() > 1023 ) {
 		chatWindow.classList.add( 'resize' );
 	}
-
-	const headerHeight = document.querySelector( '#global_header' ).height;
-	console.log(headerHeight);
 } );
 

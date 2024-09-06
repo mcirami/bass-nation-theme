@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.7.5' );
+	define( '_S_VERSION', '1.7.6' );
 }
 
 /**
@@ -156,6 +156,8 @@ function bass_nation_scripts() {
 	wp_enqueue_script( 'fancybox_js', get_template_directory_uri() . '/js/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/js/built.min.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/js/vendor/vimeothumb/jquery-vimeothumb.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'vimeo_player', 'https://player.vimeo.com/api/player.js', array('jquery'), '', true );
+	
 	wp_enqueue_script( 'calendly', 'https://assets.calendly.com/assets/external/widget.js', array('jquery'), '1', true );
 
 

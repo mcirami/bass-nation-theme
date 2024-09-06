@@ -1960,17 +1960,6 @@ img {
   }
 }
 
-/* header {
-	margin-bottom: 80px;
-
-	@include media($tablet) {
-		margin-bottom: 60px;
-	}
-
-	@include media($mobile) {
-		margin-bottom: 40px;
-	}
-} */
 main {
   padding-bottom: 80px;
 }
@@ -11289,6 +11278,7 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
+  padding: 40px 40px 40px 0;
 }
 .profile_wrap form:last-child {
   margin-right: 0;
@@ -11301,6 +11291,45 @@ form.pmpro_form #other_discount_code.input {
 }
 .profile_wrap form .pmpro_checkout-field:last-child {
   margin-right: 0;
+}
+.profile_wrap form .pmpro_btn {
+  font-family: "robotoregular", sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  background: #f20f2b;
+  color: #fff;
+  border: none;
+}
+.profile_wrap form .pmpro_btn:hover {
+  background: #880415;
+  color: #fff;
+}
+.profile_wrap form .pmpro_btn.pmpro_btn-cancel {
+  background: #131313;
+}
+.profile_wrap form .pmpro_btn.pmpro_btn-cancel:hover {
+  background: #4D4D54;
+}
+@media screen and (max-width: 1023px) {
+  .profile_wrap form .pmpro_btn {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .profile_wrap form .pmpro_btn {
+    padding: 7px 10px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap form .pmpro_btn {
+    padding: 5px 8px;
+  }
 }
 .profile_wrap form input[type=text], .profile_wrap form input[type=email], .profile_wrap form select, .profile_wrap form textarea {
   float: left;
@@ -11482,8 +11511,8 @@ form.pmpro_form #other_discount_code.input {
   font-size: 24px;
 }
 .profile_wrap .avatar_upload #basic-user-avatar-form input[type=submit] {
-  font-family: "robotobold", sans-serif;
-  font-weight: 700;
+  font-family: "robotoregular", sans-serif;
+  font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
@@ -11493,7 +11522,6 @@ form.pmpro_form #other_discount_code.input {
   background: #f20f2b;
   color: #fff;
   border: none;
-  margin-top: auto;
   margin-bottom: 0;
   width: 150px;
 }
@@ -11735,6 +11763,9 @@ form.pmpro_form #other_discount_code.input {
     padding-bottom: 40px;
   }
 }
+.not_member .pmpro_login_wrap.pmpro_card {
+  background: none;
+}
 .not_member .content_wrap {
   display: flex;
   flex-direction: row;
@@ -11814,6 +11845,7 @@ form.pmpro_form #other_discount_code.input {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   -o-box-shadow: none;
+  padding-bottom: 0;
 }
 .not_member .column .um-login {
   border: none;

@@ -71,11 +71,7 @@ if (pmpro_hasMembershipLevel()) {
 
             <div class="container">
 
-	            <div class="banner_wrap full_width">
-		            <a target="_blank" href="https://teespring.com/bassnationtshirt?pr=BASS25">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/banner.jpg" alt="Tee Spring Banner"/>
-                    </a>
-	            </div>
+	            
 
                 <div class="video_list full_width">
 

@@ -7033,6 +7033,107 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   height: 600px;
 }
 
+.banner_wrap {
+  margin: 20px 0 20px !important;
+  padding: 0 !important;
+}
+@media screen and (max-width: 768px) {
+  .banner_wrap {
+    padding: 0 10%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .banner_wrap {
+    padding: 0 2%;
+  }
+}
+.banner_wrap ul {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  box-shadow: 0px 0px 53px -20px rgba(0, 0, 0, 0.4);
+  background: #f1f1f1;
+}
+.banner_wrap ul:last-child {
+  margin-right: 0;
+}
+@media screen and (max-width: 1023px) {
+  .banner_wrap ul {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 1023px) {
+  .banner_wrap ul li:last-child {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .banner_wrap ul li:last-child {
+    display: none;
+  }
+}
+.banner_wrap ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.banner_wrap ul li a:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.banner_wrap ul li a p {
+  font-family: "robotobold", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  position: absolute;
+  bottom: 5px;
+  left: 20px;
+  text-transform: uppercase;
+  font-size: 1vw;
+}
+.banner_wrap ul li a:hover::before {
+  content: "";
+  background: url("../images/go-arrow.png") no-repeat;
+  background-position: center center;
+  background-size: 10%;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  z-index: 1;
+}
+.banner_wrap .title_wrap {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 100%;
+  /* border: 2px solid red;
+  border-bottom: none; */
+  padding: 10px;
+  /* border-top-right-radius: 6px;
+  border-top-left-radius: 6px; */
+}
+.banner_wrap .title_wrap:last-child {
+  margin-right: 0;
+}
+.banner_wrap .title_wrap h3 {
+  font-family: "robotobold", sans-serif;
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  color: red;
+  width: 100%;
+  font-size: 0.9vw;
+}
+
 .passions h2 {
   font-family: "robotomedium", sans-serif;
   font-weight: 500;
@@ -11096,21 +11197,6 @@ form.pmpro_form #other_discount_code.input {
 @media screen and (max-width: 1023px) {
   .member_home .content_wrap .row .info_wrap h4 {
     font-size: 16px;
-  }
-}
-
-.banner_wrap {
-  margin: 0 0 20px !important;
-  padding: 0 !important;
-}
-@media screen and (max-width: 768px) {
-  .banner_wrap {
-    padding: 0 10%;
-  }
-}
-@media screen and (max-width: 550px) {
-  .banner_wrap {
-    padding: 0 2%;
   }
 }
 

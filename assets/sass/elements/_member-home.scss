@@ -225,19 +225,6 @@
 	}
 }
 
-.banner_wrap {
-	margin: 0 0 20px !important;
-	padding: 0 !important;
-
-    @include media($mobile) {
-        padding: 0 10%;
-    }
-
-    @include media($smallMobile) {
-        padding: 0 2%;
-    }
-}
-
 .fb_iframe_widget > span {
 	max-width: 100%;
 

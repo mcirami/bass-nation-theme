@@ -663,6 +663,7 @@ jQuery( document ).ready( function( $ ) {
 
 		if ( currentPage.postType && currentPage.postType !== 'courses' ) {
 		    videoPlayer = $( '#video_player' ).empty();
+			videoPlayer.addClass( 'open' );
 	    } else {
 		    $( '.course_video_player' ).empty().removeClass( 'open' );
 		    $( '.lessons_page.courses .row' ).removeClass( 'open_player' );

@@ -71,7 +71,35 @@ if (pmpro_hasMembershipLevel()) {
 
             <div class="container">
 
-	            
+            <?php if ($title == "Lessons") : 
+                    $featured_courses = get_field('featured_courses');
+                
+                    if ($featured_courses) :?>
+                        <div class="banner_wrap full_width">
+                            <div class="title_wrap">
+                                <h3>Featured Courses</h3>
+                            </div>
+                            <ul>
+                                <?php foreach ($featured_courses as $post):
+                                    setup_postdata($post);
+                                    $image = get_field( 'course_image', $post->ID );
+                                    ?>
+                                    <li>
+                                        <a class="image_link" href="<?php the_permalink(); ?>">
+                                            <img src="<?php echo $image['url']; ?>" alt="">
+                                        </a>
+                                        <a href="<?php the_permalink(); ?>">
+                                            <p><?php the_title(); ?></p>
+                                        </a>
+                                    </li>
+
+                                <?php endforeach ?>
+                            </ul>
+                        <?php 
+                            wp_reset_postdata(); 
+                            endif; ?>
+                        </div>
+                <?php endif; ?>
 
                 <div class="video_list full_width">
 

@@ -95,10 +95,10 @@ if (pmpro_hasMembershipLevel()) {
 
                                 <?php endforeach ?>
                             </ul>
-                        <?php 
-                            wp_reset_postdata(); 
-                            endif; ?>
                         </div>
+                        <?php 
+                            wp_reset_postdata();
+                            endif; ?>
                 <?php endif; ?>
 
                 <div class="video_list full_width">

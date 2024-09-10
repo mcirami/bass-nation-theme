@@ -106,9 +106,6 @@ if (pmpro_hasMembershipLevel()) {
                     <?php if ($title == "Lessons") : ?>
 
                         <div class="filter_controls full_width">
-                            <div class="search_box">
-                                <input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
-                            </div>
 
                             <div class="filters">
                                 <h3>Filter Lessons By<span>:</span></h3>
@@ -134,6 +131,9 @@ if (pmpro_hasMembershipLevel()) {
                                     <?php endforeach; ?>
 
                                 </ul>
+                            </div>
+                            <div class="search_box">
+                                <input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
                             </div>
                         </div><!-- filter_controls -->
                     <?php else : ?>

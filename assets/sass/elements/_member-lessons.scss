@@ -311,36 +311,21 @@
     }
 
     .filter_controls {
+        @include span-columns(12);
         padding: 20px;
         background: $darkerGray;
         color: $white;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
         margin-bottom: 20px;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
 
-        @include media($tablet) {
-            @include span-columns(8);
-        }
-
-        @include media($mobile) {
-            padding: 10px;
-            margin: 20px 0;
-        }
-
         .search_box {
-            @include span-columns(6);
+            @include span-columns(12);
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             margin-top: auto;
             margin-bottom: auto;
-
-            @include media($tablet) {
-                @include span-columns(8);
-            }
 
             input {
                 width: 100%;
@@ -364,33 +349,16 @@
         }
 
         .filters {
-            @include span-columns(6);
+            @include span-columns(12);
             position: relative;
             text-align: center;
             padding-left: 22px;
-            border-left: 1px groove #2a2a2a;
             z-index: 1;
+            margin-bottom: 20px;
 
             @include media($tablet) {
-                @include span-columns(8);
-                border-left: none;
                 padding-top: 10px;
                 padding-left: 0;
-            }
-
-            &:before {
-                content: '';
-                position: absolute;
-                left:-2px;
-                top:0;
-                border-left: 1px solid #787878;
-                height: 100%;
-                z-index: -1;
-
-                @include media($tablet) {
-                    content: none;
-                }
-
             }
 
             p {
@@ -415,11 +383,6 @@
 
         .filter_list {
             margin: 0;
-            text-align: left;
-
-            @include media($tablet) {
-                text-align: center;
-            }
 
             li {
                 display: inline-block;

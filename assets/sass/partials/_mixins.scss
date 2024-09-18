@@ -29,25 +29,57 @@
 	transform: translateX(-50%);
 }
 
-@mixin robotoreg {
-	font-family: 'robotoregular', sans-serif;
+@mixin interregular {
+	font-family: 'interregular', sans-serif;
 	font-weight: 300;
 }
 
-@mixin robotomed {
-	font-family: 'robotomedium', sans-serif;
+@mixin intermedium {
+	font-family: 'intermedium', sans-serif;
 	font-weight: 500;
 }
 
-@mixin robotobold {
-	font-family: 'robotobold', sans-serif;
+@mixin intersemibold {
+	font-family: 'intersemibold', sans-serif;
+	font-weight: 600;
+}
+
+@mixin interbold {
+	font-family: 'interbold', sans-serif;
 	font-weight: 700;
 }
 
-@mixin robotolight {
-	font-family: 'robotolight', sans-serif;
-	font-weight: 200;
+@mixin interbolditalic {
+	font-family: 'interbolditalic', sans-serif;
+	font-weight: 700;
 }
+
+@mixin interextrabold {
+	font-family: 'interextrabold', sans-serif;
+	font-weight: 900;
+}
+
+@mixin interextrabolditalic {
+	font-family: 'interextrabolditalic', sans-serif;
+	font-weight: 900;
+}
+
+@mixin interitalic {
+	font-family: 'interitalic', sans-serif;
+	font-weight: 300;
+}
+
+@mixin intermediumitalic {
+	font-family: 'intermediumitalic', sans-serif;
+	font-weight: 500;
+}
+
+@mixin intersemibolditalic {
+	font-family: 'intersemibolditalic', sans-serif;
+	font-weight: 600;
+}
+
+
 @mixin boxShadow {
 	box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
 	-moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);

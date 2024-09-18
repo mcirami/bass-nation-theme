@@ -1,6 +1,6 @@
 
 .join_text {
-	font-family: 'robotobold', sans-serif;
+	@include interbold;
 	text-align: center;
 	color: $black;
 	margin-top: 40px;
@@ -36,7 +36,7 @@
 	.pmpro_actions_nav {
 
 		a {
-			@include robotomed;
+			@include intermedium;
 			color:$red;
 
 			@include media($mobile) {
@@ -62,7 +62,7 @@
 		.login-submit {
 		
 			.button:not(#pmpro_btn-password-toggle-1) {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				background: $black;
 				padding: 8px 24px 12px;
 				color: $white;
@@ -93,7 +93,7 @@
 
 #loginform, #password-lost-form-wrap, #red_registration_form {
 	float: none;
-	@include robotoreg;
+	@include interregular;
     font-size: 15px;
     margin: 100px auto;
     text-align: left;
@@ -124,7 +124,7 @@
     }
 
 	input[type="submit"], button:not(#pmpro_btn-password-toggle-1) {
-		font-family: 'robotoregular', sans-serif;
+		@include interregular;
 		background: $black;
 		padding: 8px 24px 12px;
 		color: $white;
@@ -159,7 +159,7 @@
 	}
 
 	label {
-		@include robotolight;
+		@include interregular;
 		color: $black;
 		line-height: 22px;
 		margin-bottom: 8px;
@@ -380,7 +380,7 @@
 		}
 		
 		p {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			display: inline-block;
 			margin: 0;
 			font-size: 18px;
@@ -394,13 +394,13 @@
 		padding: 15px 5px 10px;
 		
 		h2 {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			font-size: 27px;
 			margin-top: 0;
 		}
 		
 		p {
-			font-family: 'robotoregular' , sans-serif;
+			@include interregular;
 			font-size: 14px;
 			margin: 0;
 		}
@@ -411,14 +411,14 @@
 		padding: 0 10px 20px;
 		
 		h3 {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			display: inline-block;
 			font-size: 30px;
 			margin: 20px 0;
 		}
 		
 		 p {
-			 font-family: 'robotoregular', sans-serif;
+			 @include interregular;
 			 font-size: 14px;
 			 color: $grayText;
 			 margin-bottom: 0;

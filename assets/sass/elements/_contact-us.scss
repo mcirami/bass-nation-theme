@@ -9,7 +9,7 @@
 		}
 		
 		h2 {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			font-size: 30px;
 			color: $black;
 			text-transform: uppercase;
@@ -196,7 +196,7 @@
 				padding-left: 10px;
 				
 				h3 {
-					font-family: 'robotomediumitalic', sans-serif;
+					@include intermediumitalic;
 					color: $black;
 					margin: 0 0 10px;
 					font-size: 24px;

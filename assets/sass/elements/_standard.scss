@@ -43,7 +43,7 @@
 		}
 		
 		.span {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 		}
 	}
 	
@@ -71,7 +71,7 @@
 	
 	.address {
 		@include span-columns(12);
-		font-family: 'robotoregular', sans-serif;
+		@include interregular;
 		padding-left: 40px;
 		margin-bottom: 20px;
 		
@@ -246,7 +246,7 @@
 		margin-top: 20px;
 
 		a {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			display: inline-block;
 			color: $black;
 			font-size: 20px;
@@ -261,7 +261,7 @@
 	}
 	
 	h2 {
-		font-family: 'robotobold', sans-serif;
+		@include interbold;
 		text-transform: uppercase;
 		font-size: 34px;
 		color: $black;
@@ -299,7 +299,7 @@
 
 		h4 {
 			@include span-columns(12);
-			font-family: 'robotolight', sans-serif;
+			@include interregular;
 			font-size: 20px;
 			margin-bottom: 10px;
 			margin-top: 5px;
@@ -310,7 +310,7 @@
 			font-size: 16px;
 
 			span {
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				color: $red;
 				font-size: 26px;
 			}

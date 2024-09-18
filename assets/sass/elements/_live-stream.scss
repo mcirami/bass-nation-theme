@@ -41,7 +41,7 @@
         }
 
         .epyt-pagebutton {
-            @include robotoreg;
+            @include interregular;
             font-size: 16px;
             padding: 7px 15px;
             border-radius: 4px;
@@ -252,7 +252,7 @@
     }
 
     .wcMessages {
-        @include robotoreg;
+        @include interregular;
         background-color: $white !important;
 
         .wcMessage {

@@ -21,7 +21,7 @@
         -webkit-justify-content: space-between;
 
         .pmpro_page_numbers a {
-            @include robotolight;
+            @include interregular;
             padding: 5px 10px;
             background: $red;
             color: $white;
@@ -34,7 +34,7 @@
             }
 
             &.pmpro_page_active {
-                @include robotobold;
+                @include interbold;
             }
         }
     }
@@ -46,7 +46,7 @@
     .pmpro_member_directory {
 
         > h3 {
-            @include robotoreg;
+            @include interregular;
             text-transform: none;
             font-size: 28px;
             margin: 0 0 20px;
@@ -150,7 +150,7 @@
                     width: 100%;
 
                     p {
-                        @include robotobold;
+                        @include interbold;
                     }
                 }
 
@@ -161,7 +161,7 @@
             }
 
             p {
-                @include robotoreg;
+                @include interregular;
                 font-size: 14px;
                 color: $red;
                 line-height: 1.5;
@@ -262,7 +262,7 @@
         }
 
         .label {
-            @include robotobold;
+            @include interbold;
             font-size: 1.8rem;
 
             @include media($mobile) {
@@ -271,7 +271,7 @@
         }
 
         p {
-            @include robotolight;
+            @include interregular;
             font-size: 1.8rem;
 
             @include media($mobile) {

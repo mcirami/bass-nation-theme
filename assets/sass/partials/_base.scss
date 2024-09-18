@@ -151,7 +151,7 @@ main {
 }
 
 .button {
-	@include robotoreg;
+	@include interregular;
 	font-size: 16px;
 	padding: 7px 15px;
 	border-radius: 4px;
@@ -360,7 +360,7 @@ main {
 	}
 	
 	input[type="submit"] {
-		font-family: 'robotomedium', sans-serif;
+		@include interextrabold;
 		font-size: 20px;
 		width: 100%;
 		color: $white;
@@ -481,7 +481,7 @@ main {
 		}
 		
 		h4 {
-			@include robotoreg;
+			@include interregular;
 			position: relative;
 			display: block;
 			background: $red;
@@ -553,8 +553,9 @@ main {
 		p {
 			@include span-columns(12);
 			
+		
 			a {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				color: $grayText;
 				font-size: 16px;
 			}

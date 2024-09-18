@@ -13,7 +13,7 @@
         }
 		
 		h3 {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			font-size: 30px;
 			text-transform: uppercase;
 			line-height: 1.2;
@@ -29,7 +29,7 @@
 		}
 		
 		p {
-			font-family: 'robotoregular', sans-serif;
+			@include interregular;
 			font-size: 16px;
 			
 			@include media($mobile){
@@ -63,7 +63,7 @@
 			}
 			
 			.button {
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				display: block;
 				margin-bottom: 10px;
 				text-transform: uppercase;
@@ -165,7 +165,7 @@
 	}
 
     h2 {
-        font-family: 'robotomedium', sans-serif;
+        @include intermedium;
         display: inline-block;
         font-size: 30px;
         color: $red;
@@ -294,7 +294,7 @@
 			}
 			
 			.watch {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				padding: 18px 0px;
 				width: 70%;
 				background: $lightGray;
@@ -429,7 +429,7 @@
 				padding-bottom: 20px;
 				
 				a {
-					font-family: 'robotobold', sans-serif;
+					@include interbold;
 					font-size: 22px;
 					color: $yellow;
 					text-decoration: underline;
@@ -453,7 +453,7 @@
                 padding-bottom: 20px;
 
                 a {
-                    font-family: 'robotobold', sans-serif;
+                    @include interbold;
                     font-size: 24px;
                     color: $red;
                     text-decoration: underline;

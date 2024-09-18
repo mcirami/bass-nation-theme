@@ -1,7 +1,7 @@
 #fep-wrapper {
 
     #fep-header {
-        font-family: 'robotomedium', sans-serif;
+        @include intermedium;
         display: block;
         padding: 20px;
 
@@ -16,7 +16,7 @@
     }
 
     #fep-menu {
-        font-family: 'robotoregular', sans-serif;
+        @include interregular;
         padding: 10px 0;
 
         #fep-menu-message_box, #fep-menu-newmessage, #fep-menu-settings, #fep-menu-announcements, #fep-menu-directory {

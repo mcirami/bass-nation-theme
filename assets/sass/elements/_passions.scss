@@ -1,7 +1,7 @@
 .passions {
 	
 	h2 {
-		@include robotomed;
+		@include intermedium;
 	}
 	
 	.top_section {
@@ -133,7 +133,7 @@
 			}
 			
 			.text {
-				@include robotolight;
+				@include interregular;
 				display: none;
 				position: absolute;
 				width: 100%;

@@ -140,7 +140,7 @@
 				width: 100%;
 				
 				h4 {
-					font-family: 'robotobold', sans-serif;
+					@include interbold;
 					font-size: 30px;
 					margin: 0;
 					
@@ -158,7 +158,7 @@
 				}
 				
 				p {
-					font-family: 'robotobold', sans-serif;
+					@include interbold;
 					font-size: 16px;
 					margin: 10px 0;
 					
@@ -244,7 +244,7 @@
 			}
 			
 			h3 {
-				font-family: 'robotoitalic', sans-serif;
+				@include interitalic;
 				font-size: 24px;
 				margin: 5px 0;
 				line-height: 2;
@@ -314,7 +314,7 @@
 			}
 			
 			span {
-				font-family: 'robotobolditalic', sans-serif;
+				@include interbolditalic;
 				color: $yellow;
 			}
 		}
@@ -390,7 +390,7 @@
 			}
 			
 			h2 {
-				font-family: 'robotomedium', sans-serif;
+				@include intermedium;
 				margin-bottom: 30px;
 				font-size: 30px;
 				color: $black;
@@ -423,7 +423,7 @@
 				}
 				
 				&.bold {
-					font-family: 'robotomedium', sans-serif;
+					@include intermedium;
 					margin-top: 20px;
 					font-size: 20px;
 					text-align: center;
@@ -456,7 +456,7 @@
 .page_content_home {
 
 	a.fancybox {
-		@include robotobold;
+		@include interbold;
 		text-align: center;
 		display: inline-block;
 		text-transform: uppercase;

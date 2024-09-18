@@ -1,6 +1,6 @@
 .forum_wrapper {
 	color: $black;
-	font-family: 'robotoregular', sans-serif;
+	@include interregular;
 
 	.mejs-overlay {
 		display: none;
@@ -86,7 +86,7 @@
 	.bbp-breadcrumb {
 		
 		a {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			color: $darkGray;
 			font-size: 13px;
 			
@@ -136,7 +136,7 @@
 		
 		#subscription-toggle {
 			float: right;
-			font-family: 'robotoregular', sans-serif;
+			@include interregular;
 
             @include media($smallMobile) {
                 width: 60%;
@@ -202,7 +202,7 @@
 			background: $red;
 			color: $white;
 			padding: 12px 0 12px 12px;
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			font-size: 16px;
 			border-radius: 4px;
 			-webkit-border-radius: 4px;
@@ -370,7 +370,7 @@
 			}
 			
 			li.bbp-forum-info {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				width: 40%;
 				text-transform: none;
 
@@ -384,7 +384,7 @@
                     }
 
                     p {
-                        font-family: 'robotobold', sans-serif;
+                        @include interbold;
                         float: left;
                         width: auto;
                         display: inline-block;
@@ -416,7 +416,7 @@
                 }
 				
 				.bbp-forum-title {
-					@include robotobold;
+					@include interbold;
 					
 					@include media($mobile){
 						line-height: 1;
@@ -484,7 +484,7 @@
 				}
 
 				a {
-					@include robotoreg;
+					@include interregular;
 					position: relative;
 					float: left;
 					width: 60%;
@@ -508,7 +508,7 @@
 					}
 					
 					&:last-child {
-						@include robotomed;
+						@include intermedium;
 						font-size: 14px;
 						color: $red;
 						position: absolute;
@@ -559,7 +559,7 @@
 				}
 
                 p {
-                    @include robotobold;
+                    @include interbold;
                     float: left;
                     width: auto;
                     display: inline-block;
@@ -613,7 +613,7 @@
 				}
 				
 				a {
-					@include robotoreg;
+					@include interregular;
 					position: relative;
 					display: inline-block;
 					text-align: left;
@@ -636,7 +636,7 @@
 					}
 					
 					&:last-child {
-						@include robotomed;
+						@include intermedium;
 						font-size: 14px;
 						color: $red;
 						position: absolute;
@@ -738,7 +738,7 @@
 			}
 			
 			a {
-				@include robotomed;
+				@include intermedium;
 				position: relative;
 				
 				&:first-child {
@@ -1247,7 +1247,7 @@
 						}
 						
 						a {
-							font-family: 'robotoregular', sans-serif;
+							@include interregular;
 							font-size: 16px;
 							padding: 7px 15px;
 							border-radius: 4px;
@@ -1322,7 +1322,7 @@
 
 	.bbp-submit-wrapper {
 		button {
-			font-family: 'robotoregular';
+			@include interregular;
 			color: $white;
 			background: $red;
 			padding: 5px 20px 7px;
@@ -1401,7 +1401,7 @@
 
 .rec_text {
 	@include span-columns(12);
-	font-family: 'robotoitalic';
+	@include interitalic;
 	text-align: left;
 	font-size: 12px;
 	margin: 0;
@@ -1463,7 +1463,7 @@ label[for="bbp_topic_subscription"] {
 		}
 		
 		a {
-			font-family: 'robotoregular';
+			@include interregular;
 			color: $black;
 			
 			@include media($mobile){
@@ -1702,7 +1702,7 @@ label[for="bbp_topic_subscription"] {
     }
 
     input {
-        font-family:'robotoblack', sans-serif;
+        @include interextrabold;
         background: #ddb72e;
         color: #fff;
         border: none;

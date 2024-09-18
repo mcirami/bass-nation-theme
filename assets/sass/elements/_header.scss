@@ -59,7 +59,7 @@
 			a {
 				color: $white;
 				border-bottom: 1px dashed $white;
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				margin-left: 5px;
 				
 				&:hover {
@@ -352,7 +352,7 @@
 					}
 					
 					a {
-						font-family: 'robotoregular', sans-serif;
+						@include interregular;
 						color: $white;
 						text-transform: uppercase;
 						font-size: 18px;
@@ -423,7 +423,7 @@
 }
 
 .sub_header {
-	font-family: 'robotomedium', sans-serif;
+	@include intermedium;
 	background: $lightGray;
 	color: $black;
 	font-size: 36px;
@@ -604,7 +604,7 @@
 				color:$white;
 				text-decoration:none;
 				text-transform:uppercase;
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 		 	}
 		 	
 		 	&.current_page_item {
@@ -950,7 +950,7 @@ ul.member_menu {
 	h2 {
 		@include span-columns(12);
 		font-size: 34px;
-		font-family: 'robotomedium', sans-serif;
+		@include intermedium;
 		text-transform: uppercase;
 		line-height: 1;
 		
@@ -1054,7 +1054,7 @@ ul.member_menu {
 		}
 
 		input[type="submit"] {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			font-size: 20px;
 			width: 20%;
 			color: $white;

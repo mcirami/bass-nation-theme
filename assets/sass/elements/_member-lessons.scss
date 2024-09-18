@@ -1,5 +1,5 @@
 .simplefavorite-button {
-    font-family: 'robotoregular', sans-serif;
+    @include interregular;
     border: none;
     opacity: 1 !important;
     padding: 5px 10px;
@@ -32,7 +32,7 @@
         }
 
         .simplefavorites-clear {
-            font-family: 'robotoregular', sans-serif;
+            @include interregular;
             font-size: 14px;
             color: $red;
             border: none;
@@ -123,7 +123,7 @@
             }
 
             a {
-                font-family: 'robotobold', sans-serif;
+                @include interbold;
                 font-size: 16px;
                 color: $red;
 
@@ -287,7 +287,7 @@
             }
 
             h4 {
-                font-family: 'robotoregular', sans-serif;
+                @include interregular;
                 margin: 4px 0;
                 font-size: 14px;
                 line-height: 1.2;
@@ -587,7 +587,7 @@
             }
 
             .fn {
-                font-family: 'robotobold', sans-serif;
+                @include interbold;
                 float: left;
                 line-height: 1.1;
                 font-size: 16px;
@@ -620,7 +620,7 @@
             display: inline-block;
 
             a {
-                font-family: 'robotoregular', sans-serif;
+                @include interregular;
                 font-size: 16px;
                 padding: 7px 15px;
                 border-radius: 4px;
@@ -665,7 +665,7 @@
 
     .comment_submit {
         input {
-            font-family: 'robotoregular',sans-serif;
+            @include interregular;
             float: left;
             background: $red;
             color: $white;
@@ -771,7 +771,7 @@
 }
 
 .comment-awaiting-moderation {
-    font-family: 'robotobold', sans-serif !important;
+    @include interbold;
     position: absolute;
     top: 0;
     left: 0;
@@ -1071,7 +1071,7 @@
 .learndash-wrapper {
 
     input[type="button"], .ld-button, input[type="submit"] {
-        @include robotoreg;
+        @include interregular;
         border-radius: 4px !important;
         -webkit-border-radius: 4px !important;
         -moz-border-radius: 4px !important;
@@ -1140,7 +1140,7 @@
             margin-top: 20px;
 
             p {
-                @include robotobold;
+                @include interbold;
                 font-size: 24px;
 
                 @include media($tablet) {
@@ -1171,7 +1171,7 @@
         padding: 10px;
 
         h3 {
-            @include robotobold;
+            @include interbold;
             margin: 0;
             text-align: center;
             width: 100%;
@@ -1221,7 +1221,7 @@
                 }
 
                 p {
-                    @include robotoreg;
+                    @include interregular;
                     color: $black;
                     position: absolute;
                     bottom: -33px;

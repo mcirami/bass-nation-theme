@@ -47,7 +47,7 @@
 		}
 
 		p {
-			font-family: 'robotoregular', sans-serif;
+			@include interregular;
 			border-bottom: 1px solid $borderGray;
 			display: inline-block;
 			padding-bottom: 15px;
@@ -123,7 +123,7 @@
 			}
 
 			p {
-				font-family: 'robotobolditalic', sans-serif;
+				@include interbolditalic;
 				font-size: 16px;
 				margin: 0;
 				padding: 0;
@@ -155,7 +155,7 @@
 			-webkit-justify-content: center;
 
 			p {
-				font-family: 'robotomediumitalic', sans-serif;
+				@include intermediumitalic;
 				display: inline-block;
 				margin-bottom: 0;
 				margin-right: 10px;
@@ -496,7 +496,7 @@
 			font-size: 11px;
 
 			a {
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				color: $red;
 			}
 		}
@@ -506,7 +506,7 @@
 		}
 
 		input[type="submit"] {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			width: 100%;
 			float: left;
 			border: none;
@@ -539,7 +539,7 @@
 		}
 
 		p {
-			font-family: 'robotomediumitalic', sans-serif;
+			@include intermediumitalic;
 			color: $grayText;
 			font-size: 20px;
 			line-height: 1.4;
@@ -731,7 +731,7 @@ form.pmpro_form .pmpro_checkout-fields div {
 			}
 
 			a {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				float: left;
 				color: $black;
 
@@ -1037,7 +1037,7 @@ form.pmpro_form #other_discount_code.input {
 
 	a, button {
 		color: $red !important;
-		font-family: 'robotobolditalic', sans-serif !important;
+		@include interbolditalic;
 	}
 }
 
@@ -1080,7 +1080,7 @@ form.pmpro_form #other_discount_code.input {
 	#other_discount_code_tr {
 
 		label {
-			font-family: 'robotolight', sans-serif;
+			@include interregular;
 			width: 100%;
 			float: left;
 			font-size: 14px;

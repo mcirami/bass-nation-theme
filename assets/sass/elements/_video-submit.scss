@@ -109,7 +109,7 @@
         }
 
         .acf-field p.description {
-            font-family: 'robotobold', sans-serif;
+            @include interbold;
 
             @include media($mobile) {
                 font-size: 14px;
@@ -125,7 +125,7 @@
             margin-left: 12px;
 
             input {
-                font-family: 'robotoregular', sans-serif;
+                @include interregular;
                 font-size: 16px;
                 padding: 7px 15px;
                 border-radius: 4px;
@@ -373,7 +373,7 @@
         }
 
         h3 {
-            font-family: 'robotomedium', sans-serif;
+            @include intermedium;
             font-size: 30px;
             margin-top: 0;
             margin-bottom: 10px;
@@ -409,7 +409,7 @@
 
 
         p {
-            font-family: 'robotoregular', sans-serif;
+            @include interregular;
 
             @include media($tablet) {
                 font-size: 14px;
@@ -420,7 +420,7 @@
 
 #reply-title span {
     @include span-columns(12);
-    font-family: 'robotoregular', sans-serif;
+    @include interregular;
     font-size: 14px;
     text-transform: none;
     padding: 5px 0 10px;

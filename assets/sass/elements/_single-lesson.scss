@@ -43,7 +43,7 @@
 
         a {
 			position: relative;
-            @include robotoreg;
+            @include interregular;
             display: inline-block;
             color: $white;
             padding: 12px 75px;
@@ -188,7 +188,7 @@
 		 }
 		 
 		 h2 {
-			 font-family: 'robotobold', sans-serif;
+			 @include interbold;
 			 font-size: 36px;
 			 text-transform: uppercase;
 			 margin: 0 0 40px;
@@ -225,7 +225,7 @@
 		}
 		
 		p {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			width: 95%;
 			float: left;
 			padding-left: 1%;
@@ -256,7 +256,7 @@
 				display: block;
 				width: 50%;
 				float: left;
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				font-size: 26px;
 				margin-top: 15px;
 				margin-bottom: 0;
@@ -384,7 +384,7 @@
 			
 			h3 {
 				@include span-columns(12);
-				font-family: 'robotolight', sans-serif;
+				@include interregular;
 				font-size: 30px;
 				text-transform: uppercase;
 				line-height: 1.4;
@@ -415,7 +415,7 @@
 			}
 			
 			.button {
-				font-family: 'robotobold', sans-serif;
+				@include interbold;
 				text-transform: uppercase;
 				padding: 14px 30px;
 				font-size: 30px;
@@ -473,7 +473,7 @@
 		}
 		
 		.button {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			text-transform: uppercase;
 			display: block;
 			width: 75%;
@@ -516,7 +516,7 @@
 		}
 		
 		h3 {
-			font-family: 'robotoitalic', sans-serif;
+			@include interitalic;
 			font-size: 24px;
 			margin-top: 15px;
 			
@@ -531,7 +531,7 @@
 		}
 		
 		h4 {
-			font-family: 'robotomedium', sans-serif;
+			@include intermedium;
 			font-size: 40px;
 			margin: 20px 0;
 			
@@ -581,7 +581,7 @@
 			}
 			
 			p {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				font-size: 18px;
 				margin: 0;
 				
@@ -670,6 +670,6 @@
 }
 
 .must-log-in a {
-	font-family: 'robotobold', sans-serif;
+	@include interbold;
 	color: $red;
 }

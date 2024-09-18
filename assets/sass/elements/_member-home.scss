@@ -1,5 +1,5 @@
 .member_home {
-	font-family: 'robotoregular', sans-serif;
+	@include interregular;
 	text-align: center;
 	padding-bottom: 40px;
 	margin: 40px 0;
@@ -7,7 +7,7 @@
 	h2 {
         @include span-columns(12);
 		font-size: 30px;
-		font-family: 'robotoregular', sans-serif;
+		@include interregular;
 		margin-bottom: 20px;
 		
 		@include media($tablet){
@@ -192,12 +192,12 @@
 				margin-bottom: 20px;
 
 				span {
-					@include robotobold;
+					@include interbold;
 				}
 			}
 
 			a {
-				@include robotomed;
+				@include intermedium;
 				color: $red;
 				position: relative;
 

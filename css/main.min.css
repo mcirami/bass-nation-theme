@@ -1965,7 +1965,7 @@ main {
 }
 
 .button {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
@@ -2005,14 +2005,14 @@ main {
   background: #4D4D54;
 }
 .button.red {
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
 }
 .button.red:hover {
   background: #880415;
 }
 .button.yellow {
-  background: #ddb72e;
+  background: #f5bf04;
   color: #131313;
 }
 .button.yellow:hover {
@@ -2170,7 +2170,8 @@ main {
   }
 }
 .mc4wp-form input[type=submit] {
-  font-family: "robotomedium", sans-serif;
+  font-family: "interextrabold", sans-serif;
+  font-weight: 900;
   font-size: 20px;
   width: 100%;
   color: #fff;
@@ -2179,7 +2180,7 @@ main {
   display: inline-block;
   margin-left: -9px;
   border: none;
-  background: #f20f2b;
+  background: #ff000a;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 4px;
@@ -2234,7 +2235,7 @@ main {
   flex-wrap: nowrap;
   width: 50%;
   max-width: 380px;
-  border: 6px solid #f20f2b;
+  border: 6px solid #ff000a;
   text-align: center;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -2280,11 +2281,11 @@ main {
   }
 }
 .social_media_row .content_box h4 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   position: relative;
   display: block;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   margin: 0;
   font-size: 18px;
@@ -2306,7 +2307,7 @@ main {
   margin-left: -20px;
   border-style: solid;
   border-width: 20px 20px 0 20px;
-  border-color: #f20f2b transparent transparent transparent;
+  border-color: #ff000a transparent transparent transparent;
 }
 @media screen and (max-width: 768px) {
   .social_media_row .content_box h4:before {
@@ -2362,7 +2363,8 @@ main {
   margin-right: 0;
 }
 .social_media_row .column p a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #958c8c;
   font-size: 16px;
 }
@@ -2376,89 +2378,78 @@ main {
 }
 @font-face {
   font-family: "poiretoneregular";
-  src: url("fonts/PoiretOne-Regular.ttf") format("truetype"), url("fonts/poiretone-regular-webfont.woff2") format("woff2"), url("fonts/poiretone-regular-webfont.woff") format("woff");
+  src: url("/resources/fonts/opensans-bold-webfont.eot"), url("fonts/PoiretOne-Regular.ttf") format("truetype"), url("fonts/poiretone-regular-webfont.woff2") format("woff2"), url("fonts/poiretone-regular-webfont.woff") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotoblack";
-  src: url("fonts/Roboto-Black.ttf") format("truetype"), url("fonts/roboto-black-webfont.woff2") format("woff2"), url("fonts/roboto-black-webfont.woff") format("woff");
+  font-family: "interregular";
+  src: url("fonts/inter-regular-webfont.eot"), url("fonts/inter-regular-webfont.ttf") format("truetype"), url("fonts/inter-regular-webfont.woff2") format("woff2"), url("fonts/inter-regular-webfont.woff") format("woff"), url("fonts/inter-regular-webfont.svg#interregular") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotoblackitalic";
-  src: url("fonts/Roboto-BlackItalic.ttf") format("truetype"), url("fonts/roboto-blackitalic-webfont.woff2") format("woff2"), url("fonts/roboto-blackitalic-webfont.woff") format("woff");
+  font-family: "intermedium";
+  src: url("fonts/inter-medium-webfont.eot"), url("fonts/inter-medium-webfont.ttf") format("truetype"), url("fonts/inter-medium-webfont.woff2") format("woff2"), url("fonts/inter-medium-webfont.woff") format("woff"), url("fonts/inter-medium-webfont.svg#intermedium") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotobold";
-  src: url("fonts/Roboto-Bold.ttf") format("truetype"), url("fonts/roboto-bold-webfont.woff2") format("woff2"), url("fonts/roboto-bold-webfont.woff") format("woff");
+  font-family: "interbold";
+  src: url("fonts/inter-bold-webfont.eot"), url("fonts/inter-bold-webfont.ttf") format("truetype"), url("fonts/inter-bold-webfont.woff2") format("woff2"), url("fonts/inter-bold-webfont.woff") format("woff"), url("fonts/inter-bold-webfont.svg#interbold") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotobolditalic";
-  src: url("fonts/Roboto-BoldItalic.ttf") format("truetype"), url("fonts/roboto-bolditalic-webfont.woff2") format("woff2"), url("fonts/roboto-bolditalic-webfont.woff") format("woff");
+  font-family: "interbolditalic";
+  src: url("fonts/inter-bolditalicbolditalic-webfont.eot"), url("fonts/inter-bolditalic-webfont.ttf") format("truetype"), url("fonts/inter-bolditalic-webfont.woff2") format("woff2"), url("fonts/inter-bolditalic-webfont.woff") format("woff"), url("fonts/inter-bolditalic-webfont.svg#interbolditalic") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotoitalic";
-  src: url("fonts/Roboto-Italic.ttf") format("truetype"), url("fonts/roboto-italic-webfont.woff2") format("woff2"), url("fonts/roboto-italic-webfont.woff") format("woff");
+  font-family: "interextrabold";
+  src: url("fonts/inter-extrabold-webfont.eot"), url("fonts/inter-extrabold-webfont.ttf") format("truetype"), url("fonts/inter-extrabold-webfont.woff2") format("woff2"), url("fonts/inter-extrabold-webfont.woff") format("woff"), url("fonts/inter-extrabold-webfont.svg#interextrabold") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotolight";
-  src: url("fonts/Roboto-Light.ttf") format("truetype"), url("fonts/roboto-light-webfont.woff2") format("woff2"), url("fonts/roboto-light-webfont.woff") format("woff");
+  font-family: "interextrabolditalic";
+  src: url("fonts/inter-extrabolditalic-webfont.eot"), url("fonts/inter-extrabolditalic-webfont.ttf") format("truetype"), url("fonts/inter-extrabolditalic-webfont.woff2") format("woff2"), url("fonts/inter-extrabolditalic-webfont.woff") format("woff"), url("fonts/inter-extrabolditalic-webfont.svg#interextrabolditalic") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotolightitalic";
-  src: url("fonts/Roboto-LightItalic.ttf") format("truetype"), url("fonts/roboto-lightitalic-webfont.woff2") format("woff2"), url("fonts/roboto-lightitalic-webfont.woff") format("woff");
+  font-family: "interitalic";
+  src: url("fonts/inter-italic-webfont.eot"), url("fonts/inter-italic-webfont.ttf") format("truetype"), url("fonts/inter-italic-webfont.woff2") format("woff2"), url("fonts/inter-italic-webfont.woff") format("woff"), url("fonts/inter-italic-webfont.svg#interitalic") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotomedium";
-  src: url("fonts/Roboto-Medium.ttf") format("truetype"), url("fonts/roboto-medium-webfont.woff2") format("woff2"), url("fonts/roboto-medium-webfont.woff") format("woff");
+  font-family: "intermediumitalic";
+  src: url("fonts/inter-mediumitalic-webfont.eot"), url("fonts/inter-mediumitalic-webfont.ttf") format("truetype"), url("fonts/inter-mediumitalic-webfont.woff2") format("woff2"), url("fonts/inter-mediumitalic-webfont.woff") format("woff"), url("fonts/inter-mediumitalic-webfont.svg#intermediumitalic") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotomediumitalic";
-  src: url("fonts/Roboto-MediumItalic.ttf") format("truetype"), url("fonts/roboto-mediumitalic-webfont.woff2") format("woff2"), url("fonts/roboto-mediumitalic-webfont.woff") format("woff");
+  font-family: "intersemibold";
+  src: url("fonts/inter-semibold-webfont.eot"), url("fonts/inter-semibold-webfont.ttf") format("truetype"), url("fonts/inter-semibold-webfont.woff2") format("woff2"), url("fonts/inter-semibold-webfont.woff") format("woff"), url("fonts/inter-semibold-webfont.svg#intersemibold") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 @font-face {
-  font-family: "robotoregular";
-  src: url("fonts/Roboto-Regular.ttf") format("truetype"), url("fonts/roboto-regular-webfont.woff2") format("woff2"), url("fonts/roboto-regular-webfont.woff") format("woff");
+  font-family: "intersemibolditalic";
+  src: url("fonts/inter-semibolditalic-webfont.eot"), url("fonts/inter-semibolditalic-webfont.ttf") format("truetype"), url("fonts/inter-semibolditalic-webfont.woff2") format("woff2"), url("fonts/inter-semibolditalic-webfont.woff") format("woff"), url("fonts/inter-semibolditalic-webfont.svg#intersemibolditalic") format("svg");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
 h1, h2 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 
 h3, p {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 
 .container {
@@ -2548,7 +2539,7 @@ h3, p {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  background: #f20f2b;
+  background: #ff000a;
   padding: 30px 0 20px;
   transition: 0.5s ease-in-out;
 }
@@ -2600,12 +2591,13 @@ h3, p {
 #global_header .header_top p a {
   color: #fff;
   border-bottom: 1px dashed #fff;
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   margin-left: 5px;
 }
 #global_header .header_top p a:hover {
-  color: #ddb72e;
-  border-bottom: 1px dashed #ddb72e;
+  color: #f5bf04;
+  border-bottom: 1px dashed #f5bf04;
 }
 #global_header .header_top p.mobile {
   display: none;
@@ -2873,7 +2865,7 @@ h3, p {
   }
 }
 #global_header .header_bottom .menu ul li.current_page_item a {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 #global_header .header_bottom .menu ul li:after {
   content: "/";
@@ -2902,7 +2894,8 @@ h3, p {
   content: "";
 }
 #global_header .header_bottom .menu ul li a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #fff;
   text-transform: uppercase;
   font-size: 18px;
@@ -2916,7 +2909,7 @@ h3, p {
   }
 }
 #global_header .header_bottom .menu ul li a:hover {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 #global_header .header_bottom .menu ul.sub-menu li:hover a {
   color: #131313;
@@ -2959,8 +2952,9 @@ h3, p {
 }
 
 .sub_header {
-  font-family: "robotomedium", sans-serif;
-  background: #f1f1f1;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
+  background: #ebebeb;
   color: #131313;
   font-size: 36px;
   padding: 30px 0;
@@ -3088,7 +3082,7 @@ h3, p {
 }
 .mobile_menu .logo {
   padding: 10px 20px 12px;
-  border-bottom: 1px outset #ddb72e;
+  border-bottom: 1px outset #f5bf04;
 }
 .mobile_menu nav {
   float: left;
@@ -3117,7 +3111,7 @@ h3, p {
   margin-right: 2.3576515979%;
   width: 100%;
   display: block;
-  border-bottom: 1px outset #827d7d;
+  border-bottom: 1px outset #2a2a2a;
   text-align: left;
   box-sizing: border-box;
 }
@@ -3131,7 +3125,8 @@ h3, p {
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 .mobile_menu ul li.current_page_item {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b0b0b+11,151515+52,1e1f1f+88 */
@@ -3140,7 +3135,7 @@ h3, p {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#0b0b0b", endColorstr="#1e1f1f",GradientType=0 ); /* IE6-9 */
 }
 .mobile_menu ul li.current_page_item a {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 
 ul.member_menu {
@@ -3180,7 +3175,7 @@ ul.member_menu > li.open {
   padding-bottom: 0 !important;
 }
 ul.member_menu > li.current-menu-parent > a {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 ul.member_menu > li.current-menu-parent ul li.current_page_item a:hover {
   color: #fff;
@@ -3260,7 +3255,7 @@ ul.member_menu > li ul.sub-menu li:after {
   content: "" !important;
 }
 ul.member_menu > li ul.sub-menu li:hover {
-  background: #ddb72e;
+  background: #f5bf04;
 }
 ul.member_menu > li ul.sub-menu li:hover a {
   color: #131313;
@@ -3319,7 +3314,7 @@ ul.member_menu > li ul.sub-menu li a:hover:before {
   background-size: 100%;
 }
 ul.member_menu > li ul.sub-menu li.current_page_item a {
-  background: #ddb72e;
+  background: #f5bf04;
   color: #131313 !important;
 }
 ul.member_menu > li ul.sub-menu li.current_page_item a:hover {
@@ -3390,7 +3385,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #email_join {
   width: 40%;
   text-align: center;
-  background: #ddb72e;
+  background: #f5bf04;
   padding: 20px 5px 150px;
   color: #131313;
   max-width: 900px;
@@ -3429,7 +3424,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 100%;
   font-size: 34px;
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
 }
@@ -3472,7 +3468,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  background: #ddb72e;
+  background: #f5bf04;
   position: relative;
 }
 #email_join #mc_embed_signup:last-child {
@@ -3550,7 +3546,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #email_join #mc_embed_signup input[type=submit] {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 20px;
   width: 20%;
   color: #fff;
@@ -3559,7 +3556,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: inline-block;
   margin-left: -4px;
   border: none;
-  background: #f20f2b;
+  background: #ff000a;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 4px;
@@ -3612,7 +3609,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .sidebar .widget-title {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   color: #fff;
   padding: 8px 10px;
   background: #ddb72e;
@@ -3674,7 +3672,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: 2px solid #cdbb77;
 }
 .sidebar #bbp-search-form .button {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   border: none;
   width: 30%;
   padding: 4px 0 5px;
@@ -3850,7 +3849,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #global_footer .content_wrap .columns_wrap h3 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-weight: lighter;
   margin-top: 0;
   text-transform: uppercase;
@@ -3889,7 +3889,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #global_footer .content_wrap .columns_wrap .column a {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #958c8c;
   font-size: 14px;
 }
@@ -3926,7 +3927,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin: 0;
 }
 #global_footer .content_wrap .columns_wrap .column li {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #958c8c;
   font-size: 14px;
 }
@@ -3963,8 +3965,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #global_footer .content_wrap .columns_wrap .column .icon_wrap .row a {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #fff;
   display: flex;
   flex-direction: row;
@@ -4105,7 +4107,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #global_footer .copy ul li:after {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   content: "|";
   position: absolute;
   right: -4px;
@@ -4127,7 +4130,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   content: none;
 }
 #global_footer .copy ul li a {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #958c8c;
 }
 
@@ -4180,7 +4184,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   font-size: 45px;
   text-transform: uppercase;
   text-shadow: 1px 4px 2px rgb(0, 0, 0);
-  color: #ddb72e;
+  color: #f5bf04;
   line-height: 1.2;
 }
 @media screen and (max-width: 1023px) {
@@ -4284,7 +4288,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 100%;
 }
 .home_section .hero .content_wrap .text_wrap h4 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 30px;
   margin: 0;
 }
@@ -4304,7 +4309,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .hero .content_wrap .text_wrap p {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 16px;
   margin: 10px 0;
 }
@@ -4391,7 +4397,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .motto .content_wrap h3 {
-  font-family: "robotoitalic", sans-serif;
+  font-family: "interitalic", sans-serif;
+  font-weight: 300;
   font-size: 24px;
   margin: 5px 0;
   line-height: 2;
@@ -4464,8 +4471,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .lessons h2 span {
-  font-family: "robotobolditalic", sans-serif;
-  color: #ddb72e;
+  font-family: "interbolditalic", sans-serif;
+  font-weight: 700;
+  color: #f5bf04;
 }
 .home_section .lessons .row {
   margin-bottom: 20px;
@@ -4518,7 +4526,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .video {
-  background: #ddb72e;
+  background: #f5bf04;
   padding: 60px 0 80px;
 }
 @media screen and (max-width: 768px) {
@@ -4553,7 +4561,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .video .column h2 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   margin-bottom: 30px;
   font-size: 30px;
   color: #131313;
@@ -4590,7 +4599,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .home_section .video .column p.bold {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   margin-top: 20px;
   font-size: 20px;
   text-align: center;
@@ -4616,7 +4626,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .page_content_home a.fancybox {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   text-align: center;
   display: inline-block;
@@ -4636,14 +4646,15 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .join_text {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   text-align: center;
   color: #131313;
   margin-top: 40px;
 }
 .join_text a {
   text-transform: uppercase;
-  color: #f20f2b;
+  color: #ff000a;
 }
 
 .pmpro_login_wrap, .pmpro_lost_password_wrap {
@@ -4668,9 +4679,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 0;
 }
 .pmpro_login_wrap .pmpro_actions_nav a, .pmpro_lost_password_wrap .pmpro_actions_nav a {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 768px) {
   .pmpro_login_wrap .pmpro_actions_nav a, .pmpro_lost_password_wrap .pmpro_actions_nav a {
@@ -4686,7 +4697,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1) {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   background: #131313;
   padding: 8px 24px 12px;
   color: #fff;
@@ -4715,12 +4727,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 
 #loginform, #password-lost-form-wrap, #red_registration_form {
   float: none;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 15px;
   margin: 100px auto;
   text-align: left;
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 40px 40px 60px 40px;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
@@ -4748,7 +4760,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   background: #131313;
   padding: 8px 24px 12px;
   color: #fff;
@@ -4781,8 +4794,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: none;
 }
 #loginform label, #password-lost-form-wrap label, #red_registration_form label {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #131313;
   line-height: 22px;
   margin-bottom: 8px;
@@ -4810,7 +4823,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 #password-lost-form-wrap a {
-  color: #f20f2b;
+  color: #ff000a;
   font-size: 18px;
   width: 100%;
   float: left;
@@ -4822,7 +4835,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 
 .confirmation_page {
   margin: 100px 0;
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 40px 40px 80px;
   text-align: center;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
@@ -4852,7 +4865,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .confirmation_page .heading span {
-  color: #f20f2b;
+  color: #ff000a;
 }
 .confirmation_page .button_wrap {
   margin-top: 20px;
@@ -4891,7 +4904,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .confirmation_page ul li span {
   display: inline-block;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 768px) {
   .confirmation_page ul li span {
@@ -4927,7 +4940,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 25%;
   float: left;
   border-right: 1px solid #c8c8c8;
-  background: #f1f1f1;
+  background: #ebebeb;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -4989,24 +5002,27 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 5px;
 }
 #pmpro_levels_table .highlight p {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   display: inline-block;
   margin: 0;
   font-size: 18px;
   vertical-align: top;
 }
 #pmpro_levels_table .column_heading {
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   padding: 15px 5px 10px;
 }
 #pmpro_levels_table .column_heading h2 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 27px;
   margin-top: 0;
 }
 #pmpro_levels_table .column_heading p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 14px;
   margin: 0;
 }
@@ -5015,13 +5031,15 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 0 10px 20px;
 }
 #pmpro_levels_table .cost h3 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   display: inline-block;
   font-size: 30px;
   margin: 20px 0;
 }
 #pmpro_levels_table .cost p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 14px;
   color: #958c8c;
   margin-bottom: 0;
@@ -5036,7 +5054,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 #pmpro_levels_table .description {
   padding: 20px 10px;
-  background: #f1f1f1;
+  background: #ebebeb;
 }
 #pmpro_levels_table .description ul {
   margin: 0;
@@ -5083,7 +5101,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .videos h3 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 30px;
   text-transform: uppercase;
   line-height: 1.2;
@@ -5100,7 +5119,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .videos p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 16px;
 }
 @media screen and (max-width: 768px) {
@@ -5147,7 +5167,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .videos .video_wrap .button {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   display: block;
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -5266,11 +5287,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page h2 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   display: inline-block;
   font-size: 30px;
-  color: #f20f2b;
-  border-bottom: 1px solid #f20f2b;
+  color: #ff000a;
+  border-bottom: 1px solid #ff000a;
   padding-bottom: 15px;
   margin-bottom: 40px;
 }
@@ -5317,7 +5339,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 82.9403914003%;
   text-align: center;
-  background: #f20f2b;
+  background: #ff000a;
   padding: 18px 20px;
   border-radius: 4px;
   border-bottom-left-radius: 0;
@@ -5421,10 +5443,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .video_list .right_column .watch {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   padding: 18px 0px;
   width: 70%;
-  background: #f1f1f1;
+  background: #ebebeb;
   font-size: 24px;
   float: left;
   color: #131313;
@@ -5538,19 +5561,20 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 @keyframes textColor {
   from {
-    color: #ddb72e;
+    color: #f5bf04;
   }
   to {
-    color: #f20f2b;
+    color: #ff000a;
   }
 }
 .lessons_page .video_list .panel .upgrade {
   padding-bottom: 20px;
 }
 .lessons_page .video_list .panel .upgrade a {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 22px;
-  color: #ddb72e;
+  color: #f5bf04;
   text-decoration: underline;
   font-weight: bolder;
   animation-name: textColor;
@@ -5572,9 +5596,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding-bottom: 20px;
 }
 .lessons_page .video_list .panel .link_wrap a {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 24px;
-  color: #f20f2b;
+  color: #ff000a;
   text-decoration: underline;
 }
 @media screen and (max-width: 768px) {
@@ -5623,7 +5648,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .video_list .panel .file a {
-  color: #f20f2b;
+  color: #ff000a;
   font-size: 18px;
   text-transform: uppercase;
 }
@@ -5644,7 +5669,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid #ebebeb;
 }
 @media screen and (max-width: 550px) {
   .lessons_page .video_list .panel .share_buttons {
@@ -5731,7 +5756,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .video_list .panel .share_buttons .social_button_wrap .page {
-  background: #f20f2b;
+  background: #ff000a;
 }
 .lessons_page .video_list .panel .share_buttons .social_button_wrap .page:hover {
   background: #bc0a20;
@@ -5753,7 +5778,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 
 #members_only_video_pop {
   display: none;
-  background: #ddb72e;
+  background: #f5bf04;
   padding: 40px;
   text-align: center;
 }
@@ -5821,7 +5846,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .simplefavorite-button {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   border: none;
   opacity: 1 !important;
   padding: 5px 10px;
@@ -5852,9 +5878,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   float: left;
 }
 .lessons_page .top_content .simplefavorites-clear {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 14px;
-  color: #f20f2b;
+  color: #ff000a;
   border: none;
   text-decoration: underline;
   float: right;
@@ -5870,11 +5897,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #c30b21;
 }
 .lessons_page .top_content button[disabled=disabled] {
-  color: #f1f1f1;
+  color: #ebebeb;
   text-decoration: none;
 }
 .lessons_page .top_content button[disabled=disabled]:hover {
-  color: #f1f1f1;
+  color: #ebebeb;
 }
 .lessons_page #video_player.open {
   margin-bottom: 40px;
@@ -5934,9 +5961,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page #video_player .replace_link a, .lessons_page .course_video_player .replace_link a {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 16px;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 768px) {
   .lessons_page #video_player .replace_link a, .lessons_page .course_video_player .replace_link a {
@@ -5965,7 +5993,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page #video_player .links_wrap a:hover, .lessons_page .course_video_player .links_wrap a:hover {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 .lessons_page #video_player .links_wrap a.keyboard_link, .lessons_page .course_video_player .links_wrap a.keyboard_link {
   margin-right: 0;
@@ -6107,7 +6135,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: none;
 }
 .lessons_page .video_list .column h4 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   margin: 4px 0;
   font-size: 14px;
   line-height: 1.2;
@@ -6165,7 +6194,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background: #fff url(../images/icon-search.png) no-repeat;
   background-size: 22px;
   background-position: 98% 50%;
-  color: #827d7d;
+  color: #2a2a2a;
 }
 @media screen and (max-width: 768px) {
   .lessons_page .filter_controls .search_box input {
@@ -6218,8 +6247,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2%;
   font-size: 14px;
   cursor: pointer;
-  color: #f1f1f1;
-  border-bottom: 1px solid #f1f1f1;
+  color: #ebebeb;
+  border-bottom: 1px solid #ebebeb;
   padding-bottom: 2px;
   padding-top: 5px;
 }
@@ -6229,18 +6258,18 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .filter_controls .filter_list li:hover {
-  color: #ddb72e;
-  border-bottom: 1px solid #ddb72e;
+  color: #f5bf04;
+  border-bottom: 1px solid #f5bf04;
 }
 @media screen and (max-width: 1023px) {
   .lessons_page .filter_controls .filter_list li:hover {
-    color: #f1f1f1;
-    border-bottom: 1px solid #f1f1f1;
+    color: #ebebeb;
+    border-bottom: 1px solid #ebebeb;
   }
 }
 .lessons_page .filter_controls .filter_list li.active {
-  color: #ddb72e;
-  border-bottom: 1px solid #ddb72e;
+  color: #f5bf04;
+  border-bottom: 1px solid #f5bf04;
 }
 .lessons_page .filtr-container {
   overflow: hidden;
@@ -6379,7 +6408,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 93.1761565601%;
   position: relative;
   background: #fff;
-  border: 1px solid #827d7d;
+  border: 1px solid #2a2a2a;
   text-align: center;
 }
 #comments .comment-content:last-child {
@@ -6398,8 +6427,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 #comments .comment-content .comment_heading {
   padding: 20px 20px 10px 20px;
-  background: #f1f1f1;
-  color: #f20f2b;
+  background: #ebebeb;
+  color: #ff000a;
   text-align: left;
 }
 @media screen and (max-width: 768px) {
@@ -6456,10 +6485,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #comments .comment-content .comment-metadata a {
   float: left;
   width: 100%;
-  color: #f20f2b;
+  color: #ff000a;
 }
 #comments .comment-content .comment-metadata .fn {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   float: left;
   line-height: 1.1;
   font-size: 16px;
@@ -6496,13 +6526,14 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: inline-block;
 }
 #comments .reply .reply_button a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
 }
 #comments .reply .reply_button a:hover {
@@ -6542,9 +6573,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: none;
 }
 #comments .comment_submit input {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   float: left;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   font-size: 16px;
   padding: 7px 15px;
@@ -6658,7 +6690,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .comment-awaiting-moderation {
-  font-family: "robotobold", sans-serif !important;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   position: absolute;
   top: 0;
   left: 0;
@@ -6667,7 +6700,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   text-align: center;
   background: rgba(0, 0, 0, 0.6);
   font-size: 24px !important;
-  color: #ddb72e;
+  color: #f5bf04;
   line-height: 1.4;
   padding-top: 5% !important;
 }
@@ -6804,7 +6837,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page.courses .row {
   padding: 40px 0;
-  border-bottom: 1px solid #827d7d;
+  border-bottom: 1px solid #2a2a2a;
 }
 .lessons_page.courses .row:first-child {
   padding-top: 0;
@@ -6908,7 +6941,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page.courses .row:last-child {
-  border-bottom: 1px solid #827d7d;
+  border-bottom: 1px solid #2a2a2a;
 }
 
 .video_container {
@@ -6944,8 +6977,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .ld-course-list-content .ld-course-list-items .ld_course_grid .btn-primary {
-  background-color: #f20f2b;
-  border-color: #f20f2b;
+  background-color: #ff000a;
+  border-color: #ff000a;
 }
 .ld-course-list-content .ld-course-list-items .ld_course_grid .btn-primary:hover {
   background-color: #880415;
@@ -6954,11 +6987,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   height: 100%;
 }
 .ld-course-list-content .ld-course-list-items .ld_course_grid .thumbnail.course .ld_course_grid_price.ribbon-enrolled {
-  background: #f20f2b;
+  background: #ff000a;
 }
 
 .learndash-wrapper input[type=button], .learndash-wrapper .ld-button, .learndash-wrapper input[type=submit] {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   border-radius: 4px !important;
   -webkit-border-radius: 4px !important;
@@ -6982,7 +7015,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .learndash-wrapper .ld-item-list .ld-item-list-item {
-  border: 2px solid #f20f2b;
+  border: 2px solid #ff000a;
 }
 .learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview .ld-status-icon {
   margin-top: 0;
@@ -6994,25 +7027,25 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 0;
 }
 .learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview:hover {
-  background-color: #f1f1f1;
+  background-color: #ebebeb;
 }
 .learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview a {
   padding: 20px;
 }
 .learndash-wrapper .ld-item-list .ld-item-list-item .ld-item-list-item-preview a:hover {
-  background-color: #f1f1f1;
+  background-color: #ebebeb;
 }
 .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label:focus-within {
   border-color: #880415;
 }
 .learndash-wrapper .wpProQuiz_content .wpProQuiz_questionListItem label.is-selected {
-  border-color: #f20f2b;
+  border-color: #ff000a;
 }
 .learndash-wrapper .wpProQuiz_content .wpProQuiz_question_text {
   margin-top: 20px;
 }
 .learndash-wrapper .wpProQuiz_content .wpProQuiz_question_text p {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   font-size: 24px;
 }
@@ -7049,7 +7082,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 .banner_wrap .title_wrap h3 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   margin: 0;
   text-align: center;
@@ -7095,7 +7128,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-radius: 8px;
 }
 .banner_wrap ul li a.image_link p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   color: #131313;
   position: absolute;
@@ -7117,7 +7150,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .passions h2 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
 }
 .passions .top_section {
@@ -7178,12 +7211,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .passions .photo_section.gray {
-  background: #f1f1f1;
+  background: #ebebeb;
 }
 .passions .photo_section h2 {
   display: inline-block;
-  color: #f20f2b;
-  border-bottom: 1px solid #f20f2b;
+  color: #ff000a;
+  border-bottom: 1px solid #ff000a;
   padding-bottom: 15px;
   font-size: 30px;
   margin-bottom: 40px;
@@ -7253,8 +7286,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .passions .photo_section .image_wrap .text {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   display: none;
   position: absolute;
   width: 100%;
@@ -7326,7 +7359,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .contact_us .top_section h2 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 30px;
   color: #131313;
   text-transform: uppercase;
@@ -7367,7 +7401,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .contact_us .top_section form {
   position: relative;
-  background: #f1f1f1;
+  background: #ebebeb;
   width: 54%;
   margin: 0 auto;
   padding: 30px;
@@ -7389,7 +7423,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .contact_us .top_section form .wpcf7-response-output {
-  color: #f20f2b;
+  color: #ff000a;
   margin-top: 40px;
   position: absolute;
   width: 100%;
@@ -7401,8 +7435,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .contact_us .top_section form div.wpcf7-validation-errors {
-  color: #f20f2b;
-  border-color: #f20f2b;
+  color: #ff000a;
+  border-color: #ff000a;
 }
 .contact_us .top_section form img {
   width: auto;
@@ -7437,7 +7471,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .contact_us .top_section form input[type=submit] {
   width: auto;
   color: #fff;
-  background: #f20f2b;
+  background: #ff000a;
   padding: 0 35px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -7468,7 +7502,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   top: 20px;
 }
 .contact_us .bottom_section {
-  background: #ddb72e;
+  background: #f5bf04;
   padding: 60px 0;
 }
 @media screen and (max-width: 768px) {
@@ -7523,7 +7557,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 .contact_us .bottom_section .column .content_wrap h3 {
-  font-family: "robotomediumitalic", sans-serif;
+  font-family: "intermediumitalic", sans-serif;
+  font-weight: 500;
   color: #131313;
   margin: 0 0 10px;
   font-size: 24px;
@@ -7535,7 +7570,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 #loginform {
-  background: #f1f1f1;
+  background: #ebebeb;
 }
 
 .member {
@@ -7565,7 +7600,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .member h3 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   font-size: 30px;
   text-transform: uppercase;
@@ -7583,7 +7618,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .member p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 16px;
 }
@@ -7620,7 +7655,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 48.821174201%;
   padding: 20px;
-  background: #f1f1f1;
+  background: #ebebeb;
   text-align: left;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -7649,7 +7684,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_account .pmpro_box h3 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 20px;
   text-transform: none;
@@ -7680,9 +7715,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_account .pmpro_box .content_wrap p {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 1023px) {
   #pmpro_account .pmpro_box .content_wrap p {
@@ -7695,7 +7730,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_account .pmpro_box .content_wrap li {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   margin: 5px 0;
 }
@@ -7710,7 +7745,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_account .pmpro_box .content_wrap li strong {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 #pmpro_account .pmpro_box td {
@@ -7728,13 +7763,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   font-size: 15px;
 }
 #pmpro_account .pmpro_box td p.label {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   color: #131313;
   margin-right: 10px;
 }
 #pmpro_account .pmpro_box td p strong {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
 }
 #pmpro_account .pmpro_box td p.status {
@@ -7802,12 +7837,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .pmpro_member_directory_search.search-form input[type=submit] {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   font-size: 18px;
   position: relative;
   text-indent: 0;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   float: left;
   width: 15%;
@@ -7839,7 +7874,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #pmpro_cancel .content_wrap {
   width: auto;
   display: inline-block;
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 40px 60px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -7870,7 +7905,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 #pmpro_cancel .content_wrap h4 {
   font-size: 16px;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 1023px) {
   #pmpro_cancel .content_wrap h4 {
@@ -7883,7 +7918,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_cancel .content_wrap h3 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 20px;
 }
@@ -7910,7 +7945,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   left: 11px;
   top: -2px;
   font-size: 28px;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 1023px) {
   #pmpro_cancel .content_wrap ul li:before {
@@ -7923,7 +7958,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_cancel .content_wrap p {
-  color: #f20f2b;
+  color: #ff000a;
   font-size: 18px;
   padding-left: 28px;
 }
@@ -7961,13 +7996,14 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_cancel .content_wrap .yellow {
-  background: #ddb72e !important;
+  background: #f5bf04 !important;
   margin-top: 15px;
 }
 
 .forum_wrapper {
   color: #131313;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 .forum_wrapper .mejs-overlay {
   display: none;
@@ -8074,8 +8110,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 .forum_wrapper .bbp-breadcrumb a {
-  font-family: "robotomedium", sans-serif;
-  color: #827d7d;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
+  color: #2a2a2a;
   font-size: 13px;
 }
 @media screen and (max-width: 768px) {
@@ -8090,11 +8127,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: none;
 }
 .forum_wrapper .bbp-breadcrumb .bbp-breadcrumb-sep {
-  color: #827d7d;
+  color: #2a2a2a;
   font-size: 14px;
 }
 .forum_wrapper .bbp-breadcrumb .bbp-breadcrumb-current {
-  color: #f20f2b;
+  color: #ff000a;
   font-size: 13px;
 }
 .forum_wrapper #bbpress-forums {
@@ -8107,7 +8144,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -webkit-border-bottom-right-radius: 4px;
   -moz-border-radius-bottomleft: 4px;
   -moz-border-radius-bottomright: 4px;
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 4px 15px;
 }
 .forum_wrapper #bbpress-forums .bbp-reply-header a {
@@ -8116,7 +8153,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .forum_wrapper #bbpress-forums #subscription-toggle {
   float: right;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 @media screen and (max-width: 550px) {
   .forum_wrapper #bbpress-forums #subscription-toggle {
@@ -8125,7 +8163,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums #subscription-toggle a {
-  color: #f20f2b;
+  color: #ff000a;
   font-size: 16px;
 }
 @media screen and (max-width: 768px) {
@@ -8165,10 +8203,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .forum_wrapper #bbpress-forums li.bbp-header {
   line-height: 1;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   padding: 12px 0 12px 12px;
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 16px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -8328,7 +8367,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: none;
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-info {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   width: 40%;
   text-transform: none;
 }
@@ -8341,12 +8381,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-info .title_wrap p {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   float: left;
   width: auto;
   display: inline-block;
   padding: 0 6px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   font-size: 12px;
   margin-bottom: 0;
@@ -8372,7 +8413,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   float: left;
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-info .bbp-forum-title {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 @media screen and (max-width: 768px) {
@@ -8396,7 +8437,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-info li.bbp-forum-content {
   font-size: 14px;
-  color: #827d7d;
+  color: #2a2a2a;
 }
 @media screen and (max-width: 1023px) {
   .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-info li.bbp-forum-content {
@@ -8447,7 +8488,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-freshness a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   position: relative;
   float: left;
@@ -8473,10 +8514,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-freshness a:last-child {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: #f20f2b;
+  color: #ff000a;
   position: absolute;
   top: 0;
   left: 0;
@@ -8523,13 +8564,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-title p {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   float: left;
   width: auto;
   display: inline-block;
   padding: 0 6px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   font-size: 12px;
   margin-bottom: 0;
@@ -8586,7 +8627,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: 1px solid #c8c8c8;
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-freshness a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   position: relative;
   display: inline-block;
@@ -8617,10 +8658,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-freshness a:last-child {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: #f20f2b;
+  color: #ff000a;
   position: absolute;
   left: 0;
   top: 0;
@@ -8735,7 +8776,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums .bbp-forum-description a, .forum_wrapper #bbpress-forums .bbp-topic-description a {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   position: relative;
 }
@@ -8764,7 +8805,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -moz-border-radius: 4px;
 }
 .forum_wrapper #bbpress-forums .bbp-forum-description a:nth-child(2), .forum_wrapper #bbpress-forums .bbp-topic-description a:nth-child(2) {
-  color: #f20f2b !important;
+  color: #ff000a !important;
 }
 .forum_wrapper #bbpress-forums .bbp-forum-description a:last-child, .forum_wrapper #bbpress-forums .bbp-topic-description a:last-child {
   width: 100%;
@@ -8862,7 +8903,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author > p a {
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   padding: 7px 12px;
   border-radius: 4px;
@@ -8913,7 +8954,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   float: left;
   clear: none;
   font-size: 16px;
-  color: #f20f2b;
+  color: #ff000a;
   margin: 12px 5px 0;
 }
 @media screen and (max-width: 1023px) {
@@ -9249,13 +9290,14 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums #bbp-user-wrapper #bbp-user-body.profile_body > p a, .forum_wrapper #bbpress-forums #bbp-user-wrapper .profile_content.profile_body > p a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
 }
 .forum_wrapper #bbpress-forums #bbp-user-wrapper #bbp-user-body.profile_body > p a:hover, .forum_wrapper #bbpress-forums #bbp-user-wrapper .profile_content.profile_body > p a:hover {
@@ -9314,9 +9356,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 .forum_wrapper .bbp-submit-wrapper button {
-  font-family: "robotoregular";
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #fff;
-  background: #f20f2b;
+  background: #ff000a;
   padding: 5px 20px 7px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -9388,7 +9431,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-family: "robotoitalic";
+  font-family: "interitalic", sans-serif;
+  font-weight: 300;
   text-align: left;
   font-size: 12px;
   margin: 0;
@@ -9454,7 +9498,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-left: 0;
 }
 .rtm-tabs li a {
-  font-family: "robotoregular";
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #131313;
 }
 @media screen and (max-width: 768px) {
@@ -9696,7 +9741,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .subscribe_all input {
-  font-family: "robotoblack", sans-serif;
+  font-family: "interextrabold", sans-serif;
+  font-weight: 900;
   background: #ddb72e;
   color: #fff;
   border: none;
@@ -9716,7 +9762,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .form_wrapper {
-  background: #f1f1f1;
+  background: #ebebeb;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
   padding: 40px;
@@ -9764,7 +9810,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 100%;
 }
 .form_wrapper .top_section p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   border-bottom: 1px solid #c8c8c8;
   display: inline-block;
   padding-bottom: 15px;
@@ -9856,7 +9903,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .form_wrapper .top_section .white_box p {
-  font-family: "robotobolditalic", sans-serif;
+  font-family: "interbolditalic", sans-serif;
+  font-weight: 700;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -9882,13 +9930,14 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -webkit-justify-content: center;
 }
 .form_wrapper .top_section .sig p {
-  font-family: "robotomediumitalic", sans-serif;
+  font-family: "intermediumitalic", sans-serif;
+  font-weight: 500;
   display: inline-block;
   margin-bottom: 0;
   margin-right: 10px;
   padding-top: 18px;
   vertical-align: top;
-  color: #f20f2b;
+  color: #ff000a;
   border: none;
   float: none;
 }
@@ -9987,7 +10036,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .form_wrapper .column h3 {
   font-size: 0.98em;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   text-align: center;
   text-transform: uppercase;
@@ -10006,7 +10055,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding-top: 20px;
 }
 .form_wrapper .column .column_content {
-  border: 5px solid #f20f2b;
+  border: 5px solid #ff000a;
   background: #fff;
   border-radius: 4px;
   -webkit-border-radius: 4px;
@@ -10026,7 +10075,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    border-bottom: 5px solid #f20f2b;
+    border-bottom: 5px solid #ff000a;
   }
 }
 @media screen and (max-width: 768px) {
@@ -10063,7 +10112,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .form_wrapper .column .column_content .row {
   padding: 40px 20px;
-  border-bottom: 5px solid #f20f2b;
+  border-bottom: 5px solid #ff000a;
   background: #fff;
 }
 @media screen and (max-width: 1023px) {
@@ -10085,7 +10134,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     display: block;
     margin-right: 7.4229703521%;
     width: 100%;
-    border-bottom: 5px solid #f20f2b;
+    border-bottom: 5px solid #ff000a;
   }
   .form_wrapper .column .column_content .row:last-child {
     margin-right: 0;
@@ -10093,7 +10142,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 @media screen and (max-width: 1023px) {
   .form_wrapper .column .column_content .row:first-child {
-    border-right: 1px solid #f20f2b;
+    border-right: 1px solid #ff000a;
   }
 }
 @media screen and (max-width: 768px) {
@@ -10163,7 +10212,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .form_wrapper .column .column_content .row .copy h3 {
   font-size: 16px;
   margin: 0;
-  color: #f20f2b;
+  color: #ff000a;
   background: none;
   text-align: left;
   padding: 0;
@@ -10241,8 +10290,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   font-size: 11px;
 }
 .form_wrapper .column p.terms a {
-  font-family: "robotobold", sans-serif;
-  color: #f20f2b;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  color: #ff000a;
 }
 .form_wrapper .column #pmpro_processing_message {
   float: left;
@@ -10254,7 +10304,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 .form_wrapper .column input[type=submit] {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   width: 100%;
   float: left;
   border: none;
@@ -10288,7 +10339,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .form_wrapper .bottom_section p {
-  font-family: "robotomediumitalic", sans-serif;
+  font-family: "intermediumitalic", sans-serif;
+  font-weight: 500;
   color: #958c8c;
   font-size: 20px;
   line-height: 1.4;
@@ -10315,7 +10367,7 @@ form.pmpro_form select {
 
 .red_border_wrap {
   margin: 0;
-  border: 5px solid #f20f2b;
+  border: 5px solid #ff000a;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -10365,7 +10417,7 @@ form.pmpro_form .pmpro_checkout-fields div {
   padding: 0 10px !important;
 }
 .pmpro_form label span {
-  color: #f20f2b;
+  color: #ff000a;
   margin-left: 5px;
   font-size: 18px;
 }
@@ -10479,7 +10531,7 @@ form.pmpro_form .pmpro_checkout-fields div {
 .pmpro_form #pmpro_payment_method h3 {
   font-size: 18px;
   background: none;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 768px) {
   .pmpro_form #pmpro_payment_method h3 {
@@ -10526,7 +10578,8 @@ form.pmpro_form .pmpro_checkout-fields div {
   }
 }
 .pmpro_form #pmpro_payment_method .pmpro_checkout-fields a {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   float: left;
   color: #131313;
 }
@@ -10541,7 +10594,7 @@ form.pmpro_form .pmpro_checkout-fields div {
 .pmpro_form #pmpro_billing_address_fields h3 {
   font-size: 18px;
   background: none;
-  color: #f20f2b;
+  color: #ff000a;
   padding-bottom: 0;
 }
 @media screen and (max-width: 768px) {
@@ -10570,7 +10623,7 @@ form.pmpro_form .pmpro_checkout-fields div {
 .pmpro_form #pmpro_payment_information_fields h3 {
   font-size: 18px;
   background: none;
-  color: #f20f2b;
+  color: #ff000a;
   padding-bottom: 0;
   text-align: center;
 }
@@ -10681,7 +10734,7 @@ form.pmpro_form .pmpro_checkout-fields div {
 
 .billing_content {
   margin: 100px 0;
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 40px;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
@@ -10793,7 +10846,7 @@ form.pmpro_form #other_discount_code.input {
 .discount_form input[type=button] {
   width: 24%;
   float: left;
-  background: #f20f2b !important;
+  background: #ff000a !important;
   color: #fff !important;
   margin-left: 0 !important;
   text-decoration: none !important;
@@ -10828,8 +10881,9 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 #other_discount_code_p a, #other_discount_code_p button {
-  color: #f20f2b !important;
-  font-family: "robotobolditalic", sans-serif !important;
+  color: #ff000a !important;
+  font-family: "interbolditalic", sans-serif;
+  font-weight: 700;
 }
 
 #pmpro_message {
@@ -10838,7 +10892,7 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 2.3576515979%;
   width: 100%;
   background: #f8e59f;
-  color: #f20f2b;
+  color: #ff000a;
   margin: 0;
   text-align: center;
 }
@@ -10869,13 +10923,14 @@ form.pmpro_form #other_discount_code.input {
 #pmpro_pricing_fields {
   padding: 20px;
   text-align: left;
-  border-bottom: 4px solid #f20f2b;
+  border-bottom: 4px solid #ff000a;
 }
 #pmpro_pricing_fields h3, #pmpro_pricing_fields #pmpro_level_cost, #pmpro_pricing_fields .no_show {
   display: none;
 }
 #pmpro_pricing_fields #other_discount_code_tr label {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   width: 100%;
   float: left;
   font-size: 14px;
@@ -10927,7 +10982,8 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .member_home {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   text-align: center;
   padding-bottom: 40px;
   margin: 40px 0;
@@ -10938,7 +10994,8 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 2.3576515979%;
   width: 100%;
   font-size: 30px;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   margin-bottom: 20px;
 }
 .member_home h2:last-child {
@@ -10956,7 +11013,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .member_home .content_wrap {
-  background: #f1f1f1;
+  background: #ebebeb;
   padding: 30px;
   box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
@@ -11004,7 +11061,7 @@ form.pmpro_form #other_discount_code.input {
 }
 .member_home .content_wrap .row .info_wrap a {
   text-transform: uppercase;
-  color: #f20f2b;
+  color: #ff000a;
   padding-left: 10px;
   position: relative;
   margin-right: 20px;
@@ -11030,7 +11087,7 @@ form.pmpro_form #other_discount_code.input {
   height: 0;
   left: 0;
   top: 5px;
-  border-left: 5px solid #f20f2b;
+  border-left: 5px solid #ff000a;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
 }
@@ -11047,7 +11104,7 @@ form.pmpro_form #other_discount_code.input {
   font-size: 2rem;
   line-height: 1;
   text-transform: uppercase;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 1023px) {
   .member_home .content_wrap .row .info_wrap h4 {
@@ -11091,7 +11148,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .member_home .top_section .text_column span {
-  color: #f20f2b;
+  color: #ff000a;
 }
 .member_home .top_section .text_column h4 {
   font-family: "calvertmtbold2", sans-serif;
@@ -11118,13 +11175,13 @@ form.pmpro_form #other_discount_code.input {
   margin-bottom: 20px;
 }
 .member_home .top_section .text_column p span {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 .member_home .top_section .text_column a {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
-  color: #f20f2b;
+  color: #ff000a;
   position: relative;
 }
 .member_home .top_section .text_column a:hover {
@@ -11154,9 +11211,9 @@ form.pmpro_form #other_discount_code.input {
 .member_home .bottom_section h3 {
   font-size: 2rem;
   text-align: left;
-  border-bottom: 1px solid #f20f2b;
+  border-bottom: 1px solid #ff000a;
   padding-bottom: 5px;
-  color: #f20f2b;
+  color: #ff000a;
 }
 @media screen and (max-width: 768px) {
   .member_home .bottom_section h3 {
@@ -11240,7 +11297,7 @@ form.pmpro_form #other_discount_code.input {
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
-  border: 4px solid #ddb72e;
+  border: 4px solid #f5bf04;
 }
 @media screen and (max-width: 768px) {
   .profile_wrap .avatar_wrap img {
@@ -11254,7 +11311,7 @@ form.pmpro_form #other_discount_code.input {
   flex-wrap: nowrap;
   width: 100%;
   padding: 40px;
-  background: #f1f1f1;
+  background: #ebebeb;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
 }
@@ -11302,7 +11359,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .profile_wrap .image_wrap label {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #000;
   width: auto;
   float: left;
@@ -11359,14 +11417,14 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 0;
 }
 .profile_wrap form .pmpro_btn {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   border: none;
 }
@@ -11472,7 +11530,7 @@ form.pmpro_form #other_discount_code.input {
   display: none;
 }
 .profile_wrap form .pmpro_submit input {
-  background-color: #f20f2b;
+  background-color: #ff000a;
   color: #fff;
   margin-bottom: 0;
 }
@@ -11543,13 +11601,13 @@ form.pmpro_form #other_discount_code.input {
   background: #ddb72e;
 }
 .profile_wrap .avatar_upload {
-  border-left: 1px solid #f20f2b;
+  border-left: 1px solid #ff000a;
   padding-top: 10px;
 }
 @media screen and (max-width: 1023px) {
   .profile_wrap .avatar_upload {
     border-left: none;
-    border-top: 1px solid #f20f2b;
+    border-top: 1px solid #ff000a;
     margin-top: 40px;
   }
 }
@@ -11577,7 +11635,7 @@ form.pmpro_form #other_discount_code.input {
   font-size: 24px;
 }
 .profile_wrap .avatar_upload #basic-user-avatar-form input[type=submit] {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
@@ -11585,7 +11643,7 @@ form.pmpro_form #other_discount_code.input {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   height: 40px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   border: none;
   margin-bottom: 0;
@@ -11655,7 +11713,7 @@ form.pmpro_form #other_discount_code.input {
   width: 100%;
   padding: 40px;
   margin: 80px 0;
-  background: #f1f1f1;
+  background: #ebebeb;
   box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
   border: 1px solid #c8c8c8;
   color: #131313;
@@ -11713,7 +11771,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .standard p .span {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
 }
 .standard ul {
   float: left;
@@ -11749,7 +11808,8 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   padding-left: 40px;
   margin-bottom: 20px;
 }
@@ -11898,7 +11958,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .not_member .column.guest h3 span {
-  color: #f20f2b;
+  color: #ff000a;
 }
 .not_member .column.guest .pmpro_login_wrap h2 {
   margin-bottom: 0;
@@ -11932,7 +11992,8 @@ form.pmpro_form #other_discount_code.input {
   margin-top: 20px;
 }
 .not_member .button_wrap a {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   display: inline-block;
   color: #131313;
   font-size: 20px;
@@ -11946,7 +12007,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .not_member h2 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: 34px;
   color: #131313;
@@ -11976,7 +12038,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .not_member .heading h3 span {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 .not_member .top_section {
   padding: 20px 10px;
@@ -11986,7 +12048,8 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 20px;
   margin-bottom: 10px;
   margin-top: 5px;
@@ -12005,12 +12068,13 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 0;
 }
 .not_member .top_section p span {
-  font-family: "robotobold", sans-serif;
-  color: #f20f2b;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  color: #ff000a;
   font-size: 26px;
 }
 .not_member .bottom_section .heading {
-  background: #f20f2b;
+  background: #ff000a;
 }
 .not_member .bottom_section .heading h3 {
   font-size: 20px;
@@ -12042,7 +12106,8 @@ form.pmpro_form #other_discount_code.input {
 }
 
 #fep-wrapper #fep-header {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   display: block;
   padding: 20px;
 }
@@ -12053,7 +12118,8 @@ form.pmpro_form #other_discount_code.input {
   color: #958c8c;
 }
 #fep-wrapper #fep-menu {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   padding: 10px 0;
 }
 #fep-wrapper #fep-menu #fep-menu-message_box, #fep-wrapper #fep-menu #fep-menu-newmessage, #fep-wrapper #fep-menu #fep-menu-settings, #fep-wrapper #fep-menu #fep-menu-announcements, #fep-wrapper #fep-menu #fep-menu-directory {
@@ -12068,7 +12134,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 #fep-wrapper #fep-menu #fep-menu-message_box:hover, #fep-wrapper #fep-menu #fep-menu-newmessage:hover, #fep-wrapper #fep-menu #fep-menu-settings:hover, #fep-wrapper #fep-menu #fep-menu-announcements:hover, #fep-wrapper #fep-menu #fep-menu-directory:hover, #fep-wrapper #fep-menu #fep-menu-message_box.fep-button-active, #fep-wrapper #fep-menu #fep-menu-newmessage.fep-button-active, #fep-wrapper #fep-menu #fep-menu-settings.fep-button-active, #fep-wrapper #fep-menu #fep-menu-announcements.fep-button-active, #fep-wrapper #fep-menu #fep-menu-directory.fep-button-active {
-  background: #f20f2b;
+  background: #ff000a;
 }
 #fep-wrapper .fep-field input {
   height: 40px;
@@ -12083,10 +12149,10 @@ form.pmpro_form #other_discount_code.input {
 #fep-wrapper #fep-result {
   z-index: 1;
   bottom: -18px;
-  background: #f1f1f1;
+  background: #ebebeb;
 }
 #fep-wrapper form .fep-button {
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff !important;
   font-size: 14px;
 }
@@ -12123,13 +12189,13 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 0;
 }
 #fep-wrapper .fep-success {
-  background: #ddb72e;
+  background: #f5bf04;
 }
 #fep-wrapper #fep-content {
   padding: 20px;
 }
 #fep-wrapper .fep-message .fep-message-title-heading, #fep-wrapper .fep-per-message .fep-message-title {
-  background-color: #f1f1f1;
+  background-color: #ebebeb;
 }
 #fep-wrapper #fep-content input[type=search] {
   height: 40px;
@@ -12194,7 +12260,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 #fep-wrapper .fep-odd-even > div:nth-child(odd) {
-  background-color: #f1f1f1;
+  background-color: #ebebeb;
 }
 #fep-wrapper .fep-column.fep-column-fep-cb {
   width: 4%;
@@ -12241,7 +12307,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 #fep-wrapper .fep-column.fep-column-send_message a {
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff !important;
   padding: 6px 10px;
   display: inline-block;
@@ -12262,11 +12328,11 @@ form.pmpro_form #other_discount_code.input {
   color: #131313;
 }
 #fep-wrapper .fep-pagination a {
-  color: #f20f2b;
+  color: #ff000a;
 }
 #fep-wrapper .fep-pagination li.active a {
-  background-color: #f1f1f1;
-  border-color: #f20f2b;
+  background-color: #ebebeb;
+  border-color: #ff000a;
 }
 #fep-wrapper .fep-avatar-p .fep-avatar-1 img, #fep-wrapper .fep-avatar-p .fep-avatar-2 img {
   width: 30px;
@@ -12316,7 +12382,7 @@ form.pmpro_form #other_discount_code.input {
 }
 .single_lesson .social_buttons a {
   position: relative;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   display: inline-block;
   color: #fff;
@@ -12434,7 +12500,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .video_section h2 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 36px;
   text-transform: uppercase;
   margin: 0 0 40px;
@@ -12452,7 +12519,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .quote_section {
-  background: #f1f1f1;
+  background: #ebebeb;
   margin: 40px 0 0;
   padding: 20px;
 }
@@ -12472,7 +12539,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .quote_section p {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   width: 95%;
   float: left;
   padding-left: 1%;
@@ -12509,7 +12577,8 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   width: 50%;
   float: left;
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 26px;
   margin-top: 15px;
   margin-bottom: 0;
@@ -12647,7 +12716,8 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 30px;
   text-transform: uppercase;
   line-height: 1.4;
@@ -12667,7 +12737,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .social_media_section .text_wrap h3 span {
-  color: #f20f2b;
+  color: #ff000a;
 }
 .single_lesson .social_media_section .text_wrap .button_wrap {
   display: block;
@@ -12681,7 +12751,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .social_media_section .text_wrap .button {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   padding: 14px 30px;
   font-size: 30px;
@@ -12742,7 +12813,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .bottom_section .button {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   display: block;
   width: 75%;
@@ -12789,7 +12861,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .bottom_section h3 {
-  font-family: "robotoitalic", sans-serif;
+  font-family: "interitalic", sans-serif;
+  font-weight: 300;
   font-size: 24px;
   margin-top: 15px;
 }
@@ -12805,7 +12878,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .bottom_section h4 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 40px;
   margin: 20px 0;
 }
@@ -12879,7 +12953,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_lesson .bottom_section .column p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 18px;
   margin: 0;
 }
@@ -12967,8 +13042,9 @@ form.pmpro_form #other_discount_code.input {
 }
 
 .must-log-in a {
-  font-family: "robotobold", sans-serif;
-  color: #f20f2b;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  color: #ff000a;
 }
 
 .testimonials header {
@@ -12987,7 +13063,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .testimonials .top_section p {
-  font-family: "robotolight", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 22px;
   line-height: 2;
   color: #131313;
@@ -13068,16 +13145,19 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .testimonials .row .column_two p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #958c8c;
   line-height: 2;
 }
 .testimonials .row .column_two p span {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   padding: 0 5px;
 }
 .testimonials .row .column_two p.name {
-  font-family: "robotoitalic", sans-serif;
+  font-family: "interitalic", sans-serif;
+  font-weight: 300;
   color: #131313;
   float: left;
   line-height: 1;
@@ -13089,9 +13169,10 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .testimonials .row .column_two p.date {
-  font-family: "robotoitalic", sans-serif;
+  font-family: "interitalic", sans-serif;
+  font-weight: 300;
   float: left;
-  color: #f20f2b;
+  color: #ff000a;
   line-height: 1;
 }
 @media screen and (max-width: 768px) {
@@ -13129,7 +13210,8 @@ form.pmpro_form #other_discount_code.input {
   margin-right: 0;
 }
 .testimonials .button_wrap .button {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
   font-size: 30px;
   padding: 7px 5%;
   text-transform: uppercase;
@@ -13249,7 +13331,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .video_submit #post_submit_form .acf-field p.description {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
 }
 @media screen and (max-width: 768px) {
   .video_submit #post_submit_form .acf-field p.description {
@@ -13257,20 +13340,21 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .video_submit #post_submit_form .acf-field p.description span {
-  color: #f20f2b;
+  color: #ff000a;
 }
 .video_submit #post_submit_form .acf-form-submit {
   display: inline-block;
   margin-left: 12px;
 }
 .video_submit #post_submit_form .acf-form-submit input {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
 }
 @media screen and (max-width: 1023px) {
@@ -13296,11 +13380,11 @@ form.pmpro_form #other_discount_code.input {
 .video_submit .content {
   padding: 0 0 60px;
   width: 100%;
-  border-top: 1px solid #827d7d;
+  border-top: 1px solid #2a2a2a;
 }
 .video_submit .row {
   padding: 40px 0;
-  border-bottom: 1px solid #827d7d;
+  border-bottom: 1px solid #2a2a2a;
 }
 .video_submit .row:last-child {
   border-bottom: none;
@@ -13404,7 +13488,7 @@ form.pmpro_form #other_discount_code.input {
   background-size: 100%;
 }
 .single_video .back_link:hover {
-  color: #ddb72e;
+  color: #f5bf04;
 }
 .single_video .back_link:hover:before {
   content: "";
@@ -13521,7 +13605,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .single_video .column h3 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
+  font-weight: 500;
   font-size: 30px;
   margin-top: 0;
   margin-bottom: 10px;
@@ -13544,14 +13629,15 @@ form.pmpro_form #other_discount_code.input {
 }
 .single_video .column h5 {
   font-size: 20px;
-  color: #f20f2b;
+  color: #ff000a;
   margin-bottom: 10px;
 }
 .single_video .column .members_only_video_pop {
   display: inline-block;
 }
 .single_video .column p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 @media screen and (max-width: 1023px) {
   .single_video .column p {
@@ -13564,7 +13650,8 @@ form.pmpro_form #other_discount_code.input {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 14px;
   text-transform: none;
   padding: 5px 0 10px;
@@ -13606,14 +13693,14 @@ form.pmpro_form #other_discount_code.input {
   display: none;
 }
 .live_stream .epyt-pagination .epyt-pagebutton {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 16px;
   padding: 7px 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
 }
 .live_stream .epyt-pagination .epyt-pagebutton:hover {
@@ -13791,7 +13878,7 @@ form.pmpro_form #other_discount_code.input {
   width: auto;
 }
 .wcContainer .wcMessages {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   background-color: #fff !important;
 }
@@ -13862,10 +13949,10 @@ form.pmpro_form #other_discount_code.input {
   -webkit-justify-content: space-between;
 }
 .directory_wrapper .pmpro_pagination .pmpro_page_numbers a {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   padding: 5px 10px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   margin: 0 5px;
   border-radius: 4px;
@@ -13875,14 +13962,14 @@ form.pmpro_form #other_discount_code.input {
   background: #880415;
 }
 .directory_wrapper .pmpro_pagination .pmpro_page_numbers a.pmpro_page_active {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 .directory_wrapper .pmpro_member_directory hr {
   display: none;
 }
 .directory_wrapper .pmpro_member_directory > h3 {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   text-transform: none;
   font-size: 28px;
@@ -13982,7 +14069,7 @@ form.pmpro_form #other_discount_code.input {
   width: 100%;
 }
 .directory_wrapper .pmpro_member_directory .content_wrap .span .label p {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
 }
 .directory_wrapper .pmpro_member_directory .content_wrap .span a {
@@ -13990,10 +14077,10 @@ form.pmpro_form #other_discount_code.input {
   float: left;
 }
 .directory_wrapper .pmpro_member_directory .content_wrap p {
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 14px;
-  color: #f20f2b;
+  color: #ff000a;
   line-height: 1.5;
   text-align: left;
   margin: 0;
@@ -14020,13 +14107,13 @@ form.pmpro_form #other_discount_code.input {
 }
 .directory_wrapper .pmpro_member_directory .content_wrap a {
   text-align: center;
-  color: #f20f2b;
+  color: #ff000a;
   margin: 0;
 }
 .directory_wrapper .pmpro_member_directory .content_wrap .profile_link a {
   display: block;
   text-align: left;
-  color: #f20f2b;
+  color: #ff000a;
   padding: 0;
   margin: 0;
 }
@@ -14082,7 +14169,7 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .directory_profile_wrap .pmpro_member_profile .label {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   font-size: 1.8rem;
 }
@@ -14092,8 +14179,8 @@ form.pmpro_form #other_discount_code.input {
   }
 }
 .directory_profile_wrap .pmpro_member_profile p {
-  font-family: "robotolight", sans-serif;
-  font-weight: 200;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 1.8rem;
 }
 @media screen and (max-width: 768px) {
@@ -14145,7 +14232,7 @@ form.pmpro_form #other_discount_code.input {
   text-align: center;
 }
 .register h3 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   color: #131313;
   font-size: 1.8rem;
@@ -14189,7 +14276,8 @@ form.pmpro_form #other_discount_code.input {
 .register .list p {
   color: #131313;
   width: 100%;
-  font-family: "robotoregular", sans-serif;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   border-bottom: 1px solid #c8c8c8;
   display: inline-block;
   padding-bottom: 15px;
@@ -14240,13 +14328,13 @@ form.pmpro_form #other_discount_code.input {
   border-color: rgba(200, 200, 200, 0.4);
 }
 .registration-confirmation h3 {
-  font-family: "robotobold", sans-serif;
+  font-family: "interbold", sans-serif;
   font-weight: 700;
   margin-bottom: 10px;
-  color: #f20f2b;
+  color: #ff000a;
 }
 .registration-confirmation h4 {
-  font-family: "robotomedium", sans-serif;
+  font-family: "intermedium", sans-serif;
   font-weight: 500;
   margin-top: 0;
 }
@@ -14287,7 +14375,7 @@ form.pmpro_form #other_discount_code.input {
   -webkit-border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   -webkit-border-top-right-radius: 6px;
-  background: #f20f2b;
+  background: #ff000a;
   color: #fff;
   padding: 10px;
 }

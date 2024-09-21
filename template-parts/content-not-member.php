@@ -13,7 +13,8 @@
 					<h4>Totaly Free for 3 Days,</h4>
 					<p>then only <span>$9.99/mo</span> after that!</p>
 					<div class="button_wrap">
-						<a class="button round_button" href="/register">Start My 3 Day Free Trial Now!</a>
+						<?php $buttonUrl = is_user_logged_in() ? '/membership-account/membership-levels/' : '/register'; ?>
+						<a class="button round_button" href="<?php echo $buttonUrl; ?>">Start My 3 Day Free Trial Now!</a>
 					</div>
 				</div>
 				<div class="bottom_section full_width">

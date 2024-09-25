@@ -123,15 +123,9 @@ $username = $current_user->user_login;
 </script>
 <?php wp_body_open(); ?>
 
-<div class="mobile_menu cover">
+<div class="mobile_menu">
 	<div class="logo">
-		<?php $logo = get_field('logo', 'option');
-
-		if (!empty($logo)) :
-			?>
-			<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
-
-		<?php endif; ?>
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Academy" />
 	</div>
 
 	<?php if (is_user_logged_in()) : ?>
@@ -147,91 +141,7 @@ $username = $current_user->user_login;
 </div>
 
 <div id="page" class="site">
-	<header id="global_header">
-
-		<?php if (!is_user_logged_in()) : ?>
-
-			<div class="header_top">
-				<div class="container">
-
-					<?php if (have_rows('top_header', 'option')) : ?>
-
-						<?php while (have_rows('top_header', 'option')) : the_row(); ?>
-
-							<?php if (get_row_layout() == 'without_buttons'): ?>
-
-								<div class="content_wrap">
-
-									<p class="desktop"><?php the_sub_field('header_text_desktop', 'option'); ?>
-
-										<?php if (get_sub_field('header_popup', 'option')) : ?>
-
-											<a class="fancybox" href="#email_join"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php else: ?>
-
-											<a  href="<?php the_sub_field('link', 'option'); ?>"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php endif; ?>
-									</p>
-
-									<p class="mobile"><?php the_sub_field('header_text_mobile', 'option'); ?><br>
-
-										<?php if (get_sub_field('header_popup', 'option')) : ?>
-
-											<a class="fancybox" href="#email_join"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php else: ?>
-
-											<a href="<?php the_sub_field('link', 'option'); ?>"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php endif; ?>
-
-									</p>
-
-								</div>
-							<?php elseif( get_row_layout() == 'with_buttons'): ?>
-
-								<div class="content_wrap_buttons">
-									<p class="desktop">
-										<?php the_sub_field('header_text_desktop'); ?>
-										<a href="<?php the_sub_field('link'); ?>">
-											<?php the_sub_field('text_link'); ?>
-										</a>
-									</p>
-									<p class="mobile">
-										<?php the_sub_field('header_text_mobile'); ?>
-										<a href="<?php the_sub_field('link'); ?>">
-										<?php the_sub_field('text_link', 'option'); ?>
-										</a>
-									</p>
-									<div class="buttons">
-										<div class="button_wrap">
-										<?php  the_field('white_button_link');?>
-											<a class="button white" href="<?php the_sub_field('white_button_link'); ?>">
-											<?php the_sub_field('white_button_text'); ?>
-											</a>
-										</div>
-										<div class="button_wrap">
-											<a class="button dark_red" href="<?php the_sub_field('red_button_link'); ?>">
-											<?php the_sub_field('red_button_text')?>
-											</a>
-										</div>
-									</div>
-								</div>
-							<?php endif;
-
-						endwhile;
-
-					else : ?>
-
-						// no layouts found
-					<?php endif; ?>
-
-				</div><!-- container -->
-			</div><!-- header top -->
-
-		<?php endif; ?>
+	<header id="global_header" class="<?php echo is_user_logged_in() ? "" : "external"; ?>">
 
 		<?php if (is_user_logged_in()) : ?>
 			<div class="header_top member">
@@ -269,12 +179,33 @@ $username = $current_user->user_login;
 
 							<?php if (is_user_logged_in()): ?>
 
-								<?php wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?
+								<?php 
+									// remember to assign a menu in the admin to remove the container div
+									wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); ?>
 
-							else : ?>
+							<?php else : ?>
 
-								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'header_menu' ) ); // remember to assign a menu in the admin to remove the container div ?>
-
+								<?php 
+									// remember to assign a menu in the admin to remove the container div
+									wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'header_menu' ) ); ?>
+									<div class="right_nav">
+										<ul>
+											<li>
+												<a href="/login">
+													Login
+												</a>
+											</li>
+											<li style="padding: 0;">
+												<a class="button black" href="/register">
+													Start My Free Trial
+													<span>
+														<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+													</span>
+												</a>
+												
+											</li>
+										</ul>
+									</div>
 							<?php endif; ?>
 
 						</nav>

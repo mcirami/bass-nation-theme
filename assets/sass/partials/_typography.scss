@@ -1,137 +1,171 @@
 // typography baselines and @font face setups
 
 @font-face {
-    font-family: 'calvertmtbold2';
-    src: url('fonts/calvertmt-bold2-webfont.ttf') format('truetype'),url('fonts/calvertmt-bold2-webfont.woff') format('woff');
+    font-family: "calvertmtbold2";
+    src:
+        url("fonts/calvertmt-bold2-webfont.ttf") format("truetype"),
+        url("fonts/calvertmt-bold2-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 @font-face {
-    font-family: 'poiretoneregular';
-    src: url("/resources/fonts/opensans-bold-webfont.eot"),
-    url('fonts/PoiretOne-Regular.ttf') format('truetype'),
-    url('fonts/poiretone-regular-webfont.woff2') format('woff2'),
-    url('fonts/poiretone-regular-webfont.woff') format('woff');
+    font-family: "poiretoneregular";
+    src:
+        url("/resources/fonts/opensans-bold-webfont.eot"),
+        url("fonts/PoiretOne-Regular.ttf") format("truetype"),
+        url("fonts/poiretone-regular-webfont.woff2") format("woff2"),
+        url("fonts/poiretone-regular-webfont.woff") format("woff");
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: 'interregular';
-    src: url("fonts/inter-regular-webfont.eot"),
-        url('fonts/inter-regular-webfont.ttf') format('truetype'),
-        url('fonts/inter-regular-webfont.woff2') format('woff2'),
-        url('fonts/inter-regular-webfont.woff') format('woff'), 
-        url('fonts/inter-regular-webfont.svg#interregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'intermedium';
-    src: url("fonts/inter-medium-webfont.eot"),
-        url('fonts/inter-medium-webfont.ttf') format('truetype'),
-        url('fonts/inter-medium-webfont.woff2') format('woff2'),
-        url('fonts/inter-medium-webfont.woff') format('woff'), 
-        url('fonts/inter-medium-webfont.svg#intermedium') format('svg');
+    font-family: "interregular";
+    src:
+        url("fonts/inter-regular-webfont.eot"),
+        url("fonts/inter-regular-webfont.ttf") format("truetype"),
+        url("fonts/inter-regular-webfont.woff2") format("woff2"),
+        url("fonts/inter-regular-webfont.woff") format("woff"),
+        url("fonts/inter-regular-webfont.svg#interregular") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'interbold';
-    src: url("fonts/inter-bold-webfont.eot"),
-        url('fonts/inter-bold-webfont.ttf') format('truetype'),
-        url('fonts/inter-bold-webfont.woff2') format('woff2'),
-        url('fonts/inter-bold-webfont.woff') format('woff'), 
-        url('fonts/inter-bold-webfont.svg#interbold') format('svg');
+    font-family: "intermedium";
+    src:
+        url("fonts/inter-medium-webfont.eot"),
+        url("fonts/inter-medium-webfont.ttf") format("truetype"),
+        url("fonts/inter-medium-webfont.woff2") format("woff2"),
+        url("fonts/inter-medium-webfont.woff") format("woff"),
+        url("fonts/inter-medium-webfont.svg#intermedium") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'interbolditalic';
-    src: url("fonts/inter-bolditalicbolditalic-webfont.eot"),
-        url('fonts/inter-bolditalic-webfont.ttf') format('truetype'),
-        url('fonts/inter-bolditalic-webfont.woff2') format('woff2'),
-        url('fonts/inter-bolditalic-webfont.woff') format('woff'), 
-        url('fonts/inter-bolditalic-webfont.svg#interbolditalic') format('svg');
+    font-family: "interbold";
+    src:
+        url("fonts/inter-bold-webfont.eot"),
+        url("fonts/inter-bold-webfont.ttf") format("truetype"),
+        url("fonts/inter-bold-webfont.woff2") format("woff2"),
+        url("fonts/inter-bold-webfont.woff") format("woff"),
+        url("fonts/inter-bold-webfont.svg#interbold") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'interextrabold';
-    src: url("fonts/inter-extrabold-webfont.eot"),
-        url('fonts/inter-extrabold-webfont.ttf') format('truetype'),
-        url('fonts/inter-extrabold-webfont.woff2') format('woff2'),
-        url('fonts/inter-extrabold-webfont.woff') format('woff'), 
-        url('fonts/inter-extrabold-webfont.svg#interextrabold') format('svg');
+    font-family: "interbolditalic";
+    src:
+        url("fonts/inter-bolditalicbolditalic-webfont.eot"),
+        url("fonts/inter-bolditalic-webfont.ttf") format("truetype"),
+        url("fonts/inter-bolditalic-webfont.woff2") format("woff2"),
+        url("fonts/inter-bolditalic-webfont.woff") format("woff"),
+        url("fonts/inter-bolditalic-webfont.svg#interbolditalic") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'interextrabolditalic';
-    src: url("fonts/inter-extrabolditalic-webfont.eot"),
-        url('fonts/inter-extrabolditalic-webfont.ttf') format('truetype'),
-        url('fonts/inter-extrabolditalic-webfont.woff2') format('woff2'),
-        url('fonts/inter-extrabolditalic-webfont.woff') format('woff'), 
-        url('fonts/inter-extrabolditalic-webfont.svg#interextrabolditalic') format('svg');
+    font-family: "interextrabold";
+    src:
+        url("fonts/inter-extrabold-webfont.eot"),
+        url("fonts/inter-extrabold-webfont.ttf") format("truetype"),
+        url("fonts/inter-extrabold-webfont.woff2") format("woff2"),
+        url("fonts/inter-extrabold-webfont.woff") format("woff"),
+        url("fonts/inter-extrabold-webfont.svg#interextrabold") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'interitalic';
-    src: url("fonts/inter-italic-webfont.eot"),
-        url('fonts/inter-italic-webfont.ttf') format('truetype'),
-        url('fonts/inter-italic-webfont.woff2') format('woff2'),
-        url('fonts/inter-italic-webfont.woff') format('woff'), 
-        url('fonts/inter-italic-webfont.svg#interitalic') format('svg');
+    font-family: "interextrabolditalic";
+    src:
+        url("fonts/inter-extrabolditalic-webfont.eot"),
+        url("fonts/inter-extrabolditalic-webfont.ttf") format("truetype"),
+        url("fonts/inter-extrabolditalic-webfont.woff2") format("woff2"),
+        url("fonts/inter-extrabolditalic-webfont.woff") format("woff"),
+        url("fonts/inter-extrabolditalic-webfont.svg#interextrabolditalic")
+            format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'intermediumitalic';
-    src: url("fonts/inter-mediumitalic-webfont.eot"),
-        url('fonts/inter-mediumitalic-webfont.ttf') format('truetype'),
-        url('fonts/inter-mediumitalic-webfont.woff2') format('woff2'),
-        url('fonts/inter-mediumitalic-webfont.woff') format('woff'), 
-        url('fonts/inter-mediumitalic-webfont.svg#intermediumitalic') format('svg');
+    font-family: "interitalic";
+    src:
+        url("fonts/inter-italic-webfont.eot"),
+        url("fonts/inter-italic-webfont.ttf") format("truetype"),
+        url("fonts/inter-italic-webfont.woff2") format("woff2"),
+        url("fonts/inter-italic-webfont.woff") format("woff"),
+        url("fonts/inter-italic-webfont.svg#interitalic") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'intersemibold';
-    src: url("fonts/inter-semibold-webfont.eot"),
-        url('fonts/inter-semibold-webfont.ttf') format('truetype'),
-        url('fonts/inter-semibold-webfont.woff2') format('woff2'),
-        url('fonts/inter-semibold-webfont.woff') format('woff'), 
-        url('fonts/inter-semibold-webfont.svg#intersemibold') format('svg');
+    font-family: "intermediumitalic";
+    src:
+        url("fonts/inter-mediumitalic-webfont.eot"),
+        url("fonts/inter-mediumitalic-webfont.ttf") format("truetype"),
+        url("fonts/inter-mediumitalic-webfont.woff2") format("woff2"),
+        url("fonts/inter-mediumitalic-webfont.woff") format("woff"),
+        url("fonts/inter-mediumitalic-webfont.svg#intermediumitalic")
+            format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'intersemibolditalic';
-    src: url("fonts/inter-semibolditalic-webfont.eot"),
-        url('fonts/inter-semibolditalic-webfont.ttf') format('truetype'),
-        url('fonts/inter-semibolditalic-webfont.woff2') format('woff2'),
-        url('fonts/inter-semibolditalic-webfont.woff') format('woff'), 
-        url('fonts/inter-semibolditalic-webfont.svg#intersemibolditalic') format('svg');
+    font-family: "intersemibold";
+    src:
+        url("fonts/inter-semibold-webfont.eot"),
+        url("fonts/inter-semibold-webfont.ttf") format("truetype"),
+        url("fonts/inter-semibold-webfont.woff2") format("woff2"),
+        url("fonts/inter-semibold-webfont.woff") format("woff"),
+        url("fonts/inter-semibold-webfont.svg#intersemibold") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: "intersemibolditalic";
+    src:
+        url("fonts/inter-semibolditalic-webfont.eot"),
+        url("fonts/inter-semibolditalic-webfont.ttf") format("truetype"),
+        url("fonts/inter-semibolditalic-webfont.woff2") format("woff2"),
+        url("fonts/inter-semibolditalic-webfont.woff") format("woff"),
+        url("fonts/inter-semibolditalic-webfont.svg#intersemibolditalic")
+            format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
 
-
-h1, h2 {
+h1,
+h2 {
     @include interbold;
 }
 
-h3, p {
+h2 {
+    @include largeFont;
+}
+
+h5,
+h5 {
+    @include intersemibold;
+}
+
+h3,
+p {
     @include interregular;
+}
+
+p {
+    @include smallFont;
+}
+
+h3,
+h4 {
+    @include mediumFont;
 }

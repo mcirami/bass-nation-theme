@@ -1,87 +1,142 @@
 // mixins
 
 @mixin clearRow($nth) {
-	&:nth-child(#{$nth}+1) {
-		clear: both;
-	}
+    &:nth-child(#{$nth} + 1) {
+        clear: both;
+    }
 }
 
 // Omega Reset
 @mixin omega-reset($nth, $columns) {
-  &:nth-child(#{$nth}) { margin-right: flex-gutter($columns); }
-  &:nth-child(#{$nth}+1) { clear: none }
+    &:nth-child(#{$nth}) {
+        margin-right: flex-gutter($columns);
+    }
+    &:nth-child(#{$nth} + 1) {
+        clear: none;
+    }
 }
 
 // Vertical Align
 @mixin vertical-align {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 @mixin horizontal-align {
-	position: relative;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
 @mixin interregular {
-	font-family: 'interregular', sans-serif;
-	font-weight: 300;
+    font-family: "interregular", sans-serif;
+    font-weight: 300;
 }
 
 @mixin intermedium {
-	font-family: 'intermedium', sans-serif;
-	font-weight: 500;
+    font-family: "intermedium", sans-serif;
+    font-weight: 500;
 }
 
 @mixin intersemibold {
-	font-family: 'intersemibold', sans-serif;
-	font-weight: 600;
+    font-family: "intersemibold", sans-serif;
+    font-weight: 600;
 }
 
 @mixin interbold {
-	font-family: 'interbold', sans-serif;
-	font-weight: 700;
+    font-family: "interbold", sans-serif;
+    font-weight: 700;
 }
 
 @mixin interbolditalic {
-	font-family: 'interbolditalic', sans-serif;
-	font-weight: 700;
+    font-family: "interbolditalic", sans-serif;
+    font-weight: 700;
 }
 
 @mixin interextrabold {
-	font-family: 'interextrabold', sans-serif;
-	font-weight: 900;
+    font-family: "interextrabold", sans-serif;
+    font-weight: 900;
 }
 
 @mixin interextrabolditalic {
-	font-family: 'interextrabolditalic', sans-serif;
-	font-weight: 900;
+    font-family: "interextrabolditalic", sans-serif;
+    font-weight: 900;
 }
 
 @mixin interitalic {
-	font-family: 'interitalic', sans-serif;
-	font-weight: 300;
+    font-family: "interitalic", sans-serif;
+    font-weight: 300;
 }
 
 @mixin intermediumitalic {
-	font-family: 'intermediumitalic', sans-serif;
-	font-weight: 500;
+    font-family: "intermediumitalic", sans-serif;
+    font-weight: 500;
 }
 
 @mixin intersemibolditalic {
-	font-family: 'intersemibolditalic', sans-serif;
-	font-weight: 600;
+    font-family: "intersemibolditalic", sans-serif;
+    font-weight: 600;
 }
 
-
 @mixin boxShadow {
-	box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
-	-moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
-	-webkit-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+}
+
+@mixin exSmallFont {
+    font-size: 1.5rem;
+}
+
+@mixin smallFont {
+    font-size: 1.8rem;
+
+    @include media($mobile) {
+        font-size: 1.6rem;
+    }
+}
+
+@mixin mediumFont {
+    font-size: 2.2rem;
+
+    @include media($mobile) {
+        font-size: 1.8rem;
+    }
+}
+
+@mixin largeFont {
+    font-size: 4.6rem;
+
+    @include media($tablet) {
+        font-size: 4.2rem;
+    }
+
+    @include media($mobile) {
+        font-size: 3rem;
+    }
+
+    @include media($smallMobile) {
+        font-size: 6vw;
+    }
+}
+
+@mixin smallContainer {
+    .small_container {
+        max-width: 60%;
+        margin: 0 auto;
+        display: inline-block;
+
+        @include media($tablet) {
+            max-width: 80%;
+        }
+
+        @include media($smallMobile) {
+            max-width: 100%;
+        }
+    }
 }

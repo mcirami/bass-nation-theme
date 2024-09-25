@@ -166,7 +166,7 @@ function bass_nation_scripts() {
 	}
 
 	if (is_page('lessons') && is_user_logged_in()){
-		wp_enqueue_script('filterizr', get_template_directory_uri() . '/js/vendor/jquery.filterizr.min.js', array('jquery'), '2.2.4', true);
+		wp_enqueue_script('filterizr', 'https://cdnjs.cloudflare.com/ajax/libs/filterizr/2.2.4/jquery.filterizr.min.js', array('jquery'), '2.2.4', true);
 	}
 
 	if(is_user_logged_in()) {

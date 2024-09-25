@@ -977,10 +977,10 @@ jQuery(document).ready(function ($) {
         slidesPerView: 4,
         spaceBetween: 30,
         zoom: true,
-        /* autoplay: {
+        autoplay: {
             delay: 2500,
             disableOnInteraction: false,
-        }, */
+        },
         breakpoints: {
             // when window width is >= 550px
             200: {

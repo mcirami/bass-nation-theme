@@ -207,9 +207,9 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="reviews">
-							<p>Daric is the man! Honestly one of the best bass players I've ever seen and heard. Learning to play bass guitar from him is an honor! Well worth the cheap membership fee that he charges for all the content you get. Especially since you can directly talk to him and ask questions. Keep it up Daric</p>
+							<p>Daric Bennett's bass lessons are simply life-changing! As a beginner, I was worried about keeping up, but his teaching style is so clear and motivating that I quickly gained confidence. Now I can play along with my favorite songs, and it feels incredible! Daric truly makes learning bass enjoyable.</p>
 							<div class="col_footer">
-								<h5>BassPlaya</h5>
+								<h5>JakeM</h5>
 								<div class="stars">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
@@ -220,9 +220,9 @@ get_header(); ?>
 							</div>		
 						</div>
 						<div class="reviews">
-							<p>Daric is the man! Honestly one of the best bass players I've ever seen and heard. Learning to play bass guitar from him is an honor! Well worth the cheap membership fee that he charges for all the content you get. Especially since you can directly talk to him and ask questions. Keep it up Daric</p>
+							<p>I've been playing bass for years, but Daric Bennett's lessons took my skills to a whole new level. His detailed breakdowns and techniques are second to none. I appreciate how he makes complex concepts easy to understand, and I’m noticing huge improvements in my groove and timing. Totally worth it!</p>
 							<div class="col_footer">
-								<h5>BassPlaya</h5>
+								<h5>GrooveQueen44</h5>
 								<div class="stars">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
@@ -235,9 +235,9 @@ get_header(); ?>
 					</div>
 					<div class="column">
 						<div class="reviews">
-							<p>Daric is the man! Honestly one of the best bass players I've ever seen and heard. Learning to play bass guitar from him is an honor! Well worth the cheap membership fee that he charges for all the content you get. Especially since you can directly talk to him and ask questions. Keep it up Daric</p>
+							<p>A game-changer! The structure is perfect for both beginners and seasoned players. His energy is contagious, and his ability to explain the 'why' behind each technique keeps me coming back for more. It’s like having a personal coach at my fingertips. I highly recommend it to anyone serious about bass!</p>
 							<div class="col_footer">
-								<h5>BassPlaya</h5>
+								<h5>KevyKevT</h5>
 								<div class="stars">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
@@ -248,9 +248,9 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="reviews">
-							<p>Daric is the man! Honestly one of the best bass players I've ever seen and heard. Learning to play bass guitar from him is an honor! Well worth the cheap membership fee that he charges for all the content you get. Especially since you can directly talk to him and ask questions. Keep it up Daric</p>
+							<p>There are so many options for bass lessons these days, but Daric Bennett exceeded all my expectations! His step-by-step approach makes learning smooth, and I love how he focuses on both theory and practical application. Whether you're new or experienced, these lessons will make you a better player.</p>
 							<div class="col_footer">
-								<h5>BassPlaya</h5>
+								<h5>Jordan4Funk</h5>
 								<div class="stars">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
 									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/review-star.png" alt="">
@@ -292,7 +292,7 @@ get_header(); ?>
 									<p>Excslusive Interviews with Other Top Bassists</p>
 								</li>
 								<li>
-									<p>One-to-one Feeback Classes</p>
+									<p>One-to-one Feedback Classes</p>
 								</li>
 								<li>
 									<p>Vibrant & Supportive Community</p>
@@ -326,60 +326,60 @@ get_header(); ?>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-								What do the courses entail?
+								What level of experience do I need to start bass lessons with Daric Bennett?
 							</button>
 						</h2>
 						<div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faq_accordion">
 							<div class="accordion-body">
-								<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+							Daric’s lessons cater to all levels, from complete beginners to advanced players. Whether you’re just picking up the bass or looking to refine your skills, you’ll find lessons tailored to your needs.
 							</div>
 						</div>
 					</div>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-								What do the courses entail?
+								What equipment do I need to take online bass lessons?
 							</button>
 						</h2>
 						<div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faq_accordion">
 							<div class="accordion-body">
-								<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								All you need is a bass guitar, an internet connection, and access to the lesson platform on daricbennett.com. A good pair of headphones and a bass amplifier can also enhance your learning experience, but they aren’t required to get started.
 							</div>
 						</div>
 					</div>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-								What do the courses entail?
+								How are the courses structured?
 							</button>
 						</h2>
 						<div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq_accordion">
 							<div class="accordion-body">
-								<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								The courses are designed to build progressively, starting with the fundamentals and advancing to more complex techniques. Each lesson includes video demonstrations, practice exercises, and explanations to ensure you fully grasp the material at your own pace.
 							</div>
 						</div>
 					</div>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-								What do the courses entail?
+								Can I learn at my own pace, or do I have to follow a set schedule?
 							</button>
 						</h2>
 						<div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faq_accordion">
 							<div class="accordion-body">
-								<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								The lessons are fully self-paced, allowing you to learn whenever and wherever it suits you. You can revisit lessons as often as needed to master specific techniques and concepts.
 							</div>
 						</div>
 					</div>
 					<div class="accordion-item">
 						<h2 class="accordion-header">
 							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
-								What do the courses entail?
+								Will the lessons cover both theory and practical skills?
 							</button>
 						</h2>
 						<div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faq_accordion">
 							<div class="accordion-body">
-								<strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+								Yes! Daric’s lessons balance theory and practical application. You’ll not only learn how to play but also understand the music theory behind the techniques, giving you a deeper understanding of the bass guitar and how to create music.
 							</div>
 						</div>
 					</div>

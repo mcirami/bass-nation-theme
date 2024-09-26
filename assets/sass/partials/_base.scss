@@ -33,6 +33,10 @@ body {
     height: 100%;
 }
 
+.page {
+    margin: 0;
+}
+
 .video_wrapper {
     @include span-columns(12);
     padding-bottom: 56.25%;

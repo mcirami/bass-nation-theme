@@ -14,152 +14,144 @@ $username = $current_user->user_login;
 
 <footer id="global_footer" class="site_footer">
 	<div class="container">
-		<div class="content_wrap">
+		<div class="content_wrap top_row">
 			<div class="logo">
 				<a href="/">
 					<img alt="Bass Nation Logo" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png"/>
 				</a>
 			</div>
-			<div class="columns_wrap">
-				<div class="column">
-					<h3><?php the_field('first_column_heading', 'options'); ?></h3>
-					<div class="menu">
-						<nav role="navigation">
-							<?php if (is_user_logged_in()) : ?>
+			<div class="column">
+				<?php $firstColumn = get_field('first_column_group', 'option');  ?>
+				<h3><?php echo $firstColumn['first_column_heading']; ?></h3>
+				<div class="menu">
+					<nav role="navigation">
+						<?php if (is_user_logged_in()) : ?>
 
-								<?php if (have_rows('member_links_first_column', 'options')) : ?>
-									<ul>
+							<?php if (have_rows('member_links_first_column', 'option')) : ?>
+								<ul>
 
-										<?php while (have_rows('member_links_first_column', 'options')) : the_row();
+									<?php while (have_rows('member_links_first_column', 'option')) : the_row();
 
-											if(get_sub_field('link_type', 'options') == "Hard Coded Link") : ?>
+										if(get_sub_field('link_type', 'option') == "Hard Coded Link") : ?>
 
-												<li><a href="<?php echo do_shortcode('[bbpm-messages-link]'); ?>"><?php the_sub_field('link_text','options'); ?></a></li>
+											<li><a href="<?php echo do_shortcode('[bbpm-messages-link]'); ?>"><?php the_sub_field('link_text','option'); ?></a></li>
 
-											<?php else : ?>
+										<?php else : ?>
 
-												<li><a href="<?php the_sub_field('link', 'options'); ?>"><?php the_sub_field('link_text','options'); ?></a></li>
+											<li><a href="<?php the_sub_field('link', 'option'); ?>"><?php the_sub_field('link_text','option'); ?></a></li>
 
-											<?php endif; ?>
-
-										<?php endwhile; ?>
-
-									</ul>
-								<?php endif; ?>
-
-							<?php else : ?>
-
-								<?php if (have_rows('first_column_links', 'options')) : ?>
-									<ul>
-										<?php while (have_rows('first_column_links', 'options')) : the_row(); ?>
-											<li>
-												<a href="<?php the_sub_field('link', 'options'); ?>"><?php the_sub_field('link_text', 'options'); ?></a>
-											</li>
-										<?php endwhile; ?>
-									</ul>
-								<?php endif; ?>
-
-							<?php endif; ?>
-						</nav>
-					</div>
-				</div>
-				<div class="column">
-
-					<h3><?php the_field('second_column_heading', 'options'); ?></h3>
-
-					<?php if (is_user_logged_in()) : ?>
-
-						<?php if (have_rows('member_links_second_column', 'options')) : ?>
-							<ul>
-
-								<?php while (have_rows('member_links_second_column', 'options')) : the_row(); ?>
-
-									<li><a href="<?php the_sub_field('link', 'options'); ?>"><?php the_sub_field('link_text','options'); ?></a></li>
-
-								<?php endwhile; ?>
-
-							</ul>
-						<?php endif; ?>
-
-					<?php else : ?>
-
-						<ul>
-							<?php if (have_rows('second_column_links', 'options')) : ?>
-
-								<?php while (have_rows('second_column_links', 'options')) : the_row(); ?>
-
-									<?php if (get_sub_field('popup', 'options')) : ?>
-
-										<li><a class="fancybox" href="#email_join"><?php the_sub_field('link_text','options'); ?></a></li>
-										<!--<li><a class="feather" data-featherlight="#email_join" href="#"><?php the_sub_field('link_text','options'); ?></a></li>-->
-
-
-									<?php else: ?>
-
-										<li><a href="<?php the_sub_field('link', 'options'); ?>"><?php the_sub_field('link_text','options'); ?></a></li>
-
-									<?php endif; ?>
-
-								<?php endwhile; ?>
-							<?php endif; ?>
-
-						</ul>
-
-					<?php endif; ?>
-
-				</div>
-				<div class="column">
-					<h3><?php the_field('third_column_heading', 'options'); ?></h3>
-					<!--<p class="white">E:<a href="mailto:daric@daricbennett.com">Daric@DaricBennett.com</a></p>-->
-					<div class="icon_wrap">
-
-						<?php if (have_rows('third_column_links', 'options')) : ?>
-
-							<?php while (have_rows('third_column_links', 'options')) : the_row(); ?>
-
-								<div class="row">
-
-									<?php $socialIcon = get_sub_field('social_icon','options');
-									$socialText = strtolower(get_sub_field('social_text', 'options'));
-									?>
-
-									<a class="<?php if ( $socialText == "facebook"){echo "facebook";} elseif ($socialText == "instagram"){ echo "instagram";} elseif ($socialText == "youtube") {echo "youtube";}?>" target="_blank" href="<?php the_sub_field('social_link','options'); ?>">
-										<?php if (!empty($socialIcon)) : ?>
-											<img src="<?php echo $socialIcon['url']; ?>" alt="Bass Nation Social Media"/>
 										<?php endif; ?>
-										<h3><?php the_sub_field('social_text','options'); ?></h3>
-									</a>
 
-								</div>
+									<?php endwhile; ?>
 
-							<?php endwhile; ?>
+								</ul>
+							<?php endif; ?>
 
+						<?php else : ?>
+
+							<?php if (have_rows('first_column_group', 'option')) : ?>
+				
+									<?php while (have_rows('first_column_group', 'option')) : the_row(); 
+									
+										$columnLinks = get_sub_field('first_column_links', 'option');
+										if($columnLinks) : ?>
+											<ul>
+												<?php foreach($columnLinks as $columnLink) : ?>
+													<li>
+														<a href="<?php echo $columnLink['link']; ?>"><?php echo $columnLink['link_text']; ?></a>
+													</li>
+												<?php endforeach; ?>
+											</ul>
+										<?php endif; ?>
+
+									<?php endwhile; ?>
+				
+							<?php endif; ?>
+							
 						<?php endif; ?>
-					</div>
+					</nav>
+				</div>
+			</div>
+			<div class="column">
+
+				<h3><?php the_field('second_column_heading', 'option'); ?></h3>
+					<ul>
+						<?php if (have_rows('second_column_group', 'option')) : ?>
+
+							<?php while (have_rows('second_column_group', 'option')) : the_row(); 
+								$columnLinks = get_sub_field('second_column_links', 'option');
+								if($columnLinks) :
+							?>
+								<ul>
+									<?php foreach ($columnLinks as $link) : ?>
+										<li><a href="<?php echo $link['second_column_link']; ?>"><?php echo $link['second_column_link_text']; ?></a></li>
+									<?php endforeach; ?>
+								</ul>
+								<?php endif; ?>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					</ul>
+			</div>
+
+			<div class="column">
+				<h3><?php the_field('third_column_heading', 'option'); ?></h3>
+
+				<?php if (have_rows('third_column_group', 'option')) : ?>
+					<ul>
+					
+						<?php while (have_rows('third_column_group', 'option')) : the_row(); 
+							$columnLinks = get_sub_field('third_column_links', 'option');
+							if ($columnLinks) :
+						?>
+								<ul>
+									<?php foreach ($columnLinks as $link) : ?>
+										<li><a href="<?php echo $link['third_column_link']; ?>"><?php echo $link['third_column_link_text']; ?></a></li>
+									<?php endforeach; ?>
+								</ul>
+							<?php endif; ?>
+						<?php endwhile; ?>
+
+					</ul>
+
+				<?php endif; ?>
+	
+			</div>
+			<div class="column">
+				<div class="button_wrap">
+					<h3>Join my email list</h4>
+					<a class="button yellow fancybox" data-fancybox href="#" data-src="#email_join">
+						Join Now!
+						<span>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+						</span>
+					</a>
+					<small>Receive new bass lesson videos weekly!</small>
 				</div>
 			</div>
 		</div>
-		<?php if (have_rows('bottom_copy', 'options')) : ?>
+
+		<div class="bottom_row">
+			<?php $bottomFooter = get_field('footer_bottom', 'option'); ?>
 			<div class="copy">
-				<ul>
-					<?php while (have_rows('bottom_copy', 'options')) : the_row(); ?>
-
-						<?php $link = get_sub_field('add_link', 'options');
-						if($link) :
-							?>
-							<li><a href="<?php the_sub_field('link', 'options'); ?>"><?php the_sub_field('text', 'options'); ?></a></li>
-						<?php else : ?>
-							<li><p><?php the_sub_field('text', 'options'); ?></p></li>
-						<?php endif; ?>
-
-					<?php endwhile; ?>
-
-				</ul>
-				<ul>
-					<li><a href="mailto:<?php the_field('email', 'options'); ?>"><?php the_field('email', 'options'); ?></a></li>
-				</ul>
+				<p><?php echo $bottomFooter['copy_text']; ?></p></li>
 			</div>
-		<?php endif; ?>
+			<div class="social_links">
+			<?php 
+			
+			$socialIcons = $bottomFooter['social_icons'];
+			if($socialIcons) :
+
+				foreach($socialIcons as $icon) : ?>
+
+						<a class="<?php if ( $icon['social_link'] == "facebook"){echo "facebook";} elseif ($icon['social_link'] == "instagram"){ echo "instagram";} elseif ($icon['social_link'] == "youtube") {echo "youtube";}?>" target="_blank" href="<?php echo $icon['social_link']; ?>">
+							<?php if (!empty($icon['social_icon'])) : ?>
+								<img src="<?php echo $icon['social_icon']['url']; ?>" alt="Bass Nation Social Media"/>
+							<?php endif; ?>
+						</a>
+				<?php endforeach; ?>
+			<?php endif; ?>
+			</div>
+		</div>
 	</div><!-- .container -->
 </footer>
 	<?php

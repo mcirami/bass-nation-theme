@@ -1,344 +1,164 @@
 #global_footer {
-	@include span-columns(12);
-	padding: 40px 0 20px;
-	background: url('../images/footer-background.jpg') no-repeat;
-	background-size: cover;
-	
-	@include media($mobile){
-		background: url('../images/footer-background-mobile.jpg') no-repeat;
-		background-size: cover;
-		background-position: top;
-	}
-	
-	.content_wrap {
-		@include span-columns(12);
-		
-		.logo {
-			@include span-columns(5);
-			padding-top: 38px;
-			
-			@include media($tablet){
-				@include span-columns(3.3);
-				margin-right: 15px;
-			}
-			
-			@include media($mobile){
-				@include span-columns(4);
-				padding-top: 0;
-				text-align: center;
-			}
-			
-			img {
-				width: 350px;
-				
-				@include media($tablet){
-					width: 280px;
-				}
-				
-				@include media($mobile){
-					float: none;
-					margin: 0 auto;
-				}
-			}
-		}
-		
-		.columns_wrap {
-			@include span-columns(7);
-			
-			@include media($tablet){
-				@include span-columns(4.7);
-			}
-			
-			@include media($mobile){
-				@include span-columns(4);
-				text-align: center;
-				padding-top: 20px;
-			}
-			
-			h3 {
-				@include interregular;
-				font-weight: lighter;
-				margin-top: 0;
-				text-transform: uppercase;
-				font-size: 18px;
-				color: $white;
-				
-				@include media($tablet){
-					font-size: 16px;
-				}
-				
-				@include media($mobile){
-					margin-bottom: 5px;
-				}
-			}
-			
-			.column {
-				@include span-columns(4);
-				
-				@include media($mobile){
-					@include span-columns(4);
-					margin-bottom: 20px;
-				}
-				
-				a {
-					@include interregular;
-					color: $grayText;
-					font-size: 14px;
-					
-					&:hover {
-						color: $white;
-					}
-					
-					@include media($tablet){
-						font-size: 12px;
-					}
-				}
-				
-				p {
-					color: $grayText;
-					
-					@include media($tablet){
-						font-size: 12px;
-					}
-					
-					@include media($mobile){
-						display: inline-block;
-						float: none;
-					}
-					
-					&.white {
-						color: $white;
-					}
-					 
-					 a {
-						 margin-left: 5px;
-						 color: $white;
-					 }
-				}
+    @include span-columns(12);
+    background: $black;
+    padding: 40px 0 20px;
 
-				ul {
-					margin: 0;
-				}
-				
-				li {
-					@include interregular;
-					color: $grayText;
-					font-size: 14px;
-					
-					@include media($mobile){
-						display: inline-block;
-						margin-right: 15px;
-					}
-				}
+    .content_wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
 
-					
-				
-				.icon_wrap {
-					@include span-columns(12);
-					
-					.row {
-						@include span-columns(12);
-						margin-bottom: 10px;
-						
-						@include media($mobile){
-							width: auto;
-							display: inline-block;
-							float: none;
-						}
-						
-						a {
-							@include interregular;
-							color: $white;
-							display: -webkit-box;
-							display: -ms-flexbox;
-							display: flex;
-							-webkit-box-orient: horizontal;
-							-webkit-box-direction: normal;
-							-ms-flex-direction: row;
-							flex-direction: row;
-							-ms-flex-wrap: nowrap;
-							flex-wrap: nowrap;
-							justify-content: flex-start;
-							-webkit-justify-content: flex-start;
-							align-items: center;
-							-webkit-align-items: center;
-							gap: 10px;
-							position: relative;
+        @include media($tablet) {
+            flex-wrap: wrap;
+        }
 
-							&:hover {
-								color: $grayText;
-								
-								&:before {
-									content: '';
-									width: 40px;
-									height: 40px;
-									left: 0;
-									position: absolute;
-									z-index: 1;
-									top: 0;
-								}
-							}
-							
-							&.facebook {
-								
-								&:hover {
-									
-									&:before {										
-										background: url('../images/icon-facebook-gray.png') no-repeat;
-										
-										@include media($tablet){
-											background-size: 60%;
-										}
-										
-										@include media($mobile){
-											background-size: 45%;
-										}
-									}
-								}	
-							}
-							
-							&.instagram {
-								
-								&:hover {
-									
-									&:before {
-										background: url('../images/icon-instagram-gray.png') no-repeat;
-										
-										@include media($tablet){
-											background-size: 60%;
-										}
-										
-										@include media($mobile){
-											background-size: 45%;
-										}
-									}
-								}
-							}
-							
-							&.youtube {
-								
-								&:hover {
-									
-									&:before {
-										background: url('../images/icon-youtube-gray.png') no-repeat;
-										
-										@include media($tablet){
-											background-size: 60%;
-										}
-										
-										@include media($mobile){
-											background-size: 45%;
-										}
-									}
-								}
-							}
-							
-							img {
-								float: left;
-							}
-							
-							h3 {
-								float: left;
-								font-size: 16px;
-								text-transform: none;
-								margin: 0;
-								
-								@include media($tablet){
-									font-size: 14px;
-								}
-								
-								@include media($mobile){
-									float: none;
-									display: inline-block;
-									vertical-align: top;
-									margin-bottom: 0;
-									font-size: 12px;
-									padding-bottom: 6px;
-								}
-							}
-						}
-					}
-					
-					img {
-						width: auto;
-						margin-right: 5px;
-						
-						@include media($tablet){
-							width: 24px;
-						}
-						
-						@include media($mobile){
-							display: inline-block;
-							float: none;
-							width: 18px;
-							margin-right: 0;
-						}
-					}
-				}
-				
-			}
-		}
-	}
-	
-	.copy {
-		@include span-columns(12);
-		text-align: center;
-		color: $grayText;
-		padding: 30px 0 0;
-		font-size: 14px;
-		
-		@include media($tablet){
-			font-size: 12px;
-		}
-		
-		p {
-			font-size: 14px;
-			margin-bottom: 0;
-		}
-		
-		ul {
-			text-align: center;
-			
-			li {
-				position: relative;
-				display: inline-block;
-				padding: 5px;
-				
-				@include media($mobile){
-					line-height: 1;
-					padding: 5px;
-				}
-				
-				&:after {
-					@include interregular;
-					content: '|';
-					position: absolute;
-					right: -4px;
-					top: 4px;
-					font-size: 15px;
-					color: $grayText;
-					
-					@include media($tablet){
-						font-size: 13px;
-					}
-					
-					@include media($mobile){
-						top: 5px;
-					}
-				}
-				
-				&:last-child {
-					&:after {
-						content: none;
-					}
-				}
-				
-				a {
-					@include interregular;
-					color: $grayText;
-				}
-			}
-		}
-	}
+        @include media($mobile) {
+            gap: 16%;
+            justify-content: center;
+        }
 
+        .logo {
+            @include media($tablet) {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            @include media($smallMobile) {
+                padding-top: 0;
+            }
+
+            a {
+                padding-right: 5%;
+                display: block;
+            }
+
+            img {
+                max-width: 250px;
+
+                @include media($tablet) {
+                    max-width: 260px;
+                    margin: 0 auto;
+                }
+
+                @include media($smallMobile) {
+                    max-width: 200px;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        h3 {
+            @include interbold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: $white;
+
+            @include media($tablet) {
+                font-size: 16px;
+            }
+
+            @include media($smallMobile) {
+                margin-bottom: 5px;
+            }
+        }
+
+        .column {
+            @include media($smallMobile) {
+                text-align: center;
+                width: 100%;
+            }
+
+            &:last-child {
+                @include media($mobile) {
+                    margin-top: 20px;
+                    width: 100%;
+                    text-align: center;
+                }
+
+                a {
+                    margin: 0 auto;
+                }
+            }
+
+            .button {
+                @include media($mobile) {
+                    margin: 0 auto;
+                }
+            }
+
+            small {
+                color: $grayText;
+            }
+
+            a:not(.button) {
+                @include interregular;
+                color: $grayText;
+                font-size: 14px;
+
+                &:hover {
+                    color: $white;
+                }
+
+                @include media($tablet) {
+                    font-size: 12px;
+                }
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            li {
+                @include interregular;
+                font-size: 14px;
+                margin-bottom: 8px;
+
+                @include media($smallMobile) {
+                    display: inline-block;
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+
+    .bottom_row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 0;
+        border-top: 1px solid $darkGray;
+        margin-top: 60px;
+
+        @include media($mobile) {
+            flex-wrap: wrap;
+            margin-top: 30px;
+            padding: 20px 0;
+        }
+
+        .copy {
+            color: $grayText;
+
+            @include media($mobile) {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        p {
+            font-size: 1.4rem;
+        }
+
+        .social_links {
+            display: flex;
+            gap: 20px;
+
+            @include media($mobile) {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    }
 }

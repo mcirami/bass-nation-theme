@@ -199,6 +199,7 @@
 
                         @include media($desktop) {
                             padding: 15px 10px;
+                            font-size: 1.5rem;
                         }
 
                         @include media($tablet) {
@@ -222,21 +223,26 @@
                         }
                     }
 
-                    &:last-child a {
-                        padding-right: 0;
-                    }
-
                     .button {
                         width: 22rem;
                         font-size: 1.3rem;
 
                         @include media($desktop) {
-                            padding-left: 0;
                             padding-right: 12px;
+                            width: 21rem;
+                            font-size: 1.3rem;
+                        }
+
+                        @include media($mobile) {
+                            padding-right: 0;
                         }
 
                         &:hover {
                             padding-right: 40px;
+
+                            @include media($mobile) {
+                                padding-left: 10px;
+                            }
                         }
                     }
                 }
@@ -290,6 +296,10 @@
                         @include media($tablet) {
                             padding-left: 0;
                             margin: 0 auto;
+                        }
+
+                        @include media($mobile) {
+                            padding-left: 10px;
                         }
                     }
                 }

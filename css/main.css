@@ -14748,6 +14748,7 @@ h4,
 @media screen and (max-width: 1199px) {
   #global_header .header_bottom .menu ul li a:not(.button) {
     padding: 15px 10px;
+    font-size: 1.5rem;
   }
 }
 @media screen and (max-width: 991px) {
@@ -14771,21 +14772,29 @@ h4,
     padding-left: 30px;
   }
 }
-#global_header .header_bottom .menu ul li:last-child a {
-  padding-right: 0;
-}
 #global_header .header_bottom .menu ul li .button {
   width: 22rem;
   font-size: 1.3rem;
 }
 @media screen and (max-width: 1199px) {
   #global_header .header_bottom .menu ul li .button {
-    padding-left: 0;
     padding-right: 12px;
+    width: 21rem;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #global_header .header_bottom .menu ul li .button {
+    padding-right: 0;
   }
 }
 #global_header .header_bottom .menu ul li .button:hover {
   padding-right: 40px;
+}
+@media screen and (max-width: 767px) {
+  #global_header .header_bottom .menu ul li .button:hover {
+    padding-left: 10px;
+  }
 }
 @media screen and (max-width: 991px) {
   #global_header .header_bottom .menu ul.header_menu li:first-child {
@@ -14829,6 +14838,11 @@ h4,
   #global_header .header_bottom .menu .right_nav ul li:last-child a {
     padding-left: 0;
     margin: 0 auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  #global_header .header_bottom .menu .right_nav ul li:last-child a {
+    padding-left: 10px;
   }
 }
 #global_header.slide {

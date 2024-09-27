@@ -83,8 +83,14 @@
             }
 
             .button {
+                width: 24rem;
+
                 @include media($mobile) {
                     margin: 0 auto;
+                }
+
+                &:hover {
+                    width: 24rem;
                 }
             }
 

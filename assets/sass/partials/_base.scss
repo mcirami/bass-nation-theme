@@ -87,7 +87,7 @@ body {
     transition: 0.5s ease-in-out;
 
     &.slide {
-        transform: translate3d(-250px, 0, 0);
+        /*  transform: translate3d(-250px, 0, 0);
         -webkit-transform: translate3d(-250px, 0, 0);
 
         &:before {
@@ -99,7 +99,7 @@ body {
             z-index: 999;
             left: 0;
             top: 0;
-        }
+        } */
     }
 }
 
@@ -190,15 +190,6 @@ main {
         width: 24rem;
     }
 
-    &.white {
-        color: $darkRed;
-        background: $white;
-
-        &:hover {
-            background: #ebebeb;
-        }
-    }
-
     span {
         opacity: 0%;
         -webkit-transition: 0.5s ease-in-out;
@@ -206,6 +197,8 @@ main {
         -o-transition: 0.5s ease-in-out;
         transition: 0.5s ease-in-out;
         width: 0;
+        position: absolute;
+        right: 8px;
 
         img {
             height: 25px;
@@ -213,18 +206,6 @@ main {
     }
 
     &:hover {
-        gap: 10px;
-        width: 31.5rem;
-
-        @include media($tablet) {
-            gap: 5px;
-            width: 29rem;
-        }
-
-        @include media($mobile) {
-            width: 26rem;
-        }
-
         span {
             opacity: 100%;
             width: 30px;
@@ -252,15 +233,6 @@ main {
         }
     }
 
-    &.red {
-        background: $red;
-        color: $white;
-
-        &:hover {
-            background: $darkRed;
-        }
-    }
-
     &.yellow {
         background: $yellow;
         color: $black;
@@ -268,43 +240,6 @@ main {
         &:hover {
             background: #c4a020;
         }
-    }
-
-    &.dark_red {
-        color: $white;
-        background: $darkRed;
-
-        &:hover {
-            background: #62030f;
-        }
-    }
-
-    &.round_button {
-        border: 1px solid #c1a310;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fae78c+40,f3d438+55,f3d438+100 */
-        background: #fae78c; /* Old browsers */
-        background: -moz-linear-gradient(
-            top,
-            #fae78c 40%,
-            #f3d438 55%,
-            #f3d438 100%
-        ); /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-            top,
-            #fae78c 40%,
-            #f3d438 55%,
-            #f3d438 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-            to bottom,
-            #fae78c 40%,
-            #f3d438 55%,
-            #f3d438 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fae78c', endColorstr='#f3d438',GradientType=0 ); /* IE6-9 */
-        border-radius: 20px;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
     }
 }
 

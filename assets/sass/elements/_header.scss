@@ -7,11 +7,6 @@
     position: fixed;
     z-index: 999;
 
-    &.slide {
-        transform: translate3d(-250px, 0, 0);
-        -webkit-transform: translate3d(-250px, 0, 0);
-    }
-
     &.external {
         .header_bottom {
             padding: 20px 0;
@@ -161,12 +156,21 @@
             width: 100%;
 
             @include media($tablet) {
-                display: none;
+                height: 100%;
+                position: fixed;
+                left: -100%;
+                background: rgba(0, 0, 0, 0.95);
+                border-top: 1px solid;
+                border-color: rgba(255, 255, 255, 0.2);
             }
 
             nav {
                 display: flex;
                 justify-content: space-between;
+
+                @include media($tablet) {
+                    flex-direction: column;
+                }
             }
 
             ul {
@@ -175,48 +179,51 @@
                 align-items: center;
                 padding-left: 0;
 
+                @include media($tablet) {
+                    flex-direction: column;
+                }
+
                 li {
-                    position: relative;
-                    width: auto;
-                    padding: 15px 20px 15px 15px;
-
-                    @include media($desktop) {
-                        padding: 15px 10px;
-                    }
-
-                    @include media($mobile) {
-                        text-align: left;
-                        padding: 15px 20px;
-                        border-bottom: 1px solid $black;
-                    }
-
-                    &.current_page_item {
-                        a {
-                            color: $yellow;
-                        }
-                    }
-
-                    &:first-child {
-                        padding-left: 0;
-                    }
-
-                    &:last-child {
-                        padding-right: 0;
+                    @include media($tablet) {
+                        width: 100%;
                     }
 
                     a:not(.button) {
                         @include interregular;
+                        position: relative;
+                        width: auto;
+                        padding: 15px 20px 15px 15px;
                         color: $white;
                         font-size: 1.6rem;
                         display: block;
 
                         @include media($desktop) {
-                            font-size: 1.5rem;
+                            padding: 15px 10px;
+                        }
+
+                        @include media($tablet) {
+                            @include intersemibold;
+                            font-size: 2rem;
+                            padding: 20px 30px;
+                            width: 100%;
+                            text-transform: uppercase;
                         }
 
                         &:hover {
                             color: $yellow;
                         }
+                    }
+
+                    &:first-child a {
+                        padding-left: 0;
+
+                        @include media($tablet) {
+                            padding-left: 30px;
+                        }
+                    }
+
+                    &:last-child a {
+                        padding-right: 0;
                     }
 
                     .button {
@@ -228,17 +235,21 @@
                             padding-right: 12px;
                         }
 
-                        @media all and (min-width: 1199px) {
-                            &:hover {
-                                width: 26rem;
-                            }
+                        &:hover {
+                            padding-right: 40px;
                         }
+                    }
+                }
 
-                        span {
-                            @include media($desktop) {
-                                position: absolute;
-                                right: 5px;
-                            }
+                &.header_menu li:first-child {
+                    @include media($tablet) {
+                        padding-top: 40px;
+                    }
+
+                    a {
+                        @include media($tablet) {
+                            margin-left: auto;
+                            margin-right: auto;
                         }
                     }
                 }
@@ -267,11 +278,24 @@
                 }
             }
 
-            &.guest {
-                @include media($tablet) {
-                    width: auto;
+            .right_nav {
+                ul li:last-child {
+                    @include media($tablet) {
+                        margin-top: 40px;
+                        padding-top: 40px;
+                        border-top: 1px solid;
+                        border-color: rgba(255, 255, 255, 0.2);
+                    }
+                    a {
+                        @include media($tablet) {
+                            padding-left: 0;
+                            margin: 0 auto;
+                        }
+                    }
                 }
+            }
 
+            /* &.guest {
                 li {
                     @include media($tablet) {
                         padding: 20px 10px 0 10px;
@@ -289,6 +313,17 @@
                         }
                     }
                 }
+            } */
+        }
+    }
+
+    &.slide {
+        background: rgba(0, 0, 0, 0.9);
+
+        .header_bottom {
+            .menu {
+                //top: 125px;
+                left: 0;
             }
         }
     }
@@ -417,7 +452,7 @@
     }
 }
 
-.mobile_menu {
+/* .mobile_menu {
     display: none;
     height: 100%;
     width: 250px;
@@ -477,35 +512,34 @@
             }
 
             &.current_page_item {
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0b0b0b+11,151515+52,1e1f1f+88 */
-                background: #0b0b0b; /* Old browsers */
+                background: #0b0b0b;
                 background: -moz-linear-gradient(
                     top,
                     #0b0b0b 11%,
                     #151515 52%,
                     #1e1f1f 88%
-                ); /* FF3.6-15 */
+                );
                 background: -webkit-linear-gradient(
                     top,
                     #0b0b0b 11%,
                     #151515 52%,
                     #1e1f1f 88%
-                ); /* Chrome10-25,Safari5.1-6 */
+                );
                 background: linear-gradient(
                     to bottom,
                     #0b0b0b 11%,
                     #151515 52%,
                     #1e1f1f 88%
-                ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 ); /* IE6-9 */
+                ); 
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 );
 
                 a {
                     color: $yellow;
                 }
             }
         }
-    }
-}
+    } 
+} */
 
 ul.member_menu {
     position: relative;

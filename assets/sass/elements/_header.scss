@@ -37,11 +37,8 @@
         }
 
         &.member {
-            background: #000;
             padding: 5px 0;
             text-align: right;
-            border-bottom: 0.01em solid;
-            border-color: rgba(155, 155, 155, 0.5);
 
             @include media($tablet) {
                 text-align: center;
@@ -74,11 +71,6 @@
         -moz-transition: all 0.5s ease-in-out;
         -o-transition: all 0.5s ease-in-out;
         transition: all 0.5s ease-in-out;
-
-        &.background {
-            background: #000;
-            position: relative;
-        }
 
         &.home_background {
             background: rgba(0, 0, 0, 0.9);
@@ -184,6 +176,16 @@
                 }
 
                 li {
+                    padding: 15px 20px 15px 15px;
+
+                    @include media($desktop) {
+                        padding: 15px 10px;
+                    }
+
+                    @include media($tablet) {
+                        padding: 0;
+                    }
+
                     @include media($tablet) {
                         width: 100%;
                     }
@@ -192,13 +194,13 @@
                         @include interregular;
                         position: relative;
                         width: auto;
-                        padding: 15px 20px 15px 15px;
                         color: $white;
                         font-size: 1.6rem;
                         display: block;
+                        padding-bottom: 5px;
+                        border-bottom: 2px solid transparent;
 
                         @include media($desktop) {
-                            padding: 15px 10px;
                             font-size: 1.5rem;
                         }
 
@@ -212,6 +214,9 @@
 
                         &:hover {
                             color: $yellow;
+                            @media all and (min-width: 992px) {
+                                border-bottom: 2px solid $yellow;
+                            }
                         }
                     }
 
@@ -242,6 +247,16 @@
 
                             @include media($mobile) {
                                 padding-left: 10px;
+                            }
+                        }
+                    }
+
+                    &.current-menu-item {
+                        a {
+                            color: $yellow;
+
+                            @media all and (min-width: 992px) {
+                                border-bottom: 2px solid $yellow;
                             }
                         }
                     }
@@ -341,14 +356,8 @@
 
 .sub_header {
     @include intermedium;
-    background: $lightGray;
-    color: $black;
-    font-size: 36px;
-    padding: 30px 0;
-    text-align: center;
-    text-transform: uppercase;
-    @include boxShadow;
-    margin: 0 0 40px 0;
+    color: $white;
+    margin: 80px 0 20px 0;
 
     @include media($tablet) {
         padding: 20px 0;
@@ -361,30 +370,8 @@
         margin: 0 0 20px 0;
     }
 
-    h1 {
-        margin: 0;
-        font-size: 36px;
-
-        @include media($tablet) {
-            font-size: 34px;
-        }
-
-        @include media($mobile) {
-            font-size: 22px;
-        }
-    }
-
     h2 {
         margin: 0;
-        font-size: 36px;
-
-        @include media($tablet) {
-            font-size: 34px;
-        }
-
-        @include media($mobile) {
-            font-size: 24px;
-        }
     }
 }
 
@@ -408,7 +395,7 @@
         position: absolute;
         height: 5px;
         width: 100%;
-        background: #ffffff;
+        background-color: $white;
         border-radius: 9px;
         opacity: 1;
         left: 0;

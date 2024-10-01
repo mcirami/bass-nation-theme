@@ -12,6 +12,7 @@ $current_user = wp_get_current_user();
 $username = $current_user->user_login;
 ?>
 
+</section><!-- #page -->
 <footer id="global_footer" class="site_footer">
 	<div class="container">
 		<div class="content_wrap top_row">
@@ -174,10 +175,9 @@ $username = $current_user->user_login;
 				</div>
 			</div>
 		</div>
-
+		
 	<?php endif; ?>
-</div><!-- .wrapper -->
-</div><!-- #page -->
+
 <?php if (!pmpro_hasMembershipLevel() && !is_page(27) && !is_page(30) && !is_page(19)) : ?>
 	<script>
 		jQuery(document).ready(function($){
@@ -252,6 +252,6 @@ $username = $current_user->user_login;
 
 <?php endif; ?>
 <?php wp_footer(); ?>
-
+</div><!-- #wrapper -->
 </body>
 </html>

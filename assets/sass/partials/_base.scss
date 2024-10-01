@@ -244,27 +244,9 @@ main {
 }
 
 .page_content {
-    padding-top: 200px;
-
-    @include media($tablet) {
-        padding-top: 168px;
-    }
-
-    @include media($mobile) {
-        padding-top: 152px;
-    }
-
-    @include media($smallMobile) {
-        padding-top: 146px;
-    }
-
-    .wrap {
-        padding: 40px 0 80px;
-
-        header {
-            display: none;
-        }
-    }
+    padding-top: 135px;
+    padding-bottom: 100px;
+    background: $darkBg;
 
     &.member {
         padding-top: 150px;

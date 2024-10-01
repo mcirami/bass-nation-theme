@@ -66,7 +66,8 @@
         }
     }
 
-    #video_player, .course_video_player {
+    #video_player,
+    .course_video_player {
         background: $darkerGray;
         //max-height: 900px;
         //overflow-y: scroll;
@@ -83,7 +84,7 @@
             text-align: center;
             color: $white;
             padding: 15px 0;
-            background: rgba(0,0,0,.2);
+            background: rgba(0, 0, 0, 0.2);
 
             h3 {
                 margin: 0;
@@ -236,7 +237,7 @@
 
             .vid_image_wrap {
                 position: relative;
-                
+
                 img {
                     border-radius: 8px;
                 }
@@ -258,24 +259,23 @@
                 }
             }
 
-
             a {
                 display: block;
-                
+
                 &:not(.button) {
                     box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
 
                     &:hover:before {
-                        content: '';
+                        content: "";
                         text-align: center;
-                        background: url('../images/play-video.png') no-repeat;
+                        background: url("../images/play-video.png") no-repeat;
                         background-size: 12%;
                         background-position: center center;
-                        background-color: rgba(0,0,0,.6);
+                        background-color: rgba(0, 0, 0, 0.6);
                         position: absolute;
                         height: 100%;
                         width: 100%;
-                        top:0;
+                        top: 0;
                         left: 0;
                         border-radius: 8px;
                     }
@@ -416,10 +416,11 @@
         }
     }
     .filtr-container {
-        overflow:hidden;
+        overflow: hidden;
         //height: auto !important;
 
-        &:before, &:after {
+        &:before,
+        &:after {
             display: table;
             content: "";
             -webkit-box-sizing: border-box;
@@ -438,7 +439,7 @@
             h2 {
                 width: 100%;
                 float: left;
-                border:none;
+                border: none;
                 text-transform: uppercase;
             }
 
@@ -447,7 +448,7 @@
                 position: relative;
 
                 &:before {
-                    content: '';
+                    content: "";
                     position: absolute;
                     background: url(../images/white-arrow.png) no-repeat;
                     width: 28px;
@@ -465,10 +466,8 @@
                 }
             }
         }
-
     }
 }
-
 
 #comments {
     @include span-columns(12);
@@ -505,7 +504,7 @@
         background: $white;
         padding: 5px;
         text-align: center;
-        margin-right: .5%;
+        margin-right: 0.5%;
 
         &.mobile {
             display: none;
@@ -571,8 +570,8 @@
         .comment-metadata {
             width: 100%;
             float: left;
-            font-size:12px;
-            line-height:1.2;
+            font-size: 12px;
+            line-height: 1.2;
 
             @include media($mobile) {
                 @include span-columns(3);
@@ -614,7 +613,7 @@
         float: right;
         padding: 20px;
         text-align: right;
-        margin-right:0;
+        margin-right: 0;
 
         .reply_button {
             display: inline-block;
@@ -680,17 +679,17 @@
                 background: #c30b21;
             }
 
-            @include media($tablet){
+            @include media($tablet) {
                 padding: 6px 12px;
                 font-size: 14px;
             }
 
-            @include media($mobile){
+            @include media($mobile) {
                 padding: 7px 10px;
                 font-size: 12px;
             }
 
-            @include media($smallMobile){
+            @include media($smallMobile) {
                 padding: 5px 8px;
             }
         }
@@ -731,9 +730,8 @@
     }
 }
 
-
-.comment-respond, .comment_reply_wrap{
-
+.comment-respond,
+.comment_reply_wrap {
     h3 {
         margin-top: 0;
         font-size: 20px !important;
@@ -741,7 +739,7 @@
 
         @include media($tablet) {
             font-size: 18px !important;
-        };
+        }
 
         @include media($mobile) {
             font-size: 16px !important;
@@ -778,7 +776,7 @@
     height: 100%;
     z-index: 1;
     text-align: center;
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, 0.6);
     font-size: 24px !important;
     color: $yellow;
     line-height: 1.4;
@@ -798,7 +796,7 @@
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background: rgba(0,0,0,.7);
+    background: rgba(0, 0, 0, 0.7);
     top: 0;
     min-height: 100%;
     position: fixed;
@@ -819,7 +817,7 @@
             position: absolute;
             right: -14px;
             top: -14px;
-            z-index:999;
+            z-index: 999;
         }
 
         iframe {
@@ -891,7 +889,6 @@
 }
 
 .lessons_page.courses {
-
     .course_video_player {
         margin-top: 20px;
         position: relative;
@@ -902,7 +899,7 @@
 
         &.open {
             &:before {
-                content: '';
+                content: "";
                 position: absolute;
                 width: 0;
                 height: 0;
@@ -1024,145 +1021,14 @@
     overflow: hidden;
 }
 
-.ld-course-list-content {
-    padding: 80px 0;
-
-    @include media($tablet) {
-        padding: 60px 0;
-    }
-
-    @include media($mobile) {
-        padding: 40px 0;
-    }
-
-    .entry-title {
-        font-size: 22px;
-
-        @include media($tablet) {
-            font-size: 20px;
-        }
-    }
-
-    .ld-course-list-items .ld_course_grid {
-
-        @include media($mobile) {
-            margin: 0 auto 20px;
-        }
-
-        .btn-primary {
-            background-color: $red;
-            border-color: $red;
-
-            &:hover {
-                background-color: $darkRed;
-            }
-        }
-
-        .thumbnail.course {
-            height: 100%;
-
-            .ld_course_grid_price.ribbon-enrolled {
-                background: $red;
-            }
-        }
-    }
-}
-
-.learndash-wrapper {
-
-    input[type="button"], .ld-button, input[type="submit"] {
-        @include interregular;
-        border-radius: 4px !important;
-        -webkit-border-radius: 4px !important;
-        -moz-border-radius: 4px !important;
-        font-size: 16px !important;
-        padding: 7px 15px !important;
-
-        &:hover {
-            background-color: $darkRed !important;
-        }
-
-        @include media($mobile){
-            font-size: 14px !important;
-            width: 100% !important;
-            max-width: unset !important;
-        }
-    }
-
-    .wpProQuiz_content .wpProQuiz_button2 {
-        @include media($mobile) {
-            margin-bottom: 1em !important;
-        }
-    }
-
-    .ld-item-list .ld-item-list-item {
-        border: 2px solid $red;
-
-        .ld-item-list-item-preview .ld-status-icon {
-            margin-top: 0;
-
-            .ld-icon:before {
-                transform: translateY(-70%) translateX(-50%);
-            }
-        }
-
-        .ld-item-list-item-preview {
-            padding: 0;
-
-            &:hover {
-                background-color: $lightGray;
-            }
-
-            a {
-                padding: 20px;
-
-                &:hover {
-                    background-color: $lightGray;
-                }
-            }
-        }
-    }
-
-    .wpProQuiz_content {
-
-        .wpProQuiz_questionListItem label {
-
-            &:focus-within {
-                border-color: $darkRed;
-            }
-
-            &.is-selected {
-                border-color: $red;
-            }
-        }
-
-        .wpProQuiz_question_text {
-            margin-top: 20px;
-
-            p {
-                @include interbold;
-                font-size: 24px;
-
-                @include media($tablet) {
-                    font-size: 20px;
-                }
-
-                @include media($mobile) {
-                    font-size: 18px;
-                }
-            }
-        }
-    }
-}
-
 .metro_wrap {
     width: 500px;
     height: 600px;
 }
 
 .banner_wrap {
-	margin: 20px 0 20px;
-	padding: 0px 20px;
+    margin: 20px 0 20px;
+    padding: 0px 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
 
@@ -1193,7 +1059,7 @@
         @include media($mobile) {
             grid-template-columns: repeat(2, 1fr);
         }
-    
+
         li {
             &:last-child {
                 @include media($tablet) {
@@ -1230,11 +1096,11 @@
                 }
 
                 &:hover::before {
-                    content: '';
-                    background: url('../images/go-arrow.png') no-repeat;
+                    content: "";
+                    background: url("../images/go-arrow.png") no-repeat;
                     background-position: center center;
                     background-size: 10%;
-                    background-color: rgba(0, 0, 0, .8);
+                    background-color: rgba(0, 0, 0, 0.8);
                     position: absolute;
                     width: 100%;
                     height: 100%;

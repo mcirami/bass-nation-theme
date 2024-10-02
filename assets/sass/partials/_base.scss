@@ -250,13 +250,16 @@ main {
 
     &.member {
         padding-top: 150px;
-
-        @include media($tablet) {
-            padding-top: 210px;
-        }
+        background: $white;
 
         @include media($mobile) {
-            padding-top: 115px;
+            padding-bottom: 40px;
+        }
+
+        .sub_header {
+            h2 {
+                color: $black;
+            }
         }
     }
 

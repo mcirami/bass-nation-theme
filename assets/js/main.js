@@ -763,9 +763,9 @@ jQuery(document).ready(function ($) {
 
         let videoDesc = "";
 
-        if (desc) {
+        /* if (desc) {
             videoDesc = '<div class="description"><p>' + desc + "</p></div>";
-        }
+        } */
 
         if (currentPage.postType && currentPage.postType !== "courses") {
             videoPlayer = $("#video_player").empty();
@@ -804,16 +804,6 @@ jQuery(document).ready(function ($) {
             function (response) {
                 const commentContent = response;
 
-                if (videoType === "soundslice_video") {
-                    var replaceVideo =
-                        '<div class="link_wrap"><p class="replace_link">Video trouble? <a class="replace_video" href="#" data-replace="' +
-                        replaceVideoLink +
-                        '">Use this LINK!</a></p></div>';
-                } else {
-                    replaceVideo = "";
-                    //keyboardLink = "";
-                }
-
                 let html =
                     '<div class="lesson_content_wrap">' +
                     '<div class="lesson_title">' +
@@ -823,31 +813,29 @@ jQuery(document).ready(function ($) {
                     "</div>" +
                     videoDesc +
                     '<div class="content_wrap">' +
-                    '<div class="video_iframe_wrap">' +
-                    '<div class="top_row">' +
-                    '<div class="button_wrap">' +
-                    favoriteButton +
+                    '<div class="video_iframe_wrap">';
+
+                html += '<div class="video_wrapper">';
+
+                html +=
+                    '<iframe frameborder="0" allowfullscreen src="' +
+                    videoSrc +
+                    '"></iframe>' +
                     "</div>";
+
+                html += '<div class="top_row">' +
+                    '<div class="button_wrap">' +
+                        favoriteButton +
+                    '</div>';
 
                 if (fileElements) {
                     html +=
                         '<div class="links_wrap">' + fileElements + "</div>";
                 }
 
-                html += replaceVideo + "</div>";
+                html += '</div>';
 
-                if (notation === "yes") {
-                    html += '<div class="video_wrapper video_notation">';
-                } else {
-                    html += '<div class="video_wrapper">';
-                }
-
-                html +=
-                    '<iframe frameborder="0" allowfullscreen src="' +
-                    videoSrc +
-                    '"></iframe>' +
-                    "</div>" +
-                    "</div>" +
+                html += "</div>" +
                     '<div class="video_content_wrap">' +
                     '<div id="comments" class="comments-area">' +
                     '<ol class="comment-list">' +
@@ -875,17 +863,6 @@ jQuery(document).ready(function ($) {
                             );
                         }
                     });
-
-                $(".replace_video").bind("click", function (e) {
-                    e.preventDefault();
-                    $(".video_wrapper").removeClass("video_notation");
-                    const vimeoLink = $(this).data("replace");
-                    $(this)
-                        .parent()
-                        .nextAll(".video_wrapper")
-                        .find("iframe")
-                        .attr("src", vimeoLink);
-                });
 
                 replyToComment($("a.comment-reply-link"));
                 commentCancel();

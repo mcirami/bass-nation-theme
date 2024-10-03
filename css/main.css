@@ -17789,8 +17789,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .top_content button[disabled=disabled]:hover {
   color: #ebebeb;
 }
+.lessons_page #video_player {
+  opacity: 0;
+  z-index: -999;
+}
 .lessons_page #video_player.open {
-  margin-bottom: 40px;
+  opacity: 100%;
+  z-index: 999;
 }
 .lessons_page #video_player,
 .lessons_page .course_video_player {
@@ -17804,7 +17809,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page #video_player .lesson_content_wrap,
 .lessons_page .course_video_player .lesson_content_wrap {
-  max-width: 40%;
   display: flex;
   margin: auto;
   width: 100%;
@@ -17929,8 +17933,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 57.3509785009%;
-  padding-left: 2.5%;
-  padding-bottom: 20px;
 }
 .lessons_page #video_player .video_iframe_wrap:last-child,
 .lessons_page .course_video_player .video_iframe_wrap:last-child {
@@ -17943,8 +17945,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     display: block;
     margin-right: 3.5786636068%;
     width: 100%;
-    padding-right: 2.5%;
-    padding-bottom: 0;
   }
   .lessons_page #video_player .video_iframe_wrap:last-child,
   .lessons_page .course_video_player .video_iframe_wrap:last-child {
@@ -17977,10 +17977,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 40.2913699012%;
-  padding-right: 2.5%;
   max-height: 800px;
   overflow-y: scroll;
-  margin-top: 15px;
 }
 .lessons_page #video_player .video_content_wrap:last-child,
 .lessons_page .course_video_player .video_content_wrap:last-child {
@@ -17993,7 +17991,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     display: block;
     margin-right: 3.5786636068%;
     width: 100%;
-    padding-left: 2.5%;
   }
   .lessons_page #video_player .video_content_wrap:last-child,
   .lessons_page .course_video_player .video_content_wrap:last-child {
@@ -18038,11 +18035,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 7px;
   /* @include media($mobile) {
-      position: relative !important;
-      right: auto;
-      bottom: auto;
-      width: 100%;
-  } */
+                position: relative !important;
+                right: auto;
+                bottom: auto;
+                width: 100%;
+            } */
 }
 .lessons_page .videos_wrap .column a {
   display: block;

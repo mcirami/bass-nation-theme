@@ -19,6 +19,7 @@
         -moz-transition: 0.5s ease-in-out;
         -o-transition: 0.5s ease-in-out;
         transition: 0.5s ease-in-out;
+        border-bottom: 1px solid $darkGray;
 
         @include media($tablet) {
             padding: 10px 0 20px;
@@ -48,6 +49,7 @@
             a {
                 color: $grayText;
                 text-transform: uppercase;
+                padding: 0;
 
                 &:hover {
                     color: $white;
@@ -76,10 +78,6 @@
         &.home_background {
             background: rgba(0, 0, 0, 0.9);
             padding: 0;
-        }
-
-        &.background {
-            background: rgba(0, 0, 0, 0.9);
         }
 
         .content_wrap {
@@ -233,6 +231,13 @@
                         }
                     }
 
+                    &.current-menu-parent {
+                        > a {
+                            color: $yellow;
+                            border-bottom: 2px solid $yellow;
+                        }
+                    }
+
                     .button {
                         width: 22rem;
                         font-size: 1.3rem;
@@ -263,6 +268,17 @@
                             @media all and (min-width: 992px) {
                                 border-bottom: 2px solid $yellow;
                             }
+                        }
+                    }
+                }
+
+                &.sub-menu {
+                    display: none;
+                    flex-direction: column;
+
+                    li:first-child {
+                        a {
+                            padding-left: 45px;
                         }
                     }
                 }
@@ -344,6 +360,16 @@
                     }
                 }
             } */
+        }
+
+        &.member {
+            background: rgba(0, 0, 0, 0.9);
+
+            .menu {
+                nav {
+                    justify-content: flex-end;
+                }
+            }
         }
     }
 
@@ -546,19 +572,17 @@
 ul.member_menu {
     position: relative;
     text-align: left;
+    gap: 4rem;
 
     > li {
-        padding: 15px 0 15px 0 !important;
         position: relative;
 
-        @include media($mobile) {
-            padding: 20px 0 !important;
+        > a {
+            padding: 0 0 5px 0 !important;
         }
 
         &:last-child {
-            a {
-                padding-right: 0;
-            }
+            padding-right: 0;
 
             .sub-menu {
                 left: auto;
@@ -566,16 +590,6 @@ ul.member_menu {
 
                 @include media($mobile) {
                     right: 0;
-                }
-            }
-        }
-
-        &:first-child {
-            a {
-                padding-left: 0;
-
-                @include media($mobile) {
-                    padding-left: 10px;
                 }
             }
         }
@@ -630,7 +644,7 @@ ul.member_menu {
 
         ul.sub-menu {
             display: none;
-            background: #000;
+            background: rgba(0, 0, 0, 0.8);
             position: absolute;
             left: -5px;
             padding-left: 0;

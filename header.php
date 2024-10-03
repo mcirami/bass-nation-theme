@@ -152,7 +152,7 @@ $username = $current_user->user_login;
 			</div>
 		<?php endif; ?>
 
-		<div class="header_bottom <?php if(!is_front_page() && !is_page(5)){ echo "background"; } ?>">
+		<div class="header_bottom <?php echo is_user_logged_in() ? "member" : ""; ?>">
 			<?php wp_reset_query(); ?>
 			<div class="container">
 				<div class="content_wrap">

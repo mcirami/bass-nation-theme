@@ -1,4 +1,6 @@
+"use strict";
 const { Swiper } = require("swiper/bundle");
+//const { Shuffle } = require("shufflejs");
 
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
@@ -691,6 +693,15 @@ jQuery(document).ready(function ($) {
         $(".filtr-container").filterizr({
             layout: "sameSize",
         });
+        //const Shuffle = window.Shuffle;
+        /* const element = document.getElementById("lesson_grid");
+        const shuffleInstance = new Shuffle(element, {
+            itemSelector: ".filtr-item",
+            sizer: ".js-shuffle-sizer",
+            buffer: 1,
+        });
+
+        shuffleInstance.layout(); */
     }
 
     $(".filter_list li").click(function () {
@@ -753,8 +764,7 @@ jQuery(document).ready(function ($) {
         let videoDesc = "";
 
         if (desc) {
-            videoDesc =
-                '<div class="full_width description"><p>' + desc + "</p></div>";
+            videoDesc = '<div class="description"><p>' + desc + "</p></div>";
         }
 
         if (currentPage.postType && currentPage.postType !== "courses") {
@@ -805,13 +815,14 @@ jQuery(document).ready(function ($) {
                 }
 
                 let html =
-                    '<div class="full_width lesson_title">' +
+                    '<div class="lesson_content_wrap">' +
+                    '<div class="lesson_title">' +
                     "<h3>" +
                     videoTitle +
                     "</h3>" +
                     "</div>" +
                     videoDesc +
-                    '<div class="content_wrap full_width">' +
+                    '<div class="content_wrap">' +
                     '<div class="video_iframe_wrap">' +
                     '<div class="top_row">' +
                     '<div class="button_wrap">' +
@@ -844,7 +855,7 @@ jQuery(document).ready(function ($) {
                     "</ol>" +
                     "</div>" +
                     "</div>" +
-                    "</div>";
+                    "</div></div>";
 
                 $(html)
                     .hide()

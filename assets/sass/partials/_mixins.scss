@@ -140,3 +140,88 @@
         }
     }
 }
+
+@mixin basicButton {
+    @include interbold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    width: 28rem;
+    text-align: center;
+
+    @include media($tablet) {
+        font-size: 1.4rem;
+        width: 26rem;
+    }
+
+    @include media($mobile) {
+        font-size: 1.3rem;
+        padding: 10px 15px;
+        width: 24rem;
+    }
+
+    span {
+        opacity: 0%;
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        width: 0;
+        position: absolute;
+        right: 8px;
+
+        img {
+            height: 25px;
+        }
+    }
+
+    &:hover {
+        span {
+            opacity: 100%;
+            width: 30px;
+        }
+    }
+
+    &.black {
+        background: $black;
+        color: $red;
+        border: 1px;
+        border-style: inset;
+        border-color: $red;
+
+        &:hover {
+            color: $white;
+            border-color: $white;
+
+            span {
+                img {
+                    //filter: invert(10%) sepia(92%) saturate(7457%) hue-rotate(350deg) brightness(103%) contrast(90%);
+                    filter: invert(100%) sepia(100%) saturate(2%)
+                        hue-rotate(52deg) brightness(106%) contrast(101%);
+                }
+            }
+        }
+    }
+
+    &.yellow {
+        background: $yellow;
+        color: $black;
+
+        &:hover {
+            background: #c4a020;
+        }
+    }
+}

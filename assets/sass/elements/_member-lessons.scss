@@ -1,1063 +1,1165 @@
 .simplefavorite-button {
-  @include interregular;
-  border: none;
-  opacity: 1 !important;
-  padding: 5px 10px;
-  font-size: 13px;
-  float: left;
+    @include interregular;
+    border: none;
+    opacity: 1 !important;
+    padding: 5px 10px;
+    font-size: 13px;
+    float: left;
+    border-radius: 4px;
 
-  @include media($mobile) {
-    font-size: 11px;
-    padding: 4px 5px;
-  }
+    @include media($mobile) {
+        font-size: 11px;
+        padding: 4px 5px;
+    }
 
-  &:hover {
-    background: #c4a020 !important;
-  }
+    &:hover {
+        background: $darkRed !important;
+    }
 
-  &.active:hover {
-    background: $black;
-  }
+    &.active:hover {
+        background: $red !important;
+        color: $white !important;
+    }
 }
 
 .lessons_page {
-  position: relative;
+    position: relative;
 
-  .top_content {
-    padding: 20px;
+    .top_content {
+        padding: 20px;
 
-    h3 {
-      font-size: 18px;
-      float: left;
-    }
-
-    .simplefavorites-clear {
-      @include interregular;
-      font-size: 14px;
-      color: $red;
-      border: none;
-      text-decoration: underline;
-      float: right;
-      margin-top: 20px;
-      background: none;
-
-      @include media($mobile) {
-        margin-top: 10px;
-      }
-
-      &:hover {
-        color: #c30b21;
-      }
-    }
-
-    button[disabled="disabled"] {
-      color: $lightGray;
-      text-decoration: none;
-
-      &:hover {
-        color: $lightGray;
-      }
-    }
-  }
-
-  #video_player {
-    opacity: 0;
-    z-index: -999;
-    &.open {
-      opacity: 100%;
-      z-index: 999;
-    }
-  }
-
-  #video_player,
-  .course_video_player {
-    background: rgba(0, 0, 0, 0.9);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-
-    //max-height: 900px;
-    //overflow-y: scroll;
-
-    .lesson_content_wrap {
-      display: flex;
-      margin: auto;
-      width: 100%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 5% 0;
-    }
-
-    .content_wrap {
-      position: relative;
-      padding: 0 40px;
-
-      @include media($mobile) {
-        padding: 0 25px;
-      }
-    }
-
-    .lesson_title {
-      text-align: center;
-      color: $white;
-      padding: 15px 0;
-
-      h3 {
-        margin: 0;
-
-        @include media($mobile) {
-          font-size: 21px;
-        }
-      }
-    }
-
-    .description {
-      padding: 20px 40px 0;
-
-      p {
-        font-size: 20px;
-        line-height: 1.6;
-        color: $white;
-
-        @include media($tablet) {
-          font-size: 18px;
+        h3 {
+            font-size: 18px;
+            float: left;
         }
 
-        @include media($mobile) {
-          font-size: 16px;
+        .simplefavorites-clear {
+            @include interregular;
+            font-size: 14px;
+            color: $red;
+            border: none;
+            text-decoration: underline;
+            float: right;
+            margin-top: 20px;
+            background: none;
+
+            @include media($mobile) {
+                margin-top: 10px;
+            }
+
+            &:hover {
+                color: #c30b21;
+            }
         }
-      }
+
+        button[disabled="disabled"] {
+            color: $lightGray;
+            text-decoration: none;
+
+            &:hover {
+                color: $lightGray;
+            }
+        }
     }
 
-    .replace_link {
-      padding: 10px 0;
-      text-align: center;
-      margin: 0;
-      color: $white;
+    #video_player {
+        opacity: 0;
+        z-index: -999;
+        -webkit-transition: 1s ease-in-out;
+        -moz-transition: 1s ease-in-out;
+        -o-transition: 1s ease-in-out;
+        transition: 1s ease-in-out;
 
-      @include media($smallMobile) {
-        text-align: right;
-      }
-
-      a {
-        @include interbold;
-        font-size: 16px;
-        color: $red;
-
-        @include media($mobile) {
-          font-size: 14px;
+        &.open {
+            opacity: 100%;
+            z-index: 999;
         }
-      }
     }
 
-    .links_wrap {
-      @include span-columns(12);
-      text-align: center;
-      padding-bottom: 10px;
-
-      a {
-        color: $white;
-        text-transform: uppercase;
-        text-decoration: underline;
-
-        @include media($mobile) {
-          font-size: 14px;
-        }
-
-        &:hover {
-          color: $yellow;
-        }
-
-        &.keyboard_link {
-          margin-right: 0;
-        }
-      }
-    }
-
-    .video_iframe_wrap {
-      @include span-columns(7);
-
-      @include media($tablet) {
-        @include span-columns(8);
-      }
-
-      .top_row {
-        display: -webkit-box;
-        display: -ms-flexbox;
+    #video_player,
+    .course_video_player {
+        background: rgba(0, 0, 0, 0.9);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
-        -webkit-box-orient: horizontal;
-        -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-        flex-direction: row;
-        -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        -webkit-justify-content: space-between;
-        align-items: center;
-        -webkit-align-items: center;
-        padding: 20px 0;
 
-        .button_wrap {
-          width: 50%;
+        @include media($desktop) {
+            overflow-y: scroll;
+        }
+
+        &.scroll {
+            .video_iframe_wrap {
+                position: fixed;
+                max-width: 300px;
+                left: 13.3%;
+                top: 50px;
+                z-index: 1;
+            }
+
+            .bottom_row {
+                opacity: 0;
+            }
+        }
+
+        //max-height: 900px;
+        //overflow-y: scroll;
+
+        #close_video {
+            position: absolute;
+            z-index: 999;
+            right: 5%;
+            top: 10%;
+            background: url("../images/close-icon.png") no-repeat;
+            background-size: 100%;
+            padding: 30px;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .lesson_content_wrap {
+            display: flex;
+            margin: auto;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 5% 0;
+        }
+
+        .content_wrap {
+            position: relative;
+            padding: 0 40px;
+            width: 80%;
+
+            @include media($mobile) {
+                padding: 0 25px;
+                width: 100%;
+            }
+        }
+
+        .lesson_title {
+            text-align: center;
+            color: $white;
+            padding: 15px 0;
+
+            h3 {
+                margin: 0;
+
+                @include media($mobile) {
+                    font-size: 21px;
+                }
+            }
+        }
+
+        .description {
+            padding: 20px 40px 0;
+
+            p {
+                font-size: 20px;
+                line-height: 1.6;
+                color: $white;
+
+                @include media($tablet) {
+                    font-size: 18px;
+                }
+
+                @include media($mobile) {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .replace_link {
+            padding: 10px 0;
+            text-align: center;
+            margin: 0;
+            color: $white;
+
+            @include media($smallMobile) {
+                text-align: right;
+            }
+
+            a {
+                @include interbold;
+                font-size: 16px;
+                color: $red;
+
+                @include media($mobile) {
+                    font-size: 14px;
+                }
+            }
         }
 
         .links_wrap {
-          width: 50%;
-          text-align: right;
-        }
-      }
-    }
+            @include span-columns(12);
 
-    .video_content_wrap {
-      @include span-columns(5);
-      max-height: 800px;
-      overflow-y: scroll;
+            a {
+                color: $white;
+                position: relative;
+                padding-left: 20px;
 
-      @include media($tablet) {
-        @include span-columns(8);
-      }
-    }
-  }
+                @include media($mobile) {
+                    font-size: 14px;
+                }
 
-  .videos_wrap {
-    margin: 40px 0;
+                &:hover {
+                    color: $yellow;
+                }
 
-    @include media($mobile) {
-      margin: 20px 0;
-    }
-
-    .column {
-      width: 32.9%;
-      display: inline-block;
-      padding: 20px;
-
-      @include media($tablet) {
-        padding: 15px;
-      }
-
-      @include media($mobile) {
-        width: 49.5%;
-        padding: 10px;
-      }
-
-      .vid_image_wrap {
-        position: relative;
-
-        img {
-          border-radius: 8px;
+                &:before {
+                    content: "";
+                    background: url("../images/pdf-icon.png") no-repeat;
+                    background-size: 100%;
+                    width: 30px;
+                    height: 30px;
+                    position: absolute;
+                    left: -20px;
+                    top: -6px;
+                }
+            }
         }
 
-        .simplefavorite-button {
-          position: absolute !important;
-          right: 0;
-          bottom: 0;
-          border-top-right-radius: 0;
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 7px;
+        .video_iframe_wrap {
+            @include span-columns(7);
+            -webkit-transition: 0.1s ease-in-out;
+            -moz-transition: 0.1s ease-in-out;
+            -o-transition: 0.1s ease-in-out;
+            transition: 0.1s ease-in-out;
 
-          /* @include media($mobile) {
+            @include media($desktop) {
+                width: 80%;
+                margin: 0 auto;
+                float: unset;
+                max-width: 80%;
+            }
+
+            @include media($tablet) {
+                @include span-columns(8);
+            }
+
+            .bottom_row {
+                width: 100%;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: horizontal;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                flex-direction: row;
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                justify-content: flex-start;
+                -webkit-justify-content: flex-start;
+                align-items: center;
+                -webkit-align-items: center;
+                padding: 20px 0;
+                gap: 5rem;
+
+                .links_wrap {
+                    width: auto;
+                }
+            }
+        }
+
+        .video_content_wrap {
+            @include span-columns(5);
+            max-height: 600px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            -webkit-transition: 2s ease-in-out;
+            -moz-transition: 2s ease-in-out;
+            -o-transition: 2s ease-in-out;
+            transition: 2s ease-in-out;
+
+            @include media($desktop) {
+                width: 100%;
+                max-height: unset;
+                overflow-y: auto;
+            }
+
+            @include media($tablet) {
+                @include span-columns(8);
+            }
+
+            &.scroll {
+                padding-top: 55%;
+            }
+        }
+    }
+
+    .videos_wrap {
+        margin: 40px 0;
+
+        @include media($mobile) {
+            margin: 20px 0;
+        }
+
+        .column {
+            width: 32.9%;
+            display: inline-block;
+            padding: 20px;
+
+            @include media($tablet) {
+                padding: 15px;
+            }
+
+            @include media($mobile) {
+                width: 49.5%;
+                padding: 10px;
+            }
+
+            .vid_image_wrap {
+                position: relative;
+
+                img {
+                    border-radius: 8px;
+                }
+
+                .simplefavorite-button {
+                    position: absolute !important;
+                    right: 0;
+                    bottom: 0;
+                    border-top-right-radius: 0;
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 7px;
+
+                    /* @include media($mobile) {
                         position: relative !important;
                         right: auto;
                         bottom: auto;
                         width: 100%;
                     } */
+                }
+            }
+
+            a {
+                display: block;
+
+                &:not(.button) {
+                    box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+
+                    &:hover:before {
+                        content: "";
+                        text-align: center;
+                        background: url("../images/play-video.png") no-repeat;
+                        background-size: 12%;
+                        background-position: center center;
+                        background-color: rgba(0, 0, 0, 0.6);
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        border-radius: 8px;
+                    }
+                }
+            }
+
+            .comment_wrap {
+                display: none;
+            }
+
+            h4 {
+                @include interregular;
+                margin: 4px 0;
+                font-size: 14px;
+                line-height: 1.2;
+
+                @include media($smallMobile) {
+                    font-size: 12px;
+                }
+            }
+
+            p {
+                line-height: 1.2;
+                font-size: 14px;
+                margin: 0;
+                color: $grayText;
+
+                @include media($smallMobile) {
+                    font-size: 12px;
+                }
+            }
         }
-      }
-
-      a {
-        display: block;
-
-        &:not(.button) {
-          box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
-
-          &:hover:before {
-            content: "";
-            text-align: center;
-            background: url("../images/play-video.png") no-repeat;
-            background-size: 12%;
-            background-position: center center;
-            background-color: rgba(0, 0, 0, 0.6);
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            border-radius: 8px;
-          }
-        }
-      }
-
-      .comment_wrap {
-        display: none;
-      }
-
-      h4 {
-        @include interregular;
-        margin: 4px 0;
-        font-size: 14px;
-        line-height: 1.2;
-
-        @include media($smallMobile) {
-          font-size: 12px;
-        }
-      }
-
-      p {
-        line-height: 1.2;
-        font-size: 14px;
-        margin: 0;
-        color: $grayText;
-
-        @include media($smallMobile) {
-          font-size: 12px;
-        }
-      }
-    }
-  }
-
-  .filter_controls {
-    @include span-columns(12);
-    padding: 20px;
-    margin-bottom: 20px;
-
-    .search_box {
-      @include span-columns(12);
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      margin-top: auto;
-      margin-bottom: auto;
-
-      input {
-        width: 100%;
-        height: 45px;
-        padding: 0 10px;
-        font-size: 16px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        border-radius: 50px;
-        background: #fff url(../images/icon-search.png) no-repeat;
-        background-size: 22px;
-        background-position: 98% 50%;
-        color: $darkGray;
-        border: 2px solid $darkGray;
-
-        @include media($mobile) {
-          height: 40px;
-          background-size: 18px;
-        }
-      }
     }
 
-    .filters {
-      @include span-columns(12);
-      position: relative;
-      margin-bottom: 20px;
-
-      p {
-        font-size: 1.2rem;
-        margin: 0;
-        color: $grayText;
+    .filter_controls {
+        @include span-columns(12);
+        padding: 20px;
         margin-bottom: 20px;
-      }
 
-      h3 {
-        font-size: 2.8rem;
-        @include interbold;
-        margin: 0;
-      }
-    }
+        .search_box {
+            @include span-columns(12);
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-top: auto;
+            margin-bottom: auto;
 
-    .filter_list {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+            input {
+                width: 100%;
+                height: 45px;
+                padding: 0 10px;
+                font-size: 16px;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+                border-radius: 50px;
+                background: #fff url(../images/icon-search.png) no-repeat;
+                background-size: 22px;
+                background-position: 98% 50%;
+                color: $darkGray;
+                border: 2px solid $darkGray;
 
-      li {
-        font-size: 14px;
-        cursor: pointer;
-        color: $white;
-        padding: 8px 18px;
-        background: $darkGray;
-        border-radius: 50px;
-
-        &:hover,
-        &.active {
-          color: $black;
-          background: $yellow;
+                @include media($mobile) {
+                    height: 40px;
+                    background-size: 18px;
+                }
+            }
         }
-      }
-    }
-  }
-  .filtr-container {
-    overflow: hidden;
-    //height: auto !important;
 
-    &:before,
-    &:after {
-      display: table;
-      content: "";
-      -webkit-box-sizing: border-box;
-      -moz-box-sizing: border-box;
-      box-sizing: border-box;
-    }
+        .filters {
+            @include span-columns(12);
+            position: relative;
+            margin-bottom: 20px;
 
-    .text_wrap {
-      text-align: center;
-      margin: 10% 0 15%;
+            p {
+                font-size: 1.2rem;
+                margin: 0;
+                color: $grayText;
+                margin-bottom: 20px;
+            }
 
-      @include media($mobile) {
-        margin: 5% 0 15%;
-      }
-
-      h2 {
-        width: 100%;
-        float: left;
-        border: none;
-        text-transform: uppercase;
-      }
-
-      .button {
-        padding: 10px 50px 10px 20px;
-        position: relative;
-
-        &:before {
-          content: "";
-          position: absolute;
-          background: url(../images/white-arrow.png) no-repeat;
-          width: 28px;
-          height: 12px;
-          right: 12px;
-          z-index: 1;
-          top: 16px;
-          background-size: 100%;
-
-          @include media($mobile) {
-            top: 14px;
-            width: 25px;
-            right: 13px;
-          }
+            h3 {
+                font-size: 2.8rem;
+                @include interbold;
+                margin: 0;
+            }
         }
-      }
+
+        .filter_list {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+
+            li {
+                font-size: 14px;
+                cursor: pointer;
+                color: $white;
+                padding: 8px 18px;
+                background: $darkGray;
+                border-radius: 50px;
+
+                &:hover,
+                &.active {
+                    color: $black;
+                    background: $yellow;
+                }
+            }
+        }
     }
-  }
+    .filtr-container {
+        overflow: hidden;
+        //height: auto !important;
+
+        &:before,
+        &:after {
+            display: table;
+            content: "";
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .text_wrap {
+            text-align: center;
+            margin: 10% 0 15%;
+
+            @include media($mobile) {
+                margin: 5% 0 15%;
+            }
+
+            h2 {
+                width: 100%;
+                float: left;
+                border: none;
+                text-transform: uppercase;
+            }
+
+            .button {
+                padding: 10px 50px 10px 20px;
+                position: relative;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    background: url(../images/white-arrow.png) no-repeat;
+                    width: 28px;
+                    height: 12px;
+                    right: 12px;
+                    z-index: 1;
+                    top: 16px;
+                    background-size: 100%;
+
+                    @include media($mobile) {
+                        top: 14px;
+                        width: 25px;
+                        right: 13px;
+                    }
+                }
+            }
+        }
+    }
 }
 
 #comments {
-  @include span-columns(12);
-  position: relative;
-  padding: 30px 0;
-  text-align: left;
-
-  .comments-title {
-    display: none;
-  }
-
-  ol {
     @include span-columns(12);
-    list-style: none;
+    position: relative;
+    padding: 30px 0;
+    text-align: left;
 
-    li {
-      @include span-columns(12);
-      margin-bottom: 20px;
+    .comments-title {
+        display: none;
+    }
 
-      .children {
+    ol {
         @include span-columns(12);
-        padding-left: 6.7%;
-        margin-top: 5px;
+        padding-left: 0;
+        padding-right: 20px;
+        margin-left: 0;
+        list-style: none;
+
+        textarea {
+            background: $black;
+            color: $white;
+        }
 
         li {
-          margin-bottom: 5px;
+            @include span-columns(12);
+            margin-bottom: 20px;
+
+            .children {
+                @include span-columns(12);
+                padding-left: 6.7%;
+                margin-top: 5px;
+
+                li {
+                    margin-bottom: 5px;
+                }
+            }
         }
-      }
     }
-  }
 
-  .comment-meta {
-    @include span-columns(1);
-    background: $white;
-    padding: 5px;
-    text-align: center;
-    margin-right: 0.5%;
-
-    &.mobile {
-      display: none;
-
-      @include media($mobile) {
+    .comment-meta {
         @include span-columns(1);
-        background: transparent;
-        margin-right: 5px;
-        max-width: 60px;
-      }
+        background: $white;
+        padding: 5px;
+        text-align: center;
+        margin-right: 0.5%;
+
+        &.mobile {
+            display: none;
+
+            @include media($mobile) {
+                @include span-columns(1);
+                background: transparent;
+                margin-right: 5px;
+                max-width: 60px;
+            }
+        }
+
+        &.desktop {
+            @include media($mobile) {
+                display: none;
+            }
+        }
     }
 
-    &.desktop {
-      @include media($mobile) {
-        display: none;
-      }
-    }
-  }
-
-  .comment-content {
-    @include span-columns(11.2);
-    position: relative;
-    background: $white;
-    border: 1px solid $darkGray;
-    text-align: center;
-
-    @include media($mobile) {
-      @include span-columns(4);
-    }
-
-    .comment_heading {
-      padding: 20px 20px 10px 20px;
-      background: $lightGray;
-      color: $red;
-      text-align: left;
-
-      @include media($mobile) {
-        padding: 5px 10px 5px 5px;
-      }
-    }
-
-    > p {
-      @include span-columns(12);
-      padding: 10px 20px;
-      text-align: left;
-    }
-
-    .video_embed {
-      width: 50%;
-      display: inline-block;
-      margin: 20px auto 0;
-      padding: 0 20px;
-
-      @include media($tablet) {
-        width: 75%;
-      }
-
-      @include media($mobile) {
-        width: 100%;
-      }
-    }
-
-    .comment-metadata {
-      width: 100%;
-      float: left;
-      font-size: 12px;
-      line-height: 1.2;
-
-      @include media($mobile) {
-        @include span-columns(3);
-        padding-top: 20px;
-        font-size: 10px;
-      }
-
-      a {
-        float: left;
-        width: 100%;
-        color: $red;
-      }
-
-      .fn {
-        @include interbold;
-        float: left;
-        line-height: 1.1;
-        font-size: 16px;
+    .comment-content {
+        @include span-columns(11.2);
+        position: relative;
+        background: $white;
+        border: 1px solid $darkGray;
+        text-align: center;
 
         @include media($mobile) {
-          font-size: 14px;
+            @include span-columns(4);
         }
-      }
 
-      .says {
-        float: left;
-        font-size: 16px;
-        margin-left: 6px;
+        .comment_heading {
+            padding: 20px 20px 10px 20px;
+            background: $lightGray;
+            color: $red;
+            text-align: left;
 
-        @include media($mobile) {
-          font-size: 14px;
+            @include media($mobile) {
+                padding: 5px 10px 5px 5px;
+            }
         }
-      }
+
+        > p {
+            @include span-columns(12);
+            padding: 10px 20px;
+            text-align: left;
+        }
+
+        .video_embed {
+            width: 50%;
+            display: inline-block;
+            margin: 20px auto 0;
+            padding: 0 20px;
+
+            @include media($tablet) {
+                width: 75%;
+            }
+
+            @include media($mobile) {
+                width: 100%;
+            }
+        }
+
+        .comment-metadata {
+            width: 100%;
+            float: left;
+            font-size: 12px;
+            line-height: 1.2;
+
+            @include media($mobile) {
+                @include span-columns(3);
+                padding-top: 20px;
+                font-size: 10px;
+            }
+
+            a {
+                float: left;
+                width: 100%;
+                color: $red;
+            }
+
+            .fn {
+                @include interbold;
+                float: left;
+                line-height: 1.1;
+                font-size: 16px;
+
+                @include media($mobile) {
+                    font-size: 14px;
+                }
+            }
+
+            .says {
+                float: left;
+                font-size: 16px;
+                margin-left: 6px;
+
+                @include media($mobile) {
+                    font-size: 14px;
+                }
+            }
+        }
     }
-  }
 
-  .reply {
-    @include span-columns(12);
-    float: right;
-    padding: 20px;
-    text-align: right;
-    margin-right: 0;
+    .reply {
+        @include span-columns(12);
+        float: right;
+        padding: 20px;
+        text-align: right;
+        margin-right: 0;
+        border-top: 1px solid;
+        border-color: rgba(155, 155, 155, 0.2);
 
-    .reply_button {
-      display: inline-block;
+        .reply_button {
+            display: inline-block;
 
-      a {
-        @include interregular;
-        font-size: 16px;
-        padding: 7px 15px;
-        border-radius: 4px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        background: $red;
-        color: $white;
+            a {
+                @include interbold;
+                font-size: 1.4rem;
+                padding: 10px 30px;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                background: $red;
+                color: $white;
+                text-transform: uppercase;
+
+                &:hover {
+                    background: #c30b21;
+                }
+
+                @include media($tablet) {
+                    padding: 8px 20px;
+                }
+
+                @include media($mobile) {
+                    padding: 5px 15px;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .button_wrap {
+            float: right;
+            margin-left: 10px;
+        }
+    }
+
+    #respond {
+        @include span-columns(12);
+
+        .logged-in-as {
+            display: none;
+        }
+    }
+
+    .comment_submit {
+        float: left;
+
+        &:before {
+            content: "";
+            background: url("../images/arrow-right.svg") no-repeat;
+            opacity: 0%;
+            -webkit-transition: 0.5s ease-in-out;
+            -moz-transition: 0.5s ease-in-out;
+            -o-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+            width: 0;
+            position: absolute;
+            right: 8px;
+            height: 25px;
+        }
+
+        input {
+            @include basicButton;
+            padding: 20px;
+            border: none;
+            background: $yellow;
+            color: $black;
+
+            &:hover {
+                background: #c4a020;
+            }
+        }
 
         &:hover {
-          background: #c30b21;
+            &:before {
+                content: "";
+                background: url("../images/arrow-right.svg") no-repeat;
+                position: absolute;
+                right: 8px;
+                height: 25px;
+                opacity: 100%;
+                width: 30px;
+            }
         }
 
-        @include media($tablet) {
-          padding: 6px 12px;
-          font-size: 14px;
+        .loading_gif {
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+            margin-top: 8px;
+            text-align: center;
+
+            @include media($mobile) {
+                width: 15px;
+                height: 15px;
+                margin-top: 6px;
+            }
         }
+    }
 
-        @include media($mobile) {
-          padding: 7px 10px;
-          font-size: 12px;
+    .comment-respond {
+        .comment_submit {
+            input[type="submit"] {
+                width: 18rem;
+                padding: 15px 20px;
+                font-size: 1.5rem;
+            }
         }
-
-        @include media($smallMobile) {
-          padding: 5px 8px;
-        }
-      }
     }
-
-    .button_wrap {
-      float: right;
-      margin-left: 10px;
-    }
-  }
-
-  #respond {
-    @include span-columns(12);
-
-    .logged-in-as {
-      display: none;
-    }
-  }
-
-  .comment_submit {
-    input {
-      @include interregular;
-      float: left;
-      background: $red;
-      color: $white;
-      font-size: 16px;
-      padding: 7px 15px;
-      border-radius: 4px;
-      -webkit-border-radius: 4px;
-      -moz-border-radius: 4px;
-      border: none;
-
-      &:hover {
-        background: #c30b21;
-      }
-
-      @include media($tablet) {
-        padding: 6px 12px;
-        font-size: 14px;
-      }
-
-      @include media($mobile) {
-        padding: 7px 10px;
-        font-size: 12px;
-      }
-
-      @include media($smallMobile) {
-        padding: 5px 8px;
-      }
-    }
-
-    .loading_gif {
-      float: left;
-      width: 20px;
-      height: 20px;
-      margin-left: 5px;
-      margin-top: 8px;
-      text-align: center;
-
-      @include media($mobile) {
-        width: 15px;
-        height: 15px;
-        margin-top: 6px;
-      }
-    }
-  }
 }
 
 .comment_reply_wrap {
-  width: 100%;
-  float: left;
-  display: none;
-  margin-top: 20px;
-  position: relative;
+    width: 100%;
+    float: left;
+    display: none;
+    margin-top: 20px;
+    position: relative;
 
-  .cancel_comment {
-    display: inline-block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
+    .cancel_comment {
+        display: inline-block;
+        position: absolute;
+        bottom: 24px;
+        right: 0;
 
-  #reply-title {
-    color: $black;
-  }
+        .button {
+            background: $white;
+            width: 12rem;
+            padding: 8px 10px;
+
+            &:hover {
+                background: $black;
+                color: $white;
+            }
+        }
+    }
+
+    #reply-title {
+        color: $black;
+    }
 }
 
 .comment-respond,
 .comment_reply_wrap {
-  h3 {
-    margin-top: 0;
-    font-size: 20px !important;
-    text-align: left;
+    h3 {
+        margin-top: 0;
+        font-size: 20px !important;
+        text-align: left;
 
-    @include media($tablet) {
-      font-size: 18px !important;
+        @include media($tablet) {
+            font-size: 18px !important;
+        }
+
+        @include media($mobile) {
+            font-size: 16px !important;
+        }
     }
 
-    @include media($mobile) {
-      font-size: 16px !important;
-    }
-  }
-
-  form {
-    @include span-columns(12);
-    text-align: left;
-
-    .comment-form-comment {
-      @include span-columns(12);
-
-      label {
-        display: none;
-      }
-
-      textarea {
+    form {
         @include span-columns(12);
-        height: 100px;
-      }
+        text-align: left;
+
+        .comment-form-comment {
+            @include span-columns(12);
+
+            label {
+                display: none;
+            }
+
+            textarea {
+                @include span-columns(12);
+                height: 100px;
+            }
+        }
     }
-    .comment_submit {
-      float: left;
-    }
-  }
 }
 
 .comment-awaiting-moderation {
-  @include interbold;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  z-index: 1;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.6);
-  font-size: 24px !important;
-  color: $yellow;
-  line-height: 1.4;
-  padding-top: 5% !important;
+    @include interbold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    font-size: 24px !important;
+    color: $yellow;
+    line-height: 1.4;
+    padding-top: 5% !important;
 
-  @include media($tablet) {
-    padding-top: 10% !important;
-  }
+    @include media($tablet) {
+        padding-top: 10% !important;
+    }
 
-  @include media($mobile) {
-    padding-top: 15% !important;
-  }
+    @include media($mobile) {
+        padding-top: 15% !important;
+    }
 }
 
 .video_content_wrap #comments {
-  padding-bottom: 20px;
-  color: #454647;
+    padding-bottom: 20px;
+    color: #454647;
 
-  .comment-content {
-    width: 100%;
+    .comment-content {
+        width: 100%;
 
-    .comment_heading {
-      padding: 10px;
-    }
-  }
-
-  .comment-reply-title {
-    color: $white;
-  }
-
-  .comment_reply_wrap {
-    #reply-title {
-      color: $black;
-    }
-  }
-
-  .comment-metadata {
-    @include span-columns(10);
-    padding-top: 10px;
-    font-size: 10px;
-  }
-
-  .comment-meta {
-    @include span-columns(2);
-    background: transparent;
-    margin-right: 5px;
-    max-width: 60px;
-
-    &.desktop {
-      display: none;
+        .comment_heading {
+            padding: 10px;
+        }
     }
 
-    &.mobile {
-      display: block;
+    .comment-reply-title {
+        color: $white;
     }
-  }
 
-  .comment-reply-title span {
-    font-size: 14px;
-    margin-top: 5px;
-
-    @include media($mobile) {
-      font-size: 12px;
+    .comment_reply_wrap {
+        #reply-title {
+            color: $black;
+        }
     }
-  }
+
+    .comment-metadata {
+        @include span-columns(10);
+        padding-top: 10px;
+        font-size: 10px;
+    }
+
+    .comment-meta {
+        @include span-columns(2);
+        background: transparent;
+        margin-right: 5px;
+        max-width: 60px;
+
+        &.desktop {
+            display: none;
+        }
+
+        &.mobile {
+            display: block;
+        }
+    }
+
+    .comment-reply-title span {
+        font-size: 14px;
+        margin-top: 5px;
+
+        @include media($mobile) {
+            font-size: 12px;
+        }
+    }
 }
 
 #respond #comment-form-identity {
-  display: none !important;
+    display: none !important;
 }
 
 #commentform iframe {
-  height: 230px !important;
+    height: 230px !important;
 }
 
 .lessons_page.courses {
-  .course_video_player {
-    margin-top: 20px;
-    position: relative;
-
-    @include media($mobile) {
-      margin-top: 40px;
-    }
-
-    &.open {
-      &:before {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        border-bottom: 30px solid;
-        border-bottom-color: #373839;
-        top: -22px;
-        left: 50%;
-        margin-left: -20px;
-        z-index: -1;
-      }
-    }
-  }
-
-  .row {
-    padding: 40px 0;
-    border-bottom: 1px solid $darkGray;
-
-    &:first-child {
-      padding-top: 0;
-    }
-
-    &.open_player {
-      padding-bottom: 0;
-      margin-bottom: 0;
-    }
-
-    .column {
-      @include span-columns(6);
-      text-align: left;
-
-      @include media($mobile) {
-        @include span-columns(4);
-        padding: 0;
-      }
-
-      &:last-child {
-        padding-left: 40px;
-
-        @include media($mobile) {
-          padding-left: 0;
-        }
-      }
-
-      a {
-        text-transform: uppercase;
-        display: inline-block;
-      }
-
-      h1 {
-        margin-top: 0;
-        font-size: 28px;
-        margin-bottom: 5px;
-        line-height: 1.2;
-
-        @include media($tablet) {
-          font-size: 26px;
-        }
-
-        @include media($mobile) {
-          margin-top: 10px;
-        }
-
-        a {
-          color: $black;
-        }
-      }
-
-      h4 {
-        margin: 5px 0;
-        font-size: 12px;
-
-        a {
-          color: $black;
-          text-decoration: underline;
-        }
-
-        &.sub_title {
-          font-size: 18px;
-        }
-      }
-
-      p {
-        @include media($tablet) {
-          font-size: 14px;
-        }
-      }
-
-      .button_wrap {
+    .course_video_player {
         margin-top: 20px;
-        float: left;
+        position: relative;
 
-        @include media($smallMobile) {
-          @include span-columns(4);
+        @include media($mobile) {
+            margin-top: 40px;
         }
 
-        .button {
-          padding: 10px 30px;
-
-          @include media($smallMobile) {
-            width: 100%;
-            display: block;
-            text-align: center;
-          }
+        &.open {
+            &:before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 0;
+                border-left: 30px solid transparent;
+                border-right: 30px solid transparent;
+                border-bottom: 30px solid;
+                border-bottom-color: #373839;
+                top: -22px;
+                left: 50%;
+                margin-left: -20px;
+                z-index: -1;
+            }
         }
-      }
     }
 
-    &:last-child {
-      border-bottom: 1px solid $darkGray;
+    .row {
+        padding: 40px 0;
+        border-bottom: 1px solid $darkGray;
+
+        &:first-child {
+            padding-top: 0;
+        }
+
+        &.open_player {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .column {
+            @include span-columns(6);
+            text-align: left;
+
+            @include media($mobile) {
+                @include span-columns(4);
+                padding: 0;
+            }
+
+            &:last-child {
+                padding-left: 40px;
+
+                @include media($mobile) {
+                    padding-left: 0;
+                }
+            }
+
+            a {
+                text-transform: uppercase;
+                display: inline-block;
+            }
+
+            h1 {
+                margin-top: 0;
+                font-size: 28px;
+                margin-bottom: 5px;
+                line-height: 1.2;
+
+                @include media($tablet) {
+                    font-size: 26px;
+                }
+
+                @include media($mobile) {
+                    margin-top: 10px;
+                }
+
+                a {
+                    color: $black;
+                }
+            }
+
+            h4 {
+                margin: 5px 0;
+                font-size: 12px;
+
+                a {
+                    color: $black;
+                    text-decoration: underline;
+                }
+
+                &.sub_title {
+                    font-size: 18px;
+                }
+            }
+
+            p {
+                @include media($tablet) {
+                    font-size: 14px;
+                }
+            }
+
+            .button_wrap {
+                margin-top: 20px;
+                float: left;
+
+                @include media($smallMobile) {
+                    @include span-columns(4);
+                }
+
+                .button {
+                    padding: 10px 30px;
+
+                    @include media($smallMobile) {
+                        width: 100%;
+                        display: block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        &:last-child {
+            border-bottom: 1px solid $darkGray;
+        }
     }
-  }
 }
 
 .video_container {
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
 }
 
 .metro_wrap {
-  width: 500px;
-  height: 600px;
+    width: 500px;
+    height: 600px;
 }
 
 .banner_wrap {
-  margin: 60px 0 20px;
-  padding: 60px 20px;
-  background: $darkBg;
+    margin: 60px 0 20px;
+    padding: 60px 20px;
+    background: $darkBg;
 
-  .title_wrap {
-    @include span-columns(12);
-    padding: 10px;
+    .title_wrap {
+        @include span-columns(12);
+        padding: 10px;
 
-    h3 {
-      @include interbold;
-      font-size: 3rem;
-      color: $white;
-      margin: 0;
-      width: 100%;
-      margin-bottom: 30px;
-    }
-  }
-
-  ul {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
-
-    @include media($tablet) {
-      grid-template-columns: repeat(3, 1fr);
+        h3 {
+            @include interbold;
+            font-size: 3rem;
+            color: $white;
+            margin: 0;
+            width: 100%;
+            margin-bottom: 30px;
+        }
     }
 
-    @include media($mobile) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    li {
-      &:last-child {
-        @include media($tablet) {
-          display: none;
-        }
-      }
-
-      &:nth-child(3) {
-        @include media($mobile) {
-          display: none;
-        }
-      }
-
-      a {
-        @include interregular;
-        color: $grayText;
-        display: block;
-
-        &:not(.image_link) {
-          margin-top: 15px;
-        }
-      }
-
-      a.image_link {
-        position: relative;
-        display: block;
+    ul {
         width: 100%;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
 
-        img {
-          border-radius: 4px;
+        @include media($tablet) {
+            grid-template-columns: repeat(3, 1fr);
         }
 
-        p {
-          @include interregular;
-          color: $black;
-          position: absolute;
-          bottom: -33px;
-          left: 1px;
-          font-size: 1.5rem;
+        @include media($mobile) {
+            grid-template-columns: repeat(2, 1fr);
         }
 
-        &:hover::before {
-          content: "";
-          background: url("../images/go-arrow.png") no-repeat;
-          background-position: center center;
-          background-size: 10%;
-          background-color: rgba(0, 0, 0, 0.8);
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 4px;
-          z-index: 1;
+        li {
+            &:last-child {
+                @include media($tablet) {
+                    display: none;
+                }
+            }
+
+            &:nth-child(3) {
+                @include media($mobile) {
+                    display: none;
+                }
+            }
+
+            a {
+                @include interregular;
+                color: $grayText;
+                display: block;
+
+                &:not(.image_link) {
+                    margin-top: 15px;
+                }
+            }
+
+            a.image_link {
+                position: relative;
+                display: block;
+                width: 100%;
+
+                img {
+                    border-radius: 4px;
+                }
+
+                p {
+                    @include interregular;
+                    color: $black;
+                    position: absolute;
+                    bottom: -33px;
+                    left: 1px;
+                    font-size: 1.5rem;
+                }
+
+                &:hover::before {
+                    content: "";
+                    background: url("../images/go-arrow.png") no-repeat;
+                    background-position: center center;
+                    background-size: 10%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 4px;
+                    z-index: 1;
+                }
+            }
         }
-      }
     }
-  }
 }

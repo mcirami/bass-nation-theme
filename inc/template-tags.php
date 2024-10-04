@@ -255,7 +255,7 @@ if ( ! function_exists( 'bass_nation_comment' ) ) :
 
 							comment_form($comments_args); ?>
 							<div class="cancel_comment">
-								<a class="button yellow" href="#">Cancel</a>
+								<a class="button black" href="#">Cancel</a>
 							</div>
 						</div>
 

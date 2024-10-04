@@ -340,6 +340,25 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    const videoPlayer = document.querySelector("#video_player");
+    if (videoPlayer) {
+        videoPlayer.addEventListener("scroll", function (e) {
+            if (videoPlayer && videoPlayer.scrollTop > 400) {
+                document
+                    .querySelector(".video_content_wrap")
+                    .classList.add("scroll");
+                setTimeout(() => {
+                    videoPlayer.classList.add("scroll");
+                }, 1000);
+            } else {
+                videoPlayer.classList.remove("scroll");
+                document
+                    .querySelector(".video_content_wrap")
+                    .classList.remove("scroll");
+            }
+        });
+    }
+
     $(window).on("scroll", function (event) {
         if ($(window).scrollTop() > 40) {
             $(
@@ -441,7 +460,7 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    const soundslice = document.querySelectorAll(".soundslice_video");
+    /*  const soundslice = document.querySelectorAll(".soundslice_video");
 
     if (soundslice.length) {
         for (let c = 0; c < soundslice.length; c++) {
@@ -460,9 +479,9 @@ jQuery(document).ready(function ($) {
                 this.appendChild(iframe);
             });
         }
-    }
+    } */
 
-    $(".keyboard_link").click(function (e) {
+    /*  $(".keyboard_link").click(function (e) {
         e.preventDefault();
 
         $(".keyboard_popup").css("display", "block");
@@ -479,7 +498,7 @@ jQuery(document).ready(function ($) {
         $(".keyboard_popup").css("display", "none");
         $(".keyboard_popup iframe").attr("src", "");
         $("body, html").css("overflow-y", "scroll");
-    });
+    }); */
 
     // eslint-disable-next-line no-undef
     const pageURL = currentPage.postSlug;
@@ -497,7 +516,7 @@ jQuery(document).ready(function ($) {
         if ($(".comment-content > p a").length) {
             const links = document.querySelectorAll(".comment-content > p a");
 
-            for (x = 0; x < links.length; x++) {
+            for (let x = 0; x < links.length; x++) {
                 const videoLink = $(links[x]).attr("href");
                 var embedLink;
                 var str;
@@ -540,7 +559,7 @@ jQuery(document).ready(function ($) {
                 ".comment-content > p"
             );
 
-            for (y = 0; y < commentContent.length; y++) {
+            for (var y = 0; y < commentContent.length; y++) {
                 const commentText = commentContent[y].innerHTML;
 
                 if (commentText.includes("http")) {
@@ -731,10 +750,12 @@ jQuery(document).ready(function ($) {
         let videoPlayer = "";
         const htmlBody = $("html, body");
         const clickHash = $(this).attr("href");
+        $("body, html").css("overflow-y", "hidden");
+        document.querySelector("#global_header").style.zIndex = 9;
 
         createCookie("clickHash", clickHash, 5);
 
-        if (currentPage.postType && currentPage.postType !== "courses") {
+        /* if (currentPage.postType && currentPage.postType !== "courses") {
             htmlBody.animate(
                 {
                     scrollTop:
@@ -743,12 +764,14 @@ jQuery(document).ready(function ($) {
                 },
                 1000
             );
-        } else {
+        } else { */
+        if (currentPage.postType && currentPage.postType == "courses") {
             var hash = clickHash + "-video";
             videoPlayer = $(this)
                 .closest(".row")
                 .children(".course_video_player");
         }
+        /*  } */
 
         const videoSrc = $(this).data("src");
         const videoType = $(this).data("type");
@@ -806,6 +829,7 @@ jQuery(document).ready(function ($) {
 
                 let html =
                     '<div class="lesson_content_wrap">' +
+                    '<span id="close_video"></span>' +
                     '<div class="lesson_title">' +
                     "<h3>" +
                     videoTitle +
@@ -823,19 +847,21 @@ jQuery(document).ready(function ($) {
                     '"></iframe>' +
                     "</div>";
 
-                html += '<div class="top_row">' +
+                html +=
+                    '<div class="bottom_row">' +
                     '<div class="button_wrap">' +
-                        favoriteButton +
-                    '</div>';
+                    favoriteButton +
+                    "</div>";
 
                 if (fileElements) {
                     html +=
                         '<div class="links_wrap">' + fileElements + "</div>";
                 }
 
-                html += '</div>';
+                html += "</div>";
 
-                html += "</div>" +
+                html +=
+                    "</div>" +
                     '<div class="video_content_wrap">' +
                     '<div id="comments" class="comments-area">' +
                     '<ol class="comment-list">' +
@@ -845,10 +871,8 @@ jQuery(document).ready(function ($) {
                     "</div>" +
                     "</div></div>";
 
-                $(html)
-                    .hide()
-                    .appendTo(videoPlayer)
-                    .slideDown(1000, function () {
+                $(html).appendTo(videoPlayer);
+                /* .slideDown(1000, function () {
                         if (
                             currentPage.postType &&
                             currentPage.postType === "courses"
@@ -862,10 +886,19 @@ jQuery(document).ready(function ($) {
                                 500
                             );
                         }
-                    });
+                    }); */
 
                 replyToComment($("a.comment-reply-link"));
                 commentCancel();
+
+                document
+                    .getElementById("close_video")
+                    .addEventListener("click", () => {
+                        document.querySelector("#global_header").style.zIndex =
+                            999;
+                        videoPlayer.removeClass("open");
+                        $("body, html").css("overflow-y", "auto");
+                    });
             },
             function (reason) {
                 console.log("error", reason);

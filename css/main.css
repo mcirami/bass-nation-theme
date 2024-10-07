@@ -14600,12 +14600,6 @@ h4,
   }
 }
 @media screen and (max-width: 991px) {
-  #global_header .header_bottom .content_wrap {
-    flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-  }
-}
-@media screen and (max-width: 991px) {
   #global_header .header_bottom .logo_wrap {
     width: 100%;
     text-align: center;
@@ -17821,12 +17815,32 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   position: fixed;
   max-width: 300px;
   left: 13.3%;
-  top: 50px;
+  top: 40px;
   z-index: 1;
+  animation-name: changeOpacity;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player.scroll .video_iframe_wrap,
+  .lessons_page .course_video_player.scroll .video_iframe_wrap {
+    left: unset;
+    top: 20px;
+    max-width: 86%;
+  }
 }
 .lessons_page #video_player.scroll .bottom_row,
 .lessons_page .course_video_player.scroll .bottom_row {
   opacity: 0;
+  z-index: -999;
+}
+@keyframes changeOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
+  }
 }
 .lessons_page #video_player #close_video,
 .lessons_page .course_video_player #close_video {
@@ -17837,6 +17851,26 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background: url("../images/close-icon.png") no-repeat;
   background-size: 100%;
   padding: 30px;
+}
+@media screen and (max-width: 1199px) {
+  .lessons_page #video_player #close_video,
+  .lessons_page .course_video_player #close_video {
+    top: 5%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .lessons_page #video_player #close_video,
+  .lessons_page .course_video_player #close_video {
+    padding: 22px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player #close_video,
+  .lessons_page .course_video_player #close_video {
+    top: 1%;
+    right: 2%;
+    padding: 18px;
+  }
 }
 .lessons_page #video_player #close_video:hover,
 .lessons_page .course_video_player #close_video:hover {
@@ -17875,13 +17909,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .course_video_player .lesson_title h3,
 .lessons_page .course_video_player .lesson_title .h3 {
   margin: 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page #video_player .lesson_title h3, .lessons_page #video_player .lesson_title .h3,
-  .lessons_page .course_video_player .lesson_title h3,
-  .lessons_page .course_video_player .lesson_title .h3 {
-    font-size: 21px;
-  }
 }
 .lessons_page #video_player .description,
 .lessons_page .course_video_player .description {
@@ -17975,7 +18002,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 57.3509785009%;
-  transition: 0.1s ease-in-out;
+  transition: 0.5s ease-in-out;
+  animation-name: changeOpacity;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
 }
 .lessons_page #video_player .video_iframe_wrap:last-child,
 .lessons_page .course_video_player .video_iframe_wrap:last-child {
@@ -17990,17 +18020,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     max-width: 80%;
   }
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 550px) {
   .lessons_page #video_player .video_iframe_wrap,
   .lessons_page .course_video_player .video_iframe_wrap {
-    float: left;
-    display: block;
-    margin-right: 3.5786636068%;
     width: 100%;
-  }
-  .lessons_page #video_player .video_iframe_wrap:last-child,
-  .lessons_page .course_video_player .video_iframe_wrap:last-child {
-    margin-right: 0;
+    max-width: 100%;
   }
 }
 .lessons_page #video_player .video_iframe_wrap .bottom_row,
@@ -18016,9 +18040,36 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 20px 0;
   gap: 5rem;
 }
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player .video_iframe_wrap .bottom_row,
+  .lessons_page .course_video_player .video_iframe_wrap .bottom_row {
+    gap: 2rem;
+    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    text-align: center;
+  }
+}
 .lessons_page #video_player .video_iframe_wrap .bottom_row .links_wrap,
 .lessons_page .course_video_player .video_iframe_wrap .bottom_row .links_wrap {
   width: auto;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player .video_iframe_wrap .bottom_row .links_wrap,
+  .lessons_page .course_video_player .video_iframe_wrap .bottom_row .links_wrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player .video_iframe_wrap .bottom_row .button_wrap,
+  .lessons_page .course_video_player .video_iframe_wrap .bottom_row .button_wrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lessons_page #video_player .video_iframe_wrap .bottom_row .button_wrap button,
+  .lessons_page .course_video_player .video_iframe_wrap .bottom_row .button_wrap button {
+    float: unset;
+  }
 }
 .lessons_page #video_player .video_content_wrap,
 .lessons_page .course_video_player .video_content_wrap {
@@ -18029,7 +18080,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   max-height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
-  transition: 2s ease-in-out;
+  /* -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; */
 }
 .lessons_page #video_player .video_content_wrap:last-child,
 .lessons_page .course_video_player .video_content_wrap:last-child {
@@ -18070,7 +18124,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page .videos_wrap .column {
   width: 32.9%;
-  display: inline-block;
   padding: 20px;
 }
 @media screen and (max-width: 991px) {
@@ -18104,25 +18157,29 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
       width: 100%;
   } */
 }
-.lessons_page .videos_wrap .column a {
+.lessons_page .videos_wrap .column a:not(.video_files) {
   display: block;
 }
-.lessons_page .videos_wrap .column a:not(.button) {
-  box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
-}
-.lessons_page .videos_wrap .column a:not(.button):hover:before {
+.lessons_page .videos_wrap .column a:not(.video_files):before {
   content: "";
   text-align: center;
-  background: url("../images/play-video.png") no-repeat;
-  background-size: 12%;
+  background: url("../images/play-button2.png") no-repeat;
+  background-size: 20%;
   background-position: center center;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.3);
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
   left: 0;
   border-radius: 8px;
+}
+.lessons_page .videos_wrap .column a:not(.video_files):not(.button) {
+  box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+}
+.lessons_page .videos_wrap .column a:not(.video_files):not(.button):hover:before {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .lessons_page .videos_wrap .column .comment_wrap {
   display: none;
@@ -18202,6 +18259,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .filter_controls .filters:last-child {
   margin-right: 0;
 }
+@media screen and (max-width: 991px) {
+  .lessons_page .filter_controls .filters {
+    overflow-x: scroll;
+    padding-bottom: 20px;
+  }
+}
 .lessons_page .filter_controls .filters p {
   font-size: 1.2rem;
   margin: 0;
@@ -18220,6 +18283,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
+}
+@media screen and (max-width: 991px) {
+  .lessons_page .filter_controls .filter_list {
+    min-width: 1500px;
+    float: unset;
+  }
 }
 .lessons_page .filter_controls .filter_list li {
   font-size: 14px;
@@ -18310,6 +18379,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #comments ol textarea {
   background: #000000;
   color: #fff;
+}
+#comments ol .comment_reply_wrap textarea {
+  background: #fff;
+  color: #000000;
 }
 #comments ol li {
   float: left;
@@ -18541,6 +18614,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #comments .comment_submit {
   float: left;
 }
+@media all and (max-width: 1500px) {
+  #comments .comment_submit {
+    width: 100%;
+  }
+}
 #comments .comment_submit:before {
   content: "";
   background: url("../images/arrow-right.svg") no-repeat;
@@ -18654,12 +18732,18 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 15px 20px;
   font-size: 1.5rem;
 }
+@media all and (max-width: 1500px) {
+  #comments .comment-respond .comment_submit input[type=submit] {
+    width: 100%;
+  }
+}
 
 .comment_reply_wrap {
   width: 100%;
   float: left;
   display: none;
   margin-top: 20px;
+  padding-bottom: 0;
   position: relative;
 }
 .comment_reply_wrap .cancel_comment {
@@ -18668,14 +18752,28 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   bottom: 24px;
   right: 0;
 }
+@media all and (max-width: 1500px) {
+  .comment_reply_wrap .cancel_comment {
+    width: 100%;
+    bottom: 0;
+  }
+}
 .comment_reply_wrap .cancel_comment .button {
   background: #fff;
   width: 12rem;
   padding: 8px 10px;
 }
+@media all and (max-width: 1500px) {
+  .comment_reply_wrap .cancel_comment .button {
+    width: 100%;
+  }
+}
 .comment_reply_wrap .cancel_comment .button:hover {
   background: #000000;
   color: #fff;
+}
+.comment_reply_wrap.open {
+  padding-bottom: 30px;
 }
 .comment_reply_wrap #reply-title {
   color: #000000;

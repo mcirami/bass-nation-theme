@@ -111,7 +111,6 @@ if (pmpro_hasMembershipLevel()) {
                                 <div class="filters filters-group">
                                     <h3>Filter Lessons By<span>:</span></h3>
                                     <p>(select as many as you like)</p>
-
                                     <ul id="lesson_grid" class="filter_list full_width filter-options">
                                         <!-- <li data-multifilter="all" class="active all">All</li> -->
                                         <li data-group="all" class="active all">All</li>
@@ -130,7 +129,6 @@ if (pmpro_hasMembershipLevel()) {
                                                 <?php endif; ?>
 
                                         <?php endforeach; ?>
-
                                     </ul>
                                 </div>
                                 <div class="search_box">

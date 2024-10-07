@@ -119,19 +119,6 @@
                        data-desc="<?php echo $desc; ?>"
                     >
 
-            <?php elseif ($type == 'soundslice') : ?>
-
-                    <a id="<?php echo $hash; ?>" class="play_video"
-                       href="#<?php echo $hash;?>"
-                       data-replace="<?php the_field('vimeo_link'); ?>"
-                       data-type="<?php echo "soundslice_video";?>"
-                       data-src="<?php echo $embedCode; ?>"
-                       data-title="<?php echo the_title();?>"
-                       data-notation="<?php echo $display; ?>"
-                       data-postid="<?php echo $id; ?>"
-                       data-desc="<?php echo $desc; ?>"
-                    >
-
             <?php endif; ?><!-- type -->
 
                         <?php

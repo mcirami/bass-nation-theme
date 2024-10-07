@@ -99,11 +99,6 @@
             @include media($desktop) {
                 gap: 20px;
             }
-
-            @include media($tablet) {
-                flex-wrap: wrap;
-                -ms-flex-wrap: wrap;
-            }
         }
 
         .logo_wrap {

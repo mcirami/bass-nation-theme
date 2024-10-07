@@ -343,29 +343,31 @@ jQuery(document).ready(function ($) {
     const videoPlayer = document.querySelector("#video_player");
     if (videoPlayer) {
         videoPlayer.addEventListener("scroll", function (e) {
-            if (videoPlayer && videoPlayer.scrollTop > 400) {
-                document
-                    .querySelector(".video_content_wrap")
-                    .classList.add("scroll");
-                setTimeout(() => {
+            console.log(videoPlayer.scrollTop);
+            setTimeout(() => {
+                if (videoPlayer && videoPlayer.scrollTop > 200) {
+                    document
+                        .querySelector(".video_content_wrap")
+                        .classList.add("scroll");
+
                     videoPlayer.classList.add("scroll");
-                }, 1000);
-            } else {
-                videoPlayer.classList.remove("scroll");
-                document
-                    .querySelector(".video_content_wrap")
-                    .classList.remove("scroll");
-            }
+                } else {
+                    videoPlayer.classList.remove("scroll");
+                    document
+                        .querySelector(".video_content_wrap")
+                        .classList.remove("scroll");
+                }
+            }, 300);
         });
     }
 
     $(window).on("scroll", function (event) {
-        if ($(window).scrollTop() > 40) {
+        if ($(window).scrollTop() > 40 && !videoPlayer) {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
             ).addClass("scroll");
             $(".header_bottom").addClass("home_background");
-        } else {
+        } else if (!videoPlayer) {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
             ).removeClass("scroll");
@@ -611,71 +613,76 @@ jQuery(document).ready(function ($) {
         commentReplyProp.click(function (e) {
             e.preventDefault();
 
-            if ($(".comment_reply_wrap").hasClass("open")) {
-                $(".comment_reply_wrap").removeClass("open").slideUp(600);
-                $(".reply_button").css("display", "inline-block");
+            setTimeout(() => {
+                if ($(".comment_reply_wrap").hasClass("open")) {
+                    $(".comment_reply_wrap").removeClass("open").slideUp(600);
+                    $(".reply_button").css("display", "inline-block");
 
+                    if (
+                        currentPage.pageName === "Lessons" ||
+                        currentPage.postType === "courses"
+                    ) {
+                        $("#respond").remove();
+                    }
+                }
+
+                $(this).parent().css("display", "none");
+                $(this)
+                    .parent()
+                    .next(".comment_reply_wrap")
+                    .addClass("open")
+                    .slideDown(600);
+
+                replyToUser = $(this).attr("aria-label").split("to");
+                replyToUser = replyToUser[1].trim();
+
+                //commentReplyURL = window.location.href;
+
+                commentParent = parseInt(
+                    $(this)
+                        .closest("li.comment")
+                        .attr("id")
+                        .replace(/[^\d]/g, ""),
+                    10
+                );
+
+                // eslint-disable-next-line no-undef
                 if (
                     currentPage.pageName === "Lessons" ||
-                    currentPage.postType === "courses"
+                    (currentPage.postType && currentPage.postType === "courses")
                 ) {
-                    $("#respond").remove();
+                    const postID = $(this).data("postid");
+                    const ajaxURL = myAjaxurl.ajaxurl;
+                    const commentForm = $.ajax({
+                        type: "post",
+                        dataType: "html",
+                        data: { action: "get_comment_form", id: postID },
+                        url: ajaxURL,
+                        global: false,
+                        async: false,
+                        success(response) {
+                            //alert ("Email Sent");
+                            return response;
+                        },
+                        error(xhRequest, errorThrown, resp) {
+                            console.error(errorThrown);
+                            console.error(JSON.stringify(resp));
+                        },
+                    }).responseText;
+
+                    $(commentForm).insertBefore(
+                        $(this)
+                            .parent()
+                            .next(".comment_reply_wrap")
+                            .children(".cancel_comment")
+                    );
                 }
-            }
 
-            $(this).parent().css("display", "none");
-            $(this)
-                .parent()
-                .next(".comment_reply_wrap")
-                .addClass("open")
-                .slideDown(600);
-
-            replyToUser = $(this).attr("aria-label").split("to");
-            replyToUser = replyToUser[1].trim();
-
-            //commentReplyURL = window.location.href;
-
-            commentParent = parseInt(
-                $(this).closest("li.comment").attr("id").replace(/[^\d]/g, ""),
-                10
-            );
-
-            // eslint-disable-next-line no-undef
-            if (
-                currentPage.pageName === "Lessons" ||
-                (currentPage.postType && currentPage.postType === "courses")
-            ) {
-                const postID = $(this).data("postid");
-                const ajaxURL = myAjaxurl.ajaxurl;
-                const commentForm = $.ajax({
-                    type: "post",
-                    dataType: "html",
-                    data: { action: "get_comment_form", id: postID },
-                    url: ajaxURL,
-                    global: false,
-                    async: false,
-                    success(response) {
-                        //alert ("Email Sent");
-                        return response;
-                    },
-                    error(xhRequest, errorThrown, resp) {
-                        console.error(errorThrown);
-                        console.error(JSON.stringify(resp));
-                    },
-                }).responseText;
-
-                $(commentForm).insertBefore(
-                    $(this)
-                        .parent()
-                        .next(".comment_reply_wrap")
-                        .children(".cancel_comment")
-                );
-            }
-
-            $(this)
-                .closest(".reply")
-                .find("#comment_parent")
-                .val(commentParent);
+                $(this)
+                    .closest(".reply")
+                    .find("#comment_parent")
+                    .val(commentParent);
+            }, 500);
         });
     }
 

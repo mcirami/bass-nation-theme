@@ -18347,6 +18347,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     right: 13px;
   }
 }
+.lessons_page .filtr-container .lesson_content {
+  padding-top: 10px;
+}
+.lessons_page .filtr-container .lesson_content p {
+  color: #ff000a;
+  margin-top: 10px;
+}
 
 #comments {
   float: left;
@@ -18772,8 +18779,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background: #000000;
   color: #fff;
 }
-.comment_reply_wrap.open {
-  padding-bottom: 30px;
+@media all and (max-width: 1500px) {
+  .comment_reply_wrap.open {
+    padding-bottom: 30px;
+  }
 }
 .comment_reply_wrap #reply-title {
   color: #000000;

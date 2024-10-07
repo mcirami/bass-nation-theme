@@ -586,6 +586,15 @@
                 }
             }
         }
+
+        .lesson_content {
+            padding-top: 10px;
+
+            p {
+                color: $red;
+                margin-top: 10px;
+            }
+        }
     }
 }
 
@@ -907,7 +916,9 @@
     }
 
     &.open {
-        padding-bottom: 30px;
+        @media all and (max-width: 1500px) {
+            padding-bottom: 30px;
+        }
     }
 
     #reply-title {

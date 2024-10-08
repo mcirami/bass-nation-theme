@@ -388,6 +388,7 @@
     @include media($tablet) {
         padding: 20px 0;
         font-size: 34px;
+        margin: 40px 0 20px 0;
     }
 
     @include media($mobile) {

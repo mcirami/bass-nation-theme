@@ -21,26 +21,6 @@
         $str = explode("video/", $videoLink);
         $embedCode = preg_replace('/\s+/', '',$str[1]);
         $type = "vimeo";
-    } elseif (strpos($videoLink, "soundslice") !== false) {
-
-        $displayKeyboard = get_field('display_keyboard_video');
-        $notation = get_field('has_notation');
-
-        if($notation) {
-            $controls = '1';
-            $display = 'yes';
-        } else {
-            $controls = '0';
-            $display = 'no';
-        }
-
-        $embedCode = $videoLink . "?api=1&branding=2&fretboard=1&force_top_video=1&top_controls=" . $controls . "&scroll_type=2&narrow_video_height=48p&enable_waveform=0";
-
-        if (get_field('display_keyboard_video')) {
-            $embedKeyboard = $embedCode . "&recording_idx=0&keyboard=1";
-        }
-
-        $type = "soundslice";
     }
 
     $count = 0;
@@ -65,108 +45,105 @@
 
     $totalCount = count($taxonomies);
     $hash = $post->post_name;
+
     ?>
 
-        <div class="column filtr-item" data-sort="value" data-category="<?php
+        <div class="column filtr-item" data-sort="value" data-groups='[<?php 
             foreach ($taxonomies as $taxonomy) {
-                echo $taxonomy;
+                echo '"' . $taxonomy . '"';
                 $count++;
                 if ($count < $totalCount) {
                     echo ", ";
                 }
 
-            } ?>" >
-
-            <?php if ($type == "soundslice" && get_field('display_keyboard_video')) : ?>
-
-                    <input class="keyboard_embed" hidden data-embed="<?php echo $embedKeyboard;?>">
-
-            <?php endif; ?>
+            } ?>]' >
 
             <?php
                 $addFile = get_field('add_file');
-
+                $fileArray = [];
                 if (have_rows('files')) : ?>
 
                     <?php while (have_rows('files')) : the_row();?>
 
-                        <a target="_blank" class="video_files" href="#" data-file="<?php the_sub_field('file'); ?>" data-text="<?php the_sub_field('file_text'); ?>"></a>
-
-                    <?php endwhile; ?>
-
-                <?php endif; ?>
-            <div class="vid_image_wrap">
-
-            <?php if ($type == 'youtube') : ?>
-
-                    <a id="<?php echo $hash; ?>" class="play_video"
-                       href="#<?php echo $hash;?>"
-                       data-type="<?php echo "youtube";?>"
-                       data-src="<?php echo $videoLink; ?>/?rel=0&showinfo=0&autoplay=1"
-                       data-title="<?php echo the_title();?>"
-                       data-postid="<?php echo $id; ?>"
-                       data-desc="<?php echo $desc; ?>"
-                    >
-
-            <?php elseif ($type == 'vimeo') : ?>
-
-                    <a id="<?php echo $hash; ?>" class="play_video"
-                       href="#<?php echo $hash;?>"
-                       data-type="<?php echo "vimeo";?>"
-                       data-src="<?php echo $videoLink; ?>/?autoplay=1"
-                       data-title="<?php echo the_title();?>"
-                       data-postid="<?php echo $id; ?>"
-                       data-desc="<?php echo $desc; ?>"
-                    >
-
-            <?php endif; ?><!-- type -->
-
-                        <?php
-                                $attachment_id = get_field('og_image');
-                                $size = "video-thumb";
-                                $ogImage = wp_get_attachment_image_src( $attachment_id, $size );
-
-                                /*if (!is_wp_error(video_thumbnail())) {
-                                    $video_thumbnail = get_video_thumbnail();
-                                }*/
-
-                                if (!empty(get_the_post_thumbnail())) {
-                                    $postThumbnail = get_the_post_thumbnail();
-                                }
-
-
-                               if (!empty($ogImage)) :
+                        <?php 
+                            $object = [
+                                'file'  => get_sub_field('file'),
+                                'text'  => get_sub_field('file_text')
+                            ];
+                            $fileArray[] = $object;
                         ?>
+
+                    <?php endwhile;?>
+                   
+                <?php endif; ?>
+
+                <?php $extension = $type =='youtube' ? '/?rel=0&showinfo=0&autoplay=1' : '/?autoplay=1';  ?>
+           
+            <div class="vid_image_wrap">
+                <?php $totalFileCount = count($fileArray); $fileCount = 0; ?>
+                <a id="<?php echo $hash; ?>" class="play_video"
+                    href="#<?php echo $hash;?>"
+                    data-type="<?php echo $type;?>"
+                    data-src="<?php echo $videoLink . $extension; ?>"
+                    data-title="<?php echo the_title();?>"
+                    data-postid="<?php echo $id; ?>"
+                    data-desc="<?php // echo $desc; ?>"
+                    data-files='[<?php
+                        foreach($fileArray as $file) {
+                            $item = '{"file":"' . htmlspecialchars($file["file"]) . '",'.'"text":"'. htmlspecialchars($file["text"]) .'"}';
+                            echo $item;
+                            $fileCount++;
+                            if ($fileCount < $totalFileCount) {
+                                echo ", ";
+                            }
+                        }
+                    ?>]'>
+                    <?php
+                            $attachment_id = get_field('og_image');
+                            $size = "video-thumb";
+                            $ogImage = wp_get_attachment_image_src( $attachment_id, $size );
+
+                            /*if (!is_wp_error(video_thumbnail())) {
+                                $video_thumbnail = get_video_thumbnail();
+                            }*/
+
+                            if (!empty(get_the_post_thumbnail())) {
+                                $postThumbnail = get_the_post_thumbnail();
+                            }
+
+
+                        if (!empty($ogImage)) :
+                    ?>
                             <img class="og_image" src="<?php echo $ogImage[0]; ?>" alt="">
 
-                        <?php  //elseif ( !empty($video_thumbnail) ) : ?>
+                    <?php elseif (!empty($postThumbnail)) :
 
-                            <!--<img class="get_video_thumbnail" src="<?php /*echo $video_thumbnail; */?>" alt="">-->
-
-                        <?php elseif (!empty($postThumbnail)) :
-
-                                    echo $postThumbnail;
+                                echo $postThumbnail;
 
                         else : ?>
 
-                            <?php if ($type == 'youtube') { ?>
+                            <?php if ($type == 'youtube') : ?>
 
                                 <img src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" />
 
-                            <?php } else { ?>
+                            <?php elseif ($type == 'vimeo') : 
+                                $url = "https://vumbnail.com/" . $embedCode . ".jpg";
+                            ?>
+                                <img src="<?php echo $url; ?>" />
+                            
+                            <?php else : ?>
 
                                 <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/lessons-screenshot.jpg" />
 
-                            <?php } ?>
+                            <?php endif; ?>
 
+                    <?php endif; ?><!-- video thumbnail -->
 
-                        <?php endif; ?><!-- video thumbnail -->
+                </a>
 
-                    </a>
-
-                    <div class="button_wrap full_width">
-                        <?php the_favorites_button();?>
-                    </div>
+                <div class="button_wrap full_width">
+                    <?php the_favorites_button();?>
+                </div>
             </div>
 
             <div class="lesson_content full_width">

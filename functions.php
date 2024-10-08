@@ -154,19 +154,17 @@ function bass_nation_scripts() {
 
 	/* My Added Scripts */
 	wp_enqueue_script( 'fancybox_js', get_template_directory_uri() . '/js/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), '', true );
+	if (is_page('lessons') && is_user_logged_in()){
+		wp_enqueue_script('shuffle-js', 'https://cdn.jsdelivr.net/npm/shufflejs@5/dist/shuffle.min.js', array('jquery'), null, true);
+	}
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/js/built.min.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/js/vendor/vimeothumb/jquery-vimeothumb.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'vimeo_player', 'https://player.vimeo.com/api/player.js', array('jquery'), '', true );
 	
 	wp_enqueue_script( 'calendly', 'https://assets.calendly.com/assets/external/widget.js', array('jquery'), '1', true );
 
-
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
-
-	if (is_page('lessons') && is_user_logged_in()){
-		wp_enqueue_script('filterizr', 'https://cdnjs.cloudflare.com/ajax/libs/filterizr/2.2.4/jquery.filterizr.min.js', array('jquery'), '2.2.4', true);
 	}
 
 	if(is_user_logged_in()) {

@@ -1,6 +1,6 @@
 "use strict";
+const { filter } = require("lodash");
 const { Swiper } = require("swiper/bundle");
-//const { Shuffle } = require("shufflejs");
 
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
@@ -716,18 +716,33 @@ jQuery(document).ready(function ($) {
     }
 
     if (currentPage.pageName === "Lessons") {
-        $(".filtr-container").filterizr({
+        /*  $(".filtr-container").filterizr({
             layout: "sameSize",
-        });
-        //const Shuffle = window.Shuffle;
-        /* const element = document.getElementById("lesson_grid");
+        }); */
+        const Shuffle = window.Shuffle;
+        const element = document.querySelector("#filter_images");
         const shuffleInstance = new Shuffle(element, {
             itemSelector: ".filtr-item",
-            sizer: ".js-shuffle-sizer",
-            buffer: 1,
         });
+        shuffleInstance.layout();
 
-        shuffleInstance.layout(); */
+        var filterButtons = document.querySelectorAll("li[data-group]");
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var group = button.getAttribute("data-group");
+
+                if (group === "all") {
+                    shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                } else {
+                    shuffleInstance.filter(function (element) {
+                        return element
+                            .getAttribute("data-groups")
+                            .includes(group);
+                    });
+                }
+            });
+        });
     }
 
     $(".filter_list li").click(function () {
@@ -787,6 +802,8 @@ jQuery(document).ready(function ($) {
         const notation = $(this).data("notation");
         const postID = $(this).data("postid");
         const desc = $(this).data("desc");
+        const files = $(this).data("files");
+
         let favoriteButton = "";
         // eslint-disable-next-line no-undef
         const ajaxURL = myAjaxurl.ajaxurl;
@@ -813,21 +830,19 @@ jQuery(document).ready(function ($) {
             favoriteButton = $(this).parent().prev(".button_wrap").html();
         }
 
-        if ($(this).parent().parent().children(".video_files").length) {
-            const files = $(this).parent().parent().children(".video_files");
+        let fileElements = "";
 
-            var fileElements = "";
-
-            for (let i = 0; i < files.length; i++) {
-                fileElements +=
-                    '<a target="_blank" href="' +
-                    files[i].dataset.file +
-                    '">' +
-                    files[i].dataset.text +
-                    "</a>";
-            }
-        } else {
-            fileElements = "";
+        if (files.length > 0) {
+            files.forEach((file) => {
+                if (file["file"] !== "") {
+                    fileElements +=
+                        '<a target="_blank" href="' +
+                        file["file"] +
+                        '">' +
+                        file["text"] +
+                        "</a>";
+                }
+            });
         }
 
         commentsAjaxCall(ajaxURL, postID).then(

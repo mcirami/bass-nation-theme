@@ -116,16 +116,16 @@ if (pmpro_hasMembershipLevel()) {
                                         <li data-group="all" class="active all">All</li>
                                         <?php foreach ($levelTerms as $levelTerm) : ?>
 
-                                            <li data-multifilter="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li>
-                                            <!-- <li data-group="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li> -->
+                                            <!-- <li data-multifilter="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li> -->
+                                            <li data-group="<?php echo $levelTerm->term_id; ?>"><?php echo $levelTerm->name;?></li>
                                         <?php endforeach; ?>
 
                                         <?php foreach ($catTerms as $catTerm) :
 
                                                 if($catTerm->slug !== "members-only" && $catTerm->slug !== "uncategorized" && $catTerm->slug !== "free-lessons" && $catTerm->slug !== "ultra-beginner-series") :
                                             ?>
-                                                        <li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
-                                                        <!-- <li data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li> -->
+                                                        <!-- <li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li> -->
+                                                        <li data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
                                                 <?php endif; ?>
 
                                         <?php endforeach; ?>
@@ -150,7 +150,7 @@ if (pmpro_hasMembershipLevel()) {
                         <?php endif; ?>
 
 
-                        <div id="filter_images" class="filtr-container full_width">
+                        <div id="filter_images" class="shuffle-container full_width">
 
                             <?php if ($favorites == null && $title == "Favorite Lessons") : ?>
 

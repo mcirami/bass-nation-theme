@@ -102,7 +102,7 @@ jQuery(document).ready(function ($) {
     }
 
     $(window).on("resize", function () {
-        if ($(window).width() > 768) {
+        if ($(window).width() > 991) {
             $(".sub-menu").clearQueue();
             $("#global_header").removeClass("slide");
             subMenuHover();
@@ -149,10 +149,17 @@ jQuery(document).ready(function ($) {
     function subMenuHover() {
         $(".menu-item-has-children").mouseenter(function () {
             $(this).children(".sub-menu").slideDown(100);
+            var headerHeight = $(".header_bottom").height();
+            $("#global_header").css("background", "#000000");
+            const top = headerHeight - 50;
+            $(this)
+                .children(".sub-menu")
+                .css("top", top + "px");
         });
 
         $(".menu-item-has-children").mouseleave(function () {
             $(this).children(".sub-menu").slideUp(100);
+            $("#global_header").css("background", "unset");
         });
     }
 
@@ -160,8 +167,25 @@ jQuery(document).ready(function ($) {
         $(".menu-item-has-children > a").click(function (e) {
             if (!$(this).hasClass("open")) {
                 e.preventDefault();
-                $(this).next(".sub-menu").not(":animated").slideDown(400);
+                if ($(".menu-item-has-children > a").hasClass("open")) {
+                    $(".menu-item-has-children > a").removeClass("open");
+                }
+                if (
+                    $(".menu-item-has-children > a")
+                        .parent("li")
+                        .hasClass("open")
+                ) {
+                    $(".menu-item-has-children > a")
+                        .parent("li.open")
+                        .children(".sub-menu")
+                        .slideUp(400);
+                    $(".menu-item-has-children > a")
+                        .parent("li")
+                        .removeClass("open");
+                }
+
                 $(this).addClass("open");
+                $(this).next(".sub-menu").not(":animated").slideDown(400);
                 $(this).parent("li").addClass("open");
             } else {
                 e.preventDefault();

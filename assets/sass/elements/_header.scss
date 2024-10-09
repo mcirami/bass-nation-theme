@@ -160,6 +160,9 @@
 
                 @include media($tablet) {
                     flex-direction: column;
+                    justify-content: flex-start !important;
+                    height: 100%;
+                    overflow-y: scroll;
                 }
             }
 
@@ -198,6 +201,10 @@
                         padding-bottom: 5px;
                         border-bottom: 2px solid transparent;
 
+                        &:focus {
+                            outline: unset;
+                        }
+
                         @include media($desktop) {
                             font-size: 1.5rem;
                         }
@@ -205,7 +212,7 @@
                         @include media($tablet) {
                             @include intersemibold;
                             font-size: 2rem;
-                            padding: 20px 30px;
+                            padding: 30px;
                             width: 100%;
                             text-transform: uppercase;
                         }
@@ -276,6 +283,12 @@
                             padding-left: 45px;
                         }
                     }
+
+                    li a {
+                        @include media($tablet) {
+                            padding-left: 45px;
+                        }
+                    }
                 }
 
                 &.header_menu li:first-child {
@@ -291,16 +304,8 @@
                     }
                 }
 
-                &.sub-menu li:hover a {
-                    color: $black;
-                }
-
-                &.sub-menu li:hover .sub-menu li a {
-                    color: $white;
-                }
-
                 &.sub-menu li:hover .sub-menu li a:hover {
-                    color: $black;
+                    color: $yellow;
 
                     &:before {
                         content: "";
@@ -311,6 +316,11 @@
                         left: 46px;
                         top: 21px;
                         background-size: 100%;
+
+                        @include media($tablet) {
+                            top: 34px;
+                            left: 25px;
+                        }
                     }
                 }
             }
@@ -335,26 +345,6 @@
                     }
                 }
             }
-
-            /* &.guest {
-                li {
-                    @include media($tablet) {
-                        padding: 20px 10px 0 10px;
-                    }
-
-                    &:after {
-                        @include media($tablet) {
-                            top: 20px;
-                        }
-                    }
-
-                    a {
-                        @include media($tablet) {
-                            font-size: 14px;
-                        }
-                    }
-                }
-            } */
         }
 
         &.member {
@@ -476,105 +466,22 @@
     }
 }
 
-/* .mobile_menu {
-    display: none;
-    height: 100%;
-    width: 250px;
-    z-index: 10;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    text-align: left;
-    background: #000;
-    border-top: 2px solid #2d2d2d;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    perspective: 1000;
-    -webkit-perspective: 1000;
-    overflow-y: scroll;
-
-    @include media($tablet) {
-        display: block;
-    }
-
-    &:before {
-        background: none;
-        z-index: -999;
-    }
-
-    .logo {
-        padding: 10px 20px 12px;
-        border-bottom: 1px outset $yellow;
-    }
-
-    nav {
-        @include span-columns(12);
-    }
-
-    ul {
-        @include span-columns(12);
-        padding: 0;
-        text-align: left;
-        margin: 0;
-
-        li {
-            @include span-columns(12);
-            display: block;
-            border-bottom: 1px outset $darkGray;
-            text-align: left;
-            box-sizing: border-box;
-
-            a {
-                display: block;
-                padding: 18px 20px;
-                font-size: 14px;
-                color: $white;
-                text-decoration: none;
-                text-transform: uppercase;
-                @include interregular;
-            }
-
-            &.current_page_item {
-                background: #0b0b0b;
-                background: -moz-linear-gradient(
-                    top,
-                    #0b0b0b 11%,
-                    #151515 52%,
-                    #1e1f1f 88%
-                );
-                background: -webkit-linear-gradient(
-                    top,
-                    #0b0b0b 11%,
-                    #151515 52%,
-                    #1e1f1f 88%
-                );
-                background: linear-gradient(
-                    to bottom,
-                    #0b0b0b 11%,
-                    #151515 52%,
-                    #1e1f1f 88%
-                ); 
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b0b0b', endColorstr='#1e1f1f',GradientType=0 );
-
-                a {
-                    color: $yellow;
-                }
-            }
-        }
-    } 
-} */
-
 ul.member_menu {
     position: relative;
     text-align: left;
     gap: 4rem;
 
+    @include media($tablet) {
+        gap: 0;
+        min-height: 1500px;
+    }
+
     > li {
         position: relative;
 
-        > a {
-            padding: 0 0 5px 0 !important;
+        @include media($tablet) {
+            border: 1px solid;
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         &:last-child {
@@ -604,24 +511,11 @@ ul.member_menu {
             }
         }
 
-        a {
-            padding: 0 18px;
-
-            @include media($desktop) {
-                padding: 0 10px;
-            }
-
-            /*@include media($tablet){
-      padding: 0 8px;
-      font-size: 12px !important;
-    }*/
-        }
-
         &.menu-item-has-children > a {
             position: relative;
 
             &:after {
-                @include media($mobile) {
+                @include media($tablet) {
                     content: "+";
                     position: absolute;
                     right: 20px;
@@ -632,15 +526,13 @@ ul.member_menu {
             &.open {
                 &:after {
                     content: "-";
-                    font-size: 42px;
-                    bottom: 4px;
+                    font-size: 30px;
                 }
             }
         }
 
         ul.sub-menu {
-            display: none;
-            background: rgba(0, 0, 0, 0.8);
+            background: transparent;
             position: absolute;
             left: -5px;
             padding-left: 0;
@@ -652,10 +544,13 @@ ul.member_menu {
             -webkit-border-bottom-left-radius: 4px;
             -moz-border-radius-bottomright: 4px;
             -moz-border-radius-bottomleft: 4px;
+            padding-top: 30px;
 
-            @include media($mobile) {
+            @include media($tablet) {
                 position: relative;
                 margin-top: 15px;
+                padding-top: 0;
+                top: 0;
             }
 
             li {
@@ -664,15 +559,10 @@ ul.member_menu {
                 padding: 0 !important;
                 position: relative;
                 width: 100% !important;
+                background: $black;
 
                 @include media($mobile) {
                     padding: 0 0 0 10px !important;
-                }
-
-                &:first-child {
-                    @include media($mobile) {
-                        border-top: 1px inset #827d7d;
-                    }
                 }
 
                 &:last-child {
@@ -686,22 +576,27 @@ ul.member_menu {
                 }
 
                 &:hover {
-                    background: $yellow;
-
                     a {
-                        color: $black;
+                        color: $yellow;
 
                         &:before {
-                            background: url("../images/right-arrow.png")
+                            content: "";
+                            background: url("../images/icon-right-triangle.png")
                                 no-repeat;
+                            position: absolute;
                             background-size: 100%;
+                            left: 18px;
+                            top: 20px;
+                            height: 18px;
+                            opacity: 100%;
+                            width: 8px;
                         }
                     }
                 }
 
                 &.menu-item-has-children:hover {
                     a {
-                        color: $white;
+                        color: $yellow;
 
                         &:before {
                             background: url("../images/right-arrow-gray.png")
@@ -711,7 +606,7 @@ ul.member_menu {
                     }
 
                     > a {
-                        color: $black;
+                        color: $yellow;
 
                         &:before {
                             background: url("../images/right-arrow.png")
@@ -729,56 +624,83 @@ ul.member_menu {
 
                     &:before {
                         content: "";
-                        background: url("../images/right-arrow-gray.png")
+                        background: url("../images/icon-right-triangle.png")
                             no-repeat;
+                        opacity: 0%;
+                        -webkit-transition: 0.5s ease-in-out;
+                        -moz-transition: 0.5s ease-in-out;
+                        -o-transition: 0.5s ease-in-out;
+                        transition: 0.5s ease-in-out;
+                        width: 0;
                         position: absolute;
-                        width: 6px;
-                        height: 14px;
-                        left: 20px;
-                        top: 21px;
+                        height: 25px;
                         background-size: 100%;
+                        left: 18px;
+                        top: 20px;
+
+                        @include media($tablet) {
+                            top: 34px;
+                            left: 25px;
+                        }
 
                         @include media($mobile) {
                             background-size: 100%;
-                            top: 23px;
                         }
                     }
 
-                    &:hover {
-                        color: $black;
+                    &:not(.button) {
+                        padding-bottom: 20px !important;
+                        border-bottom: 1px solid !important;
+                        border-color: rgba(245, 191, 4, 0.2) !important;
 
-                        &:before {
-                            content: "";
-                            background: url("../images/right-arrow.png")
-                                no-repeat;
-                            position: absolute;
-                            width: 6px;
-                            height: 14px;
-                            left: 20px;
-                            top: 21px;
-                            background-size: 100%;
+                        &:hover {
+                            &:before {
+                                content: "";
+                                background: url("../images/icon-right-triangle.png")
+                                    no-repeat;
+                                position: absolute;
+                                background-size: 100%;
+                                left: 18px;
+                                top: 20px;
+                                height: 18px;
+                                opacity: 100%;
+                                width: 8px;
+
+                                @include media($tablet) {
+                                    top: 34px;
+                                    left: 25px;
+                                }
+                            }
                         }
                     }
                 }
 
                 &.current_page_item {
                     a {
-                        background: $yellow;
-                        color: $black !important;
-
-                        &:hover {
-                            color: $black !important;
-
-                            @include media($mobile) {
-                                color: $white;
-                            }
-                        }
-
                         &:before {
-                            background: url("../images/right-arrow.png")
+                            content: "";
+                            background: url("../images/icon-right-triangle.png")
                                 no-repeat;
                             background-size: 100%;
+                            position: absolute;
+                            left: 18px;
+                            top: 20px;
+                            height: 18px;
+                            opacity: 100%;
+                            width: 8px;
+
+                            @include media($tablet) {
+                                top: 34px;
+                                left: 25px;
+                            }
                         }
+                    }
+                }
+
+                &.current-menu-item {
+                    a {
+                        border-bottom: 1px solid !important;
+                        border-color: rgba(245, 191, 4, 0.2) !important;
                     }
                 }
 

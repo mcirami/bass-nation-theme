@@ -22689,6 +22689,7 @@ form .login-submit:hover:before {
 .pmpro .pmpro_card {
   background-color: unset;
   border: none;
+  margin: 0;
 }
 .pmpro .pmpro_section #loginform .login-submit .button {
   color: #000000 !important;
@@ -22723,6 +22724,11 @@ form .login-submit:hover:before {
 .pmpro .pmpro_card_actions a:first-child,
 .pmpro .pmpro_card_actions a:visited:first-child {
   display: none;
+}
+.pmpro .pmpro_card_content {
+  padding-top: 0 !important;
+  padding: 0;
+  margin: 0;
 }
 .pmpro .pmpro_card_content + .pmpro_card_actions {
   border-top: none;

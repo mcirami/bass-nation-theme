@@ -1284,6 +1284,7 @@ form {
     .pmpro_card {
         background-color: unset;
         border: none;
+        margin: 0;
     }
 
     .pmpro_section #loginform {
@@ -1330,8 +1331,14 @@ form {
         }
     }
 
-    .pmpro_card_content + .pmpro_card_actions {
-        border-top: none;
+    .pmpro_card_content {
+        padding-top: 0 !important;
+        padding: 0;
+        margin: 0;
+
+        + .pmpro_card_actions {
+            border-top: none;
+        }
     }
 }
 

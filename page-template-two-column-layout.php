@@ -46,18 +46,25 @@ get_header();
                                     </span>
                                 </a>
                             <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
-                                <h2>Ready To Join <span>Bass Nation</span>?</h2>
+                                <h2>Ready To <span>Join Bass Nation?</span></h2>
                                 <h3>It's as easy as...</h3>
                                 <div class="list">
                                     <div class="list_row">
-                                        <span>1</span><p>Register for an account.</p>
+                                        <div class="outer_circle">
+                                            <span>1</span>
+                                        </div>
+                                        <p>Register for an account.</p>
                                     </div>
                                     <div class="list_row">
-                                        <span>2</span>
+                                        <div class="outer_circle">
+                                            <span>2</span>
+                                        </div>
                                         <p>Verify your email address.</p>
                                     </div>
                                     <div class="list_row">
-                                        <span>3</span>
+                                        <div class="outer_circle">
+                                            <span>3</span>
+                                        </div>
                                         <p>Choose a membership level!</p>
                                     </div>
                                 </div>

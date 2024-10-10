@@ -10,24 +10,36 @@
     }
 
     .list {
-        width: 350px;
+        max-width: 650px;
         margin: 0 auto;
 
         p {
             width: 100%;
             margin-bottom: 0 !important;
-            padding: 10px !important;
+            padding: 10px 10px 10px 40px !important;
             text-align: left;
+            background: rgba(155, 155, 155, 0.15);
+            border-radius: 4px;
         }
 
-        span {
-            display: inline-block;
-            padding: 11px 20px;
-            background: $yellow;
-            color: $black;
+        .outer_circle {
+            background: $darkerGray;
+            padding: 8px;
             border-radius: 50px;
             -webkit-border-radius: 50px;
             -moz-border-radius: 50px;
+            margin-right: -44px;
+            z-index: 1;
+
+            span {
+                display: inline-block;
+                padding: 11px 20px;
+                background: $yellow;
+                color: $black;
+                border-radius: 50px;
+                -webkit-border-radius: 50px;
+                -moz-border-radius: 50px;
+            }
         }
 
         .list_row {
@@ -46,6 +58,10 @@
             display: block;
             @include basicButton;
             border: none;
+
+            @include media($mobile) {
+                width: 100%;
+            }
         }
 
         input {

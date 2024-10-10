@@ -19087,6 +19087,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   .two_column_template .two_column_section .columns_wrap .column:first-child {
     width: 100%;
     padding-right: 0;
+    margin-bottom: 40px;
   }
 }
 .two_column_template .two_column_section .columns_wrap .column:first-child h3, .two_column_template .two_column_section .columns_wrap .column:first-child .h3 {
@@ -25942,16 +25943,27 @@ form .login-submit:hover:before {
   }
 }
 .two_column_template .list {
-  width: 350px;
+  max-width: 650px;
   margin: 0 auto;
 }
 .two_column_template .list p {
   width: 100%;
   margin-bottom: 0 !important;
-  padding: 10px !important;
+  padding: 10px 10px 10px 40px !important;
   text-align: left;
+  background: rgba(155, 155, 155, 0.15);
+  border-radius: 4px;
 }
-.two_column_template .list span {
+.two_column_template .list .outer_circle {
+  background: #131313;
+  padding: 8px;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  margin-right: -44px;
+  z-index: 1;
+}
+.two_column_template .list .outer_circle span {
   display: inline-block;
   padding: 11px 20px;
   background: #f5bf04;
@@ -26038,6 +26050,11 @@ form .login-submit:hover:before {
 }
 .two_column_template #red_registration_form button.yellow:hover {
   background: #c4a020;
+}
+@media screen and (max-width: 767px) {
+  .two_column_template #red_registration_form button {
+    width: 100%;
+  }
 }
 .two_column_template #red_registration_form input {
   color: #fff;

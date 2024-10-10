@@ -10,39 +10,32 @@
     }
 
     .list {
+        width: 350px;
+        margin: 0 auto;
+
         p {
             width: 100%;
-            @include interregular;
-            border-bottom: 1px solid #c8c8c8;
-            display: inline-block;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            font-size: 15px;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: horizontal;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-            flex-direction: row;
-            -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-            gap: 10px;
-            justify-content: flex-start;
-            -webkit-justify-content: flex-start;
-            align-items: center;
-            -webkit-align-items: center;
+            margin-bottom: 0 !important;
+            padding: 10px !important;
+            text-align: left;
         }
 
         span {
             display: inline-block;
-            padding: 1px 7px;
-            background: $red;
-            color: #fff;
-            font-size: 15px;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
+            padding: 11px 20px;
+            background: $yellow;
+            color: $black;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+        }
+
+        .list_row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
         }
     }
 

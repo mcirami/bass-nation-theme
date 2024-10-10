@@ -12,7 +12,7 @@
 get_header();
 
 ?>
- 	<section class="two_column_template full_width page_content">
+ 	<section class="two_column_template full_width page_content <?php echo $pagename; ?>">
 		<div class="container">
 			<header class="sub_header full_width">
 				<h2><?php echo the_title(); ?></h2>
@@ -46,14 +46,23 @@ get_header();
                                     </span>
                                 </a>
                             <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
-                                <h2>Ready To Join <span>Bass Nation?</span></h2>
+                                <h2>Ready To Join <span>Bass Nation</span>?</h2>
                                 <h3>It's as easy as...</h3>
-                                <div class="list full_width">
-                                    <p><span>1</span>Register for an account.</p>
-                                    <p><span>2</span>Verify your email address.</p>
-                                    <p><span>3</span>Choose a membership level and you will be on your way to skyrocketing your bass playing for less than $0.40/day!</p>
+                                <div class="list">
+                                    <div class="list_row">
+                                        <span>1</span><p>Register for an account.</p>
+                                    </div>
+                                    <div class="list_row">
+                                        <span>2</span>
+                                        <p>Verify your email address.</p>
+                                    </div>
+                                    <div class="list_row">
+                                        <span>3</span>
+                                        <p>Choose a membership level!</p>
+                                    </div>
                                 </div>
-                            <?php else: ?>   
+                                <h3>You will be on your way to skyrocketing your bass playing for less than $0.40/day!</h3>
+                            <?php else: ?>
                                 <h2>Hey! Don't Let <span>Your Bass Journey</span> End Here!</h2>
                                 <p>We've crafted a comprehensive platform to help you become the bassist you've always wanted to be</p>
                                 <h3>Not convinced yet? Join my e-mail list for freee!</h3>

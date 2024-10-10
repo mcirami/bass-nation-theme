@@ -1292,6 +1292,7 @@ form {
                 color: $black !important;
                 border: none !important;
                 text-transform: uppercase;
+                margin-bottom: 10px;
 
                 &:hover {
                     background-color: $yellowHover !important;
@@ -1310,6 +1311,27 @@ form {
                 border-color: unset;
             }
         }
+    }
+
+    .pmpro_card_actions {
+        padding: 0;
+
+        a,
+        a:visited {
+            color: $red;
+
+            &:hover {
+                color: $darkRed;
+            }
+
+            &:first-child {
+                display: none;
+            }
+        }
+    }
+
+    .pmpro_card_content + .pmpro_card_actions {
+        border-top: none;
     }
 }
 

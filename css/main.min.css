@@ -13934,10 +13934,6 @@ img {
   }
 }
 
-main {
-  padding-bottom: 80px;
-}
-
 .button {
   font-family: "interbold", sans-serif;
   font-weight: 700;
@@ -14846,7 +14842,7 @@ h4,
   font-family: "intermedium", sans-serif;
   font-weight: 500;
   color: #fff;
-  margin: 80px 0 20px 0;
+  margin: 80px 0;
 }
 @media screen and (max-width: 991px) {
   .sub_header {
@@ -15153,14 +15149,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .fancybox-inner {
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-}
-@media screen and (max-width: 767px) {
-  .fancybox-inner {
-    height: 300px !important;
-  }
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .fancybox-slide {
@@ -15171,11 +15160,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #email_join {
   width: 40%;
   text-align: center;
-  background: #f5bf04;
+  background: #131313;
+  color: #fff;
   padding: 20px 5px 150px;
-  color: #000000;
   max-width: 900px;
   min-width: 700px;
+  border-radius: 4px;
 }
 @media screen and (max-width: 991px) {
   #email_join {
@@ -15209,21 +15199,17 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  font-size: 34px;
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
   text-transform: uppercase;
-  line-height: 1;
+  line-height: 1.6;
+  font-size: 3.8rem;
 }
 #email_join h2:last-child, #email_join .h2:last-child {
   margin-right: 0;
 }
-@media screen and (max-width: 767px) {
-  #email_join h2, #email_join .h2 {
-    font-size: 20px;
-  }
+#email_join h2 span, #email_join .h2 span {
+  color: #ff000a;
 }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 767px) {
   #email_join h2, #email_join .h2 {
     font-size: 4.8vw;
   }
@@ -15234,51 +15220,38 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 100%;
   margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 #email_join p:last-child {
   margin-right: 0;
-}
-@media screen and (max-width: 767px) {
-  #email_join p {
-    font-size: 10px;
-    margin-bottom: 15px;
-  }
-}
-@media screen and (max-width: 550px) {
-  #email_join p {
-    font-size: 9px;
-  }
 }
 #email_join #mc_embed_signup {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
-  background: #f5bf04;
   position: relative;
-}
-#email_join #mc_embed_signup:last-child {
-  margin-right: 0;
-}
-#email_join #mc_embed_signup:before {
-  content: "";
-  width: 92%;
-  height: 82px;
-  background: rgba(150, 150, 150, 0.4);
-  top: -12px;
-  left: 4%;
-  position: absolute;
+  width: 100% !important;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 10px 20px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  width: 28rem;
+  text-align: center;
 }
-@media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup:before {
-    width: 98%;
-    height: 60px;
-    left: 1%;
-    top: -10px;
-  }
+#email_join #mc_embed_signup:last-child {
+  margin-right: 0;
 }
 #email_join #mc_embed_signup form {
   position: relative;
@@ -15303,68 +15276,73 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #email_join #mc_embed_signup input[type=email] {
-  width: 77%;
-  background-color: #fff;
+  width: 100%;
+  background-color: #000000;
   height: 55px;
   padding: 0 20px;
   display: inline-block;
   font-size: 18px;
-  border: none;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-left-radius: 4px;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomleft: 4px;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 0;
+  border: 1px solid #c8c8c8;
+  border-radius: 4px;
 }
 @media screen and (max-width: 767px) {
   #email_join #mc_embed_signup input[type=email] {
     font-size: 16px;
     padding: 10px;
     height: 41px;
-    width: 64%;
   }
 }
-#email_join #mc_embed_signup input[type=submit] {
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  width: 20%;
-  color: #fff;
-  height: 55px;
-  top: 1px;
-  display: inline-block;
-  margin-left: -4px;
-  border: none;
-  background: #ff000a;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-top-right-radius: 4px;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-bottom-right-radius: 4px;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-bottomright: 4px;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-topright: 4px;
-}
-#email_join #mc_embed_signup input[type=submit]:hover {
-  background: #c30b21;
+@media screen and (max-width: 991px) {
+  #email_join #mc_embed_signup {
+    font-size: 1.4rem;
+    width: 26rem;
+  }
 }
 @media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup input[type=submit] {
-    font-size: 14px;
-    height: 41px;
-    width: 29%;
+  #email_join #mc_embed_signup {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    width: 24rem;
   }
+}
+#email_join #mc_embed_signup span {
+  opacity: 0%;
+  transition: 0.5s ease-in-out;
+  width: 0;
+  position: absolute;
+  right: 8px;
+}
+#email_join #mc_embed_signup span img {
+  height: 25px;
+}
+#email_join #mc_embed_signup:hover span {
+  opacity: 100%;
+  width: 30px;
+}
+#email_join #mc_embed_signup.black {
+  background: #000000;
+  color: #ff000a;
+  border: 1px;
+  border-style: inset;
+  border-color: #ff000a;
+}
+#email_join #mc_embed_signup.black:hover {
+  color: #fff;
+  border-color: #fff;
+}
+#email_join #mc_embed_signup.black:hover span img {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(52deg) brightness(106%) contrast(101%);
+}
+#email_join #mc_embed_signup.yellow {
+  background: #f5bf04;
+  color: #000000;
+}
+#email_join #mc_embed_signup.yellow:hover {
+  background: #c4a020;
+}
+#email_join #mc_embed_signup .button {
+  margin-top: 0;
+  width: 100%;
 }
 
 .sidebar {
@@ -16484,185 +16462,18 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #ff000a;
 }
 
-/* 
-.pmpro_login_wrap,
-.pmpro_lost_password_wrap {
-    text-align: center;
-    position: relative;
-
-    hr {
-        display: none;
-    }
-
-    &.pmpro_card {
-        border: none;
-        box-shadow: none;
-        margin: 0;
-    }
-    .pmpro_card_content {
-        padding-top: 0 !important;
-        padding-bottom: 20px;
-    }
-    .pmpro_card_actions {
-        background-color: unset;
-        border: none !important;
-        padding: 0;
-    }
-
-    .pmpro_actions_nav {
-        a {
-            @include intermedium;
-            color: $red;
-
-            @include media($mobile) {
-                font-size: 12px;
-            }
-
-            &:hover {
-                color: $darkRed;
-            }
-        }
-    }
-} */
 .pmpro_lost_password_wrap .pmpro_actions_nav {
   display: none;
 }
 
-/* .pmpro_section {
-
-	#loginform {
-
-		.login-submit {
-
-			.button:not(#pmpro_btn-password-toggle-1) {
-				@include interregular;
-				background: $black;
-				padding: 8px 24px 12px;
-				color: $white;
-				font-size: 18px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				height: 40px;
-				border: none;
-
-				@include media($tablet) {
-					font-size: 16px;
-				}
-
-				@include media($mobile){
-					font-size: 14px;
-					height: 35px;
-					padding: 0;
-				}
-
-				&:hover {
-					background: #4D4D54;
-				}
-			}
-		}
-	}
+.pm_pro .pmpro_card {
+  margin: 0 !important;
 }
- */
-/* #loginform, #password-lost-form-wrap, #red_registration_form {
-	float: none;
-	@include interregular;
-    font-size: 15px;
-    margin: 100px auto;
-    text-align: left;
-    background: $lightGray;
-    padding: 40px 40px 60px 40px;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    border: 1px solid $borderGray;
-    color: $black;
-	max-width: 500px;
-	border-radius: 6px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
+.pm_pro .pmpro_card .pmpro_card_content {
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
 
-    @include media($tablet){
-        width: 425px;
-    }
-
-    @include media($mobile){
-        width: 375px;
-        padding: 25px;
-        font-size: 14px;
-    }
-
-    @include media($smallMobile){
-        width: 100%;
-    }
-
-	input[type="submit"], button:not(#pmpro_btn-password-toggle-1) {
-		@include interregular;
-		background: $black;
-		padding: 8px 24px 12px;
-		color: $white;
-		font-size: 18px;
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		height: 40px;
-		border: none;
-
-		@include media($tablet) {
-			font-size: 16px;
-		}
-
-		@include media($mobile){
-			font-size: 14px;
-			height: 35px;
-			padding: 0;
-		}
-
-		&:hover {
-			background: #4D4D54;
-		}
-	}
-
-	legend {
-		display: none;
-	}
-
-	fieldset {
-		border: none;
-	}
-
-	label {
-		@include interregular;
-		color: $black;
-		line-height: 22px;
-		margin-bottom: 8px;
-	}
-
-    input {
-        height: 40px;
-        border: 1px solid $borderGray;
-        padding: 10px;
-		max-width: unset !important;
-		width: 100%;
-
-        @include media($mobile){
-            height: 35px;
-			width: 100% !important;
-        }
-    }
-
-	.login-remember {
-		input {
-			height: 16px;
-			width: 20px;
-		}
-	}
-
-	.som-password-sent-message {
-		text-align: center;
-		color: $black;
-	}
-} */
 #password-lost-form-wrap a {
   color: #ff000a;
   font-size: 18px;
@@ -16670,9 +16481,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   float: left;
 }
 
-/* #loginform {
-    margin: 30px auto 100px;
-} */
 .confirmation_page {
   margin: 100px 0;
   background: #ebebeb;
@@ -26104,65 +25912,17 @@ form .login-submit:hover:before {
   margin: 0 auto;
 }
 
-.register #red_registration_form {
+.two_column_template #red_registration_form {
   border: none;
   box-shadow: none;
   padding: 0;
 }
 @media screen and (max-width: 991px) {
-  .register #red_registration_form {
+  .two_column_template #red_registration_form {
     width: auto !important;
   }
 }
-.register h2, .register .h2 {
-  margin-bottom: 20px;
-  color: #000000;
-  text-align: center;
-}
-.register h3, .register .h3 {
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
-  color: #000000;
-  font-size: 1.8rem;
-  text-align: center;
-}
-.register .wp-block-columns {
-  justify-content: center;
-  -webkit-justify-content: center;
-  box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 40px;
-  background: #f1f1f1;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-}
-@media all and (max-width: 781px) and (min-width: 550px) {
-  .register .wp-block-columns {
-    max-width: 85%;
-  }
-}
-.register .wp-block-columns .wp-block-column {
-  max-width: 500px;
-}
-.register .wp-block-columns .wp-block-column:first-child {
-  background: url("../images/bass-head.png") no-repeat;
-  background-size: contain;
-  background-position: center;
-  border-right: 1px solid #c8c8c8;
-  padding-right: 40px;
-}
-@media all and (max-width: 781px) {
-  .register .wp-block-columns .wp-block-column:first-child {
-    border-right: none;
-    padding-right: 0;
-  }
-}
-.register .list p {
-  color: #000000;
+.two_column_template .list p {
   width: 100%;
   font-family: "interregular", sans-serif;
   font-weight: 300;
@@ -26180,22 +25940,93 @@ form .login-submit:hover:before {
   align-items: center;
   -webkit-align-items: center;
 }
-.register .list span {
+.two_column_template .list span {
   display: inline-block;
   padding: 1px 7px;
-  background: #131313;
+  background: #ff000a;
   color: #fff;
   font-size: 15px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
 }
-.register #red_registration_form {
+.two_column_template #red_registration_form {
   margin: 0;
 }
-.register #red_registration_form button {
-  width: 100%;
+.two_column_template #red_registration_form button {
   display: block;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 10px 20px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  width: 28rem;
+  text-align: center;
+  border: none;
+}
+@media screen and (max-width: 991px) {
+  .two_column_template #red_registration_form button {
+    font-size: 1.4rem;
+    width: 26rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .two_column_template #red_registration_form button {
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    width: 24rem;
+  }
+}
+.two_column_template #red_registration_form button span {
+  opacity: 0%;
+  transition: 0.5s ease-in-out;
+  width: 0;
+  position: absolute;
+  right: 8px;
+}
+.two_column_template #red_registration_form button span img {
+  height: 25px;
+}
+.two_column_template #red_registration_form button:hover span {
+  opacity: 100%;
+  width: 30px;
+}
+.two_column_template #red_registration_form button.black {
+  background: #000000;
+  color: #ff000a;
+  border: 1px;
+  border-style: inset;
+  border-color: #ff000a;
+}
+.two_column_template #red_registration_form button.black:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.two_column_template #red_registration_form button.black:hover span img {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(52deg) brightness(106%) contrast(101%);
+}
+.two_column_template #red_registration_form button.yellow {
+  background: #f5bf04;
+  color: #000000;
+}
+.two_column_template #red_registration_form button.yellow:hover {
+  background: #c4a020;
+}
+.two_column_template #red_registration_form input {
+  color: #fff;
+}
+.two_column_template #red_registration_form input:focus {
+  background: #000000;
 }
 
 .registration-confirmation {

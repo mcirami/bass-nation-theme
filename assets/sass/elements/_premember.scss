@@ -9,185 +9,20 @@
         color: $red;
     }
 }
-/* 
-.pmpro_login_wrap,
-.pmpro_lost_password_wrap {
-    text-align: center;
-    position: relative;
-
-    hr {
-        display: none;
-    }
-
-    &.pmpro_card {
-        border: none;
-        box-shadow: none;
-        margin: 0;
-    }
-    .pmpro_card_content {
-        padding-top: 0 !important;
-        padding-bottom: 20px;
-    }
-    .pmpro_card_actions {
-        background-color: unset;
-        border: none !important;
-        padding: 0;
-    }
-
-    .pmpro_actions_nav {
-        a {
-            @include intermedium;
-            color: $red;
-
-            @include media($mobile) {
-                font-size: 12px;
-            }
-
-            &:hover {
-                color: $darkRed;
-            }
-        }
-    }
-} */
 
 .pmpro_lost_password_wrap .pmpro_actions_nav {
     display: none;
 }
-/* .pmpro_section {
+.pm_pro {
+    .pmpro_card {
+        margin: 0 !important;
 
-	#loginform {
-		
-		.login-submit {
-		
-			.button:not(#pmpro_btn-password-toggle-1) {
-				@include interregular;
-				background: $black;
-				padding: 8px 24px 12px;
-				color: $white;
-				font-size: 18px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				height: 40px;
-				border: none;
-		
-				@include media($tablet) {
-					font-size: 16px;
-				}
-		
-				@include media($mobile){
-					font-size: 14px;
-					height: 35px;
-					padding: 0;
-				}
-		
-				&:hover {
-					background: #4D4D54;
-				}
-			}
-		}
-	}
-}
- */
-/* #loginform, #password-lost-form-wrap, #red_registration_form {
-	float: none;
-	@include interregular;
-    font-size: 15px;
-    margin: 100px auto;
-    text-align: left;
-    background: $lightGray;
-    padding: 40px 40px 60px 40px;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-    border: 1px solid $borderGray;
-    color: $black;
-	max-width: 500px;
-	border-radius: 6px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 6px;
-
-    @include media($tablet){
-        width: 425px;
-    }
-
-    @include media($mobile){
-        width: 375px;
-        padding: 25px;
-        font-size: 14px;
-    }
-
-    @include media($smallMobile){
-        width: 100%;
-    }
-
-	input[type="submit"], button:not(#pmpro_btn-password-toggle-1) {
-		@include interregular;
-		background: $black;
-		padding: 8px 24px 12px;
-		color: $white;
-		font-size: 18px;
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		height: 40px;
-		border: none;
-
-		@include media($tablet) {
-			font-size: 16px;
-		}
-
-		@include media($mobile){
-			font-size: 14px;
-			height: 35px;
-			padding: 0;
-		}
-
-		&:hover {
-			background: #4D4D54;
-		}
-	}
-
-	legend {
-		display: none;
-	}
-
-	fieldset {
-		border: none;
-	}
-
-	label {
-		@include interregular;
-		color: $black;
-		line-height: 22px;
-		margin-bottom: 8px;
-	}
-
-    input {
-        height: 40px;
-        border: 1px solid $borderGray;
-        padding: 10px;
-		max-width: unset !important;
-		width: 100%;
-
-        @include media($mobile){
-            height: 35px;
-			width: 100% !important;
+        .pmpro_card_content {
+            margin: 0 !important;
+            padding-top: 0 !important;
         }
     }
-
-	.login-remember {
-		input {
-			height: 16px;
-			width: 20px;
-		}
-	}
-
-	.som-password-sent-message {
-		text-align: center;
-		color: $black;
-	}
-} */
+}
 
 #password-lost-form-wrap a {
     color: $red;
@@ -195,10 +30,6 @@
     width: 100%;
     float: left;
 }
-
-/* #loginform {
-    margin: 30px auto 100px;
-} */
 
 .confirmation_page {
     margin: 100px 0;

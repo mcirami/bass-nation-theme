@@ -138,10 +138,6 @@ select {
     }
 }
 
-main {
-    padding-bottom: 80px;
-}
-
 .button {
     @include basicButton;
 }

@@ -219,7 +219,7 @@ $username = $current_user->user_login;
 			<div style="display: none;" id="email_join">
 				<a href="/">
 					<div class="logo">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo-black.png" alt="Bass Nation Logo"/>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Logo"/>
 					</div>
 				</a>
 				<h2><?php the_field('heading_text', 'option'); ?></h2>
@@ -230,7 +230,12 @@ $username = $current_user->user_login;
 					<form action="https://daricbennett.us14.list-manage.com/subscribe/post?u=31b2e6fbc1efe1874039014fd&amp;id=08854914fe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 						<div id="mc_embed_signup_scroll">
 							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+							<div class="button_wrap">
+								<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button yellow" />
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</div>
 							<div id="mce-responses" class="clear">
 								<div class="response" id="mce-error-response" style="display:none"></div>
 								<div class="response" id="mce-success-response" style="display:none"></div>

@@ -15,7 +15,7 @@ get_header();
  	<section class="two_column_template full_width page_content">
 		<div class="container">
 			<header class="sub_header full_width">
-				<h2><?php echo $pagename; ?></h2>
+				<h2><?php echo the_title(); ?></h2>
 			</header>
 		 </div><!-- .container -->
 
@@ -25,7 +25,9 @@ get_header();
 					<div class="column">
                         <?php if($pagename == "login") : ?>
                             <?php echo the_content(); ?>
-                        <?php else: ?>   
+                        <?php elseif (str_contains(strtolower($pagename), 'register')) :
+                                echo do_shortcode('[register role="author"]');
+                        else: ?>   
                             <h3><?php the_field('heading_text'); ?></h3>
                             <p><?php the_field('description'); ?></p>
                             <?php the_field('form_shortcode'); ?>
@@ -43,6 +45,14 @@ get_header();
                                         <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
                                     </span>
                                 </a>
+                            <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
+                                <h2>Ready To Join <span>Bass Nation?</span></h2>
+                                <h3>It's as easy as...</h3>
+                                <div class="list full_width">
+                                    <p><span>1</span>Register for an account.</p>
+                                    <p><span>2</span>Verify your email address.</p>
+                                    <p><span>3</span>Choose a membership level and you will be on your way to skyrocketing your bass playing for less than $0.40/day!</p>
+                                </div>
                             <?php else: ?>   
                                 <h2>Hey! Don't Let <span>Your Bass Journey</span> End Here!</h2>
                                 <p>We've crafted a comprehensive platform to help you become the bassist you've always wanted to be</p>

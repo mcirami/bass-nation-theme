@@ -280,8 +280,8 @@ $username = $current_user->user_login;
 		<input type="radio" name="rdo" id="dark">
 		<input type="radio" name="rdo" id="light" checked>
 		<div class="switch">
-			<label for="dark">Dark</label>
-			<label for="light">Light</label>
+			<label for="dark"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/moon.svg" alt="Bass Nation Logo"/></label>
+			<label for="light"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/sun.svg" alt="Bass Nation Logo"/></label>
 			<span></span>
 		</div>
 	</div>

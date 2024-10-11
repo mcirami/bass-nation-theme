@@ -1,0 +1,78 @@
+#db_mode_button {
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    z-index: 999;
+
+    .toggle-radio {
+        background: $black;
+        transition: all 0.3s ease;
+        border-radius: 50px;
+        color: $white;
+        width: 145px;
+        height: 50px;
+        border: 4px solid;
+        font-size: 1.2rem;
+        border-color: rgba(155, 155, 155, 0.4);
+
+        .switch {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+        .switch label {
+            @include intersemibold;
+            cursor: pointer;
+            color: $white;
+            width: 48%;
+            transition: all 0.1s ease;
+            top: 3px;
+            height: 90%;
+            border-width: 0;
+            border-style: solid;
+            border-color: $darkerGray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        label[for="dark"] {
+            position: absolute;
+            left: 3px;
+            background: $darkGray;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            color: $white;
+        }
+        label[for="light"] {
+            position: absolute;
+            right: 3px;
+            background: $darkGray;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            color: $white;
+        }
+        #dark:checked ~ .switch label[for="dark"] {
+            background: rgba(255, 255, 255, 0.4);
+            color: $darkGray;
+            border-width: 3px;
+            border-color: rgba(0, 0, 0, 0.7);
+        }
+        #light:checked ~ .switch label[for="light"] {
+            background: rgba(255, 255, 255, 0.4);
+            color: $darkGray;
+            border-width: 3px;
+            border-color: rgba(0, 0, 0, 0.7);
+        }
+    }
+}
+
+.db-dark-mode-active {
+    .button.yellow {
+        color: $white;
+        background: $black;
+    }
+}

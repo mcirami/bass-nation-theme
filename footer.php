@@ -178,7 +178,7 @@ $username = $current_user->user_login;
 		
 	<?php endif; ?>
 
-<?php if (!pmpro_hasMembershipLevel() && !is_page(27) && !is_page(30) && !is_page(19)) : ?>
+<?php /* if (!pmpro_hasMembershipLevel() && !is_page(27) && !is_page(30) && !is_page(19)) : */ ?>
 	<script>
 		jQuery(document).ready(function($){
 			const popup = getCookie("popup");
@@ -188,37 +188,56 @@ $username = $current_user->user_login;
 			const subscribedMember = getCookie("subscribed-member");
 			const emailJoin = $('#email_join');
 
-			setTimeout(function() {
+			if (emailJoin) {
 
-				if (!emailJoin.hasClass('active') && popup === "" && subscribed === "" && subscribedForm === "" && lpSubscribed === "" && subscribedMember === "") {
+				setTimeout(function() {
 
-					$.fancybox({
-						arrows: false,
-						autoSize: false,
-						width: '750',
-						height: '410',
-						closeBtn: true,
-						scrolling: 'hidden',
-						scrollOutside: false,
-						href: '#email_join',
-						beforeShow  :function(){
-							$("body").css({'overflow-y':'hidden'});
-						},
-						afterClose :function(){
-							$("body").css({'overflow-y':'visible'});
-						},
-						helpers: {
-							overlay: {
-								locked: true
+					if (!emailJoin.hasClass('active') && popup === "" && subscribed === "" && subscribedForm === "" && lpSubscribed === "" && subscribedMember === "") {
+
+						$.fancybox({
+							arrows: false,
+							autoSize: false,
+							width: '750',
+							height: '410',
+							closeBtn: true,
+							scrolling: 'hidden',
+							scrollOutside: false,
+							href: '#email_join',
+							beforeShow  :function(){
+								$("body").css({'overflow-y':'hidden'});
+							},
+							afterClose :function(){
+								$("body").css({'overflow-y':'visible'});
+							},
+							helpers: {
+								overlay: {
+									locked: true
+								}
 							}
+						});
+
+						emailJoin.addClass('active');
+						createCookie("popup", "popped", 1);
+					}
+				}, 15000);
+			}
+			
+			const darkModeButtons = document.getElementsByName("rdo");
+			if (darkModeButtons) {
+				for (const button of darkModeButtons) {
+					button.addEventListener("click", () => {
+						console.log(button.checked);
+						const mode = button.getAttribute("id");
+						createCookie("db_dark_mode", mode, null);
+						const siteBody = document.body;
+						if (mode === "dark") {
+							siteBody.classList.add('db-dark-mode-active');
+						} else {
+							siteBody.classList.remove('db-dark-mode-active');
 						}
 					});
-
-					emailJoin.addClass('active');
-					createCookie("popup", "popped", 1);
-
-				} }, 15000);
-
+				}
+			}
 
 			function getCookie(cname) {
 				const name = cname + "=";
@@ -250,7 +269,23 @@ $username = $current_user->user_login;
 		});
 	</script>
 
-<?php endif; ?>
+<?php /* endif;  */?>
+<script>
+		jQuery(document).ready(function($){
+
+		});
+</script>
+<div id="db_mode_button">
+	<div class="toggle-radio">
+		<input type="radio" name="rdo" id="dark">
+		<input type="radio" name="rdo" id="light" checked>
+		<div class="switch">
+			<label for="dark">Dark</label>
+			<label for="light">Light</label>
+			<span></span>
+		</div>
+	</div>
+</div>	
 <?php wp_footer(); ?>
 </div><!-- #wrapper -->
 </body>

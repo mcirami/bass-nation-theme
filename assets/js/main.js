@@ -5,6 +5,7 @@ const { Swiper } = require("swiper/bundle");
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
     const navIcon = $(".user_mobile_nav p span");
+    const videoPlayer = document.querySelector("#video_player");
 
     $(".bbp-topic-freshness-author").each(function () {
         const $this = $(this);
@@ -134,6 +135,13 @@ jQuery(document).ready(function ($) {
             mobileSubMenu();
         }
 
+        if (videoPlayer) {
+            if ($(window).width() < 1200) {
+                videoScrollAction();
+            } else {
+                videoPlayer.removeEventListener("scroll", videoScrollAction);
+            }
+        }
         const chatWindow = document.querySelector(
             ".live_stream .wp-block-columns"
         );
@@ -364,29 +372,33 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    const videoPlayer = document.querySelector("#video_player");
     if (videoPlayer) {
         if ($(window).width() < 1200) {
-            videoPlayer.addEventListener("scroll", function (e) {
-                setTimeout(() => {
-                    if (videoPlayer && videoPlayer.scrollTop > 200) {
-                        const height =
-                            document.querySelector(".video_iframe_wrap")
-                                .clientHeight / 2;
-                        document.querySelector(
-                            ".video_content_wrap"
-                        ).style.paddingTop = height + "px";
-
-                        videoPlayer.classList.add("scroll");
-                    } else {
-                        videoPlayer.classList.remove("scroll");
-                        document.querySelector(
-                            ".video_content_wrap"
-                        ).style.paddingTop = 0;
-                    }
-                }, 300);
-            });
+            videoScrollAction();
         }
+    }
+
+    function videoScrollAction() {
+        videoPlayer.addEventListener("scroll", function (e) {
+            console.log("scroll: ", videoPlayer.scrollTop);
+            setTimeout(() => {
+                if (videoPlayer && videoPlayer.scrollTop > 250) {
+                    const height =
+                        document.querySelector(".video_iframe_wrap")
+                            .clientHeight / 2;
+                    document.querySelector(
+                        ".video_content_wrap"
+                    ).style.paddingTop = height + "px";
+
+                    videoPlayer.classList.add("scroll");
+                } else {
+                    videoPlayer.classList.remove("scroll");
+                    document.querySelector(
+                        ".video_content_wrap"
+                    ).style.paddingTop = 0;
+                }
+            }, 300);
+        });
     }
 
     $(window).on("scroll", function (event) {
@@ -792,7 +804,7 @@ jQuery(document).ready(function ($) {
         const files = $(this).data("files");
 
         let favoriteButton = "";
-        // eslint-disable-next-line no-undef
+
         const ajaxURL = myAjaxurl.ajaxurl;
 
         let videoDesc = "";
@@ -823,11 +835,11 @@ jQuery(document).ready(function ($) {
             files.forEach((file) => {
                 if (file["file"] !== "") {
                     fileElements +=
-                        '<a target="_blank" href="' +
+                        '<div class="column"><a target="_blank" href="' +
                         file["file"] +
                         '">' +
                         file["text"] +
-                        "</a>";
+                        "</a></div>";
                 }
             });
         }

@@ -750,7 +750,7 @@ ul.member_menu {
 }
 
 .fancybox-inner {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .fancybox-slide {
@@ -780,6 +780,10 @@ ul.member_menu {
 
     a {
         display: inline-block;
+
+        &:focus {
+            outline: unset;
+        }
     }
 
     .logo {

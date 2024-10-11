@@ -366,27 +366,31 @@ jQuery(document).ready(function ($) {
 
     const videoPlayer = document.querySelector("#video_player");
     if (videoPlayer) {
-        videoPlayer.addEventListener("scroll", function (e) {
-            console.log(videoPlayer.scrollTop);
-            setTimeout(() => {
-                if (videoPlayer && videoPlayer.scrollTop > 200) {
-                    document
-                        .querySelector(".video_content_wrap")
-                        .classList.add("scroll");
+        if ($(window).width() < 1200) {
+            videoPlayer.addEventListener("scroll", function (e) {
+                setTimeout(() => {
+                    if (videoPlayer && videoPlayer.scrollTop > 200) {
+                        const height =
+                            document.querySelector(".video_iframe_wrap")
+                                .clientHeight / 2;
+                        document.querySelector(
+                            ".video_content_wrap"
+                        ).style.paddingTop = height + "px";
 
-                    videoPlayer.classList.add("scroll");
-                } else {
-                    videoPlayer.classList.remove("scroll");
-                    document
-                        .querySelector(".video_content_wrap")
-                        .classList.remove("scroll");
-                }
-            }, 300);
-        });
+                        videoPlayer.classList.add("scroll");
+                    } else {
+                        videoPlayer.classList.remove("scroll");
+                        document.querySelector(
+                            ".video_content_wrap"
+                        ).style.paddingTop = 0;
+                    }
+                }, 300);
+            });
+        }
     }
 
     $(window).on("scroll", function (event) {
-        if ($(window).scrollTop() > 40 && !videoPlayer) {
+        if ($(window).scrollTop() > 40) {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
             ).addClass("scroll");
@@ -486,47 +490,6 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    /*  const soundslice = document.querySelectorAll(".soundslice_video");
-
-    if (soundslice.length) {
-        for (let c = 0; c < soundslice.length; c++) {
-            soundslice[c].addEventListener("click", function () {
-                const iframe = document.createElement("iframe");
-
-                iframe.setAttribute("id", "ssembed");
-                iframe.setAttribute("frameborder", "0");
-                iframe.setAttribute("allowfullscreen", "");
-                iframe.setAttribute(
-                    "src",
-                    "https://www.soundslice.com/scores/" + this.dataset.embed
-                );
-
-                this.innerHTML = "";
-                this.appendChild(iframe);
-            });
-        }
-    } */
-
-    /*  $(".keyboard_link").click(function (e) {
-        e.preventDefault();
-
-        $(".keyboard_popup").css("display", "block");
-
-        $(".keyboard_popup iframe").attr(
-            "src",
-            "https://www.soundslice.com/scores/" + this.dataset.embed
-        );
-
-        $("body, html").css("overflow-y", "hidden");
-    });
-
-    $(".keyboard_popup .close_button").click(function (e) {
-        $(".keyboard_popup").css("display", "none");
-        $(".keyboard_popup iframe").attr("src", "");
-        $("body, html").css("overflow-y", "scroll");
-    }); */
-
-    // eslint-disable-next-line no-undef
     const pageURL = currentPage.postSlug;
 
     if (
@@ -834,9 +797,9 @@ jQuery(document).ready(function ($) {
 
         let videoDesc = "";
 
-        /* if (desc) {
+        if (desc) {
             videoDesc = '<div class="description"><p>' + desc + "</p></div>";
-        } */
+        }
 
         if (currentPage.postType && currentPage.postType !== "courses") {
             videoPlayer = $("#video_player").empty();
@@ -881,7 +844,6 @@ jQuery(document).ready(function ($) {
                     videoTitle +
                     "</h3>" +
                     "</div>" +
-                    videoDesc +
                     '<div class="content_wrap">' +
                     '<div class="video_iframe_wrap">';
 
@@ -904,7 +866,7 @@ jQuery(document).ready(function ($) {
                         '<div class="links_wrap">' + fileElements + "</div>";
                 }
 
-                html += "</div>";
+                html += "</div>" + videoDesc;
 
                 html +=
                     "</div>" +

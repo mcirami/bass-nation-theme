@@ -17544,6 +17544,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page #video_player.open {
   opacity: 100%;
   z-index: 999;
+  overflow-y: scroll;
 }
 .lessons_page #video_player,
 .lessons_page .course_video_player {
@@ -17581,7 +17582,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page #video_player.scroll .bottom_row,
-.lessons_page .course_video_player.scroll .bottom_row {
+.lessons_page #video_player.scroll .description,
+.lessons_page .course_video_player.scroll .bottom_row,
+.lessons_page .course_video_player.scroll .description {
   opacity: 0;
   z-index: -999;
 }
@@ -17663,13 +17666,17 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page #video_player .description,
 .lessons_page .course_video_player .description {
-  padding: 20px 40px 0;
+  padding: 20px;
+  color: #fff;
+  background: rgba(155, 155, 155, 0.1);
+}
+.lessons_page #video_player .description ul,
+.lessons_page .course_video_player .description ul {
+  list-style: unset;
 }
 .lessons_page #video_player .description p,
 .lessons_page .course_video_player .description p {
-  font-size: 20px;
   line-height: 1.6;
-  color: #fff;
 }
 @media screen and (max-width: 991px) {
   .lessons_page #video_player .description p,
@@ -17831,10 +17838,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   max-height: 600px;
   overflow-y: scroll;
   overflow-x: hidden;
-  /* -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
-  transition: 0.5s ease-in-out; */
+  padding-top: 0;
+  transition: 0.2s ease-in-out;
 }
 .lessons_page #video_player .video_content_wrap:last-child,
 .lessons_page .course_video_player .video_content_wrap:last-child {
@@ -17860,10 +17865,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   .lessons_page .course_video_player .video_content_wrap:last-child {
     margin-right: 0;
   }
-}
-.lessons_page #video_player .video_content_wrap.scroll,
-.lessons_page .course_video_player .video_content_wrap.scroll {
-  padding-top: 55%;
 }
 .lessons_page .videos_wrap {
   margin: 40px 0;
@@ -18255,6 +18256,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background: #fff;
   border: 1px solid #3d3d3d;
   text-align: center;
+  border-radius: 8px;
 }
 #comments .comment-content:last-child {
   margin-right: 0;

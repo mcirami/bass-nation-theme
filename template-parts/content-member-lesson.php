@@ -87,7 +87,7 @@
                     data-src="<?php echo $videoLink . $extension; ?>"
                     data-title="<?php echo the_title();?>"
                     data-postid="<?php echo $id; ?>"
-                    data-desc="<?php // echo $desc; ?>"
+                    data-desc="<?php echo htmlspecialchars($desc); ?>"
                     data-files='[<?php
                         foreach($fileArray as $file) {
                             $item = '{"file":"' . htmlspecialchars($file["file"]) . '",'.'"text":"'. htmlspecialchars($file["text"]) .'"}';

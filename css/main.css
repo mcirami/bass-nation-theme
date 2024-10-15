@@ -17885,12 +17885,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .lessons_page .videos_wrap {
-  margin: 40px 0;
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 100%;
 }
-@media screen and (max-width: 767px) {
-  .lessons_page .videos_wrap {
-    margin: 20px 0;
-  }
+.lessons_page .videos_wrap:last-child {
+  margin-right: 0;
 }
 .lessons_page .videos_wrap .column {
   padding: 20px;
@@ -17938,10 +17939,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     border-bottom-right-radius: 8px;
   }
 }
-.lessons_page .videos_wrap .column a:not(.video_files) {
+.lessons_page .videos_wrap .column .vid_image_wrap a:not(.video_files) {
   display: block;
 }
-.lessons_page .videos_wrap .column a:not(.video_files):before {
+.lessons_page .videos_wrap .column .vid_image_wrap a:not(.video_files):before {
   content: "";
   text-align: center;
   background: url("../images/play-button2.png") no-repeat;
@@ -17955,12 +17956,26 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   left: 0;
   border-radius: 8px;
 }
-.lessons_page .videos_wrap .column a:not(.video_files):not(.button) {
+.lessons_page .videos_wrap .column .vid_image_wrap a:not(.video_files):not(.button) {
   box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
 }
-.lessons_page .videos_wrap .column a:not(.video_files):not(.button):hover:before {
+.lessons_page .videos_wrap .column .vid_image_wrap a:not(.video_files):not(.button):hover:before {
   content: "";
   background-color: rgba(0, 0, 0, 0.8);
+}
+.lessons_page .videos_wrap .column .vid_image_wrap.all_courses a:not(.video_files):before {
+  contain: "";
+  text-align: center;
+  background: url("../images/go-arrow.png") no-repeat;
+  background-size: 20%;
+  background-position: center center;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
 }
 .lessons_page .videos_wrap .column .comment_wrap {
   display: none;
@@ -18994,6 +19009,15 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   height: 100%;
   border-radius: 4px;
   z-index: 1;
+}
+
+.lessons_page.courses .banner_wrap {
+  color: #fff;
+}
+.lessons_page.courses .banner_wrap ul {
+  display: block;
+  list-style: unset;
+  padding-left: 2rem;
 }
 
 .passions .top_section h3, .passions .top_section .h3 {

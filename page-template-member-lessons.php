@@ -36,6 +36,13 @@ if (pmpro_hasMembershipLevel()) {
 	    		'orderby' => 'description'
 	    ));
 
+    } elseif ($title == "Courses") {
+        $args = array (
+            'post_type' => 'courses',
+            'order_by' => 'post_date',
+            'order' => 'DESC',
+            'posts_per_page' => -1,
+        );
     } else {
         $args = array(
             'post_type' => 'lessons',
@@ -104,9 +111,12 @@ if (pmpro_hasMembershipLevel()) {
             <section class="video_list full_width">
 
                 <div class="container">
-                    <?php if ($title == "Lessons") : ?>
+                    <?php if ($title == "Lessons" || $title == "Courses" || $title == "Favorite Lessons") : ?>
                         <div class="videos_wrap">
-                            <div class="filter_controls full_width">
+                            <div class="filter_controls full_width" <?php
+                                if($title == "Courses" || $title == "Favorite Lessons") {
+                                    echo "style=display:none;";
+                                }?>>
 
                                 <div class="filters filters-group">
                                     <h3>Filter Lessons By<span>:</span></h3>
@@ -135,7 +145,7 @@ if (pmpro_hasMembershipLevel()) {
                                     <input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
                                 </div>
                             </div><!-- filter_controls -->
-                        <?php else : ?>
+                        <?php elseif ($title == "Favorite Lessons") : ?>
 
                             <div class="top_content full_width">
                                 <?php if ($favorites != null) :
@@ -166,13 +176,20 @@ if (pmpro_hasMembershipLevel()) {
 
                                 <?php if ( $lessons->have_posts() ) : while( $lessons->have_posts() ) : $lessons->the_post();
 
-                                        $hide = get_field('hide_lesson');
+                                        if($title == "Lessons" || "Favorite Lessons") :
+                                            $hide = get_field('hide_lesson');
 
-                                        if (!$hide) : ?>
+                                            if (!$hide) : ?>
 
-                                            <?php get_template_part('template-parts/content', 'member-lesson'); ?>
+                                                <?php get_template_part('template-parts/content', 'member-lesson'); ?>
 
-                                        <?php endif; ?> <!-- hide -->
+                                            <?php endif; ?> <!-- hide -->
+
+                                        <?php elseif($title == "Courses") : ?>
+
+                                            <?php get_template_part('template-parts/content', 'all-courses'); ?>
+
+                                        <?php endif;?> 
 
                                     <?php endwhile; //query loop
 

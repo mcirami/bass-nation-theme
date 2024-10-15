@@ -373,14 +373,9 @@
     }
 
     .videos_wrap {
-        margin: 40px 0;
-
-        @include media($mobile) {
-            margin: 20px 0;
-        }
+        @include span-columns(12);
 
         .column {
-            //width: 32.9%;
             padding: 20px;
 
             @include media($tablet) {
@@ -388,7 +383,6 @@
             }
 
             @include media($mobile) {
-                //width: 49.5%;
                 padding: 10px;
             }
 
@@ -424,32 +418,51 @@
                         border-bottom-right-radius: 8px;
                     }
                 }
-            }
 
-            a:not(.video_files) {
-                display: block;
+                a:not(.video_files) {
+                    display: block;
 
-                &:before {
-                    content: "";
-                    text-align: center;
-                    background: url("../images/play-button2.png") no-repeat;
-                    background-size: 20%;
-                    background-position: center center;
-                    background-color: rgba(0, 0, 0, 0.3);
-                    position: absolute;
-                    height: 100%;
-                    width: 100%;
-                    top: 0;
-                    left: 0;
-                    border-radius: 8px;
+                    &:before {
+                        content: "";
+                        text-align: center;
+                        background: url("../images/play-button2.png") no-repeat;
+                        background-size: 20%;
+                        background-position: center center;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        border-radius: 8px;
+                    }
+
+                    &:not(.button) {
+                        box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+
+                        &:hover:before {
+                            content: "";
+                            background-color: rgba(0, 0, 0, 0.8);
+                        }
+                    }
                 }
 
-                &:not(.button) {
-                    box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
-
-                    &:hover:before {
-                        content: "";
-                        background-color: rgba(0, 0, 0, 0.8);
+                &.all_courses {
+                    a:not(.video_files) {
+                        &:before {
+                            contain: "";
+                            text-align: center;
+                            background: url("../images/go-arrow.png") no-repeat;
+                            background-size: 20%;
+                            background-position: center center;
+                            background-color: rgba(0, 0, 0, 0.6);
+                            position: absolute;
+                            height: 100%;
+                            width: 100%;
+                            top: 0;
+                            left: 0;
+                            border-radius: 8px;
+                        }
                     }
                 }
             }
@@ -1341,6 +1354,18 @@
                     z-index: 1;
                 }
             }
+        }
+    }
+}
+
+.lessons_page.courses {
+    .banner_wrap {
+        color: $white;
+
+        ul {
+            display: block;
+            list-style: unset;
+            padding-left: 2rem;
         }
     }
 }

@@ -382,10 +382,11 @@ jQuery(document).ready(function ($) {
         videoPlayer.addEventListener("scroll", function (e) {
             console.log("scroll: ", videoPlayer.scrollTop);
             setTimeout(() => {
-                if (videoPlayer && videoPlayer.scrollTop > 250) {
+                if (videoPlayer && videoPlayer.scrollTop > 400) {
                     const height =
-                        document.querySelector(".video_iframe_wrap")
-                            .clientHeight / 2;
+                        document.querySelector(
+                            ".video_iframe_wrap"
+                        ).clientHeight;
                     document.querySelector(
                         ".video_content_wrap"
                     ).style.paddingTop = height + "px";
@@ -776,24 +777,6 @@ jQuery(document).ready(function ($) {
 
         createCookie("clickHash", clickHash, 5);
 
-        /* if (currentPage.postType && currentPage.postType !== "courses") {
-            htmlBody.animate(
-                {
-                    scrollTop:
-                        $("#video_player").offset().top -
-                        $("#global_header").height(),
-                },
-                1000
-            );
-        } else { */
-        if (currentPage.postType && currentPage.postType == "courses") {
-            var hash = clickHash + "-video";
-            videoPlayer = $(this)
-                .closest(".row")
-                .children(".course_video_player");
-        }
-        /*  } */
-
         const videoSrc = $(this).data("src");
         const videoType = $(this).data("type");
         const replaceVideoLink = $(this).data("replace");
@@ -813,21 +796,10 @@ jQuery(document).ready(function ($) {
             videoDesc = '<div class="description"><p>' + desc + "</p></div>";
         }
 
-        if (currentPage.postType && currentPage.postType !== "courses") {
-            videoPlayer = $("#video_player").empty();
-            videoPlayer.addClass("open");
-        } else {
-            $(".course_video_player").empty().removeClass("open");
-            $(".lessons_page.courses .row").removeClass("open_player");
-            $(this).closest(".row").addClass("open_player");
-            videoPlayer.addClass("open");
-        }
+        videoPlayer = $("#video_player").empty();
+        videoPlayer.addClass("open");
 
-        if (currentPage.postType && currentPage.postType !== "courses") {
-            favoriteButton = $(this).parent().children(".button_wrap").html();
-        } else {
-            favoriteButton = $(this).parent().prev(".button_wrap").html();
-        }
+        favoriteButton = $(this).parent().children(".button_wrap").html();
 
         let fileElements = "";
 
@@ -892,21 +864,6 @@ jQuery(document).ready(function ($) {
                     "</div></div>";
 
                 $(html).appendTo(videoPlayer);
-                /* .slideDown(1000, function () {
-                        if (
-                            currentPage.postType &&
-                            currentPage.postType === "courses"
-                        ) {
-                            htmlBody.animate(
-                                {
-                                    scrollTop:
-                                        $(hash).offset().top -
-                                        $("#global_header").height(),
-                                },
-                                500
-                            );
-                        }
-                    }); */
 
                 replyToComment($("a.comment-reply-link"));
                 commentCancel();

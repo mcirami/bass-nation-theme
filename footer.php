@@ -270,22 +270,9 @@ $username = $current_user->user_login;
 	</script>
 
 <?php /* endif;  */?>
-<script>
-		jQuery(document).ready(function($){
-
-		});
-</script>
-<div id="db_mode_button">
-	<div class="toggle-radio">
-		<input type="radio" name="rdo" id="dark">
-		<input type="radio" name="rdo" id="light" checked>
-		<div class="switch">
-			<label for="dark"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/moon.svg" alt="Bass Nation Logo"/></label>
-			<label for="light"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/sun.svg" alt="Bass Nation Logo"/></label>
-			<span></span>
-		</div>
-	</div>
-</div>	
+<?php if (is_user_logged_in()) : ?>
+	<?php get_template_part('template-parts/content', 'mode-button'); ?>
+<?php endif; ?>
 <?php wp_footer(); ?>
 </div><!-- #wrapper -->
 </body>

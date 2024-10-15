@@ -17507,30 +17507,31 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   position: relative;
 }
 .lessons_page .top_content {
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 .lessons_page .top_content h3, .lessons_page .top_content .h3 {
   font-size: 18px;
   float: left;
+  margin: 0;
 }
 .lessons_page .top_content .simplefavorites-clear {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
   font-size: 14px;
   color: #ff000a;
   border: none;
-  text-decoration: underline;
-  float: right;
-  margin-top: 20px;
+  padding: 0;
   background: none;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .top_content .simplefavorites-clear {
-    margin-top: 10px;
-  }
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #ff000a;
 }
 .lessons_page .top_content .simplefavorites-clear:hover {
-  color: #c30b21;
+  color: #880415;
+  border-bottom: 2px solid #880415;
 }
 .lessons_page .top_content button[disabled=disabled] {
   color: #ebebeb;
@@ -24981,16 +24982,14 @@ form .login-submit:hover:before {
 .video_submit .top_section .button {
   display: block;
   width: 40%;
-  font-size: 20px;
   margin: 0 auto;
-  text-transform: uppercase;
   padding: 10px 20px;
   transition: 0.7s ease-in-out;
+  border: none;
 }
 @media screen and (max-width: 767px) {
   .video_submit .top_section .button {
     width: 100%;
-    font-size: 16px;
   }
 }
 .video_submit #post_submit_form {
@@ -25008,9 +25007,6 @@ form .login-submit:hover:before {
   padding: 0 40px 40px;
   border-radius: 4px;
   text-align: left;
-  background: #f1f1f1;
-  box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  border: 1px solid #c8c8c8;
   width: 70%;
   float: none;
   margin: 0 auto;
@@ -25041,7 +25037,12 @@ form .login-submit:hover:before {
   position: absolute;
   right: 12px;
 }
-.video_submit #post_submit_form .acf-field-5a3d42a6c17cc label, .video_submit #post_submit_form .acf-field-5a3d4282c17cb label, .video_submit #post_submit_form .acf-field-5a42c5e21fff9 label, .video_submit #post_submit_form .acf-field-5a42c5fe1fffa label, .video_submit #post_submit_form .acf-field-5a43cb132c2c2 label, .video_submit #post_submit_form .acf-field-5a43cb312c2c3 label {
+.video_submit #post_submit_form .acf-field-5a3d42a6c17cc label,
+.video_submit #post_submit_form .acf-field-5a3d4282c17cb label,
+.video_submit #post_submit_form .acf-field-5a42c5e21fff9 label,
+.video_submit #post_submit_form .acf-field-5a42c5fe1fffa label,
+.video_submit #post_submit_form .acf-field-5a43cb132c2c2 label,
+.video_submit #post_submit_form .acf-field-5a43cb312c2c3 label {
   display: none;
 }
 @media screen and (max-width: 767px) {
@@ -25066,35 +25067,86 @@ form .login-submit:hover:before {
   margin-left: 12px;
 }
 .video_submit #post_submit_form .acf-form-submit input {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  padding: 7px 15px;
+  background: #f5bf04;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 10px 20px;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  background: #ff000a;
-  color: #fff;
+  transition: 0.5s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  width: 28rem;
+  text-align: center;
 }
 @media screen and (max-width: 991px) {
   .video_submit #post_submit_form .acf-form-submit input {
-    padding: 6px 12px;
-    font-size: 14px;
+    font-size: 1.4rem;
+    width: 26rem;
   }
 }
 @media screen and (max-width: 767px) {
   .video_submit #post_submit_form .acf-form-submit input {
-    padding: 7px 10px;
-    font-size: 12px;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+    width: 24rem;
   }
 }
-@media screen and (max-width: 550px) {
-  .video_submit #post_submit_form .acf-form-submit input {
-    padding: 5px 8px;
-  }
+.video_submit #post_submit_form .acf-form-submit input span {
+  opacity: 0%;
+  transition: 0.5s ease-in-out;
+  width: 0;
+  position: absolute;
+  right: 8px;
+}
+.video_submit #post_submit_form .acf-form-submit input span img {
+  height: 25px;
+}
+.video_submit #post_submit_form .acf-form-submit input:hover span {
+  opacity: 100%;
+  width: 30px;
+}
+.video_submit #post_submit_form .acf-form-submit input.black {
+  background: #000000;
+  color: #ff000a;
+  border: 1px;
+  border-style: inset;
+  border-color: #ff000a;
+}
+.video_submit #post_submit_form .acf-form-submit input.black:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.video_submit #post_submit_form .acf-form-submit input.black:hover span img {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(52deg) brightness(106%) contrast(101%);
+}
+.video_submit #post_submit_form .acf-form-submit input.yellow {
+  background: #f5bf04;
+  color: #000000;
+}
+.video_submit #post_submit_form .acf-form-submit input.yellow:hover {
+  background: #c4a020;
 }
 .video_submit #post_submit_form .acf-form-submit input:hover {
-  background: #c30b21;
+  background: #c4a020;
+}
+.video_submit #post_submit_form .cancel_post {
+  background: transparent;
+}
+.video_submit #post_submit_form .cancel_post:hover {
+  background: #000000;
+  color: #fff;
+}
+.video_submit #post_submit_form input,
+.video_submit #post_submit_form textarea {
+  background: #fff;
 }
 .video_submit .content {
   padding: 0 0 60px;
@@ -25141,22 +25193,11 @@ form .login-submit:hover:before {
   text-transform: uppercase;
   position: relative;
 }
-.video_submit .row .column h1, .video_submit .row .column .h1 {
+.video_submit .row .column h3, .video_submit .row .column .h3 {
   margin-top: 0;
-  font-size: 28px;
   margin-bottom: 5px;
 }
-@media screen and (max-width: 991px) {
-  .video_submit .row .column h1, .video_submit .row .column .h1 {
-    font-size: 26px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .video_submit .row .column h1, .video_submit .row .column .h1 {
-    margin-top: 10px;
-  }
-}
-.video_submit .row .column h1 a, .video_submit .row .column .h1 a {
+.video_submit .row .column h3 a, .video_submit .row .column .h3 a {
   color: #000000;
 }
 .video_submit .row .column h4, .video_submit .row .column .h4 {
@@ -26244,7 +26285,47 @@ form .login-submit:hover:before {
   filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(41deg) brightness(103%) contrast(101%);
 }
 
-.db-dark-mode-active .button.yellow {
+.db-dark-mode-active .page_content.member {
+  background: #070707;
+}
+.db-dark-mode-active .page_content.member h2, .db-dark-mode-active .page_content.member .h2,
+.db-dark-mode-active .page_content.member h3,
+.db-dark-mode-active .page_content.member .h3 {
   color: #fff;
-  background: #000000;
+}
+.db-dark-mode-active .page_content.member h4, .db-dark-mode-active .page_content.member .h4 {
+  color: #959494;
+}
+.db-dark-mode-active .page_content.member input {
+  background: #070707;
+  color: #fff;
+}
+.db-dark-mode-active .page_content.member.lessons_page .shuffle-container .lesson_content p {
+  color: #b80008;
+}
+.db-dark-mode-active .page_content.member.lessons_page .top_content h3, .db-dark-mode-active .page_content.member.lessons_page .top_content .h3 {
+  color: #959494;
+}
+.db-dark-mode-active .page_content.member.lessons_page .top_content .simplefavorites-clear {
+  color: #b80008;
+  border-bottom: 2px solid #b80008;
+}
+.db-dark-mode-active .page_content.member.lessons_page .top_content .simplefavorites-clear:hover {
+  color: #ff000a;
+  border-bottom: 2px solid #ff000a;
+}
+.db-dark-mode-active .page_content.member.video_submit .top_section p {
+  color: #fff;
+}
+.db-dark-mode-active .page_content.member.video_submit .row .column a:not(.button),
+.db-dark-mode-active .page_content.member.video_submit .row .column h3,
+.db-dark-mode-active .page_content.member.video_submit .row .column .h3,
+.db-dark-mode-active .page_content.member.video_submit .row .column h4,
+.db-dark-mode-active .page_content.member.video_submit .row .column .h4,
+.db-dark-mode-active .page_content.member.video_submit .row .column p {
+  color: #fff;
+}
+.db-dark-mode-active .page_content.member .epyt-gallery-title,
+.db-dark-mode-active .page_content.member .epyt-gallery-title a {
+  color: #fff;
 }

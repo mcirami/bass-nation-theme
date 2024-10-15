@@ -30,29 +30,31 @@
     position: relative;
 
     .top_content {
-        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
 
         h3 {
             font-size: 18px;
             float: left;
+            margin: 0;
         }
 
         .simplefavorites-clear {
-            @include interregular;
+            @include intersemibold;
             font-size: 14px;
             color: $red;
             border: none;
-            text-decoration: underline;
-            float: right;
-            margin-top: 20px;
+            padding: 0;
             background: none;
-
-            @include media($mobile) {
-                margin-top: 10px;
-            }
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 2px solid $red;
 
             &:hover {
-                color: #c30b21;
+                color: $darkRed;
+                border-bottom: 2px solid $darkRed;
             }
         }
 

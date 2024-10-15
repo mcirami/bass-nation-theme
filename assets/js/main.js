@@ -13,13 +13,12 @@ jQuery(document).ready(function ($) {
     });
 
     const fancybox = $(".fancybox");
+    const fancybox2 = $(".fancybox2");
 
-    if (fancybox.length > 0) {
-        fancyboxInit();
-    }
+    fancyboxInit();
 
     function fancyboxInit() {
-        if (fancybox.length) {
+        if (fancybox.length > 0) {
             fancybox.click(function (e) {
                 e.preventDefault();
                 $.fancybox.open($("#email_join"));
@@ -47,9 +46,7 @@ jQuery(document).ready(function ($) {
             });
         }
 
-        const fancybox2 = $(".fancybox2");
-
-        if (fancybox2.length) {
+        if (fancybox2.length > 0) {
             fancybox2.click(function (e) {
                 e.preventDefault();
             });
@@ -408,7 +405,7 @@ jQuery(document).ready(function ($) {
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
             ).addClass("scroll");
             $(".header_bottom").addClass("home_background");
-        } else if (!videoPlayer) {
+        } else {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
             ).removeClass("scroll");

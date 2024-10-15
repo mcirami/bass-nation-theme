@@ -59,7 +59,7 @@
 
     </div>
     <div class="column">
-        <h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+        <h3><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
 	    <?php if ($postType == "videos") : ?>
 
@@ -86,7 +86,16 @@
 	        <p><?php the_field('description'); ?></p>
 	    <?php endif; ?>
 	    <div class="button_wrap">
-            <a class="button red" href="<?php the_permalink(); ?>"><?php if ($postType == "videos") { echo "Open Thread"; } elseif ($postType == "courses"){ echo "Open Course"; } else {  the_field('button_text'); } ?></a>
+            <a class="button yellow" href="<?php the_permalink(); ?>">
+				<?php if ($postType == "videos") { 
+					echo "Open Thread"; 
+				} else {  
+					the_field('button_text'); 
+				} ?>
+				<span>
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+				</span>
+		</a>
         </div>
     </div>
 

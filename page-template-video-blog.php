@@ -24,7 +24,9 @@ if($pageTitle == "Video Q &#038; A") {
 		'posts_per_page' => -1,
 	);
 
-} elseif ($pageTitle == "Bass Nation TV") {
+} 
+
+if ($pageTitle == "Bass Nation TV") {
 
 	$args = array (
 	    'post_type' => 'tv-videos',
@@ -32,36 +34,7 @@ if($pageTitle == "Video Q &#038; A") {
 	    'order' => 'DESC',
 	    'posts_per_page' => -1,
 	);
-} elseif ($pageTitle == "Beginners Course") {
-	$args = array (
-		'post_type' => 'lessons',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'level',
-				'field' => 'slug',
-				'terms' => 'beginner'
-			),
-		),
-		'order_by' => 'post_date',
-		'order' => 'ASC',
-		'posts_per_page' => -1,
-	);
-} elseif ($pageTitle == "Slap Course") {
-	$args = array (
-		'post_type' => 'lessons',
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'category',
-				'field' => 'slug',
-				'terms' => 'slap-series'
-			),
-		),
-		'order_by' => 'post_date',
-		'order' => 'ASC',
-		'posts_per_page' => -1,
-	);
 }
-
 $posts = new WP_Query($args);
 
 ?>
@@ -84,7 +57,12 @@ $posts = new WP_Query($args);
                                 <p><?php the_field('description'); ?></p>
 	                        <?php } ?>
 	                    <?php if($pageTitle == "Video Q &#038; A") : ?>
-                            <button id="post_video_btn" class="button yellow"><?php the_field('button_text'); ?></button>
+                            <button id="post_video_btn" class="button yellow">
+								<?php the_field('button_text'); ?>
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</button>
 	                    <?php endif; ?>
 
                     </div><!-- top_section -->
@@ -105,7 +83,7 @@ $posts = new WP_Query($args);
 	                                    ),
 	                                    'return'		=> home_url('/video-q-and-a/'),
 	                                    'submit_value'	=> 'Submit Post',
-	                                    'html_after_fields' => '<a class="cancel_post button yellow" href="#">Cancel</a>'
+	                                    'html_after_fields' => '<a class="cancel_post button black" href="#">Cancel</a>'
 	                                ));
 
 	                                ?>

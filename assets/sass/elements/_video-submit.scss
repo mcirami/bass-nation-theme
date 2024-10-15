@@ -1,5 +1,4 @@
 .video_submit {
-
     .top_section {
         padding-bottom: 20px;
         text-align: center;
@@ -26,19 +25,17 @@
         .button {
             display: block;
             width: 40%;
-            font-size: 20px;
             margin: 0 auto;
-            text-transform: uppercase;
             padding: 10px 20px;
-            -webkit-transition: .7s ease-in-out;
-            -moz-transition: .7s ease-in-out;
-            -ms-transition: .7s ease-in-out;
-            -o-transition: .7s ease-in-out;
-            transition: .7s ease-in-out;
+            -webkit-transition: 0.7s ease-in-out;
+            -moz-transition: 0.7s ease-in-out;
+            -ms-transition: 0.7s ease-in-out;
+            -o-transition: 0.7s ease-in-out;
+            transition: 0.7s ease-in-out;
+            border: none;
 
             @include media($mobile) {
                 width: 100%;
-                font-size: 16px;
             }
         }
     }
@@ -62,11 +59,6 @@
             -moz-border-radius: 4px;
             border-radius: 4px;
             text-align: left;
-            background: #f1f1f1;
-            -webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            -moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            border: 1px solid #c8c8c8;
             width: 70%;
             float: none;
             margin: 0 auto;
@@ -98,7 +90,12 @@
             right: 12px;
         }
 
-        .acf-field-5a3d42a6c17cc label, .acf-field-5a3d4282c17cb label, .acf-field-5a42c5e21fff9 label, .acf-field-5a42c5fe1fffa label, .acf-field-5a43cb132c2c2 label, .acf-field-5a43cb312c2c3 label {
+        .acf-field-5a3d42a6c17cc label,
+        .acf-field-5a3d4282c17cb label,
+        .acf-field-5a42c5e21fff9 label,
+        .acf-field-5a42c5fe1fffa label,
+        .acf-field-5a43cb132c2c2 label,
+        .acf-field-5a43cb312c2c3 label {
             display: none;
         }
 
@@ -125,33 +122,27 @@
             margin-left: 12px;
 
             input {
-                @include interregular;
-                font-size: 16px;
-                padding: 7px 15px;
-                border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                background: $red;
-                color: $white;
-
-                @include media($tablet) {
-                    padding: 6px 12px;
-                    font-size: 14px;
-                }
-
-                @include media($mobile) {
-                    padding: 7px 10px;
-                    font-size: 12px;
-                }
-
-                @include media($smallMobile) {
-                    padding: 5px 8px;
-                }
+                background: $yellow;
+                @include basicButton;
 
                 &:hover {
-                    background: #c30b21;
+                    background: $yellowHover;
                 }
             }
+        }
+
+        .cancel_post {
+            background: transparent;
+
+            &:hover {
+                background: $black;
+                color: $white;
+            }
+        }
+
+        input,
+        textarea {
+            background: $white;
         }
     }
 
@@ -190,18 +181,9 @@
                 position: relative;
             }
 
-            h1 {
+            h3 {
                 margin-top: 0;
-                font-size: 28px;
                 margin-bottom: 5px;
-
-                @include media($tablet) {
-                    font-size: 26px;
-                }
-
-                @include media($mobile) {
-                    margin-top: 10px;
-                }
 
                 a {
                     color: $black;
@@ -255,7 +237,7 @@
         margin-bottom: 40px;
 
         &:before {
-            content: '';
+            content: "";
             background: url(../images/yellow-arrow.png) no-repeat;
             position: absolute;
             left: 0;
@@ -269,7 +251,7 @@
             color: $yellow;
 
             &:before {
-                content: '';
+                content: "";
                 background: url(../images/yellow-arrow-alt.png) no-repeat;
                 position: absolute;
                 left: 0;
@@ -300,7 +282,7 @@
                 position: relative;
 
                 &:before {
-                    content: '';
+                    content: "";
                     background: url(../images/arrow_white.png) no-repeat;
                     width: 6px;
                     height: 10px;
@@ -319,7 +301,6 @@
                         left: 8px;
                     }
                 }
-
             }
 
             span {
@@ -339,7 +320,7 @@
                 position: relative;
 
                 &:after {
-                    content: '';
+                    content: "";
                     background: url(../images/arrow_white.png) no-repeat;
                     width: 6px;
                     height: 10px;
@@ -406,7 +387,6 @@
         .members_only_video_pop {
             display: inline-block;
         }
-
 
         p {
             @include interregular;

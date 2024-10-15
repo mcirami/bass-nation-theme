@@ -85,8 +85,67 @@
 }
 
 .db-dark-mode-active {
-    .button.yellow {
-        color: $white;
-        background: $black;
+    .page_content {
+        &.member {
+            background: $darkModeBg;
+
+            h2,
+            h3 {
+                color: $white;
+            }
+
+            h4 {
+                color: $grayText;
+            }
+
+            input {
+                background: $darkModeBg;
+                color: $white;
+            }
+
+            &.lessons_page {
+                .shuffle-container .lesson_content p {
+                    color: $darkModeRed;
+                }
+
+                .top_content {
+                    h3 {
+                        color: $grayText;
+                    }
+
+                    .simplefavorites-clear {
+                        color: $darkModeRed;
+                        border-bottom: 2px solid $darkModeRed;
+
+                        &:hover {
+                            color: $red;
+                            border-bottom: 2px solid $red;
+                        }
+                    }
+                }
+            }
+
+            &.video_submit {
+                .top_section {
+                    p {
+                        color: $white;
+                    }
+                }
+
+                .row .column {
+                    a:not(.button),
+                    h3,
+                    h4,
+                    p {
+                        color: $white;
+                    }
+                }
+            }
+
+            .epyt-gallery-title,
+            .epyt-gallery-title a {
+                color: $white;
+            }
+        }
     }
 }

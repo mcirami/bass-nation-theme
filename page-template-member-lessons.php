@@ -111,41 +111,42 @@ if (pmpro_hasMembershipLevel()) {
             <section class="video_list full_width">
 
                 <div class="container">
-                    <?php if ($title == "Lessons" || $title == "Courses" || $title == "Favorite Lessons") : ?>
-                        <div class="videos_wrap">
-                            <div class="filter_controls full_width" <?php
-                                if($title == "Courses" || $title == "Favorite Lessons") {
-                                    echo "style=display:none;";
-                                }?>>
 
-                                <div class="filters filters-group">
-                                    <h3>Filter Lessons By<span>:</span></h3>
-                                    <p>(select as many as you like)</p>
-                                    <ul id="lesson_grid" class="filter_list full_width filter-options">
-                                        <!-- <li data-multifilter="all" class="active all">All</li> -->
-                                        <li data-group="all" class="active all">All</li>
-                                        <?php foreach ($levelTerms as $levelTerm) : ?>
+                    <div class="videos_wrap">
+                        <div class="filter_controls full_width" <?php
+                            if($title == "Courses" || $title == "Favorite Lessons") {
+                                echo "style=display:none;";
+                            }?>>
 
-                                            <!-- <li data-multifilter="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li> -->
-                                            <li data-group="<?php echo $levelTerm->term_id; ?>"><?php echo $levelTerm->name;?></li>
-                                        <?php endforeach; ?>
+                            <div class="filters filters-group">
+                                <h3>Filter Lessons By<span>:</span></h3>
+                                <p>(select as many as you like)</p>
+                                <ul id="lesson_grid" class="filter_list full_width filter-options">
+                                    <!-- <li data-multifilter="all" class="active all">All</li> -->
+                                    <li data-group="all" class="active all">All</li>
+                                    <?php foreach ($levelTerms as $levelTerm) : ?>
 
-                                        <?php foreach ($catTerms as $catTerm) :
+                                        <!-- <li data-multifilter="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li> -->
+                                        <li data-group="<?php echo $levelTerm->term_id; ?>"><?php echo $levelTerm->name;?></li>
+                                    <?php endforeach; ?>
 
-                                                if($catTerm->slug !== "members-only" && $catTerm->slug !== "uncategorized" && $catTerm->slug !== "free-lessons" && $catTerm->slug !== "ultra-beginner-series") :
-                                            ?>
-                                                        <!-- <li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li> -->
-                                                        <li data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
-                                                <?php endif; ?>
+                                    <?php foreach ($catTerms as $catTerm) :
 
-                                        <?php endforeach; ?>
-                                    </ul>
-                                </div>
-                                <div class="search_box">
-                                    <input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
-                                </div>
-                            </div><!-- filter_controls -->
-                        <?php elseif ($title == "Favorite Lessons") : ?>
+                                            if($catTerm->slug !== "members-only" && $catTerm->slug !== "uncategorized" && $catTerm->slug !== "free-lessons" && $catTerm->slug !== "ultra-beginner-series") :
+                                        ?>
+                                                    <!-- <li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li> -->
+                                                    <li data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
+                                            <?php endif; ?>
+
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            <div class="search_box">
+                                <input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
+                            </div>
+                        </div><!-- filter_controls -->
+           
+                        <?php if ($title == "Favorite Lessons") : ?>
 
                             <div class="top_content full_width">
                                 <?php if ($favorites != null) :
@@ -176,7 +177,7 @@ if (pmpro_hasMembershipLevel()) {
 
                                 <?php if ( $lessons->have_posts() ) : while( $lessons->have_posts() ) : $lessons->the_post();
 
-                                        if($title == "Lessons" || "Favorite Lessons") :
+                                        if($title == "Lessons" || $title == "Favorite Lessons") :
                                             $hide = get_field('hide_lesson');
 
                                             if (!$hide) : ?>

@@ -1271,6 +1271,22 @@
         padding: 30px 0;
     }
 
+    .button {
+        margin: 0 auto;
+        margin-top: 40px;
+        border: none;
+        -webkit-transition: 0.7s ease-in-out;
+        -moz-transition: 0.7s ease-in-out;
+        -ms-transition: 0.7s ease-in-out;
+        -o-transition: 0.7s ease-in-out;
+        transition: 0.7s ease-in-out;
+    }
+
+    h3,
+    p {
+        color: $white;
+    }
+
     .title_wrap {
         @include span-columns(12);
         padding: 10px;
@@ -1278,7 +1294,6 @@
         h3 {
             @include interbold;
             font-size: 3rem;
-            color: $white;
             margin: 0;
             width: 100%;
             margin-bottom: 30px;

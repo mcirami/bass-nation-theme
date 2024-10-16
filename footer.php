@@ -226,14 +226,26 @@ $username = $current_user->user_login;
 			if (darkModeButtons) {
 				for (const button of darkModeButtons) {
 					button.addEventListener("click", () => {
-						console.log(button.checked);
 						const mode = button.getAttribute("id");
 						createCookie("db_dark_mode", mode, null);
 						const siteBody = document.body;
+						//const modeBall = document.querySelector('.mode_ball');
+						const toggle = document.querySelector('#db_mode_button .toggle-radio');
 						if (mode === "dark") {
 							siteBody.classList.add('db-dark-mode-active');
+							if (toggle.classList.contains('light')) {
+								/* modeBall.classList.remove('light');
+								modeBall.classList.add('dark'); */
+								toggle.classList.remove('light');
+								toggle.classList.add('dark');
+							}
+							
 						} else {
 							siteBody.classList.remove('db-dark-mode-active');
+							if (toggle.classList.contains('dark')) {
+								toggle.classList.remove('dark');
+								toggle.classList.add('light');
+							}
 						}
 					});
 				}

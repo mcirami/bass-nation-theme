@@ -39,10 +39,10 @@ function my_save_post( $post_id )
 
 	wp_mail( $to, $subject, $body, $headers );
 
-	httpPost('https://', ' ');
+	//httpPost('https://', ' ');
 }
 add_action('acf/save_post', 'my_save_post', 1);
-
+/* 
 function httpPost($url, $params) {
 
 	$fields_string = array();
@@ -68,7 +68,7 @@ function httpPost($url, $params) {
 
 	//close connection
 	curl_close($ch);
-}
+} */
 
 function my_acf_load_field( $field ) {
 

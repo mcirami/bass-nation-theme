@@ -15,7 +15,7 @@ get_header();
 <div class="full_width page_content <?php if (is_user_logged_in()){ echo "member";} ?>">
 	<header class="sub_header full_width">
 		<div class="container">
-			<h1><?php the_title(); ?></h1>
+			<h2><?php the_title(); ?></h2>
 		</div><!-- .container -->
 	</header>
 

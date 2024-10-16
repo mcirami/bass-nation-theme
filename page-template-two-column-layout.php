@@ -12,7 +12,7 @@
 get_header();
 
 ?>
- 	<section class="two_column_template full_width page_content <?php echo $pagename; ?>">
+ 	<section class="two_column_template full_width page_content <?php echo $pagename; ?> <?php echo is_user_logged_in() ? "member" : ""; ?>">
 		<div class="container">
 			<header class="sub_header full_width">
 				<h2><?php echo the_title(); ?></h2>
@@ -27,7 +27,8 @@ get_header();
                             <?php echo the_content(); ?>
                         <?php elseif (str_contains(strtolower($pagename), 'register')) :
                                 echo do_shortcode('[register role="author"]');
-                        else: ?>   
+                            ?>
+                        <?php else: ?>   
                             <h3><?php the_field('heading_text'); ?></h3>
                             <p><?php the_field('description'); ?></p>
                             <?php the_field('form_shortcode'); ?>

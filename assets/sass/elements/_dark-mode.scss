@@ -5,22 +5,19 @@
     z-index: 999;
 
     .toggle-radio {
-        background: $black;
-        transition: all 0.3s ease;
+        transition: all 0.5s ease;
         border-radius: 50px;
-        color: $white;
-        width: 145px;
-        height: 50px;
-        border: 4px solid;
+        width: 124px;
+        height: 46px;
         font-size: 1.2rem;
-        border-color: rgba(155, 155, 155, 0.4);
 
         img {
-            max-width: 20px;
+            max-width: 16px;
+            z-index: 2;
+            position: relative;
         }
 
         .switch {
-            text-align: center;
             width: 100%;
             height: 100%;
         }
@@ -31,60 +28,92 @@
         .switch label {
             @include intersemibold;
             cursor: pointer;
-            color: $white;
-            width: 48%;
-            transition: all 0.1s ease;
-            top: 3px;
-            height: 90%;
-            border-width: 0;
-            border-style: inset;
-            border-color: $darkerGray;
+            width: 50%;
+            transition: all 0.5s ease;
+            height: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
         label[for="dark"] {
             position: absolute;
-            left: 3px;
-            background: $darkGray;
+            padding-left: 17px;
             border-top-left-radius: 50px;
             border-bottom-left-radius: 50px;
-            color: $white;
+            justify-content: flex-start;
+            left: 0;
         }
         label[for="light"] {
             position: absolute;
-            right: 3px;
-            background: $darkGray;
+            padding-right: 16px;
+            right: 0;
             border-top-right-radius: 50px;
             border-bottom-right-radius: 50px;
-            color: $white;
+            justify-content: flex-end;
         }
         #dark:checked ~ .switch label[for="dark"] {
-            background: rgba(255, 255, 255, 0.4);
-            color: $darkGray;
-            border-width: 2px;
-            border-color: rgba(0, 0, 0, 0.7);
-
             img {
                 filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(41deg)
                     brightness(103%) contrast(101%);
             }
         }
-        #light:checked ~ .switch label[for="light"] {
-            background: rgba(255, 255, 255, 0.4);
-            color: $darkGray;
-            border-width: 2px;
-            border-color: rgba(0, 0, 0, 0.7);
+        /*  #light:checked ~ .switch label[for="light"] {
+            //background: $darkGray;
 
-            img {
-                filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(41deg)
-                    brightness(103%) contrast(101%);
+ 
+        } */
+
+        .mode_ball {
+            width: 38px;
+            height: 38px;
+            display: block;
+            border-radius: 50px;
+            position: absolute;
+            top: 4px;
+            transition: all 1s ease;
+            background: transparent;
+        }
+
+        &.dark {
+            background: $white;
+            -webkit-box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            -moz-box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+
+            .mode_ball {
+                background: $black;
+                right: 81px;
+            }
+        }
+
+        &.light {
+            background: $darkGray;
+            -webkit-box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            -moz-box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+
+            .mode_ball {
+                background: $white;
+                right: 6px;
+                width: 36px;
+                height: 36px;
+                top: 5px;
             }
         }
     }
 }
 
-.db-dark-mode-active {
+.db-dark-mode-active.logged-in {
+    #global_header {
+        .header_top.member,
+        .header_bottom.member {
+            background: rgba(0, 0, 0, 0.4);
+
+            &.scroll,
+            &.home_background {
+                background: rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
     .page_content {
         &.member {
             background: $darkModeBg;
@@ -98,7 +127,7 @@
                 color: $grayText;
             }
 
-            input {
+            input:not([type="submit"]) {
                 background: $darkModeBg;
                 color: $white;
             }
@@ -131,6 +160,11 @@
                         color: $white;
                     }
                 }
+                #post_submit_form {
+                    .acf-field p.description {
+                        color: $grayText;
+                    }
+                }
 
                 .row .column {
                     a:not(.button),
@@ -142,10 +176,62 @@
                 }
             }
 
+            &.single_video .column {
+                h4 a {
+                    color: $darkModeRed;
+                }
+                p {
+                    color: $white;
+                }
+            }
+
             .epyt-gallery-title,
             .epyt-gallery-title a {
                 color: $white;
             }
+
+            &.two_column_template {
+                .column {
+                    &:last-child {
+                        .content_wrap {
+                            background: $darkerGray;
+                            border: none;
+                            border-radius: 0;
+
+                            p,
+                            h3 {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    form {
+        input:not([type="submit"]),
+        input[type="text"],
+        input[type="email"],
+        select {
+            border: 1px solid $white;
+            background: $black !important;
+            color: $white;
+
+            &:focus {
+                color: $white;
+            }
+
+            @include media($mobile) {
+                height: 45px;
+            }
+        }
+
+        textarea {
+            background: $black !important;
+            color: $white;
+            border: 1px solid $white;
+            padding: 10px 20px;
         }
     }
 }

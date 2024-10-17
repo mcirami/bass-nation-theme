@@ -167,11 +167,14 @@
                 }
 
                 .row .column {
-                    a:not(.button),
                     h3,
                     h4,
                     p {
                         color: $white;
+                    }
+
+                    a:not(.button) {
+                        color: $darkModeRed;
                     }
                 }
             }
@@ -204,6 +207,28 @@
                             }
                         }
                     }
+                }
+            }
+
+            .member_home {
+                .bottom_section .info_wrap {
+                    a {
+                        color: $grayText;
+
+                        &:hover {
+                            border-color: $grayText;
+                        }
+                    }
+
+                    img {
+                        filter: invert(65%) sepia(3%) saturate(3%)
+                            hue-rotate(338deg) brightness(91%) contrast(85%);
+                    }
+                }
+
+                .top_section .text_column p,
+                a {
+                    color: $grayText;
                 }
             }
         }

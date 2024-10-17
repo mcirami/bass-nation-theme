@@ -22763,6 +22763,7 @@ form .acf-spinner {
   border: 1px solid #c8c8c8;
   background: #fff;
   color: #000000;
+  outline: none !important;
 }
 .logged-in form input:not([type=submit]):focus,
 .logged-in form input[type=text]:focus,
@@ -22783,10 +22784,12 @@ form .acf-spinner {
   color: #000000;
   border: 1px solid #c8c8c8;
   padding: 10px 20px;
+  outline: none !important;
 }
 .logged-in form input[type=submit] {
   background: #f5bf04;
   color: #000000;
+  border: none !important;
 }
 .logged-in form input[type=submit]:hover {
   background: #c4a020;
@@ -26442,13 +26445,14 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .page_content.member.video_submit #post_submit_form .acf-field p.description {
   color: #959494;
 }
-.db-dark-mode-active.logged-in .page_content.member.video_submit .row .column a:not(.button),
-.db-dark-mode-active.logged-in .page_content.member.video_submit .row .column h3,
-.db-dark-mode-active.logged-in .page_content.member.video_submit .row .column .h3,
+.db-dark-mode-active.logged-in .page_content.member.video_submit .row .column h3, .db-dark-mode-active.logged-in .page_content.member.video_submit .row .column .h3,
 .db-dark-mode-active.logged-in .page_content.member.video_submit .row .column h4,
 .db-dark-mode-active.logged-in .page_content.member.video_submit .row .column .h4,
 .db-dark-mode-active.logged-in .page_content.member.video_submit .row .column p {
   color: #fff;
+}
+.db-dark-mode-active.logged-in .page_content.member.video_submit .row .column a:not(.button) {
+  color: #b80008;
 }
 .db-dark-mode-active.logged-in .page_content.member.single_video .column h4 a, .db-dark-mode-active.logged-in .page_content.member.single_video .column .h4 a {
   color: #b80008;
@@ -26469,6 +26473,19 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .page_content.member.two_column_template .column:last-child .content_wrap h3,
 .db-dark-mode-active.logged-in .page_content.member.two_column_template .column:last-child .content_wrap .h3 {
   color: #fff;
+}
+.db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap a {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap a:hover {
+  border-color: #959494;
+}
+.db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap img {
+  filter: invert(65%) sepia(3%) saturate(3%) hue-rotate(338deg) brightness(91%) contrast(85%);
+}
+.db-dark-mode-active.logged-in .page_content.member .member_home .top_section .text_column p,
+.db-dark-mode-active.logged-in .page_content.member .member_home a {
+  color: #959494;
 }
 .db-dark-mode-active.logged-in form input:not([type=submit]),
 .db-dark-mode-active.logged-in form input[type=text],

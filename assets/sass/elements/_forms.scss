@@ -1276,6 +1276,7 @@ form {
             border: 1px solid $borderGray;
             background: $white;
             color: $black;
+            outline: none !important;
 
             &:focus {
                 color: $black;
@@ -1291,11 +1292,13 @@ form {
             color: $black;
             border: 1px solid $borderGray;
             padding: 10px 20px;
+            outline: none !important;
         }
 
         input[type="submit"] {
             background: $yellow;
             color: $black;
+            border: none !important;
 
             &:hover {
                 background: $yellowHover;

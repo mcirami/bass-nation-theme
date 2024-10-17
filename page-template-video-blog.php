@@ -8,14 +8,12 @@
  *
  * @package boiler
  */
-
+acf_form_head();
 get_header();
 
 $pageTitle = esc_html(get_the_title());
 
 if($pageTitle == "Video Q &#038; A") {
-
-	acf_form_head();
 
 	$args = array(
 		'post_type' => 'videos',

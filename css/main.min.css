@@ -26439,6 +26439,10 @@ form .acf-spinner {
   color: #ff000a;
   border-bottom: 2px solid #ff000a;
 }
+.db-dark-mode-active.logged-in .page_content.member.lessons_page .videos_wrap .column .vid_image_wrap {
+  border: 1px solid #959494;
+  border-radius: 4px;
+}
 .db-dark-mode-active.logged-in .page_content.member.video_submit .top_section p {
   color: #fff;
 }

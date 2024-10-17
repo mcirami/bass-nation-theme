@@ -152,6 +152,11 @@
                         }
                     }
                 }
+
+                .videos_wrap .column .vid_image_wrap {
+                    border: 1px solid $grayText;
+                    border-radius: 4px;
+                }
             }
 
             &.video_submit {

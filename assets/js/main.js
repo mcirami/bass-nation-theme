@@ -713,9 +713,6 @@ jQuery(document).ready(function ($) {
     }
 
     if (currentPage.pageName === "Lessons") {
-        /*  $(".filtr-container").filterizr({
-            layout: "sameSize",
-        }); */
         const Shuffle = window.Shuffle;
         const element = document.querySelector("#filter_images");
         const shuffleInstance = new Shuffle(element, {
@@ -739,6 +736,38 @@ jQuery(document).ready(function ($) {
                     });
                 }
             });
+        });
+
+        addSearchFilter(shuffleInstance);
+    }
+
+    function addSearchFilter(shuffleInstance) {
+        const searchInput = document.querySelector(".js-shuffle-search");
+        if (!searchInput) {
+            return;
+        }
+        searchInput.addEventListener("keyup", (evt) => {
+            const searchText = evt.target.value.toLowerCase();
+            shuffleInstance.filter((element, shuffle) => {
+                const titleElement = element.querySelector(".lesson__title");
+                const titleText = titleElement.textContent.toLowerCase().trim();
+
+                return titleText.includes(searchText);
+            });
+        });
+    }
+
+    /**
+     * Filter the shuffle instance by items with a title that matches the search input.
+     * @param {Event} evt Event object.
+     */
+    function handleSearchKeyup() {
+        const searchText = evt.target.value.toLowerCase();
+        shuffleInstance.filter((element, shuffle) => {
+            const titleElement = element.querySelector(".lesson__title");
+            const titleText = titleElement.textContent.toLowerCase().trim();
+
+            return titleText.includes(searchText);
         });
     }
 

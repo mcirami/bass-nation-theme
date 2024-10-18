@@ -147,7 +147,7 @@
             </div>
 
             <div class="lesson_content full_width">
-                <h4><?php the_title(); ?></h4>
+                <h4 class="lesson__title"><?php the_title(); ?></h4>
                 <p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
             </div>
 

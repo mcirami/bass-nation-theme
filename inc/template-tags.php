@@ -228,38 +228,47 @@ if ( ! function_exists( 'bass_nation_comment' ) ) :
 							</div><!-- .comment-author -->
 						</footer><!-- .comment-meta -->
 						<div class="comment-metadata">
-							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-								<time datetime="<?php comment_time( 'c' ); ?>">
-									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'bass_nation' ), get_comment_date(), get_comment_time() ); ?>
-								</time>
-							</a>
-							<?php edit_comment_link( __( 'Edit', 'bass_nation' ), '<span class="edit-link">', '</span>' ); ?>
-							<?php printf( __( '%s <span class="says">says:</span>', 'bass_nation' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+							<div class="top_section">
+								<div class="left_col">
+									<?php printf( /* __( '%s <span class="says">says:</span>', 'bass_nation' ), */ sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+									<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+										<time datetime="<?php comment_time( 'c' ); ?>">
+											<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', 'bass_nation' ), get_comment_date(), get_comment_time() ); ?>
+										</time>
+									</a>
+								</div>
+								<div class="right_col">
+									<div class="reply">
+										<?php if (!is_user_logged_in()) : ?>
+											<div class="button_wrap">
+												<a class="button yellow" href="/register">Start My Free Trial</a>
+											</div>
+										<?php endif; ?>
+
+										<div class="reply_button">
+											<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+										</div>
+									</div><!-- .reply -->
+								</div>
+							</div>
+							<div class="bottom_section">
+								<?php comment_text(); ?>
+								<?php edit_comment_link( __( 'Edit', 'bass_nation' ), '<span class="edit-link">', '</span>' ); ?>
+							</div>
+							<div class="comment_reply_wrap">
+								<?php
+								$comments_args = array ('title_reply' => __( 'Leave A Reply', 'textdomain' ));
+
+								comment_form($comments_args); ?>
+								<div class="cancel_comment">
+									<a class="button black" href="#">Cancel</a>
+								</div>
+							</div>
+
 						</div><!-- .comment-metadata -->
 					</div>
-					<?php comment_text(); ?>
-					<div class="reply">
-						<?php if (!is_user_logged_in()) : ?>
-							<div class="button_wrap">
-								<a class="button yellow" href="/register">Start My Free Trial</a>
-							</div>
-						<?php endif; ?>
-
-						<div class="reply_button">
-							<?php comment_reply_link( array_merge( $args, array( 'add_below' => 'div-comment', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
-						</div>
-
-						<div class="comment_reply_wrap">
-							<?php
-							$comments_args = array ('title_reply' => __( 'Leave A Reply', 'textdomain' ));
-
-							comment_form($comments_args); ?>
-							<div class="cancel_comment">
-								<a class="button black" href="#">Cancel</a>
-							</div>
-						</div>
-
-					</div><!-- .reply -->
+					
+					
 
 				</div><!-- .comment-content -->
 

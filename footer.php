@@ -76,7 +76,18 @@ $username = $current_user->user_login;
 			<div class="column">
 
 				<h3><?php the_field('second_column_heading', 'option'); ?></h3>
-					<ul>
+				<ul>
+					<?php if (is_user_logged_in()) : ?>
+						<?php if (have_rows('member_links_second_column', 'option')) : ?>
+
+							<?php while (have_rows('member_links_second_column', 'option')) : the_row(); 
+								/* $columnLinks = get_sub_field('second_column_links', 'option');
+								if($columnLinks) : */
+							?>
+								<li><a href="<?php the_sub_field('link'); ?>"><?php the_sub_field('link_text'); ?></a></li>
+							<?php endwhile; ?>
+						<?php endif; ?>
+					<?php else : ?>
 						<?php if (have_rows('second_column_group', 'option')) : ?>
 
 							<?php while (have_rows('second_column_group', 'option')) : the_row(); 
@@ -91,7 +102,8 @@ $username = $current_user->user_login;
 								<?php endif; ?>
 							<?php endwhile; ?>
 						<?php endif; ?>
-					</ul>
+					<?php endif; ?>
+				</ul>
 			</div>
 
 			<div class="column">

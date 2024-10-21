@@ -13,7 +13,7 @@ get_header();
 
 $title = get_the_title();
 
-if (pmpro_hasMembershipLevel()) {
+if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
 
     $favorites = get_user_favorites();
 
@@ -30,18 +30,26 @@ if (pmpro_hasMembershipLevel()) {
             'posts_per_page' => -1
 	        //'paged' => $ourCurrentPage
         );
-
-	    $catTerms = get_terms('category');
-	    $levelTerms = get_terms('level', array(
-	    		'orderby' => 'description'
-	    ));
-
     } elseif ($title == "Courses") {
         $args = array (
             'post_type' => 'courses',
             'order_by' => 'post_date',
             'order' => 'DESC',
             'posts_per_page' => -1,
+        );
+    } elseif ($title == "Free Lessons") {
+        $args = array (
+            'post_type' => 'lessons',
+            'tax_query' => array (
+                array (
+                    'taxonomy' => 'category',
+                    'field' => 'slug',
+                    'terms' => 'free-lessons',
+                    'order_by' => 'post_date',
+                    'order' => 'DESC',
+                    'posts_per_page' => -1,
+                )
+            ),
         );
     } else {
         $args = array(
@@ -53,13 +61,15 @@ if (pmpro_hasMembershipLevel()) {
         );
     }
 
+    $catTerms = get_terms('category');
+    $levelTerms = get_terms('level', array(
+            'orderby' => 'description'
+    ));
+
     $lessons = new WP_Query($args);
-}
+}?>
 
-
-?>
-
-<div class="lessons_page full_width page_content <?php if (is_user_logged_in()){ echo "member";} ?>">
+<div class="lessons_page full_width page_content <?php if ($title === "Free Lessons"){ echo "free_lessons"; } ?> <?php if (is_user_logged_in()){ echo "member";} ?>">
 
     <header class="sub_header full_width">
         <div class="container">
@@ -67,7 +77,7 @@ if (pmpro_hasMembershipLevel()) {
         </div><!-- .container -->
     </header>
 
-<?php if (pmpro_hasMembershipLevel()) : ?>
+<?php if (pmpro_hasMembershipLevel()  || $title == "Free Lessons") : ?>
 
         <div id="video_player" class="full_width">
             <div id="video_iframe_wrap"></div>
@@ -104,9 +114,53 @@ if (pmpro_hasMembershipLevel()) {
                             </div>
                         </section>
                         <?php 
-                            wp_reset_postdata();
-                            endif; ?>
-                    <?php endif; ?>
+                    wp_reset_postdata();
+                    endif; ?>
+            <?php endif; ?>
+
+            <?php if ($title === "Free Lessons") : ?>
+                <div class="free_lessons_section">
+                    <div class="container">
+                
+                    <div class="intro_text full_width">
+                    
+                        <?php $heading = get_field('heading_text');
+
+                        if ($heading != '') : ?>
+                            <h3><?php the_field('heading_text'); ?></h3>
+                        <?php endif; ?>
+
+                        <?php $desc = get_field('description');
+
+                        if ($desc != '') : ?>
+                            <p><?php the_field('description' , false, false); ?></p>
+                        <?php endif; ?>
+                    </div><!-- intro_text -->
+
+                        <?php $videoLink = get_field('intro_video_link');
+
+                        if ($videoLink != '') : ?>
+
+                            <div class="top_video_section full_width">
+                                <div class="video_wrap">
+                                    <div class="button_wrap">
+                                        <a class="button yellow" href="/register">Start My Full Access Free Trial Now!</a>
+                                    </div>
+                                    <div class="video_wrapper full_width">
+                                        <iframe src="<?php the_field('intro_video_link'); ?>" allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="social_media_column">
+
+                                    <?php get_template_part( 'template-parts/content', 'social-media' ); ?>
+
+                                </div>
+                            </div>
+
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
 
             <section class="video_list full_width">
 
@@ -177,7 +231,7 @@ if (pmpro_hasMembershipLevel()) {
 
                                 <?php if ( $lessons->have_posts() ) : while( $lessons->have_posts() ) : $lessons->the_post();
 
-                                        if($title == "Lessons" || $title == "Favorite Lessons") :
+                                        if($title == "Lessons" || $title == "Favorite Lessons" || $title == "Free Lessons") :
                                             $hide = get_field('hide_lesson');
 
                                             if (!$hide) : ?>

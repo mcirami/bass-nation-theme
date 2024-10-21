@@ -140,10 +140,11 @@
                     <?php endif; ?><!-- video thumbnail -->
 
                 </a>
-
-                <div class="button_wrap full_width">
-                    <?php the_favorites_button();?>
-                </div>
+                <?php if (is_user_logged_in()) : ?>
+                    <div class="button_wrap full_width">
+                        <?php the_favorites_button();?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="lesson_content full_width">

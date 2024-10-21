@@ -219,9 +219,11 @@
                 .bottom_section .info_wrap {
                     a {
                         color: $grayText;
+                        border-color: $grayText;
 
                         &:hover {
-                            border-color: $grayText;
+                            border-color: $darkModeRed;
+                            color: $darkModeRed;
                         }
                     }
 

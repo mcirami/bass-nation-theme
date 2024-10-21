@@ -673,6 +673,40 @@
             }
         }
     }
+
+    &.free_lessons {
+        .free_lessons_section {
+            color: $white;
+        }
+
+        #video_player {
+            .video_iframe_wrap {
+                width: 100%;
+            }
+        }
+
+        .filter_controls {
+            .search_box input {
+                background-color: $black;
+            }
+        }
+
+        .filters h3 {
+            color: $white;
+        }
+
+        .videos_wrap {
+            .column {
+                h4 {
+                    color: $grayText;
+                }
+            }
+        }
+
+        .shuffle-container .lesson_content p {
+            color: $darkModeRed;
+        }
+    }
 }
 
 #comments {

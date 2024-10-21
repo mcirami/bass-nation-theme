@@ -1218,12 +1218,7 @@ form {
 
     .login-submit {
         position: relative;
-        max-width: 34rem;
-
-        @include media($mobile) {
-            width: 100%;
-            max-width: unset;
-        }
+        width: 100%;
 
         .button {
             margin: 0;
@@ -1327,13 +1322,22 @@ form {
         button {
             @include interregular;
             color: $red;
+            font-size: 1.2rem;
 
-            svg {
-                stroke: $red;
+            .pmpro_icon-eye {
+                width: 15px;
+                height: 15px;
+
+                svg {
+                    stroke: $red;
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             &:hover {
                 color: $darkRed;
+                font-size: 1.2rem;
 
                 svg {
                     stroke: $darkRed;
@@ -1348,29 +1352,40 @@ form {
         margin: 0;
     }
 
-    .pmpro_section #loginform {
-        .login-submit {
-            .button {
-                color: $black !important;
-                border: none !important;
-                text-transform: uppercase;
-                margin-bottom: 10px;
+    .pmpro_section {
+        margin: 0;
 
-                &:hover {
-                    background-color: $yellowHover !important;
+        #loginform {
+            .login-submit {
+                .button {
+                    color: $black !important;
                     border: none !important;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: $yellowHover !important;
+                        border: none !important;
+                    }
                 }
             }
-        }
 
-        .input {
-            background-color: unset;
-            color: $white;
+            .login-remember {
+                input[type="checkbox"] {
+                    margin: 0;
+                }
+            }
 
-            &:focus {
-                background-color: unset;
+            .input {
+                background-color: $black;
                 color: $white;
-                border-color: unset;
+
+                &:focus {
+                    background-color: unset;
+                    color: $white;
+                    border-color: unset;
+                }
             }
         }
     }

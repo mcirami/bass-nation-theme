@@ -814,8 +814,6 @@ jQuery(document).ready(function ($) {
 
         let favoriteButton = "";
 
-        const ajaxURL = myAjaxurl.ajaxurl;
-
         let videoDesc = "";
 
         if (desc) {
@@ -827,9 +825,9 @@ jQuery(document).ready(function ($) {
 
         favoriteButton = $(this).parent().children(".button_wrap").html();
 
-        let fileElements = "";
+        let fileElements = false;
 
-        if (files.length > 0) {
+        if (files.length > 0 && currentPage.pageName !== "Free Lessons") {
             files.forEach((file) => {
                 if (file["file"] !== "") {
                     fileElements +=
@@ -842,75 +840,43 @@ jQuery(document).ready(function ($) {
             });
         }
 
-        commentsAjaxCall(ajaxURL, postID).then(
-            function (response) {
-                const commentContent = response;
-
-                let html =
-                    '<div class="lesson_content_wrap">' +
-                    '<span id="close_video"></span>' +
-                    '<div class="lesson_title">' +
-                    "<h3>" +
-                    videoTitle +
-                    "</h3>" +
-                    "</div>" +
-                    '<div class="content_wrap">' +
-                    '<div class="video_iframe_wrap">';
-
-                html += '<div class="video_wrapper">';
-
-                html +=
-                    '<iframe frameborder="0" allowfullscreen src="' +
-                    videoSrc +
-                    '"></iframe>' +
-                    "</div>";
-
-                html +=
-                    '<div class="bottom_row">' +
-                    '<div class="button_wrap">' +
-                    favoriteButton +
-                    "</div>";
-
-                if (fileElements) {
-                    html +=
-                        '<div class="links_wrap">' + fileElements + "</div>";
+        if (currentPage.pageName === "Free Lessons") {
+            getVideoHTML(
+                videoTitle,
+                videoSrc,
+                favoriteButton,
+                fileElements,
+                videoDesc,
+                false,
+                videoPlayer
+            );
+        } else {
+            const ajaxURL = myAjaxurl.ajaxurl;
+            commentsAjaxCall(ajaxURL, postID).then(
+                function (response) {
+                    console.log("response: ", response);
+                    const commentContent = response;
+                    getVideoHTML(
+                        videoTitle,
+                        videoSrc,
+                        favoriteButton,
+                        fileElements,
+                        videoDesc,
+                        commentContent,
+                        videoPlayer
+                    );
+                },
+                function (reason) {
+                    console.log("error", reason);
                 }
+            );
+        }
 
-                html += "</div>" + videoDesc;
-
-                html +=
-                    "</div>" +
-                    '<div class="video_content_wrap">' +
-                    '<div id="comments" class="comments-area">' +
-                    '<ol class="comment-list">' +
-                    commentContent +
-                    "</ol>" +
-                    "</div>" +
-                    "</div>" +
-                    "</div></div>";
-
-                $(html).appendTo(videoPlayer);
-
-                replyToComment($("a.comment-reply-link"));
-                commentCancel();
-
-                document
-                    .getElementById("close_video")
-                    .addEventListener("click", () => {
-                        document.querySelector("#global_header").style.zIndex =
-                            999;
-                        videoPlayer.removeClass("open");
-                        $("body, html").css("overflow-y", "auto");
-                    });
-            },
-            function (reason) {
-                console.log("error", reason);
-            }
-        );
-
-        setTimeout(function () {
-            commentVideoEmbed();
-        }, 3000);
+        if (currentPage.pageName !== "Free Lessons") {
+            setTimeout(function () {
+                commentVideoEmbed();
+            }, 3000);
+        }
     });
 
     function commentsAjaxCall(url, postid) {
@@ -919,6 +885,71 @@ jQuery(document).ready(function ($) {
             dataType: "html",
             data: { action: "get_lesson_comments", id: postid },
             url,
+        });
+    }
+
+    function getVideoHTML(
+        videoTitle,
+        videoSrc,
+        favoriteButton,
+        fileElements,
+        videoDesc,
+        commentContent,
+        videoPlayer
+    ) {
+        let html =
+            '<div class="lesson_content_wrap">' +
+            '<span id="close_video"></span>' +
+            '<div class="lesson_title">' +
+            "<h3>" +
+            videoTitle +
+            "</h3>" +
+            "</div>" +
+            '<div class="content_wrap">' +
+            '<div class="video_iframe_wrap">';
+
+        html += '<div class="video_wrapper">';
+
+        html +=
+            '<iframe frameborder="0" allowfullscreen src="' +
+            videoSrc +
+            '"></iframe>' +
+            "</div>";
+
+        html += '<div class="bottom_row">';
+
+        if (currentPage.pageName !== "Free Lessons") {
+            html += '<div class="button_wrap">' + favoriteButton + "</div>";
+        }
+
+        if (fileElements) {
+            html += '<div class="links_wrap">' + fileElements + "</div>";
+        }
+
+        html += "</div>" + videoDesc + "</div>";
+
+        if (commentContent) {
+            html +=
+                '<div class="video_content_wrap">' +
+                '<div id="comments" class="comments-area">' +
+                '<ol class="comment-list">' +
+                commentContent +
+                "</ol>" +
+                "</div>" +
+                "</div>";
+        }
+
+        html += "</div></div>";
+
+        $(html).appendTo(videoPlayer);
+
+        replyToComment($("a.comment-reply-link"));
+        commentCancel();
+
+        document.getElementById("close_video").addEventListener("click", () => {
+            document.querySelector("#global_header").style.zIndex = 999;
+            videoPlayer.removeClass("open");
+            $("body, html").css("overflow-y", "auto");
         });
     }
 

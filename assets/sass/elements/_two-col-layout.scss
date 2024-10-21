@@ -30,10 +30,6 @@
                         padding-right: 0;
                         margin-bottom: 40px;
                     }
-
-                    h3 {
-                        @include smallFont;
-                    }
                 }
 
                 &:last-child {
@@ -87,6 +83,206 @@
                                 color: $red;
                                 @include intersemibold;
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.not_member {
+        h2 {
+            border-bottom: none;
+            margin-bottom: 80px;
+            font-size: 3.4rem;
+
+            &.pmpro_card_title {
+                display: none;
+            }
+        }
+
+        h3 {
+            line-height: 1.4;
+            color: $white;
+            display: block;
+            margin: 0 0 40px 0;
+
+            span {
+                color: $red;
+                @include intersemibold;
+                width: 100%;
+                display: block;
+            }
+        }
+
+        .two_column_section .columns_wrap {
+            text-align: center;
+
+            @include media($desktop) {
+                flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+            }
+
+            .column {
+                @include span-columns(4);
+                background: $darkerGray;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                -ms-flex-wrap: nowrap;
+                flex-wrap: nowrap;
+                padding: 40px;
+                border-radius: 6px;
+
+                @include media($desktop) {
+                    @include span-columns(6);
+                    padding: 30px;
+                }
+
+                @include media($mobile) {
+                    @include span-columns(4);
+                    margin-right: 0;
+                }
+
+                &:first-child {
+                    @include media($desktop) {
+                        margin-bottom: 0;
+                    }
+                }
+
+                &:nth-child(2) {
+                    @include media($desktop) {
+                        margin-right: 0;
+                    }
+                }
+
+                &:nth-child(3) {
+                    padding: 0;
+                    border: 1px solid $red;
+                    @include media($desktop) {
+                        width: 100%;
+                        margin-top: 30px;
+                    }
+                }
+
+                .content_wrap {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    -ms-flex-wrap: nowrap;
+                    flex-wrap: nowrap;
+
+                    @include media($mobile) {
+                        @include span-columns(4);
+                    }
+                }
+
+                .content_wrap {
+                    p {
+                        margin: 0 0 10px 0;
+                        padding: 0;
+                    }
+
+                    .text_wrap {
+                        background: rgba(255, 255, 255, 0.15);
+                        display: flex;
+                        flex-direction: column;
+                        padding: 20px;
+                        margin: 30px auto;
+                        border-radius: 6px;
+                    }
+                }
+            }
+
+            .button_wrap {
+                display: inline-block;
+                margin-bottom: 20px;
+                width: 100%;
+
+                a {
+                    @include interbold;
+                    display: inline-block;
+                    text-transform: uppercase;
+                    width: 100%;
+
+                    @include media($tablet) {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+
+            .top_section {
+                h4 {
+                    @include span-columns(12);
+                    @include interregular;
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                    margin-top: 5px;
+                }
+
+                p {
+                    @include span-columns(12);
+                    font-size: 16px;
+
+                    span {
+                        @include interbold;
+                        color: $red;
+                        font-size: 26px;
+                    }
+                }
+            }
+
+            .bottom_section {
+                .heading {
+                    background: $red;
+                    padding: 15px;
+                    border-top-right-radius: 6px;
+                    border-top-left-radius: 6px;
+
+                    h3 {
+                        margin: 0;
+                    }
+                }
+
+                .content {
+                    padding: 30px;
+                    text-align: left;
+
+                    ul {
+                        margin-left: 0;
+                        padding: 0;
+
+                        @include media($desktop) {
+                            padding: 0;
+                        }
+                    }
+
+                    li {
+                        position: relative;
+                        padding-left: 50px;
+                        margin-bottom: 20px;
+
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            background: url(../images/check.png) no-repeat;
+                            width: 20px;
+                            height: 15px;
+                            left: 21px;
+                            top: 5px;
+                        }
+
+                        p {
+                            line-height: 1.6;
+                            color: $grayText;
                         }
                     }
                 }

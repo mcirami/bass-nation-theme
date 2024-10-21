@@ -9,11 +9,13 @@
 				</div>
 				<div class="column">
 					<div class="content_wrap">
-						<h3>Not A Member? <span>Join Free Today!</span></h3>
+						<h3>Not A Member? <span> Join Free Today!</span></h3>
 						<div class="full_width top_section">
-							<h4>Monthly Membership Includes</h4>
-							<h4>Totaly Free for 3 Days,</h4>
-							<p>then only <span>$9.99/mo</span> after that!</p>
+							<div class="text_wrap">
+								<h4>Monthly Membership Is</h4>
+								<h4>Totaly Free for 3 Days,</h4>
+								<p>then only <span>$9.99/mo</span> after that!</p>
+							</div>
 							<div class="button_wrap">
 								<a class="button yellow" href="/register">
 									Start My 3 Day Free Trial Now!
@@ -23,20 +25,22 @@
 								</a>
 							</div>
 						</div>
-						<div class="bottom_section full_width">
-						<div class="full_width heading">
-							<h3>Your 3 Day Free Trial Includes All of the Following</h3>
-						</div>
-						<div class="full_width content">
-							<ul class="full_width">
-								<li><p>Unlimited full access to over 150 Bass Lessons!</p></li>
-								<li><p>6 Multi-Part Full Bass Courses Ranging from Ultra Beginner to Advanced Slap Techniques</p></li>
-								<li><p>Interviews With Amazing Bass Players</p></li>
-								<li><p>Weekly Broadcasted Live Streams with Daric</p></li>
-								<li><p>Full Bass Forum Access to Chat with Other Bass Players Around the World!</p></li>
-								<li><p>Video Q & A Section to Post Any Bass Related Questions for Video Format Replies from Daric!</p></li>
-							</ul>
-						</div>
+					</div>
+				</div>
+				<div class="column">
+					<div class="bottom_section full_width">
+					<div class="full_width heading">
+						<h3>Your 3 Day Free Trial Includes</h3>
+					</div>
+					<div class="full_width content">
+						<ul class="full_width">
+							<li><p>Unlimited full access to over 150 Bass Lessons!</p></li>
+							<li><p>6 Multi-Part Full Bass Courses Ranging from Ultra Beginner to Advanced Slap Techniques</p></li>
+							<li><p>Interviews With Amazing Bass Players</p></li>
+							<li><p>Weekly Broadcasted Live Streams with Daric</p></li>
+							<li><p>Full Bass Forum Access to Chat with Other Bass Players Around the World!</p></li>
+							<li><p>Video Q & A Section to Post Any Bass Related Questions for Video Format Replies from Daric!</p></li>
+						</ul>
 					</div>
 				</div>
 			</div>

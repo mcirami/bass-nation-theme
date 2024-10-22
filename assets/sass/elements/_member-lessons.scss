@@ -193,7 +193,7 @@
         .description {
             padding: 20px;
             color: $white;
-            background: rgba(155, 155, 155, 0.1);
+            background: $darkerGray;
 
             ul {
                 list-style: unset;
@@ -679,12 +679,6 @@
             color: $white;
         }
 
-        #video_player {
-            .video_iframe_wrap {
-                width: 100%;
-            }
-        }
-
         .filter_controls {
             .search_box input {
                 background-color: $black;
@@ -693,6 +687,164 @@
 
         .filters h3 {
             color: $white;
+        }
+
+        #video_player {
+            .content_wrap {
+                display: flex;
+                margin-bottom: 40px;
+                flex-wrap: wrap;
+
+                @media all and (max-width: 1400px) {
+                    flex-wrap: wrap;
+                }
+            }
+
+            .video_iframe_wrap {
+                @include span-columns(10);
+
+                @media all and (max-width: 1400px) {
+                    width: 100%;
+                    margin-right: 0;
+                    order: 1;
+                }
+
+                @include media($desktop) {
+                    max-width: unset;
+                }
+
+                .bottom_row {
+                    display: none;
+                }
+            }
+
+            .video_content_wrap {
+                @include span-columns(2);
+                max-height: unset;
+                overflow-y: auto;
+                overflow-x: auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-right: 0;
+
+                @media all and (max-width: 1400px) {
+                    flex-direction: column-reverse;
+                    width: 100%;
+                    order: 3;
+                }
+
+                .call_to_action {
+                    @media all and (max-width: 1400px) {
+                        margin-top: 20px;
+                    }
+
+                    h3 {
+                        @media all and (max-width: 1400px) {
+                            margin: 0;
+                        }
+                    }
+
+                    .button {
+                        @media all and (max-width: 1400px) {
+                            width: 42rem;
+                            margin: 10px auto 0;
+                        }
+                    }
+                }
+            }
+
+            .description {
+                width: 100%;
+                margin-top: 40px;
+
+                @media all and (max-width: 1400px) {
+                    order: 2;
+                }
+            }
+        }
+
+        .social_button_wrap {
+            a {
+                padding: 8px 20px;
+                display: inline-block;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                color: $white;
+                text-transform: uppercase;
+
+                @include media($smallMobile) {
+                    display: block;
+                    padding: 6px 15px;
+                    font-size: 14px;
+                }
+
+                img {
+                    float: left;
+                    margin-right: 10px;
+
+                    @include media($smallMobile) {
+                        margin-right: 8px;
+                        display: inline-block;
+                        float: none;
+                    }
+                }
+            }
+
+            .facebook {
+                background: #3b5998;
+
+                &:hover {
+                    background: #2b406e;
+                }
+
+                img {
+                    width: 8px;
+                    padding-top: 2px;
+
+                    @include media($smallMobile) {
+                        width: 6px;
+                        padding-top: 5px;
+                    }
+                }
+            }
+
+            .email {
+                background: #7d7d7d;
+
+                &:hover {
+                    background: #606060;
+                }
+
+                img {
+                    width: 20px;
+                    padding-top: 3px;
+
+                    @include media($smallMobile) {
+                        width: 15px;
+                        padding-top: 6px;
+                    }
+                }
+            }
+
+            .page {
+                background: $red;
+
+                &:hover {
+                    background: #bc0a20;
+                }
+
+                img {
+                    width: 22px;
+
+                    @include media($smallMobile) {
+                        width: 18px;
+                        padding-bottom: 3px;
+                        vertical-align: middle;
+                    }
+                }
+            }
         }
 
         .videos_wrap {

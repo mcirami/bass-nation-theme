@@ -9,7 +9,7 @@
 
             <div class="upgrade full_width">
 
-                <a href="<?php the_field('upgrade_link'); ?>"><?php the_field('upgrade_link_text'); ?></a>
+                <a href="<?php the_field('upgrade_link'); ?>"Get Full Access To Everything! Start FREE Today!</a>
 
             </div>
 

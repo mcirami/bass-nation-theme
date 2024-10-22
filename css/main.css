@@ -14140,163 +14140,166 @@ img {
   }
 }
 
-.social_media_row {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-}
-@media screen and (max-width: 991px) {
-  .social_media_row {
-    margin-top: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .social_media_row {
-    display: block;
-  }
-}
-.social_media_row .content_box {
-  display: inline-block;
-  display: inline-flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width: 50%;
-  max-width: 380px;
-  border: 6px solid #ff000a;
-  text-align: center;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-top: none;
-}
-@media screen and (max-width: 1199px) {
-  .social_media_row .content_box {
-    width: 55%;
-  }
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box {
-    display: inline-block;
-    width: 100%;
-  }
-}
-.social_media_row .content_box:first-child {
-  margin-right: 20px;
-  margin-left: auto;
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box:first-child {
-    margin: 0 auto 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box:first-child .columns_wrap {
-    padding: 0 20px;
-  }
-}
-.social_media_row .content_box:last-child {
-  margin-right: auto;
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box:last-child {
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box:last-child .columns_wrap {
-    padding-bottom: 15px;
-  }
-}
-.social_media_row .content_box h4, .social_media_row .content_box .h4 {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
-  position: relative;
-  display: block;
-  background: #ff000a;
-  color: #fff;
-  margin: 0;
-  font-size: 18px;
-  padding: 14px 0;
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box h4, .social_media_row .content_box .h4 {
-    padding: 12px 0;
-  }
-}
-.social_media_row .content_box h4:before, .social_media_row .content_box .h4:before {
-  content: "";
-  position: absolute;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  top: 45px;
-  left: 50%;
-  margin-left: -20px;
-  border-style: solid;
-  border-width: 20px 20px 0 20px;
-  border-color: #ff000a transparent transparent transparent;
-}
-@media screen and (max-width: 767px) {
-  .social_media_row .content_box h4:before, .social_media_row .content_box .h4:before {
-    top: 42px;
-  }
-}
-.social_media_row .columns_wrap {
-  margin-top: 15px;
-  padding: 10px 24px;
-}
-.social_media_row .column {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 31.7615656014%;
-}
-.social_media_row .column:last-child {
-  margin-right: 0;
-}
-.social_media_row .column .icon_wrap {
-  padding: 10px 20%;
-}
-.social_media_row .column .icon_wrap img {
-  max-width: 55px;
-  margin: 0 auto;
-}
-.social_media_row .column .icon_wrap_sponsor {
-  padding: 0 5px;
-}
-@media screen and (max-width: 1199px) {
-  .social_media_row .column .icon_wrap_sponsor {
-    padding: 0;
-  }
-}
-@media screen and (max-width: 991px) {
-  .social_media_row .column .icon_wrap_sponsor {
-    padding: 0 5px;
-  }
-}
-.social_media_row .column .icon_wrap_sponsor img {
-  border: 1px solid #c8c8c8;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-}
-.social_media_row .column p {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 100%;
-}
-.social_media_row .column p:last-child {
-  margin-right: 0;
-}
-.social_media_row .column p a {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
-  color: #959494;
-  font-size: 16px;
-}
+/* .social_media_row {
+    margin-top: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
 
+    @include media($tablet) {
+        margin-top: 20px;
+    }
+
+    @include media($mobile) {
+        display: block;
+    }
+
+    .content_box {
+        display: inline-block;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: inline-flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        width: 50%;
+        max-width: 380px;
+        border: 6px solid $red;
+        text-align: center;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-top: none;
+
+        @include media($desktop) {
+            width: 55%;
+        }
+
+        @include media($mobile) {
+            display: inline-block;
+            width: 100%;
+        }
+
+        &:first-child {
+            margin-right: 20px;
+            margin-left: auto;
+
+            @include media($mobile) {
+                margin: 0 auto 20px;
+            }
+
+            .columns_wrap {
+                @include media($mobile) {
+                    padding: 0 20px;
+                }
+            }
+        }
+
+        &:last-child {
+            margin-right: auto;
+
+            @include media($mobile) {
+                margin: 0 auto;
+            }
+
+            .columns_wrap {
+                @include media($mobile) {
+                    padding-bottom: 15px;
+                }
+            }
+        }
+
+        h4 {
+            @include interregular;
+            position: relative;
+            display: block;
+            background: $red;
+            color: $white;
+            margin: 0;
+            font-size: 18px;
+            padding: 14px 0;
+
+            @include media($mobile) {
+                padding: 12px 0;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                top: 45px;
+                left: 50%;
+                margin-left: -20px;
+                border-style: solid;
+                border-width: 20px 20px 0 20px;
+                border-color: $red transparent transparent transparent;
+
+                @include media($mobile) {
+                    top: 42px;
+                }
+            }
+        }
+    }
+
+    .columns_wrap {
+        margin-top: 15px;
+        padding: 10px 24px;
+    }
+
+    .column {
+        @include span-columns(4);
+
+        .icon_wrap {
+            padding: 10px 20%;
+
+            img {
+                max-width: 55px;
+                margin: 0 auto;
+            }
+        }
+
+        .icon_wrap_sponsor {
+            padding: 0 5px;
+
+            @include media($desktop) {
+                padding: 0;
+            }
+
+            @include media($tablet) {
+                padding: 0 5px;
+            }
+
+            img {
+                border: 1px solid $borderGray;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+            }
+        }
+
+        p {
+            @include span-columns(12);
+
+            a {
+                @include interregular;
+                color: $grayText;
+                font-size: 16px;
+            }
+        }
+    }
+}
+ */
 @font-face {
   font-family: "calvertmtbold2";
   src: url("fonts/calvertmt-bold2-webfont.ttf") format("truetype"), url("fonts/calvertmt-bold2-webfont.woff") format("woff");
@@ -16737,670 +16740,773 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   top: 5px;
 }
 
-.lessons_page {
-  color: #000000;
+/* .lessons_page {
+	color: $black;
+
+	.videos {
+		text-align: center;
+
+		@include media($tablet){
+			padding: 20px 0;
+		}
+
+        @include media($mobile) {
+            padding: 0;
+        }
+
+		h3 {
+			@include intermedium;
+			font-size: 30px;
+			text-transform: uppercase;
+			line-height: 1.2;
+
+			@include media($tablet){
+				margin: 15px 0;
+			}
+
+			@include media($mobile){
+				font-size: 22px;
+				margin: 10px 0;
+			}
+		}
+
+		p {
+			@include interregular;
+			font-size: 16px;
+
+			@include media($mobile){
+				font-size: 12px;
+			}
+		}
+
+		.intro_text {
+			@include media($mobile) {
+				display: none;
+			}
+		}
+
+		.top_video_section {
+			margin: 80px 0 60px;
+
+			@include media($tablet){
+				margin: 50px 0;
+			}
+
+			@include media($mobile){
+				margin: 14px 0;
+			}
+		}
+
+		.video_wrap {
+			@include span-columns(7);
+
+			@include media($mobile){
+				@include span-columns(4);
+			}
+
+			.button {
+				@include interbold;
+				display: block;
+				margin-bottom: 10px;
+				text-transform: uppercase;
+				padding: 12px 0;
+				font-size: 26px;
+
+				@include media($tablet){
+					font-size: 20px;
+				}
+
+				@include media($mobile){
+					font-size: 16px;
+					padding: 10px 0;
+				}
+			}
+		}
+
+		.social_media_column {
+			@include span-columns(5);
+
+			@include media($mobile){
+				@include span-columns(4);
+			}
+
+			.social_media_row {
+				@include span-columns(12);
+				margin-top: 0;
+
+				@include media($mobile){
+					margin-top: 10px;
+				}
+
+				.column {
+					@include media($mobile){
+						width: 29.7%;
+						float: none;
+						display: inline-block;
+						max-width: 95px;
+					}
+
+					.icon_wrap_sponsor {
+						padding: 0 6px;
+
+						@include media($desktop){
+							padding: 0 6px;
+						}
+					}
+				}
+
+				.content_box {
+					@include span-columns(12);
+					max-width: none;
+
+					h4 {
+						@include media($tablet){
+							padding: 10px 0;
+						}
+
+						&:before {
+							@include media($tablet){
+								top: 38px;
+							}
+						}
+					}
+
+					&:first-child {
+						margin: 0;
+						border-bottom: none;
+						border-bottom-left-radius: 0;
+						-webkit-border-bottom-left-radius: 0;
+						-moz-border-radius-bottomleft: 0;
+						border-bottom-right-radius: 0;
+						-webkit-border-bottom-right-radius: 0;
+						-moz-border-radius-bottomright: 0;
+
+						.columns_wrap {
+							@include media($tablet){
+								padding: 0 24px;
+							}
+						}
+					}
+
+					&:last-child {
+						border-top-left-radius: 0;
+						-webkit-border-top-left-radius: 0;
+						-moz-border-radius-topleft: 0;
+						border-top-right-radius: 0;
+						-webkit-border-top-right-radius: 0;
+						-moz-border-radius-topright: 0;
+						padding-bottom: 2.4%;
+
+						@include media($mobile){
+							padding-bottom: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.video_list {
+		padding-bottom: 60px;
+
+		@include media($mobile){
+			padding-bottom: 20px;
+		}
+
+		&.adjust {
+			margin-top: 20px;
+		}
+
+		.section_title {
+			margin-top: 20px;
+		}
+
+		.accordion {
+			cursor: pointer;
+		}
+
+		.row {
+			margin-bottom: 10px;
+
+			@include media($mobile){
+				margin-bottom: 20px;
+			}
+		}
+
+		.left_column {
+			@include span-columns(10);
+			text-align: center;
+			background: $red;
+			padding: 18px 20px;
+			border-radius: 4px;
+			border-bottom-left-radius: 0;
+			-webkit-border-bottom-left-radius: 0;
+			-moz-border-radius-bottomleft: 0;
+			border-bottom-right-radius: 0;
+			-webkit-border-bottom-right-radius: 0;
+			-moz-border-radius-bottomright: 0;
+			border-top-left-radius: 4px;
+			-webkit-border-top-left-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			border-top-right-radius: 4px;
+			-webkit-border-top-right-radius: 4px;
+			-moz-border-radius-topright: 4px;
+
+			@include media($tablet){
+				padding: 16px 18px;
+			}
+
+			@include media($mobile){
+				@include span-columns(4);
+				padding: 5px 10px;
+				border-bottom-left-radius: 0;
+				-webkit-border-bottom-left-radius: 0;
+				-moz-border-radius-bottomleft: 0;
+				border-bottom-right-radius: 0;
+				-webkit-border-bottom-right-radius: 0;
+				-moz-border-radius-bottomright: 0;
+			}
+
+			p {
+				float: left;
+				font-size: 20px;
+				color: $white;
+				margin: 0;
+
+
+				@include media($tablet){
+					font-size: 18px;
+				}
+
+				@include media($mobile){
+					font-size: 14px;
+				}
+
+				@include media($smallMobile){
+					width: 100%;
+					text-align: left;
+				}
+
+				&.level {
+					float: right;
+				}
+
+				span {
+					font-size: 18px;
+					font-style: italic;
+
+					@include media($tablet){
+						font-size: 16px;
+					}
+
+					@include media($mobile){
+						font-size: 14px;
+						float: none;
+					}
+				}
+			}
+		}
+
+		.right_column {
+			@include span-columns(2);
+			margin-right: 0;
+
+			@include media($mobile){
+				@include span-columns(4);
+			}
+
+			.watch {
+				@include interregular;
+				padding: 18px 0px;
+				width: 70%;
+				background: $lightGray;
+				font-size: 24px;
+				float: left;
+				color: $black;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+				-webkit-border-top-left-radius: 4px;
+				-webkit-border-top-right-radius: 0;
+				-webkit-border-bottom-left-radius: 0;
+				-webkit-border-bottom-right-radius: 0;
+				-moz-border-radius-bottomleft: 0;
+				-moz-border-radius-bottomright: 0;
+				-moz-border-radius-topleft: 4px;
+				-moz-border-radius-topright: 0;
+
+				@include media($tablet){
+					font-size: 21px;
+					padding: 16px 0;
+				}
+
+				@include media($mobile){
+					font-size: 14px;
+					padding: 5px 0;
+					border-top-left-radius: 0;
+					-webkit-border-top-left-radius: 0;
+					-moz-border-radius-topleft: 0;
+				}
+			}
+
+			.arrow {
+				float: left;
+				width: 30%;
+				background: #e0e0e0;
+				padding: 14px 0 22px;
+				text-align: center;
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				border-top-right-radius: 4px;
+				border-bottom-right-radius: 4px;
+				-webkit-border-top-left-radius: 0;
+				-webkit-border-top-right-radius: 4px;
+				-webkit-border-bottom-left-radius: 0;
+				-webkit-border-bottom-right-radius: 0;
+				-moz-border-radius-bottomleft: 0;
+				-moz-border-radius-bottomright: 0;
+				-moz-border-radius-topleft: 0;
+				-moz-border-radius-topright: 4px;
+
+				@include media($tablet){
+					padding: 10px 0 22px;
+				}
+
+				@include media($mobile){
+					padding: 5px 0;
+					border-top-right-radius: 0;
+					-webkit-border-top-right-radius: 0;
+					-moz-border-radius-topright: 0;
+					perspective: 90000px;
+					-webkit-perspective: 90000px;
+				}
+
+				&.active {
+
+					img {
+						transform: rotateX(180deg);
+						-webkit-transition: all 600ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+						-moz-transition: all 600ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+						-o-transition: all 600ms cubic-bezier(0.420, 0.000, 0.580, 1.000); 
+						transition: all 600ms cubic-bezier(0.420, 0.000, 0.580, 1.000);
+					}
+				}
+
+				img {
+					display: inline-block;
+					width: 14px;
+					margin: 0 auto;
+
+					@include media($tablet){
+						top: 3px;
+					}
+
+					@include media($mobile){
+						top: -3px;
+					}
+				}
+			}
+		}
+
+		.panel {
+			position: relative;
+			width: 100%;
+			float: left;
+			max-height: 0;
+			overflow: auto;
+            -webkit-transition: 0.6s ease-in-out;
+            -moz-transition: 0.6s ease-in-out;
+            -ms-transition: 0.6s ease-in-out;
+            -o-transition: 0.6s ease-in-out;
+            transition: 0.6s ease-in-out;
+			margin-top: -2px;
+			background: #e0e0e0;
+
+			@include media($mobile){
+				margin-top: 0;
+			}
+
+			&.show {
+
+				max-height: 875px;
+				padding: 20px 40px 0;
+
+				@include media($mobile){
+					padding: 15px 10px 10px;
+				}
+
+				&.adjust {
+					padding-bottom: 40px;
+				}
+			}
+
+			@keyframes textColor {
+			    from {color: $yellow;}
+			    to {color: $red;}
+			}
+
+			.upgrade {
+				padding-bottom: 20px;
+
+				a {
+					@include interbold;
+					font-size: 22px;
+					color: $yellow;
+					text-decoration: underline;
+					font-weight: bolder;
+					animation-name: textColor;
+					animation-duration: 2s;
+					animation-iteration-count: infinite;
+					line-height: 1;
+
+					@include media($tablet){
+						font-size: 20px;
+					}
+
+					@include media($mobile){
+						font-size: 16px;
+					}
+				}
+			}
+
+			.link_wrap {
+                padding-bottom: 20px;
+
+                a {
+                    @include interbold;
+                    font-size: 24px;
+                    color: $red;
+                    text-decoration: underline;
+
+                    @include media($mobile) {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+			.button_wrap {
+				position: absolute;
+				width: 100%;
+				text-align: center;
+				top: 0;
+				padding-top: 20%;
+
+				img {
+					width: auto;
+					margin: 0 auto;
+
+					@include media($mobile){
+						width: 70px;
+					}
+
+					@include media($smallMobile){
+						width: 50px;
+					}
+				}
+			}
+
+			.file {
+				padding-bottom: 20px;
+
+				.link_wrap {
+
+					&.two_files {
+
+						&:first-child {
+							float: left;
+
+							@include media($smallMobile){
+								width: 100%;
+							}
+						}
+
+						&:last-child {
+							float: right;
+
+							@include media($smallMobile){
+								width: 100%;
+							}
+						}
+					}
+				}
+
+				a {
+					color: $red;
+					font-size: 18px;
+					text-transform: uppercase;
+
+					@include media($tablet){
+						font-size: 16px;
+					}
+
+					@include media($mobile){
+						font-size: 14px;
+					}
+				}
+			}
+
+			.share_buttons {
+				padding: 15px;
+				text-align: center;
+				margin: 15px 0;
+				border-radius: 4px;
+				-webkit-border-radius: 4px;
+				-moz-border-radius: 4px;
+				border: 1px solid $lightGray;
+
+				@include media($smallMobile){
+					padding: 10px;
+					margin: 10px 0;
+				}
+
+				.social_button_wrap {
+					display: inline-block;
+					margin-right: 8px;
+
+					@include media($smallMobile){
+						margin-right: 0;
+						width: 49%;
+					}
+
+					&:last-child {
+						margin-right: 0;
+
+						@include media($smallMobile){
+							margin-top: 5px;
+							width: 100%;
+						}
+					}
+
+					a {
+						padding: 8px 20px;
+						display: inline-block;
+						border-radius: 4px;
+						-webkit-border-radius: 4px;
+						-moz-border-radius: 4px;
+						color: $white;
+						text-transform: uppercase;
+
+						@include media($smallMobile){
+							display: block;
+							padding: 6px 15px;
+							font-size: 14px;
+						}
+
+						img {
+							float: left;
+							margin-right: 10px;
+
+							@include media($smallMobile){
+								margin-right: 8px;
+								display: inline-block;
+								float: none;
+							}
+						}
+					}
+
+					.facebook {
+						background: #3b5998;
+
+						&:hover {
+							background: #2b406e;
+						}
+
+						img {
+							width: 8px;
+							padding-top: 2px;
+
+							@include media($smallMobile){
+								width: 6px;
+								padding-top: 5px;
+							}
+						}
+					}
+
+					.email {
+						background: #7d7d7d;
+
+						&:hover {
+							background: #606060;
+						}
+
+						img {
+							width: 20px;
+							padding-top: 3px;
+
+							@include media($smallMobile){
+								width: 15px;
+								padding-top: 6px;
+							}
+						}
+					}
+
+					.page {
+						background: $red;
+
+						&:hover {
+							background: #bc0a20;
+						}
+
+						img {
+							width: 22px;
+
+							@include media($smallMobile){
+								width: 18px;
+								padding-bottom: 3px;
+								vertical-align: middle;
+							}
+						}
+					}
+
+				}
+			}
+		}
+	}
+} */
+.lessons_page.free_lessons .intro_text {
+  margin-bottom: 40px;
 }
-.lessons_page .videos {
+.lessons_page.free_lessons .intro_text h3, .lessons_page.free_lessons .intro_text .h3 {
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+}
+.lessons_page.free_lessons .top_video_section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+@media screen and (max-width: 991px) {
+  .lessons_page.free_lessons .top_video_section {
+    margin-bottom: 40px;
+    gap: 2rem;
+  }
+}
+.lessons_page.free_lessons .top_video_section .video_wrap {
+  width: 62%;
+}
+@media screen and (max-width: 991px) {
+  .lessons_page.free_lessons .top_video_section .video_wrap {
+    width: 100%;
+  }
+}
+.lessons_page.free_lessons .top_video_section .button_wrap {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.lessons_page.free_lessons .top_video_section .button_wrap .button {
+  margin: 0 auto;
+  width: 100%;
+}
+@media all and (max-width: 1199px) and (min-width: 992px) {
+  .lessons_page.free_lessons .top_video_section .button_wrap .button {
+    font-size: 1.2vw;
+  }
+}
+@media all and (max-width: 991px) and (min-width: 551px) {
+  .lessons_page.free_lessons .top_video_section .button_wrap .button {
+    width: 42rem;
+  }
+}
+.lessons_page.free_lessons .social_media_column {
+  width: 33.3%;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 991px) {
+  .lessons_page.free_lessons .social_media_column {
+    width: 100%;
+  }
+}
+.lessons_page.free_lessons .social_media_column h4, .lessons_page.free_lessons .social_media_column .h4 {
+  margin: 0 0 20px 0;
   text-align: center;
 }
-@media screen and (max-width: 991px) {
-  .lessons_page .videos {
-    padding: 20px 0;
-  }
+.lessons_page.free_lessons .social_media_column .content_box {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 20px;
 }
-@media screen and (max-width: 767px) {
-  .lessons_page .videos {
-    padding: 0;
-  }
+.lessons_page.free_lessons .social_media_column .columns_wrap {
+  padding: 10px;
+  border: 1px solid #ff000a;
+  background: #131313;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
 }
-.lessons_page .videos h3, .lessons_page .videos .h3 {
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  text-transform: uppercase;
-  line-height: 1.2;
+.lessons_page.free_lessons .social_media_column .column {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 31.7615656014%;
 }
-@media screen and (max-width: 991px) {
-  .lessons_page .videos h3, .lessons_page .videos .h3 {
-    margin: 15px 0;
-  }
+.lessons_page.free_lessons .social_media_column .column:last-child {
+  margin-right: 0;
 }
-@media screen and (max-width: 767px) {
-  .lessons_page .videos h3, .lessons_page .videos .h3 {
-    font-size: 22px;
-    margin: 10px 0;
-  }
+.lessons_page.free_lessons .social_media_column .column .icon_wrap {
+  padding: 10px 20%;
 }
-.lessons_page .videos p {
+.lessons_page.free_lessons .social_media_column .column .icon_wrap img {
+  max-width: 55px;
+  margin: 0 auto;
+}
+.lessons_page.free_lessons .social_media_column .column .icon_wrap_sponsor img {
+  border: 1px solid #c8c8c8;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  max-width: unset;
+}
+.lessons_page.free_lessons .social_media_column .column p {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 100%;
+}
+.lessons_page.free_lessons .social_media_column .column p:last-child {
+  margin-right: 0;
+}
+.lessons_page.free_lessons .social_media_column .column p a {
   font-family: "interregular", sans-serif;
   font-weight: 300;
+  color: #959494;
   font-size: 16px;
 }
-@media screen and (max-width: 767px) {
-  .lessons_page .videos p {
-    font-size: 12px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .intro_text {
-    display: none;
-  }
-}
-.lessons_page .videos .top_video_section {
-  margin: 80px 0 60px;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .videos .top_video_section {
-    margin: 50px 0;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .top_video_section {
-    margin: 14px 0;
-  }
-}
-.lessons_page .videos .video_wrap {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 57.3509785009%;
-}
-.lessons_page .videos .video_wrap:last-child {
-  margin-right: 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .video_wrap {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
-  }
-  .lessons_page .videos .video_wrap:last-child {
-    margin-right: 0;
-  }
-}
-.lessons_page .videos .video_wrap .button {
-  font-family: "interbold", sans-serif;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  padding: 12px 0;
-  font-size: 26px;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .videos .video_wrap .button {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .video_wrap .button {
-    font-size: 16px;
-    padding: 10px 0;
-  }
-}
-.lessons_page .videos .social_media_column {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 40.2913699012%;
-}
-.lessons_page .videos .social_media_column:last-child {
-  margin-right: 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .social_media_column {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
-  }
-  .lessons_page .videos .social_media_column:last-child {
-    margin-right: 0;
-  }
-}
-.lessons_page .videos .social_media_column .social_media_row {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 100%;
+.lessons_page.free_lessons #video_player .video_content_wrap .upgrade h3, .lessons_page.free_lessons #video_player .video_content_wrap .upgrade .h3 {
+  font-size: 2rem;
+  text-align: center;
+  line-height: 1.6;
   margin-top: 0;
 }
-.lessons_page .videos .social_media_column .social_media_row:last-child {
-  margin-right: 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .social_media_column .social_media_row {
-    margin-top: 10px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .social_media_column .social_media_row .column {
-    width: 29.7%;
-    float: none;
-    display: inline-block;
-    max-width: 95px;
-  }
-}
-.lessons_page .videos .social_media_column .social_media_row .column .icon_wrap_sponsor {
-  padding: 0 6px;
-}
-@media screen and (max-width: 1199px) {
-  .lessons_page .videos .social_media_column .social_media_row .column .icon_wrap_sponsor {
-    padding: 0 6px;
-  }
-}
-.lessons_page .videos .social_media_column .social_media_row .content_box {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
+.lessons_page.free_lessons #video_player .video_content_wrap .upgrade .button {
   width: 100%;
-  max-width: none;
 }
-.lessons_page .videos .social_media_column .social_media_row .content_box:last-child {
-  margin-right: 0;
+.lessons_page.free_lessons #video_player .video_content_wrap .share_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
-@media screen and (max-width: 991px) {
-  .lessons_page .videos .social_media_column .social_media_row .content_box h4, .lessons_page .videos .social_media_column .social_media_row .content_box .h4 {
-    padding: 10px 0;
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .share_buttons {
+    margin-top: 40px;
+    flex-direction: row;
+    justify-content: center;
   }
 }
-@media screen and (max-width: 991px) {
-  .lessons_page .videos .social_media_column .social_media_row .content_box h4:before, .lessons_page .videos .social_media_column .social_media_row .content_box .h4:before {
-    top: 38px;
-  }
-}
-.lessons_page .videos .social_media_column .social_media_row .content_box:first-child {
+.lessons_page.free_lessons #video_player .video_content_wrap .social_button_wrap a {
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
-  border-bottom: none;
-  border-bottom-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-bottom-right-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .videos .social_media_column .social_media_row .content_box:first-child .columns_wrap {
-    padding: 0 24px;
-  }
-}
-.lessons_page .videos .social_media_column .social_media_row .content_box:last-child {
-  border-top-left-radius: 0;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topleft: 0;
-  border-top-right-radius: 0;
-  -webkit-border-top-right-radius: 0;
-  -moz-border-radius-topright: 0;
-  padding-bottom: 2.4%;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .videos .social_media_column .social_media_row .content_box:last-child {
-    padding-bottom: 0;
-  }
-}
-.lessons_page .video_list {
-  padding-bottom: 60px;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list {
-    padding-bottom: 20px;
-  }
-}
-.lessons_page .video_list.adjust {
-  margin-top: 20px;
-}
-.lessons_page .video_list .section_title {
-  margin-top: 20px;
-}
-.lessons_page .video_list .accordion {
-  cursor: pointer;
-}
-.lessons_page .video_list .row {
-  margin-bottom: 10px;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .row {
-    margin-bottom: 20px;
-  }
-}
-.lessons_page .video_list .left_column {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 82.9403914003%;
-  text-align: center;
-  background: #ff000a;
-  padding: 18px 20px;
-  border-radius: 4px;
-  border-bottom-left-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  border-bottom-right-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomright: 0;
-  border-top-left-radius: 4px;
-  -webkit-border-top-left-radius: 4px;
-  -moz-border-radius-topleft: 4px;
-  border-top-right-radius: 4px;
-  -webkit-border-top-right-radius: 4px;
-  -moz-border-radius-topright: 4px;
-}
-.lessons_page .video_list .left_column:last-child {
-  margin-right: 0;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .left_column {
-    padding: 16px 18px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .left_column {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
-    padding: 5px 10px;
-    border-bottom-left-radius: 0;
-    -webkit-border-bottom-left-radius: 0;
-    -moz-border-radius-bottomleft: 0;
-    border-bottom-right-radius: 0;
-    -webkit-border-bottom-right-radius: 0;
-    -moz-border-radius-bottomright: 0;
-  }
-  .lessons_page .video_list .left_column:last-child {
-    margin-right: 0;
-  }
-}
-.lessons_page .video_list .left_column p {
-  float: left;
-  font-size: 20px;
-  color: #fff;
-  margin: 0;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .left_column p {
-    font-size: 18px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .left_column p {
-    font-size: 14px;
-  }
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .left_column p {
-    width: 100%;
-    text-align: left;
-  }
-}
-.lessons_page .video_list .left_column p.level {
-  float: right;
-}
-.lessons_page .video_list .left_column p span {
-  font-size: 18px;
-  font-style: italic;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .left_column p span {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .left_column p span {
-    font-size: 14px;
-    float: none;
-  }
-}
-.lessons_page .video_list .right_column {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 14.7019570017%;
-  margin-right: 0;
-}
-.lessons_page .video_list .right_column:last-child {
-  margin-right: 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .right_column {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
-  }
-  .lessons_page .video_list .right_column:last-child {
-    margin-right: 0;
-  }
-}
-.lessons_page .video_list .right_column .watch {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
-  padding: 18px 0px;
-  width: 70%;
-  background: #ebebeb;
-  font-size: 24px;
-  float: left;
-  color: #000000;
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  -webkit-border-top-left-radius: 4px;
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-topleft: 4px;
-  -moz-border-radius-topright: 0;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .right_column .watch {
-    font-size: 21px;
-    padding: 16px 0;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .right_column .watch {
-    font-size: 14px;
-    padding: 5px 0;
-    border-top-left-radius: 0;
-    -webkit-border-top-left-radius: 0;
-    -moz-border-radius-topleft: 0;
-  }
-}
-.lessons_page .video_list .right_column .arrow {
-  float: left;
-  width: 30%;
-  background: #e0e0e0;
-  padding: 14px 0 22px;
-  text-align: center;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
-  -webkit-border-top-left-radius: 0;
-  -webkit-border-top-right-radius: 4px;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-bottom-right-radius: 0;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-bottomright: 0;
-  -moz-border-radius-topleft: 0;
-  -moz-border-radius-topright: 4px;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .right_column .arrow {
-    padding: 10px 0 22px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .right_column .arrow {
-    padding: 5px 0;
-    border-top-right-radius: 0;
-    -webkit-border-top-right-radius: 0;
-    -moz-border-radius-topright: 0;
-    perspective: 90000px;
-    -webkit-perspective: 90000px;
-  }
-}
-.lessons_page .video_list .right_column .arrow.active img {
-  transform: rotateX(180deg);
-  transition: all 600ms cubic-bezier(0.42, 0, 0.58, 1); /* ease-in-out */
-}
-.lessons_page .video_list .right_column .arrow img {
-  display: inline-block;
-  width: 14px;
-  margin: 0 auto;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .right_column .arrow img {
-    top: 3px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .right_column .arrow img {
-    top: -3px;
-  }
-}
-.lessons_page .video_list .panel {
-  position: relative;
   width: 100%;
-  float: left;
-  max-height: 0;
-  overflow: auto;
-  transition: 0.6s ease-in-out;
-  margin-top: -2px;
-  background: #e0e0e0;
 }
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel {
-    margin-top: 0;
-  }
-}
-.lessons_page .video_list .panel.show {
-  max-height: 875px;
-  padding: 20px 40px 0;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel.show {
-    padding: 15px 10px 10px;
-  }
-}
-.lessons_page .video_list .panel.show.adjust {
-  padding-bottom: 40px;
-}
-@keyframes textColor {
-  from {
-    color: #f5bf04;
-  }
-  to {
-    color: #ff000a;
-  }
-}
-.lessons_page .video_list .panel .upgrade {
-  padding-bottom: 20px;
-}
-.lessons_page .video_list .panel .upgrade a {
-  font-family: "interbold", sans-serif;
-  font-weight: 700;
-  font-size: 22px;
-  color: #f5bf04;
-  text-decoration: underline;
-  font-weight: bolder;
-  animation-name: textColor;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  line-height: 1;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .panel .upgrade a {
-    font-size: 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel .upgrade a {
-    font-size: 16px;
-  }
-}
-.lessons_page .video_list .panel .link_wrap {
-  padding-bottom: 20px;
-}
-.lessons_page .video_list .panel .link_wrap a {
-  font-family: "interbold", sans-serif;
-  font-weight: 700;
-  font-size: 24px;
-  color: #ff000a;
-  text-decoration: underline;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel .link_wrap a {
-    font-size: 20px;
-  }
-}
-.lessons_page .video_list .panel .button_wrap {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  top: 0;
-  padding-top: 20%;
-}
-.lessons_page .video_list .panel .button_wrap img {
-  width: auto;
-  margin: 0 auto;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel .button_wrap img {
-    width: 70px;
-  }
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .button_wrap img {
-    width: 50px;
-  }
-}
-.lessons_page .video_list .panel .file {
-  padding-bottom: 20px;
-}
-.lessons_page .video_list .panel .file .link_wrap.two_files:first-child {
-  float: left;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .file .link_wrap.two_files:first-child {
-    width: 100%;
-  }
-}
-.lessons_page .video_list .panel .file .link_wrap.two_files:last-child {
-  float: right;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .file .link_wrap.two_files:last-child {
-    width: 100%;
-  }
-}
-.lessons_page .video_list .panel .file a {
-  color: #ff000a;
-  font-size: 18px;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .video_list .panel .file a {
-    font-size: 16px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .video_list .panel .file a {
-    font-size: 14px;
-  }
-}
-.lessons_page .video_list .panel .share_buttons {
-  padding: 15px;
-  text-align: center;
-  margin: 15px 0;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border: 1px solid #ebebeb;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons {
-    padding: 10px;
-    margin: 10px 0;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap {
-  display: inline-block;
-  margin-right: 8px;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap {
-    margin-right: 0;
-    width: 49%;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap:last-child {
+.lessons_page.free_lessons #video_player .video_content_wrap .social_button_wrap a img {
+  float: none;
   margin-right: 0;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap:last-child {
-    margin-top: 5px;
-    width: 100%;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap a {
-  padding: 8px 20px;
-  display: inline-block;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  color: #fff;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap a {
-    display: block;
-    padding: 6px 15px;
-    font-size: 14px;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap a img {
-  float: left;
-  margin-right: 10px;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap a img {
-    margin-right: 8px;
-    display: inline-block;
-    float: none;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .facebook {
-  background: #3b5998;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .facebook:hover {
-  background: #2b406e;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .facebook img {
-  width: 8px;
-  padding-top: 2px;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap .facebook img {
-    width: 6px;
-    padding-top: 5px;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .email {
-  background: #7d7d7d;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .email:hover {
-  background: #606060;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .email img {
-  width: 20px;
-  padding-top: 3px;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap .email img {
-    width: 15px;
-    padding-top: 6px;
-  }
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .page {
-  background: #ff000a;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .page:hover {
-  background: #bc0a20;
-}
-.lessons_page .video_list .panel .share_buttons .social_button_wrap .page img {
-  width: 22px;
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .video_list .panel .share_buttons .social_button_wrap .page img {
-    width: 18px;
-    padding-bottom: 3px;
-    vertical-align: middle;
-  }
 }
 
 .members_only_video_pop {
@@ -17674,7 +17780,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .course_video_player .description {
   padding: 20px;
   color: #fff;
-  background: rgba(155, 155, 155, 0.1);
+  background: #131313;
 }
 .lessons_page #video_player .description ul,
 .lessons_page .course_video_player .description ul {
@@ -18191,14 +18297,168 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page.free_lessons .free_lessons_section {
   color: #fff;
 }
-.lessons_page.free_lessons #video_player .video_iframe_wrap {
-  width: 100%;
-}
 .lessons_page.free_lessons .filter_controls .search_box input {
   background-color: #000000;
 }
 .lessons_page.free_lessons .filters h3, .lessons_page.free_lessons .filters .h3 {
   color: #fff;
+}
+.lessons_page.free_lessons #video_player .content_wrap {
+  display: flex;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .content_wrap {
+    flex-wrap: wrap;
+  }
+}
+.lessons_page.free_lessons #video_player .video_iframe_wrap {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 82.9403914003%;
+}
+.lessons_page.free_lessons #video_player .video_iframe_wrap:last-child {
+  margin-right: 0;
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_iframe_wrap {
+    width: 100%;
+    margin-right: 0;
+    order: 1;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .lessons_page.free_lessons #video_player .video_iframe_wrap {
+    max-width: unset;
+  }
+}
+.lessons_page.free_lessons #video_player .video_iframe_wrap .bottom_row {
+  display: none;
+}
+.lessons_page.free_lessons #video_player .video_content_wrap {
+  float: left;
+  display: block;
+  margin-right: 2.3576515979%;
+  width: 14.7019570017%;
+  max-height: unset;
+  overflow-y: auto;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-right: 0;
+}
+.lessons_page.free_lessons #video_player .video_content_wrap:last-child {
+  margin-right: 0;
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap {
+    flex-direction: column-reverse;
+    width: 100%;
+    order: 3;
+  }
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action {
+    margin-top: 20px;
+  }
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action h3, .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action .h3 {
+    margin: 0;
+  }
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action .button {
+    width: 42rem;
+    margin: 10px auto 0;
+  }
+}
+.lessons_page.free_lessons #video_player .description {
+  width: 100%;
+  margin-top: 40px;
+}
+@media all and (max-width: 1400px) {
+  .lessons_page.free_lessons #video_player .description {
+    order: 2;
+  }
+}
+.lessons_page.free_lessons .social_button_wrap a {
+  padding: 8px 20px;
+  display: inline-block;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  color: #fff;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons .social_button_wrap a {
+    display: block;
+    padding: 6px 15px;
+    font-size: 14px;
+  }
+}
+.lessons_page.free_lessons .social_button_wrap a img {
+  float: left;
+  margin-right: 10px;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons .social_button_wrap a img {
+    margin-right: 8px;
+    display: inline-block;
+    float: none;
+  }
+}
+.lessons_page.free_lessons .social_button_wrap .facebook {
+  background: #3b5998;
+}
+.lessons_page.free_lessons .social_button_wrap .facebook:hover {
+  background: #2b406e;
+}
+.lessons_page.free_lessons .social_button_wrap .facebook img {
+  width: 8px;
+  padding-top: 2px;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons .social_button_wrap .facebook img {
+    width: 6px;
+    padding-top: 5px;
+  }
+}
+.lessons_page.free_lessons .social_button_wrap .email {
+  background: #7d7d7d;
+}
+.lessons_page.free_lessons .social_button_wrap .email:hover {
+  background: #606060;
+}
+.lessons_page.free_lessons .social_button_wrap .email img {
+  width: 20px;
+  padding-top: 3px;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons .social_button_wrap .email img {
+    width: 15px;
+    padding-top: 6px;
+  }
+}
+.lessons_page.free_lessons .social_button_wrap .page {
+  background: #ff000a;
+}
+.lessons_page.free_lessons .social_button_wrap .page:hover {
+  background: #bc0a20;
+}
+.lessons_page.free_lessons .social_button_wrap .page img {
+  width: 22px;
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons .social_button_wrap .page img {
+    width: 18px;
+    padding-bottom: 3px;
+    vertical-align: middle;
+  }
 }
 .lessons_page.free_lessons .videos_wrap .column h4, .lessons_page.free_lessons .videos_wrap .column .h4 {
   color: #959494;

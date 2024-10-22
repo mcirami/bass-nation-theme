@@ -840,7 +840,9 @@ jQuery(document).ready(function ($) {
             });
         }
 
-        if (currentPage.pageId === 7) {
+        if (currentPage.pageId == 7) {
+            const videoColumn =
+                document.getElementById("video_column").innerHTML;
             getVideoHTML(
                 videoTitle,
                 videoSrc,
@@ -848,21 +850,20 @@ jQuery(document).ready(function ($) {
                 fileElements,
                 videoDesc,
                 false,
-                videoPlayer
+                videoPlayer,
+                videoColumn
             );
         } else {
             const ajaxURL = myAjaxurl.ajaxurl;
             commentsAjaxCall(ajaxURL, postID).then(
                 function (response) {
-                    console.log("response: ", response);
-                    const commentContent = response;
                     getVideoHTML(
                         videoTitle,
                         videoSrc,
                         favoriteButton,
                         fileElements,
                         videoDesc,
-                        commentContent,
+                        response,
                         videoPlayer
                     );
                 },
@@ -895,7 +896,8 @@ jQuery(document).ready(function ($) {
         fileElements,
         videoDesc,
         commentContent,
-        videoPlayer
+        videoPlayer,
+        videoColumn
     ) {
         let html =
             '<div class="lesson_content_wrap">' +
@@ -918,7 +920,7 @@ jQuery(document).ready(function ($) {
 
         html += '<div class="bottom_row">';
 
-        if (currentPage.pageId !== 7) {
+        if (currentPage.pageId != 7) {
             html += '<div class="button_wrap">' + favoriteButton + "</div>";
         }
 
@@ -926,20 +928,31 @@ jQuery(document).ready(function ($) {
             html += '<div class="links_wrap">' + fileElements + "</div>";
         }
 
-        html += "</div>" + videoDesc + "</div>";
+        html += "</div>";
+        if (currentPage.pageId == 7) {
+            html += '</div><div class="video_content_wrap">';
+        } else {
+            html += videoDesc + '</div><div class="video_content_wrap">';
+        }
 
         if (commentContent) {
             html +=
-                '<div class="video_content_wrap">' +
                 '<div id="comments" class="comments-area">' +
                 '<ol class="comment-list">' +
                 commentContent +
                 "</ol>" +
-                "</div>" +
                 "</div>";
+        } else {
+            html += videoColumn;
         }
 
-        html += "</div></div>";
+        html += "</div>";
+
+        if (currentPage.pageId == 7) {
+            html += videoDesc + "</div></div>";
+        } else {
+            html += "</div></div>";
+        }
 
         $(html).appendTo(videoPlayer);
 

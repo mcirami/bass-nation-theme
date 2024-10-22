@@ -120,6 +120,36 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
             <?php endif; ?>
 
             <?php if ($pageId == 7) : ?>
+                <div id="video_column" style="display: none;">
+                    <div class="call_to_action">
+                        <div class="upgrade ">
+                            <h3>Get Full Access To Everything!</h3>
+                            <a class="button yellow" href="/register">
+                                Start FREE Today!
+                                <span>
+                                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="share_buttons">                
+                        <div class="social_button_wrap">
+                            <a class="facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_field('share_link'); ?>">
+                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-facebook-f.png" alt="Facebook Share Link"/>
+                                Share
+                            </a>
+                        </div>
+                        <div class="social_button_wrap">
+                            <a class="email" href="mailto:?&subject=Awesome Bass Lesson!&body=Check%20out%20this%20bass%20lesson%20I%20found%20on%20http%3A//daricbennett.com...%0A%0A
+                            <?php  the_field('share_link');?>"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/email-envelope.png" alt="Email Envelope"/>
+                                Email
+                            </a>
+                        </div>
+                        <div class="social_button_wrap">
+                            <a target="_blank" class="page" href="<?php echo $lessonLink;?>">Lesson Page</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="free_lessons_section">
                     <div class="container">
                 
@@ -144,9 +174,6 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
                             <div class="top_video_section full_width">
                                 <div class="video_wrap">
-                                    <div class="button_wrap">
-                                        <a class="button yellow" href="/register">Start My Full Access Free Trial Now!</a>
-                                    </div>
                                     <div class="video_wrapper full_width">
                                         <iframe src="<?php the_field('intro_video_link'); ?>" allowfullscreen></iframe>
                                     </div>
@@ -155,7 +182,15 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
                                     <?php get_template_part( 'template-parts/content', 'social-media' ); ?>
 
+                                    <div class="button_wrap">
+                                        <a class="button yellow" href="/register">Start My Full Access Free Trial Now!
+                                            <span>
+                                                <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+                                            </span>
+                                        </a>
+                                    </div>
                                 </div>
+                                
                             </div>
 
                         <?php endif; ?>

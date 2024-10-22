@@ -12,8 +12,9 @@
 get_header();
 
 $title = get_the_title();
+$pageId = get_the_ID();
 
-if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
+if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
     $favorites = get_user_favorites();
 
@@ -37,7 +38,7 @@ if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
             'order' => 'DESC',
             'posts_per_page' => -1,
         );
-    } elseif ($title == "Free Lessons") {
+    } elseif ($pageId == 7) {
         $args = array (
             'post_type' => 'lessons',
             'tax_query' => array (
@@ -69,7 +70,7 @@ if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
     $lessons = new WP_Query($args);
 }?>
 
-<div class="lessons_page full_width page_content <?php if ($title === "Free Lessons"){ echo "free_lessons"; } ?> <?php if (is_user_logged_in()){ echo "member";} ?>">
+<div class="lessons_page full_width page_content <?php if ($pageId == 7){ echo "free_lessons"; } ?> <?php if (is_user_logged_in()){ echo "member";} ?>">
 
     <header class="sub_header full_width">
         <div class="container">
@@ -77,7 +78,7 @@ if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
         </div><!-- .container -->
     </header>
 
-<?php if (pmpro_hasMembershipLevel()  || $title == "Free Lessons") : ?>
+<?php if (pmpro_hasMembershipLevel()  || $pageId == 7) : ?>
 
         <div id="video_player" class="full_width">
             <div id="video_iframe_wrap"></div>
@@ -118,7 +119,7 @@ if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
                     endif; ?>
             <?php endif; ?>
 
-            <?php if ($title === "Free Lessons") : ?>
+            <?php if ($pageId == 7) : ?>
                 <div class="free_lessons_section">
                     <div class="container">
                 
@@ -231,7 +232,7 @@ if (pmpro_hasMembershipLevel() || $title == "Free Lessons") {
 
                                 <?php if ( $lessons->have_posts() ) : while( $lessons->have_posts() ) : $lessons->the_post();
 
-                                        if($title == "Lessons" || $title == "Favorite Lessons" || $title == "Free Lessons") :
+                                        if($title == "Lessons" || $title == "Favorite Lessons" || $pageId == 7) :
                                             $hide = get_field('hide_lesson');
 
                                             if (!$hide) : ?>

@@ -154,7 +154,7 @@ function bass_nation_scripts() {
 
 	/* My Added Scripts */
 	wp_enqueue_script( 'fancybox_js', get_template_directory_uri() . '/js/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), '', true );
-	if (is_page('lessons') && is_user_logged_in()){
+	if ((is_page('lessons') && is_user_logged_in()) || is_page('free-online-bass-lessons')){
 		wp_enqueue_script('shuffle-js', 'https://cdn.jsdelivr.net/npm/shufflejs@5/dist/shuffle.min.js', array('jquery'), null, true);
 	}
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/js/built.min.js', array('jquery'), _S_VERSION, true );
@@ -175,6 +175,7 @@ function bass_nation_scripts() {
 		'pageName' => get_the_title(),
 		'postType' => get_post_type(),
 		'postSlug' => get_permalink(),
+		'pageId'	=> get_the_ID()
 	) );
 
 }

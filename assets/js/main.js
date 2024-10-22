@@ -712,7 +712,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    if (currentPage.pageName === "Lessons") {
+    if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
         const Shuffle = window.Shuffle;
         const element = document.querySelector("#filter_images");
         const shuffleInstance = new Shuffle(element, {
@@ -827,7 +827,7 @@ jQuery(document).ready(function ($) {
 
         let fileElements = false;
 
-        if (files.length > 0 && currentPage.pageName !== "Free Lessons") {
+        if (files.length > 0 && currentPage.pageId !== 7) {
             files.forEach((file) => {
                 if (file["file"] !== "") {
                     fileElements +=
@@ -840,7 +840,7 @@ jQuery(document).ready(function ($) {
             });
         }
 
-        if (currentPage.pageName === "Free Lessons") {
+        if (currentPage.pageId === 7) {
             getVideoHTML(
                 videoTitle,
                 videoSrc,
@@ -872,7 +872,7 @@ jQuery(document).ready(function ($) {
             );
         }
 
-        if (currentPage.pageName !== "Free Lessons") {
+        if (currentPage.pageId !== 7) {
             setTimeout(function () {
                 commentVideoEmbed();
             }, 3000);
@@ -918,7 +918,7 @@ jQuery(document).ready(function ($) {
 
         html += '<div class="bottom_row">';
 
-        if (currentPage.pageName !== "Free Lessons") {
+        if (currentPage.pageId !== 7) {
             html += '<div class="button_wrap">' + favoriteButton + "</div>";
         }
 

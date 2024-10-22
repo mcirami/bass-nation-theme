@@ -18203,6 +18203,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page.free_lessons .videos_wrap .column h4, .lessons_page.free_lessons .videos_wrap .column .h4 {
   color: #959494;
 }
+.lessons_page.free_lessons .videos_wrap .column .vid_image_wrap {
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
 .lessons_page.free_lessons .shuffle-container .lesson_content p {
   color: #b80008;
 }

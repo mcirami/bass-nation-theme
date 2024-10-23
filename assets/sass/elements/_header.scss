@@ -306,6 +306,7 @@
 
                 &.sub-menu li:hover .sub-menu li a:hover {
                     color: $yellow;
+                    border-color: $yellow;
 
                     &:before {
                         content: "";
@@ -652,9 +653,10 @@ ul.member_menu {
                     &:not(.button) {
                         padding-bottom: 20px !important;
                         border-bottom: 1px solid !important;
-                        border-color: rgba(245, 191, 4, 0.2) !important;
+                        border-color: rgba(255, 255, 255, 0.2) !important;
 
                         &:hover {
+                            border-color: $yellow !important;
                             &:before {
                                 content: "";
                                 background: url("../images/icon-right-triangle.png")
@@ -701,7 +703,7 @@ ul.member_menu {
                 &.current-menu-item {
                     a {
                         border-bottom: 1px solid !important;
-                        border-color: rgba(245, 191, 4, 0.2) !important;
+                        border-color: $yellow !important;
                     }
                 }
 

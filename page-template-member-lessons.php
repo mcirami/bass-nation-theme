@@ -120,15 +120,12 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
             <?php endif; ?>
 
             <?php if ($pageId == 7) : ?>
-                <div id="video_column" style="display: none;">
+                <div id="free_video_share_column" style="display: none;">
                     <div class="call_to_action">
                         <div class="upgrade ">
                             <h3>Get Full Access To Everything!</h3>
                             <a class="button yellow" href="/register">
                                 Start FREE Today!
-                                <span>
-                                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
-                                </span>
                             </a>
                         </div>
                     </div>

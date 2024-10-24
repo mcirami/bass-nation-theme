@@ -10,9 +10,15 @@
 	<?php } ?>
 
     <div class="social_buttons full_width">
-        <a class="instagram" target="_blank" href="https://www.instagram.com/daric_bennett"><span class="icon"><span class="text">Follow On Instagram</span></span></a>
-        <a class="facebook" target="_blank" href="https://www.facebook.com/daricbennettlessons"><span class="icon"><span class="text">Like On Facebook</span></span></a>
-        <a class="youtube" target="_blank" href="https://www.youtube.com/c/DaricBennett"><span class="icon"><span class="text">Subscribe on You Tube</span></span></a>
+        <a class="instagram" target="_blank" href="https://www.instagram.com/daric_bennett">
+			<img class="screenshot" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-instagram.png" />
+		</a>
+        <a class="facebook" target="_blank" href="https://www.facebook.com/daricbennettlessons">
+			<img class="screenshot" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-facebook.png" />
+		</a>
+        <a class="youtube" target="_blank" href="https://www.youtube.com/c/DaricBennett">
+			<img class="screenshot" src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-youtube-white.png" />
+		</a>
     </div>
 		
 		<div class="videos full_width">
@@ -89,7 +95,6 @@
                     <?php if (get_field('lesson_description')) : ?>
 
                         <div class="quote_section full_width">
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-quote-left.png" />
 	                        <?php
 	                            $postId = get_the_ID();
 	                            if ($postId == 3699) : ?>

@@ -11,10 +11,10 @@ get_header(); ?>
 			
 			<header class="sub_header full_width">
 				<div class="container">
-					<h1><?php if (!is_user_logged_in()) { ?>Free Online Bass Lessons <?php } else { the_title(); }?></h1>
-				</div><!-- .container -->
+					<h2><?php if (!is_user_logged_in()) { ?>Free Online Bass Lessons <?php } else { the_title(); }?></h2>
+				</div>
 			 </header>
-			 
+			
 			<div class="video_section full_width">
 				<section class="container">
 					
@@ -48,7 +48,12 @@ get_header(); ?>
 				<div class="text_wrap">
 					<h3>Are You Ready for Full Access to Every <span>Complete lesson?</span></h3>
 					<div class="button_wrap">
-						<a class="button yellow" href="<?php echo home_url(); ?>/register/">Start My Full Access Free Trial Now!</a>
+						<a class="button yellow" href="<?php echo home_url(); ?>/register/">
+							Start My Full Access Free Trial Now!
+							<span>
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+							</span>
+						</a>
 					</div>
 					
 					<?php get_template_part( 'template-parts/content', 'social-media' ); ?>

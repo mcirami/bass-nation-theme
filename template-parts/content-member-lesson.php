@@ -88,6 +88,7 @@
                     data-title="<?php echo the_title();?>"
                     data-postid="<?php echo $id; ?>"
                     data-desc="<?php echo htmlspecialchars($desc); ?>"
+                    data-permalink="<?php echo the_permalink(); ?>"
                     data-files='[<?php
                         foreach($fileArray as $file) {
                             $item = '{"file":"' . htmlspecialchars($file["file"]) . '",'.'"text":"'. htmlspecialchars($file["text"]) .'"}';

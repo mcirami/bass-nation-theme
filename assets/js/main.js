@@ -799,6 +799,7 @@ jQuery(document).ready(function ($) {
         const postID = $(this).data("postid");
         const desc = $(this).data("desc");
         const files = $(this).data("files");
+        const permalink = $(this).data("permalink");
 
         let favoriteButton = "";
 
@@ -829,8 +830,12 @@ jQuery(document).ready(function ($) {
         }
 
         if (currentPage.pageId == 7) {
-            const videoColumn =
-                document.getElementById("video_column").innerHTML;
+            let videoShareColumn = document.getElementById(
+                "free_video_share_column"
+            );
+            videoShareColumn.childNodes[3].lastElementChild.lastElementChild.href =
+                permalink;
+            const videoShareHTML = videoShareColumn.innerHTML;
             getVideoHTML(
                 videoTitle,
                 videoSrc,
@@ -839,7 +844,7 @@ jQuery(document).ready(function ($) {
                 videoDesc,
                 false,
                 videoPlayer,
-                videoColumn
+                videoShareHTML
             );
         } else {
             const ajaxURL = myAjaxurl.ajaxurl;
@@ -885,7 +890,7 @@ jQuery(document).ready(function ($) {
         videoDesc,
         commentContent,
         videoPlayer,
-        videoColumn
+        videoShareHTML
     ) {
         let html =
             '<div class="lesson_content_wrap">' +
@@ -931,7 +936,7 @@ jQuery(document).ready(function ($) {
                 "</ol>" +
                 "</div>";
         } else {
-            html += videoColumn;
+            html += videoShareHTML;
         }
 
         html += "</div>";

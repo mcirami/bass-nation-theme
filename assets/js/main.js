@@ -612,23 +612,16 @@ jQuery(document).ready(function ($) {
 
             setTimeout(() => {
                 if ($(".comment_reply_wrap").hasClass("open")) {
-                    $(".comment_reply_wrap").removeClass("open").slideUp(600);
-                    $(".reply_button").css("display", "inline-block");
-
-                    if (
-                        currentPage.pageName === "Lessons" ||
-                        currentPage.postType === "courses"
-                    ) {
-                        $("#respond").remove();
-                    }
+                    $(".comment_reply_wrap").removeClass("open");
+                    $(".reply_button").css("opacity", "100%");
+                    $("#respond").remove();
                 }
 
-                $(this).parent().css("display", "none");
+                $(this).parent().css("opacity", "0");
                 $(this)
-                    .parent()
-                    .next(".comment_reply_wrap")
-                    .addClass("open")
-                    .slideDown(600);
+                    .parents(".comment-metadata")
+                    .children(".comment_reply_wrap")
+                    .addClass("open");
 
                 replyToUser = $(this).attr("aria-label").split("to");
                 replyToUser = replyToUser[1].trim();
@@ -644,42 +637,38 @@ jQuery(document).ready(function ($) {
                 );
 
                 // eslint-disable-next-line no-undef
-                if (
-                    currentPage.pageName === "Lessons" ||
-                    (currentPage.postType && currentPage.postType === "courses")
-                ) {
-                    const postID = $(this).data("postid");
-                    const ajaxURL = myAjaxurl.ajaxurl;
-                    const commentForm = $.ajax({
-                        type: "post",
-                        dataType: "html",
-                        data: { action: "get_comment_form", id: postID },
-                        url: ajaxURL,
-                        global: false,
-                        async: false,
-                        success(response) {
-                            //alert ("Email Sent");
-                            return response;
-                        },
-                        error(xhRequest, errorThrown, resp) {
-                            console.error(errorThrown);
-                            console.error(JSON.stringify(resp));
-                        },
-                    }).responseText;
 
-                    $(commentForm).insertBefore(
-                        $(this)
-                            .parent()
-                            .next(".comment_reply_wrap")
-                            .children(".cancel_comment")
-                    );
-                }
+                const postID = $(this).data("postid");
+                const ajaxURL = myAjaxurl.ajaxurl;
+                const commentForm = $.ajax({
+                    type: "post",
+                    dataType: "html",
+                    data: { action: "get_comment_form", id: postID },
+                    url: ajaxURL,
+                    global: false,
+                    async: false,
+                    success(response) {
+                        //alert ("Email Sent");
+                        return response;
+                    },
+                    error(xhRequest, errorThrown, resp) {
+                        console.error(errorThrown);
+                        console.error(JSON.stringify(resp));
+                    },
+                }).responseText;
+
+                $(commentForm).insertBefore(
+                    $(this)
+                        .parents(".comment-metadata")
+                        .children(".comment_reply_wrap")
+                        .children(".cancel_comment")
+                );
 
                 $(this)
                     .closest(".reply")
                     .find("#comment_parent")
                     .val(commentParent);
-            }, 500);
+            }, 300);
         });
     }
 
@@ -691,23 +680,22 @@ jQuery(document).ready(function ($) {
         $(".cancel_comment a").bind("click", function (e) {
             e.preventDefault();
             if ($(".comment_reply_wrap").hasClass("open")) {
-                $(".comment_reply_wrap").removeClass("open").slideUp(600);
+                $(".comment_reply_wrap").removeClass("open");
                 commentParent = 0;
                 //commentReplyURL = null;
                 replyToUser = null;
                 //commentSubmitButton.next('.loading_gif').html('');
-                $(this)
-                    .closest(".reply")
-                    .children(".reply_button")
-                    .css("display", "block");
+                $(".reply_button").css("opacity", "100%");
 
-                // eslint-disable-next-line no-undef
-                if (
-                    currentPage.pageName === "Lessons" ||
-                    (currentPage.postType && currentPage.postType === "courses")
-                ) {
-                    $(this).parent().parent().children("#respond").remove();
-                }
+                setTimeout(() => {
+                    if (
+                        currentPage.pageName === "Lessons" ||
+                        (currentPage.postType &&
+                            currentPage.postType === "courses")
+                    ) {
+                        $(this).parent().parent().children("#respond").remove();
+                    }
+                }, 800);
             }
         });
     }

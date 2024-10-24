@@ -17854,20 +17854,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .course_video_player .video_iframe_wrap:last-child {
   margin-right: 0;
 }
-@media screen and (max-width: 1199px) {
-  .lessons_page #video_player .video_iframe_wrap,
-  .lessons_page .course_video_player .video_iframe_wrap {
-    width: 80%;
-    margin: 0 auto;
-    float: unset;
-    max-width: 80%;
-  }
-}
-@media screen and (max-width: 550px) {
+@media all and (max-width: 1400px) {
   .lessons_page #video_player .video_iframe_wrap,
   .lessons_page .course_video_player .video_iframe_wrap {
     width: 100%;
-    max-width: 100%;
+    margin: 0 auto;
+    float: unset;
   }
 }
 .lessons_page #video_player .video_iframe_wrap .bottom_row,
@@ -17976,25 +17968,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .course_video_player .video_content_wrap:last-child {
   margin-right: 0;
 }
-@media screen and (max-width: 1199px) {
+@media all and (max-width: 1400px) {
   .lessons_page #video_player .video_content_wrap,
   .lessons_page .course_video_player .video_content_wrap {
     width: 100%;
     max-height: unset;
     overflow-y: auto;
-  }
-}
-@media screen and (max-width: 991px) {
-  .lessons_page #video_player .video_content_wrap,
-  .lessons_page .course_video_player .video_content_wrap {
-    float: left;
-    display: block;
-    margin-right: 3.5786636068%;
-    width: 100%;
-  }
-  .lessons_page #video_player .video_content_wrap:last-child,
-  .lessons_page .course_video_player .video_content_wrap:last-child {
-    margin-right: 0;
   }
 }
 .lessons_page .videos_wrap {
@@ -18306,6 +18285,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page.free_lessons .filter_controls .search_box input {
   background-color: #000000;
+  color: #fff;
 }
 .lessons_page.free_lessons .filters h3, .lessons_page.free_lessons .filters .h3 {
   color: #fff;
@@ -18486,6 +18466,40 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   position: relative;
   padding: 30px 0;
   text-align: left;
+  /* .reply {
+      @include span-columns(12);
+      float: right;
+      text-align: right;
+      margin-right: 0;
+
+      .reply_button {
+          display: inline-block;
+
+          a {
+              @include interbold;
+              font-size: 1.4rem;
+              text-transform: uppercase;
+
+              &:hover {
+                  color: $darkRed;
+              }
+
+              @include media($tablet) {
+                  padding: 8px 20px;
+              }
+
+              @include media($mobile) {
+                  padding: 5px 15px;
+                  font-size: 1.2rem;
+              }
+          }
+      }
+
+      .button_wrap {
+          float: right;
+          margin-left: 10px;
+      }
+  } */
 }
 #comments:last-child {
   margin-right: 0;
@@ -18511,8 +18525,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #fff;
 }
 #comments ol .comment_reply_wrap textarea {
-  background: #fff;
+  background: #fff !important;
   color: #000000;
+  border: 1px solid #000000;
 }
 #comments ol li {
   float: left;
@@ -18600,6 +18615,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 20px 20px 10px 20px;
   color: #ff000a;
   text-align: left;
+  display: flex;
 }
 @media screen and (max-width: 767px) {
   #comments .comment-content .comment_heading {
@@ -18662,51 +18678,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   font-weight: 700;
   float: left;
   line-height: 1.1;
-  font-size: 16px;
+  font-size: 1.3rem;
 }
 @media screen and (max-width: 767px) {
   #comments .comment-content .comment-metadata .fn {
-    font-size: 14px;
-  }
-}
-#comments .reply {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 100%;
-  float: right;
-  text-align: right;
-  margin-right: 0;
-}
-#comments .reply:last-child {
-  margin-right: 0;
-}
-#comments .reply .reply_button {
-  display: inline-block;
-}
-#comments .reply .reply_button a {
-  font-family: "interbold", sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-}
-#comments .reply .reply_button a:hover {
-  background: #c30b21;
-}
-@media screen and (max-width: 991px) {
-  #comments .reply .reply_button a {
-    padding: 8px 20px;
-  }
-}
-@media screen and (max-width: 767px) {
-  #comments .reply .reply_button a {
-    padding: 5px 15px;
     font-size: 1.2rem;
   }
-}
-#comments .reply .button_wrap {
-  float: right;
-  margin-left: 10px;
 }
 #comments #respond {
   float: left;
@@ -18757,10 +18734,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 28rem;
   text-align: center;
   border: none;
-  padding: 20px;
+  padding: 10px !important;
   border: none;
   background: #f5bf04;
   color: #000000;
+  width: 18rem;
+  margin-top: 5px;
 }
 @media screen and (max-width: 991px) {
   #comments .comment_submit input {
@@ -18829,6 +18808,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-left: 5px;
   margin-top: 8px;
   text-align: center;
+  display: none;
 }
 @media screen and (max-width: 767px) {
   #comments .comment_submit .loading_gif {
@@ -18837,57 +18817,67 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     margin-top: 6px;
   }
 }
-#comments .comment-respond .comment_submit input[type=submit] {
-  width: 18rem;
-  padding: 15px 20px;
-  font-size: 1.5rem;
-}
-@media all and (max-width: 1500px) {
-  #comments .comment-respond .comment_submit input[type=submit] {
-    width: 100%;
-  }
-}
-
-.comment_reply_wrap {
+#comments .comment_reply_wrap {
   width: 100%;
   float: left;
-  display: none;
-  margin-top: 20px;
-  padding-bottom: 0;
+  margin-top: 0;
+  padding: 0;
   position: relative;
+  border-radius: 6px;
+  background: #fff;
+  max-height: 0;
+  transition: 0.7s ease-in-out;
+  opacity: 0;
 }
-.comment_reply_wrap .cancel_comment {
+#comments .comment_reply_wrap .comment-respond .comment_submit input[type=submit] {
+  width: 13rem;
+  padding: 10px !important;
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+@media all and (max-width: 1500px) {
+  #comments .comment_reply_wrap .comment-respond .comment_submit input[type=submit] {
+    width: 100%;
+  }
+}
+#comments .comment_reply_wrap .cancel_comment {
   display: inline-block;
   position: absolute;
-  bottom: 24px;
-  right: 0;
+  bottom: 16px;
+  right: 15px;
 }
 @media all and (max-width: 1500px) {
-  .comment_reply_wrap .cancel_comment {
+  #comments .comment_reply_wrap .cancel_comment {
     width: 100%;
     bottom: 0;
+    right: auto;
+    margin-top: 10px;
+    position: relative;
   }
 }
-.comment_reply_wrap .cancel_comment .button {
+#comments .comment_reply_wrap .cancel_comment .button {
   background: #fff;
-  width: 12rem;
-  padding: 8px 10px;
+  width: 10rem;
+  padding: 10px;
+  font-size: 1.3rem;
 }
 @media all and (max-width: 1500px) {
-  .comment_reply_wrap .cancel_comment .button {
+  #comments .comment_reply_wrap .cancel_comment .button {
     width: 100%;
   }
 }
-.comment_reply_wrap .cancel_comment .button:hover {
+#comments .comment_reply_wrap .cancel_comment .button:hover {
   background: #000000;
   color: #fff;
 }
-@media all and (max-width: 1500px) {
-  .comment_reply_wrap.open {
-    padding-bottom: 30px;
-  }
+#comments .comment_reply_wrap.open {
+  max-height: 1000px;
+  margin-top: 20px;
+  padding: 15px;
+  opacity: 100%;
+  z-index: 0;
 }
-.comment_reply_wrap #reply-title {
+#comments .comment_reply_wrap #reply-title {
   color: #000000;
 }
 
@@ -18986,7 +18976,14 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 100%;
 }
 .video_content_wrap #comments .comment-content .comment_heading {
-  padding: 10px;
+  padding: 10px 10px 0 10px;
+}
+.video_content_wrap #comments .comment-content .comment_heading .reply_button {
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  transition: 0.7s ease-in-out;
 }
 .video_content_wrap #comments .comment-reply-title {
   color: #fff;
@@ -19037,6 +19034,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 10px 10px 20px 10px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
+}
+.video_content_wrap #comments .comment-metadata .bottom_section p {
+  font-size: 1.5rem;
 }
 .video_content_wrap #comments .comment-metadata .bottom_section .edit-link {
   width: 100%;
@@ -26887,5 +26887,4 @@ form .acf-spinner {
   background: #000000 !important;
   color: #fff;
   border: 1px solid #fff;
-  padding: 10px 20px;
 }

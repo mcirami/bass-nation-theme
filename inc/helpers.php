@@ -243,7 +243,7 @@ function getVideoEmbedCode($videoLink) {
 			$str = $strEmbed[1];
 		}
 		$embedCode = preg_replace('/\s+/', '', $str);
-	} elseif ( str_contains( $videoLink, "v=" ) ) {
+	} elseif ( str_contains( $videoLink, "v=" ) && str_contains( $videoLink, "youtube" ) ) {
 		$strOne = explode("v=", $videoLink);
 		if ( str_contains( $strOne[1], "?" ) ) {
 			$str = explode("?", $strOne[1])[0];
@@ -254,10 +254,13 @@ function getVideoEmbedCode($videoLink) {
 		}
 		$embedCode = preg_replace('/\s+/', '', $str);
 	} elseif ( str_contains( $videoLink, "youtu.be" ) ) {
-		$str = explode(".be/", $videoLink);
-		$embedCode = preg_replace('/\s+/', '', $str[1]);
-	} elseif ( str_contains( $videoLink, "vimeo" ) ) {
-		$str       = explode( "video/", $videoLink );
+		$str = explode(".be/", $videoLink)[1];
+		if ( str_contains( $str, "?" ) ) {
+			$str = explode("?", $str)[0];
+		}
+		$embedCode = preg_replace('/\s+/', '', $str);
+	} elseif ( str_contains( $videoLink, "vimeo" ) && !str_contains($videoLink, "player.vimeo") ) {
+		$str       = explode( "vimeo.com/", $videoLink );
 		$embedCode = preg_replace( '/\s+/', '', $str[1] );
 	} else {
 		$embedCode = null;

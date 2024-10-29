@@ -120,7 +120,6 @@
 					</div>
                     <?php if (get_field('lesson_description')) : ?>
                         <div class="quote_section full_width">
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-quote-left.png" />
                             <p><?php echo the_field('lesson_description'); ?></p>
                         </div>
                     <?php endif; ?>

@@ -173,8 +173,16 @@ select {
     width: 100%;
     margin: 0 auto;
 
-    img {
-        width: auto;
+    .mc4wp-form-fields {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+
+        @include media($tablet) {
+            flex-direction: column;
+            -ms-flex-direction: column;
+        }
     }
 
     .mc4wp-response {
@@ -185,98 +193,98 @@ select {
     .email {
         width: 79%;
         display: inline-block;
+        margin: 0;
 
-        @include media($mobile) {
-            width: 76%;
-        }
-
-        @include media($smallMobile) {
-            width: 75%;
+        @include media($tablet) {
+            width: 100%;
         }
     }
 
     input[type="email"] {
-        width: 100%;
-        height: 55px;
-        padding: 0 20px;
-        display: inline-block;
-        font-size: 18px;
-        border: none;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        -webkit-border-top-left-radius: 4px;
-        -webkit-border-top-right-radius: 0;
-        -webkit-border-bottom-left-radius: 4px;
-        -webkit-border-bottom-right-radius: 0;
-        -moz-border-radius-bottomleft: 4px;
-        -moz-border-radius-bottomright: 0;
-        -moz-border-radius-topleft: 4px;
-        -moz-border-radius-topright: 0;
+        height: 45px;
+        margin: 0;
 
-        @include media($mobile) {
-            font-size: 16px;
-            padding: 10px;
-            height: 41px;
-        }
-
-        @include media($smallMobile) {
-            height: 35px;
+        @include media($tablet) {
+            width: 100%;
         }
     }
 
     .submit {
-        width: 20%;
         display: inline-block;
+        margin: 0;
 
-        @include media($mobile) {
-            width: 22%;
-        }
-
-        @include media($smallMobile) {
-            width: 23%;
+        @include media($tablet) {
+            width: 100%;
         }
     }
 
     input[type="submit"] {
         @include interextrabold;
-        font-size: 20px;
-        width: 100%;
-        color: $white;
-        height: 55px;
-        top: 1px;
-        display: inline-block;
-        margin-left: -9px;
-        border: none;
-        background: $red;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        -webkit-border-top-left-radius: 0;
-        -webkit-border-top-right-radius: 4px;
-        -webkit-border-bottom-left-radius: 0;
-        -webkit-border-bottom-right-radius: 4px;
-        -moz-border-radius-bottomleft: 0;
-        -moz-border-radius-bottomright: 4px;
-        -moz-border-radius-topleft: 0;
-        -moz-border-radius-topright: 4px;
+        margin: 0;
 
-        &:hover {
-            background: #c30b21;
+        @include media($tablet) {
+            width: 100%;
+        }
+    }
+}
+
+.social_media_column {
+    h4 {
+        margin: 0 0 20px 0;
+        text-align: center;
+    }
+
+    .content_box {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: inline-flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .columns_wrap {
+        padding: 10px;
+        border: 1px solid $red;
+        background: $darkerGray;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+    }
+
+    .column {
+        @include span-columns(4);
+
+        .icon_wrap {
+            padding: 10px 20%;
+
+            img {
+                max-width: 55px;
+                margin: 0 auto;
+            }
         }
 
-        @include media($mobile) {
-            font-size: 14px;
-            height: 41px;
-            top: 0;
+        .icon_wrap_sponsor {
+            img {
+                border: 1px solid $borderGray;
+                border-radius: 50%;
+                -webkit-border-radius: 50%;
+                -moz-border-radius: 50%;
+                max-width: unset;
+            }
         }
 
-        @include media($smallMobile) {
-            font-size: 12px;
-            height: 35px;
-            top: -2px;
+        p {
+            @include span-columns(12);
+
+            a {
+                @include interregular;
+                color: $grayText;
+                font-size: 16px;
+            }
         }
     }
 }

@@ -1,7 +1,9 @@
 .single_lesson {
     position: relative;
-    border-top: 1px solid #f1f1f1;
-    border-bottom: 1px solid #f1f1f1;
+
+    &.page_content {
+        padding-bottom: 0;
+    }
 
     .simplefavorite-button {
         margin-bottom: 20px;
@@ -79,127 +81,53 @@
     .quote_section {
         background: $darkerGray;
         margin-top: 40px;
+        margin-bottom: 40px;
         padding: 20px;
         color: $white;
 
-        img {
-            width: 35px;
-            float: left;
-            padding-top: 8px;
-
-            @include media($tablet) {
-                width: 24px;
-            }
-
-            @include media($mobile) {
-                width: 18px;
-            }
-        }
-
         p {
             @include intermedium;
-            width: 95%;
             float: left;
-            padding-left: 1%;
-            font-size: 20px;
             line-height: 1.6;
             text-align: left;
-
-            @include media($tablet) {
-                font-size: 18px;
-            }
-
-            @include media($mobile) {
-                width: 92%;
-                font-size: 14px;
-            }
         }
     }
 
     .form_section {
-        background: $black;
-        padding: 20px 0;
+        background: $darkerGray;
+        padding: 60px 0;
         color: $white;
 
         #email_join_single_lesson {
-            @include span-columns(12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            gap: 20px;
 
             h4 {
-                display: block;
-                width: 50%;
-                float: left;
                 @include interbold;
-                font-size: 26px;
-                margin-top: 15px;
-                margin-bottom: 0;
-                text-align: left;
-
-                @include media($tablet) {
-                    font-size: 20px;
-                    margin-top: 10px;
-                }
+                margin: 0;
 
                 @include media($mobile) {
-                    font-size: 16px;
                     width: 100%;
-                    text-align: center;
-                    margin-bottom: 10px;
-                    margin-top: 0;
                 }
-            }
-
-            .email {
-                margin: 0;
-                width: 68%;
-            }
-
-            .submit {
-                margin: 0;
-                width: 30%;
             }
 
             .mc4wp-form {
                 display: block;
-                width: 50%;
-                float: left;
+                width: 60%;
 
                 @include media($mobile) {
                     width: 100%;
-                }
-            }
-
-            .mc4wp-form input[type="email"] {
-                height: 52px;
-
-                @include media($tablet) {
-                    height: 46px;
-                }
-
-                @include media($mobile) {
-                    height: 38px;
-                }
-            }
-
-            .mc4wp-form input[type="submit"] {
-                height: 52px;
-
-                @include media($tablet) {
-                    height: 46px;
-                    font-size: 18px;
-                    top: 0;
-                }
-
-                @include media($mobile) {
-                    height: 38px;
-                    font-size: 14px;
-                    top: -1px;
                 }
             }
         }
     }
 
     .social_media_section {
-        color: $black;
+        color: $white;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -209,10 +137,7 @@
         flex-direction: row;
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
-
-        @include media($tablet) {
-            @include span-columns(8);
-        }
+        padding: 60px 0;
 
         .image_wrap {
             @include span-columns(4.5);
@@ -234,10 +159,38 @@
             }
         }
 
+        .social_media_column {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+
+            @include media($tablet) {
+                gap: 2rem;
+                flex-direction: column;
+            }
+
+            .content_box {
+                width: 38%;
+
+                @include media($tablet) {
+                    width: 65%;
+                }
+
+                .columns_wrap {
+                    height: 150px;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+
         .text_wrap {
-            @include span-columns(7.5);
             text-align: center;
-            padding: 0 5% 20px 0;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
@@ -245,30 +198,13 @@
             -webkit-box-direction: normal;
             -ms-flex-direction: column;
             flex-direction: column;
-            -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-            align-self: center;
-
-            @include media($tablet) {
-                @include span-columns(8);
-                padding: 20px;
-            }
 
             h3 {
                 @include span-columns(12);
-                @include interregular;
-                font-size: 30px;
+                @include intersemibold;
                 text-transform: uppercase;
                 line-height: 1.4;
-                margin-bottom: 25px;
-
-                @include media($tablet) {
-                    margin-bottom: 15px;
-                }
-
-                @include media($mobile) {
-                    font-size: 22px;
-                }
+                margin-bottom: 0;
 
                 span {
                     color: $red;
@@ -281,128 +217,70 @@
                 float: left;
                 margin-top: 20px;
 
-                @include media($tablet) {
-                    margin-top: 0;
-                }
-            }
-
-            .button {
-                @include interbold;
-                text-transform: uppercase;
-                padding: 14px 30px;
-                font-size: 30px;
-                margin: 0 auto;
-
-                @include media($desktop) {
-                    padding: 14px 0;
-                    width: 100%;
-                    display: block;
+                .button {
+                    width: 40rem;
                     margin: 0 auto;
-                    font-size: 28px;
-                }
-
-                @include media($tablet) {
-                    font-size: 24px;
-                    width: 86%;
-                }
-
-                @include media($mobile) {
-                    width: 100%;
-                }
-
-                @include media($smallMobile) {
-                    padding: 8px 0;
-                    font-size: 4vw;
                 }
             }
         }
     }
 
-    .bottom_section {
-        padding: 50px 0 80px;
+    > .bottom_section {
+        padding: 60px 0;
         color: $white;
-        background: url("../images/single-lesson-red-background.jpg") no-repeat;
-        background-position: top left;
-        background-size: cover;
         width: 100%;
         float: left;
-
-        @include media($tablet) {
-            background-position: top;
-        }
+        text-align: center;
 
         @include media($mobile) {
-            padding: 30px 0 60px;
+            padding: 30px 0;
         }
 
         .button_wrap {
             display: block;
             width: 100%;
             float: left;
-
-            .button {
-                float: right;
-            }
         }
 
         h2 {
-            font-size: 36px;
             text-transform: uppercase;
-
-            @include media($tablet) {
-                font-size: 34px;
-            }
-
-            @include media($mobile) {
-                font-size: 28px;
-                line-height: 1.2;
-            }
-
-            @include media($smallMobile) {
-                font-size: 25px;
-            }
         }
 
         h3 {
             @include interitalic;
-            font-size: 24px;
             margin-top: 15px;
 
-            @include media($tablet) {
-                font-size: 22px;
-            }
-
             @include media($mobile) {
-                font-size: 18px;
                 margin-top: 5px;
             }
         }
 
         h4 {
             @include intermedium;
-            font-size: 40px;
+            @include medLargeFont;
             margin: 20px 0;
 
             @include media($tablet) {
                 margin-top: 10px;
-                font-size: 36px;
             }
+        }
 
-            @include media($mobile) {
-                font-size: 20px;
-                margin-bottom: 0;
-            }
-
-            @include media($smallMobile) {
-                font-size: 17px;
+        .button_wrap {
+            .button {
+                margin: 0 auto;
+                width: 40rem;
             }
         }
 
         .columns {
             padding: 20px 0;
             margin: 20px 0;
+            display: flex;
+            justify-content: center;
 
-            @include media($mobile) {
+            @include media($tablet) {
+                flex-direction: column;
+                flex-wrap: wrap-reverse;
                 padding: 0;
                 margin: 0 0 20px;
             }
@@ -410,20 +288,23 @@
 
         .column {
             &:first-child {
-                @include span-columns(5.5);
+                @include span-columns(5);
                 text-align: left;
 
-                @include media($mobile) {
-                    @include span-columns(4);
-                    text-align: center;
+                @include media($tablet) {
+                    @include span-columns(8);
+                    margin-right: 0;
+                    order: 2;
                 }
             }
 
             &:last-child {
-                @include span-columns(6.5);
+                @include span-columns(5);
 
-                @include media($mobile) {
-                    @include span-columns(4);
+                @include media($tablet) {
+                    @include span-columns(8);
+                    margin-right: 0;
+                    order: 1;
                 }
             }
 
@@ -442,23 +323,10 @@
             }
 
             ul {
-                padding-right: 20%;
-
                 @include media($tablet) {
-                    padding-right: 8%;
-                }
-
-                @include media($mobile) {
-                    padding-right: 0;
-                    width: 60%;
-                    display: inline-block;
-                    margin: 0 auto;
-                    text-align: left;
-                    margin-bottom: 20px;
-                }
-
-                @include media($smallMobile) {
                     width: 100%;
+                    margin: 20px 0;
+                    padding: 0;
                 }
 
                 li {

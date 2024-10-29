@@ -1076,6 +1076,13 @@
                         float: right;
                     }
                 }
+
+                .button_wrap {
+                    .button {
+                        margin-left: auto;
+                        margin-top: 40px;
+                    }
+                }
             }
         }
     }

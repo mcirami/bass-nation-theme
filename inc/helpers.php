@@ -235,6 +235,7 @@ function wpb_new_gravatar ($avatar_defaults) {
 
 function getVideoEmbedCode($videoLink) {
 
+	$embedCode = null;
 	if ( str_contains( $videoLink, "embed" ) ) {
 		$strEmbed = explode("embed/", $videoLink);
 		if ( str_contains( $strEmbed[1], "?" ) ) {
@@ -260,10 +261,14 @@ function getVideoEmbedCode($videoLink) {
 		}
 		$embedCode = preg_replace('/\s+/', '', $str);
 	} elseif ( str_contains( $videoLink, "vimeo" ) && !str_contains($videoLink, "player.vimeo") ) {
-		$str       = explode( "vimeo.com/", $videoLink );
-		$embedCode = preg_replace( '/\s+/', '', $str[1] );
-	} else {
-		$embedCode = null;
+		$str       = explode( "vimeo.com/", $videoLink )[1];
+		$embedCode = preg_replace( '/\s+/', '', $str);
+	} elseif (str_contains( $videoLink, "player.vimeo" )) {
+		$str       = explode( "player.vimeo.com/", $videoLink )[1];
+		if (str_contains($str, "video")) {
+			$str = explode( "video/", $str )[1];
+		}
+		$embedCode = preg_replace( '/\s+/', '', $str);
 	}
 
 	return $embedCode;

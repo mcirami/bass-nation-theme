@@ -69,7 +69,7 @@ get_header(); ?>
 					<h3 class="full_width">Remember, with your Bass Nation Membership you will have access to:</h3>
 					<div class="columns full_width">
 						<div class="column">
-							<ul>
+							<ul class="check_list">
 								<li><p>Every Complete Lesson</p></li>
 								<li><p>Full Modes Series</p></li>
 								<li><p>Bass Nation Forums</p></li>

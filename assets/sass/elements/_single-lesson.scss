@@ -277,8 +277,14 @@
             margin: 20px 0;
             display: flex;
             justify-content: center;
+            align-items: center;
+            float: none;
+            width: 70%;
+            margin: 0 auto;
+            gap: 3rem;
 
             @include media($tablet) {
+                width: 100%;
                 flex-direction: column;
                 flex-wrap: wrap-reverse;
                 padding: 0;
@@ -288,22 +294,26 @@
 
         .column {
             &:first-child {
-                @include span-columns(5);
+                width: 50%;
                 text-align: left;
+                border: 1px solid $red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                padding: 20px;
 
                 @include media($tablet) {
-                    @include span-columns(8);
-                    margin-right: 0;
+                    width: 100%;
                     order: 2;
                 }
             }
 
             &:last-child {
-                @include span-columns(5);
+                width: 70%;
 
                 @include media($tablet) {
-                    @include span-columns(8);
-                    margin-right: 0;
+                    width: 100%;
                     order: 1;
                 }
             }
@@ -322,46 +332,20 @@
                 }
             }
 
-            ul {
+            ul.check_list {
                 @include media($tablet) {
-                    width: 100%;
-                    margin: 20px 0;
-                    padding: 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: center;
                 }
 
                 li {
-                    position: relative;
-                    background: rgba(255, 255, 255, 0.2);
-                    padding: 5px 0 5px 45px;
-                    margin-bottom: 10px;
-
                     @include media($tablet) {
-                        padding-left: 40px;
+                        width: 32%;
                     }
 
-                    @include media($mobile) {
-                        padding-left: 36px;
-                    }
-
-                    &:before {
-                        content: "";
-                        background: url("../images/icon-checkmark.png")
-                            no-repeat;
-                        width: 18px;
-                        height: 18px;
-                        position: absolute;
-                        left: 16px;
-                        top: 10px;
-
-                        @include media($tablet) {
-                            background-size: 80%;
-                            left: 13px;
-                        }
-
-                        @include media($mobile) {
-                            background-size: 75%;
-                            left: 11px;
-                        }
+                    @include media($smallMobile) {
+                        width: 50%;
                     }
                 }
             }

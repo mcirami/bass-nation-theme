@@ -275,7 +275,7 @@ get_header(); ?>
 					<div class="two_col">
 						<div class="column">
 							<h3>Sign up today and get:</h3>
-							<ul>
+							<ul class="check_list">
 								<li>
 									<p>Specialized Courses</p>
 								</li>

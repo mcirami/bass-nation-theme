@@ -33,7 +33,7 @@
 						<h3>Your 3 Day Free Trial Includes</h3>
 					</div>
 					<div class="full_width content">
-						<ul class="full_width">
+						<ul class="full_width check_list">
 							<li><p>Unlimited full access to over 150 Bass Lessons!</p></li>
 							<li><p>6 Multi-Part Full Bass Courses Ranging from Ultra Beginner to Advanced Slap Techniques</p></li>
 							<li><p>Interviews With Amazing Bass Players</p></li>

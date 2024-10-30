@@ -1012,6 +1012,10 @@
                 float: left;
                 width: 100%;
                 color: $red;
+
+                @include media($mobile) {
+                    font-size: 1rem;
+                }
             }
 
             .fn {
@@ -1047,10 +1051,20 @@
                     border-radius: 2px;
                 }
 
+                .left_col {
+                    @include media($mobile) {
+                        width: 50%;
+                    }
+                }
+
                 .right_col {
                     display: flex;
-                    justify-content: space-around;
+                    justify-content: flex-end;
                     align-items: center;
+
+                    @include media($mobile) {
+                        width: 50%;
+                    }
                 }
             }
 

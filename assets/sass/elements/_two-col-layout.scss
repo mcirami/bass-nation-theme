@@ -256,30 +256,7 @@
                     padding: 30px;
                     text-align: left;
 
-                    ul {
-                        margin-left: 0;
-                        padding: 0;
-
-                        @include media($desktop) {
-                            padding: 0;
-                        }
-                    }
-
                     li {
-                        position: relative;
-                        padding-left: 50px;
-                        margin-bottom: 20px;
-
-                        &:before {
-                            content: "";
-                            position: absolute;
-                            background: url(../images/check.png) no-repeat;
-                            width: 20px;
-                            height: 15px;
-                            left: 21px;
-                            top: 5px;
-                        }
-
                         p {
                             line-height: 1.6;
                             color: $grayText;

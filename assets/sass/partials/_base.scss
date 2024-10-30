@@ -289,6 +289,33 @@ select {
     }
 }
 
+ul.check_list {
+    margin: 0;
+    padding: 0;
+
+    li {
+        position: relative;
+        padding-left: 30px;
+        margin-bottom: 10px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            background: url(../images/check.png) no-repeat;
+            width: 20px;
+            height: 15px;
+            left: 0;
+            top: 5px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: $grayText;
+            margin: 0;
+        }
+    }
+}
+
 /* .social_media_row {
     margin-top: 50px;
     display: -webkit-box;

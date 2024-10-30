@@ -14005,7 +14005,6 @@ img {
 
 .page_content {
   padding-top: 135px;
-  padding-bottom: 100px;
   background: #191919;
 }
 .page_content.member {
@@ -18553,20 +18552,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 #comments .comment-content .video_embed {
-  width: 50%;
+  width: 100%;
   display: inline-block;
   margin: 20px auto 0;
   padding: 0 20px;
-}
-@media screen and (max-width: 991px) {
-  #comments .comment-content .video_embed {
-    width: 75%;
-  }
-}
-@media screen and (max-width: 767px) {
-  #comments .comment-content .video_embed {
-    width: 100%;
-  }
 }
 #comments .comment-content .comment-metadata {
   float: left;
@@ -19575,6 +19564,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .two_column_template.not_member .two_column_section .columns_wrap .bottom_section .content li p {
   line-height: 1.6;
   color: #959494;
+}
+.two_column_template.login .two_column_section {
+  padding-bottom: 100px;
 }
 .two_column_template form {
   position: relative;
@@ -24354,9 +24346,6 @@ form .acf-spinner {
 .single_lesson {
   position: relative;
 }
-.single_lesson.page_content {
-  padding-bottom: 0;
-}
 .single_lesson .simplefavorite-button {
   margin-bottom: 20px;
 }
@@ -24907,6 +24896,17 @@ form .acf-spinner {
   }
 }
 .video_submit #post_submit_form .acf-required {
+  display: none;
+}
+.video_submit #post_submit_form .acf-field--post-title .acf-label {
+  z-index: 1;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  color: #959494;
+  font-size: 1.4rem;
+}
+.video_submit #post_submit_form .acf-field--post-title .acf-label.active {
   display: none;
 }
 .video_submit #post_submit_form .form_wrap {
@@ -25949,6 +25949,9 @@ form .acf-spinner {
   .two_column_template #red_registration_form {
     width: auto !important;
   }
+}
+.two_column_template.register .two_column_section {
+  padding-bottom: 100px;
 }
 .two_column_template .list {
   max-width: 650px;

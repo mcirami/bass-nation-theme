@@ -503,42 +503,44 @@ jQuery(document).ready(function ($) {
     const pageURL = currentPage.postSlug;
 
     if (
-        currentPage.postType &&
-        (currentPage.postType === "videos" ||
-            currentPage.postType === "live-streams" ||
-            pageURL.includes("free-bass-lessons"))
+        pageURL.includes("video") ||
+        pageURL.includes("lesson") ||
+        pageURL.includes("bass-nation-tv")
     ) {
         commentVideoEmbed();
     }
 
     function commentVideoEmbed() {
-        if ($(".comment-content > p a").length) {
-            const links = document.querySelectorAll(".comment-content > p a");
+        if ($(".comment-content .bottom_section p a").length > 0) {
+            const links = document.querySelectorAll(
+                ".comment-content .bottom_section p a"
+            );
 
             for (let x = 0; x < links.length; x++) {
                 const videoLink = $(links[x]).attr("href");
-                var embedLink;
-                var str;
+                let embedLink = "";
+                let str = "";
 
-                if (videoLink.includes("embed")) {
-                    embedLink = videoLink + "/?rel=0&showinfo=0";
+                if (
+                    videoLink.includes("embed") ||
+                    videoLink.includes("player.vimeo")
+                ) {
+                    embedLink = videoLink;
                 } else if (videoLink.includes("v=")) {
-                    str = videoLink.split("v=");
-                    embedLink =
-                        "https://www.youtube.com/embed/" +
-                        str[1] +
-                        "/?rel=0&showinfo=0";
+                    str = videoLink.split("v=")[1];
+                    if (str.includes("&")) {
+                        str = str.split("&")[0];
+                    }
+                    embedLink = "https://www.youtube.com/embed/" + str;
                 } else if (videoLink.includes("youtu.be")) {
-                    str = videoLink.split(".be/");
-                    embedLink =
-                        "https://www.youtube.com/embed/" +
-                        str[1] +
-                        "/?rel=0&showinfo=0";
-                } else if (videoLink.includes("vimeo")) {
-                    str = videoLink.split("video/");
+                    str = videoLink.split(".be/")[1];
+                    embedLink = "https://www.youtube.com/embed/" + str;
+                } else if (
+                    videoLink.includes("vimeo") &&
+                    !videoLink.includes("player")
+                ) {
+                    str = videoLink.split("vimeo.com/");
                     embedLink = "https://player.vimeo.com/video/" + str[1];
-                } else {
-                    embedLink = "";
                 }
 
                 if (embedLink !== "") {
@@ -553,42 +555,45 @@ jQuery(document).ready(function ($) {
             }
         }
 
-        if ($(".comment-content > p").length) {
+        if ($(".comment-content .bottom_section p").length > 0) {
             const commentContent = document.querySelectorAll(
-                ".comment-content > p"
+                ".comment-content .bottom_section p"
             );
 
             for (var y = 0; y < commentContent.length; y++) {
                 const commentText = commentContent[y].innerHTML;
+                let newEmbedLink = "";
+                let str = "";
 
-                if (commentText.includes("http")) {
-                    let string = commentText.split("http");
-                    string = string[1].replace(/\s/g, "");
-
-                    const newVideoLink = "http" + string;
-                    let newEmbedLink = "";
-
-                    if (newVideoLink.includes("embed")) {
-                        newEmbedLink = newVideoLink;
-                    } else if (newVideoLink.includes("v=")) {
-                        str = newVideoLink.split("v=");
-                        newEmbedLink =
-                            "https://www.youtube.com/embed/" + str[1];
-                    } else if (newVideoLink.includes("youtu.be")) {
-                        str = newVideoLink.split(".be/");
-                        newEmbedLink =
-                            "https://www.youtube.com/embed/" + str[1];
-                    } else {
-                        newEmbedLink = "";
+                if (
+                    commentText.includes("v=") &&
+                    commentText.includes("youtube")
+                ) {
+                    str = commentText.split("v=")[1];
+                    if (str.includes("&")) {
+                        str = str.split("&")[0];
                     }
+                    newEmbedLink = "https://www.youtube.com/embed/" + str;
+                } else if (commentText.includes("youtu.be")) {
+                    str = commentText.split(".be/")[1];
+                    newEmbedLink = "https://www.youtube.com/embed/" + str;
+                } else if (
+                    commentText.includes("vimeo") &&
+                    !commentText.includes("player")
+                ) {
+                    str = commentText.split("vimeo.com/");
+                    newEmbedLink = "https://player.vimeo.com/video/" + str[1];
+                } else if (commentText.includes("player.vimeo")) {
+                    str = commentText.split("video/")[1];
+                    newEmbedLink = "https://player.vimeo.com/video/" + str;
+                }
 
-                    if (newEmbedLink !== "") {
-                        $(
-                            "<div class='video_embed'><div class='video_wrapper'><iframe frameborder='0' allowfullscreen src='" +
-                                newEmbedLink +
-                                "/?rel=0&showinfo=0'></iframe></div></div>"
-                        ).insertAfter($(commentContent[y]));
-                    }
+                if (newEmbedLink !== "") {
+                    $(
+                        "<div class='video_embed'><div class='video_wrapper'><iframe frameborder='0' allowfullscreen src='" +
+                            newEmbedLink +
+                            "'></iframe></div></div>"
+                    ).insertAfter($(commentContent[y]));
                 }
             }
         }
@@ -1069,4 +1074,28 @@ jQuery(document).ready(function ($) {
             prevEl: ".swiper-button-prev",
         },
     });
+
+    const titleInput = document.querySelector("#acf-_post_title");
+
+    if (titleInput) {
+        const postTitleLabel = document.querySelector(
+            ".acf-field--post-title .acf-label"
+        );
+
+        if (document.activeElement === titleInput) {
+            postTitleLabel.classList.add("active");
+        }
+        titleInput.addEventListener("focus", () => {
+            postTitleLabel.classList.add("active");
+        });
+        titleInput.addEventListener("blur", () => {
+            if (titleInput.value === "") {
+                postTitleLabel.classList.remove("active");
+            }
+        });
+
+        if (titleInput.value !== "") {
+            postTitleLabel.classList.add("active");
+        }
+    }
 });

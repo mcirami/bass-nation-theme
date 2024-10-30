@@ -984,18 +984,10 @@
         }
 
         .video_embed {
-            width: 50%;
+            width: 100%;
             display: inline-block;
             margin: 20px auto 0;
             padding: 0 20px;
-
-            @include media($tablet) {
-                width: 75%;
-            }
-
-            @include media($mobile) {
-                width: 100%;
-            }
         }
 
         .comment-metadata {

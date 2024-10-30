@@ -267,6 +267,12 @@
         }
     }
 
+    &.login {
+        .two_column_section {
+            padding-bottom: 100px;
+        }
+    }
+
     form {
         position: relative;
         width: 100%;

@@ -173,7 +173,7 @@ function bass_nation_scripts() {
 
 	wp_localize_script( 'main_js', 'currentPage', array(
 		'pageName' 	=> get_the_title(),
-		'postType' 	=> get_post_type(),
+		'postType' 	=> get_post()->post_type,
 		'postSlug' 	=> get_permalink(),
 		'pageId'	=> get_the_ID()
 	) );

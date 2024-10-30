@@ -76,7 +76,7 @@ $posts = new WP_Query($args);
 
 										acf_form(array(
 											'post_id'		=> 'new_post',
-											//'post_title'	=> true,
+											'post_title'	=> true,
 											'new_post'		=> array(
 												'post_type'		=> 'videos',
 												'post_status'	=> 'publish'

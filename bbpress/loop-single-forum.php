@@ -57,7 +57,7 @@ if ($forumResults != null) {
                     $forumID = bbp_get_forum_id();
                     foreach ($forumSubs as $forumSub) {
                         if ($forumSub == $forumID) {
-                            echo "<p>You Are Subscribed!</p>";
+                            echo "<p>(subscribed)</p>";
                         }
                     }
                 }

@@ -266,3 +266,24 @@
         }
     }
 }
+
+.logged-in:not(.db-dark-mode-active) {
+    .lessons_page.free_lessons {
+        .intro_text {
+            color: $black;
+        }
+
+        .social_media_column .columns_wrap {
+            background: $white;
+
+            .column p a {
+                color: $darkGray;
+            }
+        }
+
+        .filter_controls .search_box input {
+            background-color: $white;
+            color: $black;
+        }
+    }
+}

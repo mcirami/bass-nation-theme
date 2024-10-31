@@ -269,7 +269,10 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
                                             if (!$hide) : ?>
 
-                                                <?php get_template_part('template-parts/content', 'member-lesson'); ?>
+                                                <?php 
+                                                    set_query_var( 'pageId', $pageId);
+                                                    get_template_part('template-parts/content', 'member-lesson'); 
+                                                ?>
 
                                             <?php endif; ?> <!-- hide -->
 
@@ -308,7 +311,23 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 <?php endif; ?>
 
 </div><!-- lessons_page -->
-
-
+<div id="members_only_video_pop">
+    <div id="members_only_content">
+        <span class="close_popup" title="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" version="1" viewBox="0 0 24 24"><path d="M13 12l5-5-1-1-5 5-5-5-1 1 5 5-5 5 1 1 5-5 5 5 1-1z"></path></svg>
+        </span>
+        <img class="logo" src="<?php  echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Logo"/>
+        <h2>This Lesson Is </br> For Members Only</h2>
+        <div class="button_wrap">
+            <a class="button yellow" href="/register">
+                Start My Free Trial For Full Access!
+                <span>
+                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+                </span>
+            </a>
+            
+        </div>
+    </div>
+</div>
 
 <?php get_footer(); ?>

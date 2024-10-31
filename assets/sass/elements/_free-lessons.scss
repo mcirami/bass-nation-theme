@@ -671,18 +671,18 @@
     }
 
     .social_media_column {
-		width: 33.3%;
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: column;
-		flex-direction: column;
-	
-		@include media($tablet) {
-			width: 100%;
-		}
+        width: 33.3%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+
+        @include media($tablet) {
+            width: 100%;
+        }
     }
 
     #video_player {
@@ -730,33 +730,38 @@
     }
 }
 
-.members_only_video_pop {
-    display: block;
-}
-
 #members_only_video_pop {
-    display: none;
-    background: $yellow;
+    opacity: 0;
+    z-index: -999;
+    background: rgba(0, 0, 0, 0);
     padding: 40px;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: 0.6s ease-in-out;
+    -moz-transition: 0.6s ease-in-out;
+    -ms-transition: 0.6s ease-in-out;
+    -o-transition: 0.6s ease-in-out;
+    transition: 0.6s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    @include media($mobile) {
-        padding: 15px;
-    }
-
-    @include media($smallMobile) {
-        padding: 10px;
+    &.open {
+        opacity: 100%;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.8);
     }
 
     h2 {
-        color: $black;
-        font-size: 34px;
+        font-size: 3rem;
         text-transform: uppercase;
         margin: 20px 0;
-        line-height: 1.1;
+        line-height: 1.4;
 
         @include media($mobile) {
-            font-size: 24px;
+            font-size: 2rem;
         }
 
         @include media($smallMobile) {
@@ -774,26 +779,39 @@
         }
     }
 
-    .button_wrap {
-        margin: 40px 0 20px;
+    #members_only_content {
+        padding: 40px 20px;
+        position: relative;
 
         @include media($smallMobile) {
-            display: block;
-            margin: 20px 0;
+            max-width: 100%;
         }
 
-        a {
-            font-size: 26px;
-            text-transform: uppercase;
-
-            @include media($mobile) {
-                font-size: 22px;
-            }
+        .button {
+            width: 40rem;
 
             @include media($smallMobile) {
-                padding: 8px 0;
-                display: block;
-                font-size: 4vw;
+                width: 100%;
+            }
+        }
+
+        .close_popup {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+
+            svg {
+                stroke: $white;
+                width: 20px;
+                height: 20px;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                svg {
+                    stroke: $lightGray;
+                }
             }
         }
     }

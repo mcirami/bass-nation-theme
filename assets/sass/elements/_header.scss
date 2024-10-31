@@ -760,7 +760,8 @@ ul.member_menu {
     overflow: hidden !important;
 }
 
-#email_join {
+#email_join,
+#members_only_content {
     width: 40%;
     text-align: center;
     background: $darkerGray;
@@ -788,8 +789,12 @@ ul.member_menu {
         }
     }
 
+    &.active {
+        display: block;
+    }
+
     .logo {
-        max-width: 400px;
+        max-width: 300px;
         text-align: center;
 
         @include media($mobile) {

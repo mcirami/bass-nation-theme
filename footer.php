@@ -206,7 +206,7 @@ $username = $current_user->user_login;
 
 					if (!emailJoin.hasClass('active') && popup === "" && subscribed === "" && subscribedForm === "" && lpSubscribed === "" && subscribedMember === "") {
 
-						$.fancybox({
+						emailJoin.fancybox({
 							arrows: false,
 							autoSize: false,
 							width: '750',

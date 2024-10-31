@@ -73,25 +73,21 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    $(".members_only_video_pop").fancybox({
-        arrows: false,
-        autoSize: false,
-        width: "700",
-        height: "300",
-        closeBtn: true,
-        //scrolling: 'hidden',
-        beforeShow() {
-            $("body").css({ "overflow-y": "hidden" });
-        },
-        afterClose() {
-            $("body").css({ "overflow-y": "visible" });
-        },
-        helpers: {
-            overlay: {
-                locked: true,
-            },
-        },
-    });
+    const membersOnlyPop = document.querySelectorAll(".members_only_video_pop");
+    if (membersOnlyPop.length > 0) {
+        membersOnlyPop.forEach((element) => {
+            element.addEventListener("click", (e) => {
+                e.preventDefault();
+                const videoPop = document.querySelector(
+                    "#members_only_video_pop"
+                );
+                videoPop.classList.add("open");
+                videoPop.addEventListener("click", (e) => {
+                    videoPop.classList.remove("open");
+                });
+            });
+        });
+    }
 
     if ($(window).width() > 768) {
         subMenuHover();

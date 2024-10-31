@@ -15189,7 +15189,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   overflow: hidden !important;
 }
 
-#email_join {
+#email_join,
+#members_only_content {
   width: 40%;
   text-align: center;
   background: #131313;
@@ -15200,36 +15201,49 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-radius: 4px;
 }
 @media screen and (max-width: 991px) {
-  #email_join {
+  #email_join,
+  #members_only_content {
     min-width: 650px;
   }
 }
 @media screen and (max-width: 767px) {
-  #email_join {
+  #email_join,
+  #members_only_content {
     padding: 8px 5px 20%;
     width: 100%;
     min-width: unset;
   }
 }
-#email_join a {
+#email_join a,
+#members_only_content a {
   display: inline-block;
 }
-#email_join a:focus {
+#email_join a:focus,
+#members_only_content a:focus {
   outline: unset;
 }
-#email_join .logo {
-  max-width: 400px;
+#email_join.active,
+#members_only_content.active {
+  display: block;
+}
+#email_join .logo,
+#members_only_content .logo {
+  max-width: 300px;
   text-align: center;
 }
 @media screen and (max-width: 767px) {
-  #email_join .logo {
+  #email_join .logo,
+  #members_only_content .logo {
     max-width: 250px;
   }
 }
-#email_join .logo img {
+#email_join .logo img,
+#members_only_content .logo img {
   margin: 0 auto;
 }
-#email_join h2, #email_join .h2 {
+#email_join h2, #email_join .h2,
+#members_only_content h2,
+#members_only_content .h2 {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
@@ -15238,18 +15252,25 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   line-height: 1.6;
   font-size: 3.8rem;
 }
-#email_join h2:last-child, #email_join .h2:last-child {
+#email_join h2:last-child, #email_join .h2:last-child,
+#members_only_content h2:last-child,
+#members_only_content .h2:last-child {
   margin-right: 0;
 }
-#email_join h2 span, #email_join .h2 span {
+#email_join h2 span, #email_join .h2 span,
+#members_only_content h2 span,
+#members_only_content .h2 span {
   color: #ff000a;
 }
 @media screen and (max-width: 767px) {
-  #email_join h2, #email_join .h2 {
+  #email_join h2, #email_join .h2,
+  #members_only_content h2,
+  #members_only_content .h2 {
     font-size: 4.8vw;
   }
 }
-#email_join p {
+#email_join p,
+#members_only_content p {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
@@ -15257,10 +15278,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-bottom: 20px;
   font-size: 1.5rem;
 }
-#email_join p:last-child {
+#email_join p:last-child,
+#members_only_content p:last-child {
   margin-right: 0;
 }
-#email_join #mc_embed_signup {
+#email_join #mc_embed_signup,
+#members_only_content #mc_embed_signup {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
@@ -15286,32 +15309,39 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   text-align: center;
   border: none;
 }
-#email_join #mc_embed_signup:last-child {
+#email_join #mc_embed_signup:last-child,
+#members_only_content #mc_embed_signup:last-child {
   margin-right: 0;
 }
-#email_join #mc_embed_signup form {
+#email_join #mc_embed_signup form,
+#members_only_content #mc_embed_signup form {
   position: relative;
   margin: 0 auto;
   width: 90%;
 }
 @media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup form {
+  #email_join #mc_embed_signup form,
+  #members_only_content #mc_embed_signup form {
     width: 100%;
   }
 }
-#email_join #mc_embed_signup form .g-recaptcha > div {
+#email_join #mc_embed_signup form .g-recaptcha > div,
+#members_only_content #mc_embed_signup form .g-recaptcha > div {
   margin: 20px auto;
 }
-#email_join #mc_embed_signup #subscribe-result {
+#email_join #mc_embed_signup #subscribe-result,
+#members_only_content #mc_embed_signup #subscribe-result {
   margin-top: 2%;
   font-size: 18px;
 }
 @media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup #subscribe-result {
+  #email_join #mc_embed_signup #subscribe-result,
+  #members_only_content #mc_embed_signup #subscribe-result {
     font-size: 14px;
   }
 }
-#email_join #mc_embed_signup input[type=email] {
+#email_join #mc_embed_signup input[type=email],
+#members_only_content #mc_embed_signup input[type=email] {
   width: 100%;
   background-color: #000000;
   height: 55px;
@@ -15322,61 +15352,73 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-radius: 4px;
 }
 @media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup input[type=email] {
+  #email_join #mc_embed_signup input[type=email],
+  #members_only_content #mc_embed_signup input[type=email] {
     font-size: 16px;
     padding: 10px;
     height: 41px;
   }
 }
 @media screen and (max-width: 991px) {
-  #email_join #mc_embed_signup {
+  #email_join #mc_embed_signup,
+  #members_only_content #mc_embed_signup {
     font-size: 1.4rem;
     width: 26rem;
   }
 }
 @media screen and (max-width: 767px) {
-  #email_join #mc_embed_signup {
+  #email_join #mc_embed_signup,
+  #members_only_content #mc_embed_signup {
     font-size: 1.3rem;
     padding: 10px 15px;
     width: 24rem;
   }
 }
-#email_join #mc_embed_signup span {
+#email_join #mc_embed_signup span,
+#members_only_content #mc_embed_signup span {
   opacity: 0%;
   transition: 0.5s ease-in-out;
   width: 0;
   position: absolute;
   right: 8px;
 }
-#email_join #mc_embed_signup span img {
+#email_join #mc_embed_signup span img,
+#members_only_content #mc_embed_signup span img {
   height: 25px;
 }
-#email_join #mc_embed_signup:hover span {
+#email_join #mc_embed_signup:hover span,
+#members_only_content #mc_embed_signup:hover span {
   opacity: 100%;
   width: 30px;
 }
-#email_join #mc_embed_signup.black {
+#email_join #mc_embed_signup.black,
+#members_only_content #mc_embed_signup.black {
   background: #000000;
   color: #ff000a;
   border: 1px;
   border-style: inset;
   border-color: #ff000a;
 }
-#email_join #mc_embed_signup.black:hover {
+#email_join #mc_embed_signup.black:hover,
+#members_only_content #mc_embed_signup.black:hover {
   color: #fff;
   border-color: #fff;
 }
-#email_join #mc_embed_signup.black:hover span img {
+#email_join #mc_embed_signup.black:hover span img,
+#members_only_content #mc_embed_signup.black:hover span img {
   filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(52deg) brightness(106%) contrast(101%);
 }
-#email_join #mc_embed_signup.yellow {
+#email_join #mc_embed_signup.yellow,
+#members_only_content #mc_embed_signup.yellow {
   background: #f5bf04;
   color: #000000;
 }
-#email_join #mc_embed_signup.yellow:hover {
+#email_join #mc_embed_signup.yellow:hover,
+#members_only_content #mc_embed_signup.yellow:hover {
   background: #c4a020;
 }
-#email_join #mc_embed_signup .button {
+#email_join #mc_embed_signup .button,
+#members_only_content #mc_embed_signup .button {
   margin-top: 0;
   width: 100%;
 }
@@ -17461,36 +17503,34 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 
-.members_only_video_pop {
-  display: block;
-}
-
 #members_only_video_pop {
-  display: none;
-  background: #f5bf04;
+  opacity: 0;
+  z-index: -999;
+  background: rgba(0, 0, 0, 0);
   padding: 40px;
   text-align: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  transition: 0.6s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-@media screen and (max-width: 767px) {
-  #members_only_video_pop {
-    padding: 15px;
-  }
-}
-@media screen and (max-width: 550px) {
-  #members_only_video_pop {
-    padding: 10px;
-  }
+#members_only_video_pop.open {
+  opacity: 100%;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
 }
 #members_only_video_pop h2, #members_only_video_pop .h2 {
-  color: #000000;
-  font-size: 34px;
+  font-size: 3rem;
   text-transform: uppercase;
   margin: 20px 0;
-  line-height: 1.1;
+  line-height: 1.4;
 }
 @media screen and (max-width: 767px) {
   #members_only_video_pop h2, #members_only_video_pop .h2 {
-    font-size: 24px;
+    font-size: 2rem;
   }
 }
 @media screen and (max-width: 550px) {
@@ -17508,30 +17548,38 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     max-width: 275px;
   }
 }
-#members_only_video_pop .button_wrap {
-  margin: 40px 0 20px;
+#members_only_video_pop #members_only_content {
+  padding: 40px 20px;
+  position: relative;
 }
 @media screen and (max-width: 550px) {
-  #members_only_video_pop .button_wrap {
-    display: block;
-    margin: 20px 0;
+  #members_only_video_pop #members_only_content {
+    max-width: 100%;
   }
 }
-#members_only_video_pop .button_wrap a {
-  font-size: 26px;
-  text-transform: uppercase;
-}
-@media screen and (max-width: 767px) {
-  #members_only_video_pop .button_wrap a {
-    font-size: 22px;
-  }
+#members_only_video_pop #members_only_content .button {
+  width: 40rem;
 }
 @media screen and (max-width: 550px) {
-  #members_only_video_pop .button_wrap a {
-    padding: 8px 0;
-    display: block;
-    font-size: 4vw;
+  #members_only_video_pop #members_only_content .button {
+    width: 100%;
   }
+}
+#members_only_video_pop #members_only_content .close_popup {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+#members_only_video_pop #members_only_content .close_popup svg {
+  stroke: #fff;
+  width: 20px;
+  height: 20px;
+}
+#members_only_video_pop #members_only_content .close_popup:hover {
+  cursor: pointer;
+}
+#members_only_video_pop #members_only_content .close_popup:hover svg {
+  stroke: #ebebeb;
 }
 
 .simplefavorite-button {
@@ -26381,4 +26429,18 @@ form .acf-spinner {
   background: #000000 !important;
   color: #fff;
   border: 1px solid #fff;
+}
+
+.logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {
+  color: #000000;
+}
+.logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .social_media_column .columns_wrap {
+  background: #fff;
+}
+.logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .social_media_column .columns_wrap .column p a {
+  color: #3d3d3d;
+}
+.logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .filter_controls .search_box input {
+  background-color: #fff;
+  color: #000000;
 }

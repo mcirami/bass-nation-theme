@@ -7,11 +7,13 @@
  */
 
 //$title = get_query_var('pagename');
-
     $type = null;
     $videoLink = get_field('member_lesson_link');
     $id = get_the_ID();
 	$desc = get_field('lesson_description');
+    $videoOnly = get_field('no_video');
+    $pageId = get_query_var('pageId');
+
 
     if (strpos($videoLink, "youtube") !== false) {
         $str = explode("embed/", $videoLink);
@@ -81,7 +83,7 @@
            
             <div class="vid_image_wrap">
                 <?php $totalFileCount = count($fileArray); $fileCount = 0; ?>
-                <a id="<?php echo $hash; ?>" class="play_video"
+                <a id="<?php echo $hash; ?>" class="<?php echo $videoOnly && $pageId == 7 && !is_user_logged_in() ? 'members_only_video_pop' : 'play_video'; ?>"
                     href="#<?php echo $hash;?>"
                     data-type="<?php echo $type;?>"
                     data-src="<?php echo $videoLink . $extension; ?>"
@@ -139,7 +141,6 @@
                             <?php endif; ?>
 
                     <?php endif; ?><!-- video thumbnail -->
-
                 </a>
                 <?php if (is_user_logged_in()) : ?>
                     <div class="button_wrap full_width">

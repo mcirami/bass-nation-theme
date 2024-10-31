@@ -123,23 +123,6 @@ $username = $current_user->user_login;
 </script>
 <?php wp_body_open(); ?>
 
-<!-- <div class="mobile_menu">
-	<div class="logo">
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Academy" />
-	</div>
-
-	<?php /* if (is_user_logged_in()) : */ ?>
-
-		<?php /* wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); */ // remember to assign a menu in the admin to remove the container div ?>
-
-	<?php /*  else : */ ?>
-		<nav role="navigation">
-			<?php /*  wp_nav_menu( array( 'theme_location' => 'mobile', 'container' => false, 'menu_class' => 'header_menu' ) ); */ // remember to assign a menu in the admin to remove the container div ?>
-		</nav>
-
-	<?php /* endif; */ ?>
-</div> -->
-
 <div id="page" class="site">
 	<header id="global_header" class="<?php echo is_user_logged_in() ? "" : "external"; ?>">
 

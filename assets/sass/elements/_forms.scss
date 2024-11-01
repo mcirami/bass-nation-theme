@@ -1135,7 +1135,7 @@ input[type="submit"] {
     line-height: 1.6;
 }
 form {
-    input:not([type="submit"]),
+    input:not([type="submit"]):not(.ed_button),
     input[type="text"],
     input[type="email"],
     select {
@@ -1264,7 +1264,7 @@ form {
 
 .logged-in {
     form {
-        input:not([type="submit"]),
+        input:not([type="submit"]):not(.ed_button),
         input[type="text"],
         input[type="email"],
         select {
@@ -1431,4 +1431,8 @@ form {
 .pmpro_login_wrap .pmpro_card_content,
 .pmpro_lost_password_wrap .pmpro_card_content {
     padding: 0;
+}
+
+.wp-media-buttons {
+    display: none !important;
 }

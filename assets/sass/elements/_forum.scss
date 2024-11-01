@@ -69,8 +69,19 @@
         font-size: 14px;
     }
 
+    .bbp-topic-form,
+    .bbp-reply-form,
+    .bbp-topic-tag-form {
+        width: 100%;
+    }
+
     #new-post {
-        .bbp-the-content-wrapper {
+        .bbp-form {
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        /*  .bbp-the-content-wrapper {
             @include span-columns(12);
         }
 
@@ -84,7 +95,7 @@
             &.rec_text {
                 display: none;
             }
-        }
+        } */
     }
 
     #rtmedia_uploader_filelist {
@@ -131,19 +142,21 @@
         align-items: center;
         justify-content: space-between;
 
+        fieldset.bbp-form label {
+            font-size: 1.3rem;
+        }
+
         .bbp-reply-header {
-            border-bottom-right-radius: 4px;
-            border-bottom-left-radius: 4px;
-            -webkit-border-bottom-left-radius: 4px;
-            -webkit-border-bottom-right-radius: 4px;
-            -moz-border-radius-bottomleft: 4px;
-            -moz-border-radius-bottomright: 4px;
-            background: $lightGray;
-            padding: 4px 15px;
+            padding: 15px 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid;
+            border-color: rgba(61, 61, 61, 0.2);
+            background-color: unset;
+            border-top: none;
 
             a {
                 font-size: 12px;
-                color: $black;
+                color: $darkGray;
             }
         }
 
@@ -151,6 +164,7 @@
             @include interregular;
             margin-left: auto;
             margin-right: 20px;
+            color: $darkGray;
 
             @include media($smallMobile) {
                 width: 60%;
@@ -158,7 +172,7 @@
             }
 
             a {
-                color: $red;
+                color: $yellow;
                 font-size: 16px;
 
                 @include media($mobile) {
@@ -166,7 +180,7 @@
                 }
 
                 &:hover {
-                    color: #c30b21;
+                    color: $yellowHover;
                 }
             }
         }
@@ -212,7 +226,7 @@
 
         li.bbp-header {
             line-height: 1;
-            background: $black;
+            background: $darkGray;
             color: $white;
             padding: 15px;
             @include intermedium;
@@ -220,6 +234,7 @@
             border-radius: 6px;
             -webkit-border-radius: 6px;
             -moz-border-radius: 6px;
+            border-top: none;
 
             @include media($tablet) {
                 font-size: 14px;
@@ -307,7 +322,6 @@
                 background: transparent;
                 font-size: 16px;
                 padding-right: 15px;
-                color: $lightYellow;
 
                 @include media($tablet) {
                     font-size: 14px;
@@ -322,8 +336,6 @@
                 }
 
                 a {
-                    color: $lightYellow;
-
                     @include media($tablet) {
                         font-size: 14px;
                     }
@@ -354,8 +366,11 @@
             ul.forum {
                 position: relative;
                 font-size: 16px;
-                border-top: 1px solid $borderGray;
-                padding: 10px 0;
+                border-top: none;
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 10px;
+                box-shadow: inset -1px 0px 50px -8px rgba(155, 155, 155, 0.1);
 
                 @include media($tablet) {
                     font-size: 14px;
@@ -373,6 +388,10 @@
                 border: none;
                 display: flex;
                 justify-content: space-between;
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 10px;
+                box-shadow: inset -1px 0px 50px -8px rgba(155, 155, 155, 0.1);
             }
 
             li.bbp-forum-info {
@@ -482,12 +501,8 @@
                 .bbp-author-name {
                     width: 100%;
                     float: left;
-                    text-align: left;
+                    text-align: center;
                     padding-top: 10px;
-
-                    @include media($tablet) {
-                        text-align: center;
-                    }
                 }
 
                 a {
@@ -680,15 +695,12 @@
             display: none;
         }
 
-        div.odd,
-        ul.odd {
-            background: $white;
+        .topic-author {
             padding-left: 0;
-        }
-
-        div.even,
-        ul.even {
-            padding-left: 0;
+            padding: 0 20px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: inset -1px 0px 50px -8px rgba(155, 155, 155, 0.1);
         }
 
         p.bbp-topic-meta {
@@ -785,6 +797,10 @@
             display: flex;
             justify-content: space-between;
 
+            @include media($mobile) {
+                font-size: 1.4rem;
+            }
+
             .bbp-topic-freshness {
                 text-align: center;
             }
@@ -802,7 +818,6 @@
         }
 
         .bbp-pagination-count {
-            background: $lightYellow;
             padding: 3px 5px;
             font-size: 14px;
 
@@ -824,6 +839,7 @@
 
         .bbp-replies {
             border: none;
+            width: 100%;
 
             hr {
                 width: 100%;
@@ -1024,21 +1040,6 @@
                         width: 63%;
                     }
                 }
-            }
-        }
-
-        div.even,
-        div.odd {
-            width: 100%;
-            float: left;
-            padding: 20px 20px 60px 0;
-
-            @include media($smallMobile) {
-                padding: 20px 5px 60px 0;
-            }
-
-            &.attach {
-                padding-bottom: 0;
             }
         }
 
@@ -1315,27 +1316,11 @@
 
     .bbp-submit-wrapper {
         button {
-            @include interregular;
-            color: $white;
-            background: $red;
-            padding: 5px 20px 7px;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            font-size: 18px;
-            border: none;
+            @include basicButton;
+            background: $yellow;
 
             &:hover {
-                background: #c30b21;
-            }
-
-            @include media($tablet) {
-                font-size: 14px;
-            }
-
-            @include media($mobile) {
-                font-size: 16px;
-                padding: 4px 18px 6px;
+                background: $yellowHover;
             }
         }
     }
@@ -1377,6 +1362,8 @@
 }
 
 .bbp-reply-form {
+    width: 100%;
+
     input[type="text"] {
         width: 100%;
         float: left;
@@ -1414,6 +1401,54 @@
 label[for="bbp_topic_subscription"] {
     @include media($mobile) {
         font-size: 12px;
+    }
+}
+
+.wp-editor-container {
+    border: 1px solid #c8c8c8 !important;
+    border-radius: 6px;
+
+    .quicktags-toolbar {
+        background: none;
+        border-bottom: none;
+        display: flex;
+        gap: 10px;
+        box-shadow: 3px 5px 26px -10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 10px;
+
+        input {
+            border: 1px solid transparent;
+            color: $darkGray;
+            background: none;
+            font-size: 1.5rem !important;
+
+            &:hover {
+                background: none;
+                border-color: rgba(61, 61, 61, 0.2);
+                border-style: inset;
+            }
+        }
+    }
+
+    textarea {
+        border: none !important;
+    }
+}
+
+.options_wrap {
+    display: flex;
+    justify-content: space-between;
+
+    @include media($mobile) {
+        flex-wrap: wrap;
+    }
+
+    p {
+        width: 33%;
+
+        @include media($mobile) {
+            width: 100%;
+        }
     }
 }
 

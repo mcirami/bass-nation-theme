@@ -265,6 +265,103 @@
             border: 1px solid $white;
         }
     }
+
+    .forum_wrapper {
+        #bbpress-forums {
+            .bbp-breadcrumb {
+                a {
+                    color: $darkModeRed;
+                }
+
+                .bbp-breadcrumb-current {
+                    color: $grayText;
+                }
+            }
+
+            li.bbp-body {
+                li.bbp-topic-title {
+                    a {
+                        color: $grayText;
+                    }
+
+                    p {
+                        color: $darkModeRed;
+                    }
+                }
+
+                ul.topic {
+                    color: $grayText;
+                    background: $darkerGray;
+                }
+
+                li.bbp-topic-freshness a:last-child {
+                    color: $darkModeRed;
+                }
+            }
+
+            .wp-editor-container .quicktags-toolbar {
+                box-shadow: 3px 5px 50px -12px rgba(155, 155, 155, 0.2);
+
+                input {
+                    background: none;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                        background: none;
+                        border: 1px solid;
+                        border-color: rgba(255, 255, 255, 0.4);
+                        border-style: inset;
+                        border-radius: 4px;
+                    }
+                }
+            }
+
+            div.bbp-template-notice,
+            div.indicator-hint {
+                background-color: rgba(255, 255, 224, 0.8);
+                color: $darkerGray;
+                border: 1px soild;
+                border-color: rgba(255, 255, 224, 0.8);
+            }
+
+            fieldset.bbp-form label,
+            .bbp-pagination-count,
+            fieldset.bbp-form legend {
+                color: $grayText;
+            }
+        }
+    }
+
+    .sidebar {
+        .widget-title {
+            color: $grayText;
+        }
+
+        #bbp-search-form input[type="text"] {
+            border-color: $white;
+        }
+
+        ul li a {
+            color: $grayText;
+
+            &:before {
+                filter: invert(65%) sepia(0%) saturate(0%) hue-rotate(193deg)
+                    brightness(90%) contrast(90%);
+            }
+
+            &:hover {
+                color: $yellow;
+
+                &:before {
+                    background: url("../images/icon-right-triangle.png")
+                        no-repeat;
+                    background-size: 100%;
+                    background-position: center;
+                    filter: none;
+                }
+            }
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

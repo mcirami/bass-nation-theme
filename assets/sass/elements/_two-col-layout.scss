@@ -2,6 +2,8 @@
     color: $white;
 
     .two_column_section {
+        padding-bottom: 100px;
+
         .columns_wrap {
             display: flex;
             justify-content: center;
@@ -264,12 +266,6 @@
                     }
                 }
             }
-        }
-    }
-
-    &.login {
-        .two_column_section {
-            padding-bottom: 100px;
         }
     }
 

@@ -138,7 +138,7 @@ select {
     }
 }
 
-.button {
+.button:not(.ed_button) {
     @include basicButton;
 }
 

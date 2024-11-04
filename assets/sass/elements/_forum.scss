@@ -150,7 +150,7 @@
             padding: 15px 10px;
             margin-bottom: 20px;
             border-bottom: 1px solid;
-            border-color: rgba(61, 61, 61, 0.2);
+            border-color: rgba(155, 155, 155, 0.2);
             background-color: unset;
             border-top: none;
 
@@ -869,12 +869,19 @@
                 float: left;
                 width: 50%;
                 text-align: left;
+                display: flex;
+                flex-direction: column;
 
                 @include media($mobile) {
                     font-size: 12px;
                     width: 37%;
                     margin: 0;
                     padding-left: 0;
+                }
+
+                a {
+                    display: flex;
+                    flex-direction: column;
                 }
 
                 > p {
@@ -947,7 +954,6 @@
                     clear: none;
                     font-size: 16px;
                     color: $red;
-                    margin: 12px 5px 0;
 
                     @include media($tablet) {
                         width: 100%;
@@ -970,7 +976,7 @@
                     border-radius: 4px;
                     -webkit-border-radius: 4px;
                     -moz-border-radius: 4px;
-                    margin-top: 15px;
+                    width: 8rem;
 
                     @include media($tablet) {
                         font-size: 11px;
@@ -988,8 +994,6 @@
 
                 .bbp-reply-post-date {
                     float: left;
-                    width: 75%;
-                    margin-left: 5px;
                     color: $grayText;
 
                     @include media($tablet) {
@@ -1736,4 +1740,9 @@ label[for="bbp_topic_subscription"] {
     input[type="submit"] {
         margin-top: 0;
     }
+}
+
+#bbpress-forums div.odd,
+#bbpress-forums ul.odd {
+    background-color: unset;
 }

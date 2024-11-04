@@ -20301,7 +20301,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding: 15px 10px;
   margin-bottom: 20px;
   border-bottom: 1px solid;
-  border-color: rgba(61, 61, 61, 0.2);
+  border-color: rgba(155, 155, 155, 0.2);
   background-color: unset;
   border-top: none;
 }
@@ -21032,6 +21032,8 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   float: left;
   width: 50%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
 @media screen and (max-width: 767px) {
   .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author {
@@ -21040,6 +21042,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     margin: 0;
     padding-left: 0;
   }
+}
+.forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author a {
+  display: flex;
+  flex-direction: column;
 }
 .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author > p {
   position: absolute;
@@ -21106,7 +21112,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   clear: none;
   font-size: 16px;
   color: #ff000a;
-  margin: 12px 5px 0;
 }
 @media screen and (max-width: 991px) {
   .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author .bbp-author-name {
@@ -21130,7 +21135,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
-  margin-top: 15px;
+  width: 8rem;
 }
 @media screen and (max-width: 991px) {
   .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author .bbp-author-role {
@@ -21148,8 +21153,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .forum_wrapper #bbpress-forums .bbp-body div.bbp-reply-author .bbp-reply-post-date {
   float: left;
-  width: 75%;
-  margin-left: 5px;
   color: #959494;
 }
 @media screen and (max-width: 991px) {
@@ -21998,6 +22001,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .subscribe_all input[type=submit] {
   margin-top: 0;
+}
+
+#bbpress-forums div.odd,
+#bbpress-forums ul.odd {
+  background-color: unset;
 }
 
 .form_wrapper {

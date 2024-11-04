@@ -6350,6 +6350,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 2.3576515979%;
   width: 100%;
   list-style: none;
+  margin: 0;
 }
 #comments ol:last-child {
   margin-right: 0;

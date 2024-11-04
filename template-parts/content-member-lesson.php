@@ -130,7 +130,7 @@
                     >
 
             <?php endif; ?><!-- type -->
-                        <span class="lesson_description" style="display: none;"><?php echo $desc; ?></span>
+                        <span class="lesson_description" style="display: none; z-index: -999;"><?php echo $desc; ?></span>
 
                         <?php
                                 $attachment_id = get_field('og_image');

@@ -710,24 +710,65 @@ jQuery(document).ready(function ($) {
         shuffleInstance.layout();
 
         var filterButtons = document.querySelectorAll("li[data-group]");
+        let filterGroup = [];
 
         filterButtons.forEach(function (button) {
             button.addEventListener("click", function () {
+                const isActive = button.classList.contains("active");
                 var group = button.getAttribute("data-group");
 
                 if (group === "all") {
+                    removeActiveClassFromButtons();
+                    button.classList.add("active");
                     shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                } else if (isActive) {
+                    button.classList.remove("active");
+                    filterGroup = filterGroup.filter(
+                        (number) => number != group
+                    );
+
+                    if (filterGroup.length > 0) {
+                        shuffleInstance.filter(filterGroup);
+                    } else {
+                        document
+                            .querySelector("li.all")
+                            .classList.add("active");
+                        shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                    }
                 } else {
+                    button.classList.add("active");
+                    if (document.querySelector("li.active.all")) {
+                        document
+                            .querySelector("li.active.all")
+                            .classList.remove("active");
+                    }
+
                     shuffleInstance.filter(function (element) {
-                        return element
-                            .getAttribute("data-groups")
-                            .includes(group);
+                        const elGroups = element.getAttribute("data-groups");
+
+                        if (
+                            elGroups.includes(group) &&
+                            !filterGroup.includes(group)
+                        ) {
+                            filterGroup.push(group);
+                        }
                     });
+
+                    shuffleInstance.filter(filterGroup);
                 }
             });
         });
 
         addSearchFilter(shuffleInstance);
+    }
+
+    function removeActiveClassFromButtons() {
+        const activeFilters = document.querySelectorAll(
+            ".filter_list li.active"
+        );
+        activeFilters.forEach((filter) => {
+            filter.classList.remove("active");
+        });
     }
 
     function addSearchFilter(shuffleInstance) {
@@ -760,7 +801,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    $(".filter_list li").click(function () {
+    /* $(".filter_list li").click(function () {
         if (!$(this).hasClass("all")) {
             $(this).toggleClass("active");
             $(".filter_list li.all").removeClass("active");
@@ -781,7 +822,7 @@ jQuery(document).ready(function ($) {
             $(".filter_list li").removeClass("active");
             $(this).addClass("active");
         }
-    });
+    }); */
 
     $(".play_video").on("click", function () {
         let videoPlayer = "";

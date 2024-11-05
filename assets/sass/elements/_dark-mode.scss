@@ -268,6 +268,10 @@
 
     .forum_wrapper {
         #bbpress-forums {
+            span.bbp-admin-links a {
+                color: $grayText;
+            }
+
             .bbp-breadcrumb {
                 a {
                     color: $darkModeRed;
@@ -289,9 +293,21 @@
                     }
                 }
 
-                ul.topic {
-                    color: $grayText;
-                    background: $darkerGray;
+                ul {
+                    &.topic,
+                    &.forum {
+                        color: $grayText;
+                        background: $darkerGray;
+
+                        .bbp-forum-title {
+                            color: $grayText;
+                        }
+                    }
+                }
+
+                .type-reply,
+                .type-topic {
+                    background-color: $darkerGray;
                 }
 
                 li.bbp-topic-freshness a:last-child {
@@ -335,6 +351,10 @@
     .sidebar {
         .widget-title {
             color: $grayText;
+        }
+
+        .widget {
+            border-color: $white;
         }
 
         #bbp-search-form input[type="text"] {

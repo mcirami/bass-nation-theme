@@ -146,6 +146,11 @@
             font-size: 1.3rem;
         }
 
+        div.bbp-the-content-wrapper {
+            width: 100%;
+            display: inline-block;
+        }
+
         .bbp-reply-header {
             padding: 15px 10px;
             margin-bottom: 20px;
@@ -385,9 +390,17 @@
                 position: relative;
                 padding-left: 0;
                 padding-right: 0;
-                border: none;
+                border: none !important;
                 display: flex;
                 justify-content: space-between;
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 10px;
+                box-shadow: inset -1px 0px 50px -8px rgba(155, 155, 155, 0.1);
+            }
+
+            .type-topic,
+            .type-reply {
                 padding: 20px;
                 margin: 10px 0;
                 border-radius: 10px;
@@ -977,6 +990,7 @@
                     -webkit-border-radius: 4px;
                     -moz-border-radius: 4px;
                     width: 8rem;
+                    text-align: center;
 
                     @include media($tablet) {
                         font-size: 11px;

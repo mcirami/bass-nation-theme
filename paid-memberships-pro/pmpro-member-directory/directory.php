@@ -172,7 +172,9 @@ function pmpromd_shortcode($atts, $content=null, $code="")
 						<input type="hidden" name="pn" value="1" />
 						<input type="hidden" name="limit" value="<?php echo esc_attr($limit);?>" />
 					</label>
-					<input type="submit" class="search-submit" value="<?php _e('Search','pmpro-member-directory'); ?>">
+					<button type="submit">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/icon-search.png" alt="">
+					</button>
 				</form>
 			<?php } ?>
 
@@ -604,7 +606,12 @@ function pmpromd_shortcode($atts, $content=null, $code="")
 								?>
 								<?php if(!empty($link) && !empty($profile_url)) { ?>
 									<p class="pmpro_member_directory_link">
-										<a target="_self" class="more-link button black" href="<?php echo esc_url( pmpromd_build_profile_url( $auser, $profile_url ) ); ?>"><?php _e('View Profile','pmpro-member-directory'); ?></a>
+										<a target="_self" class="more-link button yellow" href="<?php echo esc_url( pmpromd_build_profile_url( $auser, $profile_url ) ); ?>">
+											<?php _e('View Profile','pmpro-member-directory'); ?>
+											<span>
+												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+											</span>
+										</a>
 									</p>
 								<?php } ?>
 							</div>
@@ -659,7 +666,12 @@ function pmpromd_shortcode($atts, $content=null, $code="")
 					$query_args = apply_filters( 'pmpromd_pagination_url', $query_args, 'prev' );
 					?>
 					<span class="pmpro_prev">
-						<a target="_self" class="button red" style="color: #ffffff;" href="<?php echo esc_url(add_query_arg( $query_args, get_permalink($post->ID)));?>">&laquo; <?php _e('Previous','pmpro-member-directory'); ?></a>
+						<a target="_self" class="button black" href="<?php echo esc_url(add_query_arg( $query_args, get_permalink($post->ID)));?>">
+							<?php _e('Previous','pmpro-member-directory'); ?>
+							<span>
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+							</span>
+						</a>
 					</span>
 					<?php
 				}
@@ -704,7 +716,12 @@ function pmpromd_shortcode($atts, $content=null, $code="")
 					$query_args = apply_filters( 'pmpromd_pagination_url', $query_args, 'next' );
 					?>
 					<span class="pmpro_next">
-						<a target="_self" class="button red" style="color: #ffffff;" href="<?php echo esc_url( add_query_arg( $query_args, get_permalink( $post->ID ) ) );?>"><?php _e( 'Next', 'pmpro-member-directory' ); ?> &raquo;</a>
+						<a target="_self" class="button black" href="<?php echo esc_url( add_query_arg( $query_args, get_permalink( $post->ID ) ) );?>">
+							<?php _e( 'Next', 'pmpro-member-directory' ); ?>
+							<span>
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+							</span>
+						</a>
 					</span>
 					<?php
 				}

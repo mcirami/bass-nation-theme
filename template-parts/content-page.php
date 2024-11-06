@@ -13,9 +13,17 @@
 	<div class="page_content full_width <?php if (is_user_logged_in()){ echo "member";} ?>">
 			<header>
 				<?php if (is_page('member-profile')): ?>
-					<h1 class="entry-titlem sub_header">Bass Nation Directory Profile</h1>
+					<header class="sub_header full_width">
+        				<div class="container">
+							<h2>Bass Nation Directory Profile</h2>
+						</div>
+					</header>
 				<?php else : ?>
-					<h1 class="entry-titlem sub_header"><?php the_title(); ?></h1>
+					<header class="sub_header full_width">
+        				<div class="container">
+							<h2><?php the_title(); ?></h2>
+						</div>
+					</header>
 				<?php endif; ?>
 			</header>
 		<?php if (pmpro_hasMembershipLevel() ||

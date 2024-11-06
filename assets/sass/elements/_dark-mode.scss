@@ -382,6 +382,43 @@
             }
         }
     }
+
+    .directory_wrapper {
+        .pmpro_pagination {
+            .pmpro_page_numbers a:not(.pmpro_page_active) {
+                color: $darkModeRed;
+
+                &:hover {
+                    color: $darkRed;
+                }
+            }
+        }
+
+        .pmpro_member_directory {
+            .pmpro_member_directory-item {
+                background: $darkerGray;
+            }
+
+            .content_wrap {
+                p {
+                    color: $darkModeRed;
+                }
+                .label {
+                    p {
+                        color: $grayText;
+                    }
+                }
+
+                a {
+                    color: $darkModeRed;
+
+                    &.button {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {
@@ -401,6 +438,22 @@
         .filter_controls .search_box input {
             background-color: $white;
             color: $black;
+        }
+    }
+
+    .directory_wrapper .pmpro_pagination {
+        .pmpro_next,
+        .pmpro_prev {
+            a {
+                &:hover {
+                    color: $black;
+                    border-color: $black;
+
+                    span img {
+                        filter: unset;
+                    }
+                }
+            }
         }
     }
 }

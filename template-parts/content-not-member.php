@@ -17,7 +17,7 @@
 								<p>then only <span>$9.99/mo</span> after that!</p>
 							</div>
 							<div class="button_wrap">
-								<a class="button yellow" href="/register">
+								<a class="button yellow" href="/membership-account/membership-levels/">
 									Start My 3 Day Free Trial Now!
 									<span>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>

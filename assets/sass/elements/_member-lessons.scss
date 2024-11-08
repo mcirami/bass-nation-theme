@@ -446,7 +446,7 @@
                         }
                         &:hover {
                             &:before {
-                                contain: "";
+                                content: "";
                                 text-align: center;
                                 background: url("../images/go-arrow.png")
                                     no-repeat;

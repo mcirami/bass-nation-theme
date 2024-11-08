@@ -109,20 +109,20 @@ foreach ( $level_groups as $level_group ) {
 					<p>Bass Nation Membership</p>
 					<div class="button_wrap full_width">
 						<?php if(empty($current_user->membership_level->ID)) { ?>
-							<a class="pmpro_btn pmpro_btn-select button round_button" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
+							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
 						<?php } elseif ( !$current_level ) { ?>
-							<a class="pmpro_btn pmpro_btn-select button round_button" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
+							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
 						<?php } elseif($current_level) { ?>
 
 							<?php
 							//if it's a one-time-payment level, offer a link to renew
 							if( pmpro_isLevelExpiringSoon( $current_user->membership_level) && $current_user->membership_level->allow_signups ) {
 								?>
-								<a class="pmpro_btn pmpro_btn-select button round_button" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('Renew', 'pmpro');?></a>
+								<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('Renew', 'pmpro');?></a>
 								<?php
 							} else {
 								?>
-								<a class="pmpro_btn disabled button round_button" href="<?php echo pmpro_url("account")?>"><?php _e('Your&nbsp;Level', 'pmpro');?></a>
+								<a class="pmpro_btn disabled button yellow" href="<?php echo pmpro_url("account")?>"><?php _e('Your&nbsp;Level', 'pmpro');?></a>
 								<?php
 							}
 							?>

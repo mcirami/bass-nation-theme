@@ -1,418 +1,431 @@
 .profile_wrap {
-	@include span-columns(12);
-	position: relative;
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	padding-bottom: 80px;
+    @include span-columns(12);
+    position: relative;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    padding-bottom: 80px;
 
-	@include media($mobile) {
-		padding-bottom: 40px;
-	}
+    @include media($mobile) {
+        padding-bottom: 40px;
+    }
 
-	.pmpro_message.pmpro_success {
-		position: absolute;
-		z-index: 1;
-		right: 50%;
-		text-align: center;
-		transform: translateX(140px);
-		-webkit-transform: translateX(140px);
-		-ms-transform: translateX(140px);
-		-o-transform: translateX(140px);
-		-moz-transform: translateX(140px);
-		font-size: 18px;
-	}
-	
-	input {
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-	}
-	
-	#your-profile {
-		> h3 {
-			display: none;
-		}
-	}
+    .pmpro_form_fields {
+        width: 100%;
+    }
 
-	.cover_img {
-		max-height: 300px;
-		overflow-y: hidden;
-	}
+    .pmpro_message.pmpro_success {
+        position: absolute;
+        z-index: 1;
+        right: 50%;
+        text-align: center;
+        transform: translateX(140px);
+        -webkit-transform: translateX(140px);
+        -ms-transform: translateX(140px);
+        -o-transform: translateX(140px);
+        -moz-transform: translateX(140px);
+        font-size: 18px;
+    }
 
-	.avatar_wrap img {
-		position: absolute;
-		top: -88px;
-		left: 24px;
-		z-index: 1;
-		width: 150px;
-		border-radius: 100%;
-		-webkit-border-radius: 100%;
-		-moz-border-radius: 100%;
-		border: 4px solid $yellow;
+    input {
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+    }
 
-		@include media($mobile) {
-			top: -55px;
-			width: 100px;
-		}
-	}
+    #your-profile {
+        > h3 {
+            display: none;
+        }
+    }
 
-	.form_wrap {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		width: 100%;
-		padding: 40px;
-		background: $lightGray;
-		-webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		-moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		border: 1px solid $borderGray;
+    .cover_img {
+        max-height: 300px;
+        overflow-y: hidden;
+    }
 
-		@include media($tablet) {
-			flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
-		}
-	}
+    .avatar_wrap img {
+        position: absolute;
+        top: -88px;
+        left: 24px;
+        z-index: 1;
+        width: 150px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border: 4px solid $yellow;
 
-	.pmpro_member_profile_edit_wrap {
-		padding: 40px 40px 0 0;
-		margin-bottom: 0;
+        @include media($mobile) {
+            top: -55px;
+            width: 100px;
+        }
+    }
 
-		@include media($tablet) {
-			padding-right: 0;
-		}
-	}
+    .form_wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        width: 100%;
+        padding: 40px;
+        background: $lightGray;
+        -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        border: 1px solid $borderGray;
 
-	.image_wrap {
-		@include span-columns(6);
-		background: $white;
-		padding: 20px;
-		-webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		-moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		border: 1px solid $borderGray;
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		
-		@include media($mobile){
-			@include span-columns(4);
-			line-height: 1.4;
-		}
-		
-		label {
-			@include interregular;
-			color: #000;
-			width: auto;
-			float: left;
-			font-size: 16px;
-			margin-right: 10px;
-			
-			@include media($mobile){
-				font-size: 14px;
-			}
-		}
-		
-		input {
-			border: none;
-			float: left;
-			width: auto;
-			padding: 1px 0 0 0;
-			height: auto;
-			margin: 0;
-			font-size: 16px;
-			background: $white;
-		}
-		
-		.description {
-			@include span-columns(12);
-			font-size: 13px;
-			
-			@include media($mobile){
-				font-size: 11px;
-			}
-		}
-	}
-	
-	form {
-		@include span-columns(12);
-		padding: 40px 40px 40px 0;
+        @include media($tablet) {
+            flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+        }
+    }
 
-		.pmpro_checkout-field {
-			@include span-columns(12);
-		}
+    .pmpro_member_profile_edit_wrap {
+        padding: 40px 40px 0 0;
+        margin-bottom: 0;
 
-		.pmpro_btn {
-			@include interregular;
-			font-size: 16px;
-			padding: 7px 15px;
-			border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			background: $red;
-			color: $white;
-			border: none;
-			
-			&:hover {
-				background: $darkRed;
-				color: $white;
-			}
+        @include media($tablet) {
+            padding-right: 0;
+        }
+    }
 
-			&.pmpro_btn-cancel {
-				background: $black;
+    .pmpro_form_label,
+    .pmpro_form_input {
+        color: $black;
+    }
 
-				&:hover {
-					background: #4D4D54;
-				}
-			}
-			
-			@include media($tablet){
-				padding: 6px 12px;
-				font-size: 14px;
-			}
-			
-			@include media($mobile){
-				padding: 7px 10px;
-				font-size: 12px;
-			}
-			
-			@include media($smallMobile){
-				padding: 5px 8px;
-			}
-		}
+    .image_wrap {
+        @include span-columns(6);
+        background: $white;
+        padding: 20px;
+        -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
+        border: 1px solid $borderGray;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
 
-		input[type="text"], input[type="email"], select, textarea {
-			@include span-columns(12);
-			max-width: unset !important;
-			border: 1px solid $borderGray;
+        @include media($mobile) {
+            @include span-columns(4);
+            line-height: 1.4;
+        }
 
-			@include media($mobile) {
-				width: 100% !important;
-			}
-		}
+        label {
+            @include interregular;
+            color: $black;
+            width: auto;
+            float: left;
+            font-size: 16px;
+            margin-right: 10px;
 
-		.pmpro_asterisk {
-			display: none;
-		}
+            @include media($mobile) {
+                font-size: 14px;
+            }
+        }
 
-		label {
-			@include media($mobile) {
-				font-size: 13px;
-			}
-		}
+        input {
+            border: none;
+            float: left;
+            width: auto;
+            padding: 1px 0 0 0;
+            height: auto;
+            margin: 0;
+            font-size: 16px;
+            background: $white;
+        }
 
-		.pmpro_member_profile_edit-field-hide_directory {
-			display: none;
-		}
+        .description {
+            @include span-columns(12);
+            font-size: 13px;
 
-		.pmpro_checkout_box-user, .pmpro_checkout_box-more-information {
-			@include span-columns(6);
+            @include media($mobile) {
+                font-size: 11px;
+            }
+        }
+    }
 
-			@include media($mobile) {
-				@include span-columns(4);
-			}
-		}
+    form {
+        @include span-columns(12);
+        padding: 40px 40px 40px 0;
 
-		.pmpro_checkout_box-more-information {
-			margin-right: 0;
+        .pmpro_checkout-field {
+            @include span-columns(12);
+        }
 
-			> h2 {
-				display: none;
-			}
-		}
+        .pmpro_btn {
+            @include interregular;
+            font-size: 16px;
+            padding: 7px 15px;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            background: $red;
+            color: $white;
+            border: none;
 
-		&.pmpro_form .pmpro_member_profile_edit-fields div {
-			margin: 0;
-		}
+            &:hover {
+                background: $darkRed;
+                color: $white;
+            }
 
-		#description_div {
-			margin-top: 20px;
+            &.pmpro_btn-cancel {
+                background: $black;
 
-			textarea {
-				padding: 10px;
-			}
-		}
+                &:hover {
+                    background: #4d4d54;
+                }
+            }
 
-		.pmpro_submit {
-			@include span-columns(12);
+            @include media($tablet) {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
 
-			hr {
-				display: none;
-			}
+            @include media($mobile) {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
 
-			input {
-				background-color: $red;
-				color: $white;
-				margin-bottom: 0;
+            @include media($smallMobile) {
+                padding: 5px 8px;
+            }
+        }
 
-				&:hover {
-					background-color: $darkRed;
-				}
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            @include span-columns(12);
+            max-width: unset !important;
+            border: 1px solid $borderGray;
 
-				&.pmpro_btn-cancel {
-					display: none;
-				}
-			}
-		}
+            @include media($mobile) {
+                width: 100% !important;
+            }
+        }
 
-		input {
-			height: 40px;
-			margin-bottom: 20px;
+        .pmpro_asterisk {
+            display: none;
+        }
 
-			@include media($tablet) {
-				margin-bottom: 10px;
-			}
+        label {
+            @include media($mobile) {
+                font-size: 13px;
+            }
+        }
 
-			@include media($mobile) {
-				height: 35px;
-				margin-top: 5px;
-			}
-		}
+        .pmpro_member_profile_edit-field-hide_directory {
+            display: none;
+        }
 
-		select {
-			background: $white;
-			height: 40px;
-			border: 1px solid $borderGray;
+        .pmpro_checkout_box-user,
+        .pmpro_checkout_box-more-information {
+            @include span-columns(6);
 
-			@include media($mobile) {
-				font-size: 13px;
-				height: 35px;
-			}
-		}
+            @include media($mobile) {
+                @include span-columns(4);
+            }
+        }
 
-		.password {
-			@include span-columns(12);
-			margin-bottom: 20px;
+        .pmpro_checkout_box-more-information {
+            margin-right: 0;
 
-			tbody {
-				@include span-columns(12);
+            > h2 {
+                display: none;
+            }
+        }
 
-				tr {
-					@include span-columns(12);
+        &.pmpro_form .pmpro_member_profile_edit-fields div {
+            margin: 0;
+        }
 
-					label {
-						margin-bottom: 10px;
-					}
+        #description_div {
+            margin-top: 20px;
 
-					button {
-						background: #ddb72e;
-					}
-				}
-			}
-		}
-	}
+            textarea {
+                padding: 10px;
+            }
+        }
 
-	.avatar_upload {
-		border-left: 1px solid $red;
-		padding-top: 10px;
+        .pmpro_submit {
+            @include span-columns(12);
 
-		@include media($tablet) {
-			border-left: none;
-			border-top: 1px solid $red;
-			margin-top: 40px;
-		}
+            hr {
+                display: none;
+            }
 
-		#basic-user-avatar-form {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			-ms-flex-wrap: nowrap;
-			flex-wrap: nowrap;
-			padding: 40px 40px 0;
-			height: 100%;
+            input {
+                background-color: $red;
+                color: $white;
+                margin-bottom: 0;
 
-			@include media($tablet) {
-				padding-left: 0;
-			}
+                &:hover {
+                    background-color: $darkRed;
+                }
 
-			> img {
-				max-width: 100px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-			}
+                &.pmpro_btn-cancel {
+                    display: none;
+                }
+            }
+        }
 
-			h3 {
-				margin-bottom: 10px;
-				margin-top: 0;
-				font-size: 24px;
-			}
+        input {
+            height: 40px;
+            margin-bottom: 20px;
 
-			input[type="submit"] {
-				@include interregular;
-				font-size: 16px;
-				padding: 7px 15px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				height: 40px;
-				background: $red;
-				color: $white;
-				border: none;
-				margin-bottom: 0;
-				width: 150px;
+            @include media($tablet) {
+                margin-bottom: 10px;
+            }
 
-				&:hover {
-					background: $darkRed;
-				}
+            @include media($mobile) {
+                height: 35px;
+                margin-top: 5px;
+            }
+        }
 
-				@include media($mobile) {
-					@include span-columns(4);
-				}
-			}
+        select {
+            background: $white;
+            height: 40px;
+            border: 1px solid $borderGray;
 
-			input[type="file"] {
-				margin-bottom: 0;
-				height: auto;
-				margin-top: 10px;
-			}
+            @include media($mobile) {
+                font-size: 13px;
+                height: 35px;
+            }
+        }
 
-			input[type="checkbox"] {
-				margin: 20px 0 0;
-				height: auto;
-			}
+        .password {
+            @include span-columns(12);
+            margin-bottom: 20px;
 
-			button {
-				background: #aeabab;
-				padding: 8px 5px;
-				height: 40px;
+            tbody {
+                @include span-columns(12);
 
-				@include media($mobile) {
-					height: 35px;
-					padding: 8px 12px;
-					width: auto;
-				}
-			}
-		}
-	}
+                tr {
+                    @include span-columns(12);
+
+                    label {
+                        margin-bottom: 10px;
+                    }
+
+                    button {
+                        background: #ddb72e;
+                    }
+                }
+            }
+        }
+    }
+
+    .avatar_upload {
+        border-left: 1px solid $red;
+        padding-top: 10px;
+
+        @include media($tablet) {
+            border-left: none;
+            border-top: 1px solid $red;
+            margin-top: 40px;
+        }
+
+        #basic-user-avatar-form {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            padding: 40px 40px 0;
+            height: 100%;
+
+            @include media($tablet) {
+                padding-left: 0;
+            }
+
+            > img {
+                max-width: 100px;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+            }
+
+            h3 {
+                margin-bottom: 10px;
+                margin-top: 0;
+                font-size: 24px;
+            }
+
+            input[type="submit"] {
+                @include interregular;
+                font-size: 16px;
+                padding: 7px 15px;
+                border-radius: 4px;
+                -webkit-border-radius: 4px;
+                -moz-border-radius: 4px;
+                height: 40px;
+                background: $red;
+                color: $white;
+                border: none;
+                margin-bottom: 0;
+                width: 150px;
+
+                &:hover {
+                    background: $darkRed;
+                }
+
+                @include media($mobile) {
+                    @include span-columns(4);
+                }
+            }
+
+            input[type="file"] {
+                margin-bottom: 0;
+                height: auto;
+                margin-top: 10px;
+            }
+
+            input[type="checkbox"] {
+                margin: 20px 0 0;
+                height: auto;
+                width: auto;
+            }
+
+            button {
+                background: #aeabab;
+                padding: 8px 5px;
+                height: 40px;
+
+                @include media($mobile) {
+                    height: 35px;
+                    padding: 8px 12px;
+                    width: auto;
+                }
+            }
+        }
+    }
 }
 
 #update-password {
-	.pw-weak {
-		text-align: left;
-		float: left;
-		
-		input {
-			height: auto;
-		}
-	}
-	.button_wrap {
-		float: right;
-	}
+    .pw-weak {
+        text-align: left;
+        float: left;
 
+        input {
+            height: auto;
+        }
+    }
+    .button_wrap {
+        float: right;
+    }
 }
 
 .entry-meta {
-	@include span-columns(12);
+    @include span-columns(12);
 }

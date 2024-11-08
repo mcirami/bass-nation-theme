@@ -18150,7 +18150,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   content: none;
 }
 .lessons_page .videos_wrap .column .vid_image_wrap.all_courses a:not(.video_files):hover:before {
-  contain: "";
+  content: "";
   text-align: center;
   background: url("../images/go-arrow.png") no-repeat;
   background-size: 20%;
@@ -23370,6 +23370,7 @@ form .acf-spinner {
   background-color: unset;
   border: none;
   margin: 0;
+  box-shadow: unset;
 }
 .pmpro .pmpro_section {
   margin: 0;
@@ -23687,6 +23688,9 @@ form .acf-spinner {
     padding-bottom: 40px;
   }
 }
+.profile_wrap .pmpro_form_fields {
+  width: 100%;
+}
 .profile_wrap .pmpro_message.pmpro_success {
   position: absolute;
   z-index: 1;
@@ -23753,6 +23757,10 @@ form .acf-spinner {
     padding-right: 0;
   }
 }
+.profile_wrap .pmpro_form_label,
+.profile_wrap .pmpro_form_input {
+  color: #000000;
+}
 .profile_wrap .image_wrap {
   float: left;
   display: block;
@@ -23784,7 +23792,7 @@ form .acf-spinner {
 .profile_wrap .image_wrap label {
   font-family: "interregular", sans-serif;
   font-weight: 300;
-  color: #000;
+  color: #000000;
   width: auto;
   float: left;
   font-size: 16px;
@@ -23859,7 +23867,7 @@ form .acf-spinner {
   background: #000000;
 }
 .profile_wrap form .pmpro_btn.pmpro_btn-cancel:hover {
-  background: #4D4D54;
+  background: #4d4d54;
 }
 @media screen and (max-width: 991px) {
   .profile_wrap form .pmpro_btn {
@@ -23878,7 +23886,10 @@ form .acf-spinner {
     padding: 5px 8px;
   }
 }
-.profile_wrap form input[type=text], .profile_wrap form input[type=email], .profile_wrap form select, .profile_wrap form textarea {
+.profile_wrap form input[type=text],
+.profile_wrap form input[type=email],
+.profile_wrap form select,
+.profile_wrap form textarea {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
@@ -23886,11 +23897,17 @@ form .acf-spinner {
   max-width: unset !important;
   border: 1px solid #c8c8c8;
 }
-.profile_wrap form input[type=text]:last-child, .profile_wrap form input[type=email]:last-child, .profile_wrap form select:last-child, .profile_wrap form textarea:last-child {
+.profile_wrap form input[type=text]:last-child,
+.profile_wrap form input[type=email]:last-child,
+.profile_wrap form select:last-child,
+.profile_wrap form textarea:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 767px) {
-  .profile_wrap form input[type=text], .profile_wrap form input[type=email], .profile_wrap form select, .profile_wrap form textarea {
+  .profile_wrap form input[type=text],
+  .profile_wrap form input[type=email],
+  .profile_wrap form select,
+  .profile_wrap form textarea {
     width: 100% !important;
   }
 }
@@ -23905,23 +23922,27 @@ form .acf-spinner {
 .profile_wrap form .pmpro_member_profile_edit-field-hide_directory {
   display: none;
 }
-.profile_wrap form .pmpro_checkout_box-user, .profile_wrap form .pmpro_checkout_box-more-information {
+.profile_wrap form .pmpro_checkout_box-user,
+.profile_wrap form .pmpro_checkout_box-more-information {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
   width: 48.821174201%;
 }
-.profile_wrap form .pmpro_checkout_box-user:last-child, .profile_wrap form .pmpro_checkout_box-more-information:last-child {
+.profile_wrap form .pmpro_checkout_box-user:last-child,
+.profile_wrap form .pmpro_checkout_box-more-information:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 767px) {
-  .profile_wrap form .pmpro_checkout_box-user, .profile_wrap form .pmpro_checkout_box-more-information {
+  .profile_wrap form .pmpro_checkout_box-user,
+  .profile_wrap form .pmpro_checkout_box-more-information {
     float: left;
     display: block;
     margin-right: 7.4229703521%;
     width: 100%;
   }
-  .profile_wrap form .pmpro_checkout_box-user:last-child, .profile_wrap form .pmpro_checkout_box-more-information:last-child {
+  .profile_wrap form .pmpro_checkout_box-user:last-child,
+  .profile_wrap form .pmpro_checkout_box-more-information:last-child {
     margin-right: 0;
   }
 }
@@ -24094,6 +24115,7 @@ form .acf-spinner {
 .profile_wrap .avatar_upload #basic-user-avatar-form input[type=checkbox] {
   margin: 20px 0 0;
   height: auto;
+  width: auto;
 }
 .profile_wrap .avatar_upload #basic-user-avatar-form button {
   background: #aeabab;

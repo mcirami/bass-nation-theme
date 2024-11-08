@@ -16,7 +16,7 @@ get_header();?>
 
 		<header class="sub_header full_width">
 		    <div class="container">
-		        <h1><?php the_title(); ?></h1>
+		        <h2><?php the_title(); ?></h2>
 			</div><!-- .container -->
 		</header>
 

@@ -856,11 +856,11 @@ jQuery(document).ready(function ($) {
 
         favoriteButton = $(this).parent().children(".button_wrap").html();
 
-        let fileElements = false;
+        let fileElements = "";
 
         if (files.length > 0 && currentPage.pageId !== 7) {
             files.forEach((file) => {
-                if (file["file"] !== "") {
+                if (file["file"]) {
                     fileElements +=
                         '<div class="column"><a target="_blank" href="' +
                         file["file"] +

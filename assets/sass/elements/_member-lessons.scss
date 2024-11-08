@@ -17,12 +17,16 @@
     }
 
     &:hover {
-        background: $darkRed !important;
+        background: $yellowHover !important;
     }
 
     &.active:hover {
-        background: $red !important;
-        color: $white !important;
+        background: $yellow !important;
+        color: $black !important;
+
+        i {
+            color: $black !important;
+        }
     }
 }
 
@@ -134,18 +138,15 @@
         #close_video {
             position: absolute;
             z-index: 999;
-            right: 5%;
-            top: 10%;
+            right: 2%;
+            top: 3%;
             background: url("../images/close-icon.png") no-repeat;
             background-size: 100%;
             padding: 30px;
 
-            @include media($desktop) {
-                top: 5%;
-            }
-
             @include media($mobile) {
                 padding: 22px;
+                top: 1.5%;
             }
 
             @include media($smallMobile) {
@@ -355,6 +356,7 @@
             -moz-transition: 0.2s ease-in-out;
             -o-transition: 0.2s ease-in-out;
             transition: 0.2s ease-in-out;
+            padding-right: 20px;
 
             @media all and (max-width: 1400px) {
                 width: 100%;
@@ -875,7 +877,6 @@
     ol {
         @include span-columns(12);
         padding-left: 0;
-        padding-right: 20px;
         margin-left: 0;
         list-style: none;
 
@@ -962,19 +963,18 @@
     }
 
     .comment-content {
-        @include span-columns(11.2);
+        width: 100%;
+        float: left;
+        display: block;
         position: relative;
         text-align: center;
         border-radius: 8px;
-
-        @include media($mobile) {
-            @include span-columns(4);
-        }
 
         .comment_heading {
             color: $red;
             text-align: left;
             display: flex;
+            justify-content: flex-end;
         }
 
         > p {

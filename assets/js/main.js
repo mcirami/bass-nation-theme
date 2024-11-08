@@ -366,31 +366,59 @@ jQuery(document).ready(function ($) {
     }
 
     if (videoPlayer && $(window).width() < 1200) {
-        if ("ontouchstart" in window) {
+        /* if ("ontouchstart" in window) {
             videoPlayer.addEventListener("touchmove", videoScrollAction);
-        } else {
-            videoPlayer.addEventListener("scroll", videoScrollAction);
-        }
+        } else { */
+        videoPlayer.addEventListener(
+            "scroll",
+            throttle(videoScrollAction, 200)
+        );
+        /* } */
         //videoScrollAction();
+    }
+
+    // Throttle function to limit the number of times a function is called
+    function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+        return function () {
+            const context = this;
+            const args = arguments;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(
+                    function () {
+                        if (Date.now() - lastRan >= limit) {
+                            func.apply(context, args);
+                            lastRan = Date.now();
+                        }
+                    },
+                    limit - (Date.now() - lastRan)
+                );
+            }
+        };
     }
 
     function videoScrollAction() {
         /* videoPlayer.addEventListener("scroll", function (e) { */
         console.log("scroll: ", videoPlayer.scrollTop);
-        setTimeout(() => {
-            if (videoPlayer && videoPlayer.scrollTop > 400) {
-                const height =
-                    document.querySelector(".video_iframe_wrap").clientHeight;
-                document.querySelector(".video_content_wrap").style.paddingTop =
-                    height + "px";
+        /* setTimeout(() => { */
+        const scrollTop = videoPlayer.scrollTop;
+        if (scrollTop > 400) {
+            const height =
+                document.querySelector(".video_iframe_wrap").clientHeight;
+            document.querySelector(".video_content_wrap").style.paddingTop =
+                height + "px";
 
-                videoPlayer.classList.add("scroll");
-            } else {
-                videoPlayer.classList.remove("scroll");
-                document.querySelector(".video_content_wrap").style.paddingTop =
-                    0;
-            }
-        }, 300);
+            videoPlayer.classList.add("scroll");
+        } else {
+            videoPlayer.classList.remove("scroll");
+            document.querySelector(".video_content_wrap").style.paddingTop = 0;
+        }
+        /*  }, 300); */
         /*  }); */
     }
 

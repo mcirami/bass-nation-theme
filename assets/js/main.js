@@ -365,34 +365,33 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    if (videoPlayer) {
-        if ($(window).width() < 1200) {
-            videoScrollAction();
+    if (videoPlayer && $(window).width() < 1200) {
+        if ("ontouchstart" in window) {
+            videoPlayer.addEventListener("touchmove", videoScrollAction);
+        } else {
+            videoPlayer.addEventListener("scroll", videoScrollAction);
         }
+        //videoScrollAction();
     }
 
     function videoScrollAction() {
-        videoPlayer.addEventListener("scroll", function (e) {
-            console.log("scroll: ", videoPlayer.scrollTop);
-            setTimeout(() => {
-                if (videoPlayer && videoPlayer.scrollTop > 400) {
-                    const height =
-                        document.querySelector(
-                            ".video_iframe_wrap"
-                        ).clientHeight;
-                    document.querySelector(
-                        ".video_content_wrap"
-                    ).style.paddingTop = height + "px";
+        /* videoPlayer.addEventListener("scroll", function (e) { */
+        console.log("scroll: ", videoPlayer.scrollTop);
+        setTimeout(() => {
+            if (videoPlayer && videoPlayer.scrollTop > 400) {
+                const height =
+                    document.querySelector(".video_iframe_wrap").clientHeight;
+                document.querySelector(".video_content_wrap").style.paddingTop =
+                    height + "px";
 
-                    videoPlayer.classList.add("scroll");
-                } else {
-                    videoPlayer.classList.remove("scroll");
-                    document.querySelector(
-                        ".video_content_wrap"
-                    ).style.paddingTop = 0;
-                }
-            }, 300);
-        });
+                videoPlayer.classList.add("scroll");
+            } else {
+                videoPlayer.classList.remove("scroll");
+                document.querySelector(".video_content_wrap").style.paddingTop =
+                    0;
+            }
+        }, 300);
+        /*  }); */
     }
 
     $(window).on("scroll", function (event) {
@@ -800,29 +799,6 @@ jQuery(document).ready(function ($) {
             return titleText.includes(searchText);
         });
     }
-
-    /* $(".filter_list li").click(function () {
-        if (!$(this).hasClass("all")) {
-            $(this).toggleClass("active");
-            $(".filter_list li.all").removeClass("active");
-
-            const allFilters = document.querySelectorAll(".filter_list li");
-
-            let active = false;
-            for (let i = 0; i < allFilters.length; i++) {
-                if (allFilters[i].classList.contains("active")) {
-                    active = true;
-                }
-            }
-
-            if (active === false) {
-                $(".filter_list li.all").addClass("active");
-            }
-        } else {
-            $(".filter_list li").removeClass("active");
-            $(this).addClass("active");
-        }
-    }); */
 
     $(".play_video").on("click", function () {
         let videoPlayer = "";

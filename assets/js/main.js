@@ -403,11 +403,9 @@ jQuery(document).ready(function ($) {
     }
 
     function videoScrollAction() {
-        /* videoPlayer.addEventListener("scroll", function (e) { */
         console.log("scroll: ", videoPlayer.scrollTop);
-        /* setTimeout(() => { */
         const scrollTop = videoPlayer.scrollTop;
-        if (scrollTop > 400) {
+        if (scrollTop > 600) {
             const height =
                 document.querySelector(".video_iframe_wrap").clientHeight;
             document.querySelector(".video_content_wrap").style.paddingTop =
@@ -418,8 +416,6 @@ jQuery(document).ready(function ($) {
             videoPlayer.classList.remove("scroll");
             document.querySelector(".video_content_wrap").style.paddingTop = 0;
         }
-        /*  }, 300); */
-        /*  }); */
     }
 
     $(window).on("scroll", function (event) {

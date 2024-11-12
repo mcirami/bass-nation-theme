@@ -306,8 +306,8 @@
         .two_column_section .columns_wrap .column {
             &:last-child {
                 .content_wrap {
+                    @include boxShadow;
                     background: $white;
-                    border: 1px solid $red;
                     border-radius: 4px;
 
                     p,

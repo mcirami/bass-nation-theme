@@ -14,101 +14,89 @@
 }
 
 #pmpro_account {
-    @include span-columns(12);
+    @include boxShadow;
+    display: flex;
+    width: 100%;
     text-align: center;
+    padding: 60px 40px;
+    border-radius: 6px;
 
-    #pmpro_account-membership {
-        .content_wrap {
-            padding-bottom: 39px;
-
-            @include media($tablet) {
-                padding-bottom: 32px;
-            }
-
-            &.noname {
-                padding-bottom: 9px;
-            }
-        }
+    @include media($tablet) {
+        flex-wrap: wrap;
+        padding: 40px 20px;
     }
 
     .pmpro_box {
         @include span-columns(6);
-        //display: inline-block;
-        padding: 20px;
-        background: $lightGray;
+        display: flex;
+        flex-direction: column;
         text-align: left;
-        border-radius: 4px;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
         line-height: 1.4;
-        -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-        -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-        box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-        border: 1px solid $borderGray;
+        padding: 30px 20px;
+        border-radius: 6px;
 
         @include media($tablet) {
-            padding: 15px;
+            @include span-columns(8);
         }
 
-        @include media($mobile) {
-            @include span-columns(4);
+        &#pmpro_account-profile {
+            @include media($smallMobile) {
+                padding-top: 0;
+                margin-right: 0;
+            }
         }
 
         h3 {
-            @include interregular;
-            font-size: 20px;
+            @include interbold;
+            @include mediumFont;
             text-transform: none;
             margin: 0;
-
-            @include media($tablet) {
-                font-size: 18px;
-            }
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
         }
 
         .content_wrap {
-            background: $white;
-            margin: 20px 0;
-            padding: 10px 0 10px 20px;
-            font-size: 15px;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-
-            @include media($tablet) {
-                padding: 6px 0 6px 10px;
-            }
+            border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
 
             p {
                 @include intermedium;
-                color: $red;
+                font-size: 1.6rem;
+            }
 
-                @include media($tablet) {
-                    font-size: 14px;
+            .top_row {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 2rem;
+
+                .image_wrap {
+                    max-width: 60px;
+
+                    img {
+                        border-radius: 50px;
+                    }
                 }
 
-                @include media($mobile) {
-                    font-size: 12px;
+                p {
+                    @include interbold;
+                    margin: 0;
                 }
+            }
+
+            ul {
+                margin: 20px 0 40px;
+                padding: 0;
             }
 
             li {
                 @include interregular;
                 margin: 5px 0;
-
-                @include media($tablet) {
-                    font-size: 14px;
-                }
-
-                @include media($mobile) {
-                    font-size: 12px;
-                }
+                color: $darkGray;
+                font-size: 1.6rem;
 
                 strong {
                     @include interbold;
+                    color: $darkGray;
                 }
             }
         }
@@ -119,35 +107,50 @@
             p {
                 width: auto;
                 float: left;
-                font-size: 15px;
 
                 &.label {
                     @include interbold;
-                    color: $black;
+                    color: $grayText;
                     margin-right: 10px;
                 }
 
-                strong {
-                    @include interregular;
+                &.status {
+                    color: $darkModeRed;
+                }
+            }
+        }
+
+        &#pmpro_account-membership {
+            background: $darkModeBg;
+            color: $white;
+
+            .content_wrap {
+                padding: 40px 0;
+
+                @include media($tablet) {
+                    padding-bottom: 32px;
                 }
 
-                &.status {
-                    color: $white;
-                    background: #11a60c;
-                    padding: 0 8px 1px;
-                    border-radius: 4px;
-                    -webkit-border-radius: 4px;
-                    -moz-border-radius: 4px;
+                &.noname {
+                    padding-bottom: 9px;
                 }
             }
         }
     }
 
     .pmpro_actionlinks {
-        @include span-columns(12);
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 2rem;
+        margin-top: auto;
 
-        a {
-            padding: 7px 15px;
+        @include media($smallMobile) {
+            flex-wrap: wrap;
+
+            .button {
+                width: 100%;
+            }
         }
     }
 }
@@ -180,43 +183,12 @@
         .copy_wrap {
             margin: 30px 0;
         }
-
-        h2 {
-            font-size: 32px;
-
-            @include media($tablet) {
-                font-size: 28px;
-            }
-
-            @include media($mobile) {
-                font-size: 20px;
-            }
-        }
-
         h4 {
-            font-size: 16px;
             color: $red;
-
-            @include media($tablet) {
-                font-size: 14px;
-            }
-
-            @include media($mobile) {
-                font-size: 12px;
-            }
         }
 
         h3 {
             @include interregular;
-            font-size: 20px;
-
-            @include media($tablet) {
-                font-size: 18px;
-            }
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
         }
 
         ul {
@@ -225,38 +197,12 @@
 
             li {
                 position: relative;
-
-                &:before {
-                    content: "-";
-                    position: absolute;
-                    left: 11px;
-                    top: -2px;
-                    font-size: 28px;
-                    color: $red;
-
-                    @include media($tablet) {
-                        font-size: 26px;
-                    }
-
-                    @include media($mobile) {
-                        font-size: 24px;
-                    }
-                }
             }
         }
 
         p {
             color: $red;
-            font-size: 18px;
             padding-left: 28px;
-
-            @include media($tablet) {
-                font-size: 16px;
-            }
-
-            @include media($mobile) {
-                font-size: 12px;
-            }
         }
 
         .pmpro_btn {
@@ -264,7 +210,6 @@
             padding: 7px 0;
             width: 50%;
             margin: 0 auto;
-            font-size: 14px;
 
             @include media($tablet) {
                 width: 60%;
@@ -275,7 +220,6 @@
             }
 
             @include media($smallMobile) {
-                font-size: 12px;
                 width: 100%;
             }
         }

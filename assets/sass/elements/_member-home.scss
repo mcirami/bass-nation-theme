@@ -5,15 +5,18 @@
     margin-bottom: 40px;
 
     .top_section {
+        @include boxShadow;
         display: flex;
         align-items: flex-start;
         float: none;
         margin: 0;
         flex-wrap: wrap-reverse;
         justify-content: flex-start;
+        padding: 40px;
 
         @include media($tablet) {
             gap: 20px;
+            padding: 20px;
         }
 
         .video_column {
@@ -54,6 +57,10 @@
                 line-height: 1.6;
                 font-size: 3rem;
                 margin: 0 0 10px;
+
+                @include media($tablet) {
+                    font-size: 2rem;
+                }
             }
 
             p,
@@ -113,6 +120,11 @@
 
     .bottom_section {
         margin-top: 20px;
+        padding: 40px;
+
+        @include media($tablet) {
+            padding: 20px;
+        }
 
         h3 {
             @include interbold;

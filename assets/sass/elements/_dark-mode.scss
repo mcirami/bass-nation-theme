@@ -1,7 +1,7 @@
 #db_mode_button {
     position: fixed;
-    right: 20px;
-    bottom: 30px;
+    right: 10px;
+    bottom: 10px;
     z-index: 999;
 
     .toggle-radio {
@@ -439,6 +439,31 @@
         .column .column_content {
             background: $darkerGray;
             border: none;
+        }
+    }
+
+    #pmpro_account {
+        border: none;
+        background: $darkerGray;
+
+        p {
+            color: $grayText;
+        }
+
+        .pmpro_box .content_wrap {
+            .top_row {
+                p {
+                    color: $white;
+                }
+            }
+
+            li {
+                color: $grayText;
+
+                strong {
+                    color: $grayText;
+                }
+            }
         }
     }
 }

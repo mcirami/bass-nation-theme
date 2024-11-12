@@ -52,11 +52,16 @@ global $wpdb, $pmpro_msg, $pmpro_msgt, $pmpro_levels, $current_user, $levels, $a
 				<div id="pmpro_account-profile" class="pmpro_box">
 
 					<?php wp_get_current_user(); ?>
-					<h3><?php _e("My Account", "pmpro");?></h3>
+					<!-- <h3><?php _e("My Account", "pmpro");?></h3> -->
 					<div class="content_wrap full_width">
-						<?php if($current_user->user_firstname) { ?>
-							<p><?php echo $current_user->user_firstname?> <?php echo $current_user->user_lastname?></p>
-						<?php } ?>
+						<div class="top_row">
+						<div class="image_wrap">
+								<?php  echo get_avatar( $current_user->ID); ?>
+							</div>
+							<?php if($current_user->user_firstname) { ?>
+								<p><?php echo $current_user->user_firstname?> <?php echo $current_user->user_lastname?></p>
+							<?php } ?>
+						</div>
 						<ul>
 							<?php do_action('pmpro_account_bullets_top');?>
 							<li><strong><?php _e("Username", "pmpro");?>:</strong> <?php echo $current_user->user_login?></li>
@@ -65,7 +70,7 @@ global $wpdb, $pmpro_msg, $pmpro_msgt, $pmpro_levels, $current_user, $levels, $a
 						</ul>
 					</div><!-- content_wrap -->
 					<div class="pmpro_actionlinks">
-						<a class="button black" href="<?php echo home_url()?>/membership-account/your-profile/"><?php _e("Edit Profile", "pmpro");?></a>
+						<a class="button yellow" href="<?php echo home_url()?>/membership-account/your-profile/"><?php _e("Edit Profile", "pmpro");?></a>
 						<a class="button yellow" href="<?php echo home_url()?>/reset-password/"><?php _e('Change Password', 'pmpro');?></a>
 					</div>
 				</div> <!-- end pmpro_account-profile -->
@@ -130,7 +135,7 @@ global $wpdb, $pmpro_msg, $pmpro_msgt, $pmpro_levels, $current_user, $levels, $a
 						<?php } ?>
 
 						<?php //if((isset($ssorder->status) && $ssorder->status == "success") && (isset($ssorder->gateway) && in_array($ssorder->gateway, array("authorizenet", "paypal", "stripe", "braintree", "payflow", "cybersource")))) { ?>
-						<a class="button black" href="<?php echo pmpro_url("billing", "", "https")?>"><?php _e("Update Billing Info", "pmpro"); ?></a>
+						<a class="button yellow" href="<?php echo pmpro_url("billing", "", "https")?>"><?php _e("Update Billing Info", "pmpro"); ?></a>
 						<?php //} ?>
 
 						<?php
@@ -143,7 +148,7 @@ global $wpdb, $pmpro_msg, $pmpro_msgt, $pmpro_levels, $current_user, $levels, $a
 
 						<?php   }
 							} ?>
-						<a class="button red" href="<?php echo pmpro_url("cancel", "?levelstocancel=" . $level->id)?>"><?php _e("Cancel", "pmpro");?></a>
+						<a class="button black" href="<?php echo pmpro_url("cancel", "?levelstocancel=" . $level->id)?>"><?php _e("Cancel", "pmpro");?></a>
 						<?php do_action("pmpro_member_action_links_after"); ?>
 					</div> <!-- end pmpro_actionlinks -->
 					<?php //Todo: If there are multiple levels defined that aren't all in the same group defined as upgrades/downgrades ?>

@@ -419,6 +419,28 @@
             }
         }
     }
+    #pmpro_levels_table {
+        .column:nth-child(3) {
+            .column_heading {
+                h2 {
+                    color: $black;
+                }
+            }
+        }
+
+        .cost p {
+            color: $lightGray;
+        }
+
+        .description ul li p {
+            color: $grayText;
+        }
+
+        .column .column_content {
+            background: $darkerGray;
+            border: none;
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

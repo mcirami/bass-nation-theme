@@ -148,6 +148,7 @@ select {
 
     &.member {
         padding-top: 150px;
+        padding-bottom: 100px;
         background: $white;
 
         @include media($mobile) {
@@ -159,10 +160,14 @@ select {
                 color: $black;
             }
         }
+
+        &.passions {
+            padding-bottom: 0;
+        }
     }
 
-    &.forum {
-        padding-bottom: 80px;
+    &.free_lessons {
+        padding-bottom: 100px;
     }
 }
 

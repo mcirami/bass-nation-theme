@@ -128,13 +128,13 @@ jQuery(document).ready(function ($) {
             mobileSubMenu();
         }
 
-        if (videoPlayer) {
+        /* if (videoPlayer) {
             if ($(window).width() < 1200) {
                 videoScrollAction();
             } else {
                 videoPlayer.removeEventListener("scroll", videoScrollAction);
             }
-        }
+        } */
         const chatWindow = document.querySelector(
             ".live_stream .wp-block-columns"
         );
@@ -365,17 +365,12 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    if (videoPlayer && $(window).width() < 1200) {
-        /* if ("ontouchstart" in window) {
-            videoPlayer.addEventListener("touchmove", videoScrollAction);
-        } else { */
+    /* if (videoPlayer && $(window).width() < 1200) {
         videoPlayer.addEventListener(
             "scroll",
             throttle(videoScrollAction, 200)
         );
-        /* } */
-        //videoScrollAction();
-    }
+    }  */
 
     // Throttle function to limit the number of times a function is called
     function throttle(func, limit) {
@@ -403,18 +398,27 @@ jQuery(document).ready(function ($) {
     }
 
     function videoScrollAction() {
-        console.log("scroll: ", videoPlayer.scrollTop);
-        const scrollTop = videoPlayer.scrollTop;
-        if (scrollTop > 600) {
-            const height =
-                document.querySelector(".video_iframe_wrap").clientHeight;
-            document.querySelector(".video_content_wrap").style.paddingTop =
-                height + "px";
+        const videoWrapper = $(".video_iframe_wrap");
+        const videoPlayerTwo = document.getElementById("video_player");
+
+        console.log("videoWrapper.offset().top: ", videoWrapper.offset().top);
+        console.log("videoPlayerTwo.scrollTop: ", videoPlayerTwo.scrollTop);
+        /* console.log("videoWrapperOffset.top: ", videoWrapperOffset.top); */
+
+        if (videoPlayerTwo.scrollTop > videoWrapper.offset().top) {
+            /* const height =
+                document.querySelector(".video_iframe_wrap").clientHeight; */
+            //const scrollPosition = window.scrollY;
+            //console.log("videoPlayerscrollPosition: ", videoPlayer);
+            //videoPlayer.style.paddingTop = 200 + "px";
 
             videoPlayer.classList.add("scroll");
+            /* setTimeout(() => {
+                window.scrollTo(0, scrollPosition);
+            }, 500); */
         } else {
             videoPlayer.classList.remove("scroll");
-            document.querySelector(".video_content_wrap").style.paddingTop = 0;
+            videoPlayer.style.paddingTop = 0;
         }
     }
 

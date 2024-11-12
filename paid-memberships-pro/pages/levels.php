@@ -72,73 +72,91 @@ foreach ( $level_groups as $level_group ) {
 		foreach($levels_to_show_for_group as $level)
 		{?>
 			<div class="column">
-				<div class="full_width <?php if($count++ % 2 == 0) { ?>odd<?php } ?><?php if($current_level == $level) { ?> active<?php } ?>">
-					<?php if ($level->id == 4) : ?>
-						<div class="highlight">
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/bass-clef.png" alt="Bass Clef Image"/><p>Most Bass For Your Buck!</p>
-						</div>
-					<?php endif; ?>
-					<div class="column_heading full_width">
-						<?php if ($level->id == 1) : ?>
-							<!--<p>With FREE 3-Day Trial</p>-->
-							<h2>FREE 3 Day Trial</h2>
-							<p>then only $9.99/month</p>
-						<?php elseif ($level->id == 2 ) :?>
-							<h2>FREE 3 Day Trial</h2>
-							<p>then only $28.99/3 months</p>
-						<?php elseif ($level->id == 3) : ?>
-							<h2>FREE 3 Day Trial</h2>
-							<p>then only $54.99/6 months</p>
-						<?php elseif ($level->id == 4) : ?>
-							<h2>FREE 3 Day Trial</h2>
-							<p>then only $99.99/year</p>
-						<?php endif; ?>
+				<?php if ($level->id == 4) : ?>
+					<div class="highlight">
+						<p>Most Bass For Your Buck!</p>
 					</div>
-				</div>
-				<div class="full_width cost">
-					<?php if ($level->id == 1) : ?>
-						<h3>Monthly</h3>
-					<?php elseif ($level->id == 2 ) :?>
-						<h3>3 Months</h3>
-					<?php elseif ($level->id == 3) : ?>
-						<h3>6 Months</h3>
-					<?php elseif ($level->id == 4) : ?>
-						<h3>Annual</h3>
-					<?php endif; ?>
-					<p>Recurring</p>
-					<p>Bass Nation Membership</p>
+				<?php endif; ?>
+				<div class="column_content">
+					<div class="full_width <?php if($count++ % 2 == 0) { ?>odd<?php } ?><?php if($current_level == $level) { ?> active<?php } ?>">
+						<div class="column_heading full_width">
+							<?php if ($level->id == 1) : ?>
+								<!--<p>With FREE 3-Day Trial</p>-->
+								<h2>FREE 3 Day Trial</h2>
+								<p>then only <span>$9.99/month</span></p>
+							<?php elseif ($level->id == 2 ) :?>
+								<h2>FREE 3 Day Trial</h2>
+								<p>then only <span>$28.99/3 months</span></p>
+							<?php elseif ($level->id == 3) : ?>
+								<h2>FREE 3 Day Trial</h2>
+								<p>then only <span>$54.99/6 months</span></p>
+							<?php elseif ($level->id == 4) : ?>
+								<h2>FREE 3 Day Trial</h2>
+								<p>then only <span>$99.99/year</span></p>
+							<?php endif; ?>
+						</div>
+					</div>
+					<div class="full_width cost">
+						<!-- <?php if ($level->id == 1) : ?>
+							<h3>Monthly</h3>
+						<?php elseif ($level->id == 2 ) :?>
+							<h3>3 Months</h3>
+						<?php elseif ($level->id == 3) : ?>
+							<h3>6 Months</h3>
+						<?php elseif ($level->id == 4) : ?>
+							<h3>Annual</h3>
+						<?php endif; ?> -->
+						<p>Recurring</p>
+						<p>Bass Nation Membership</p>
+					</div> <!-- cost -->
+					<div class="description full_width">
+						<ul>
+							<li><p>FREE for 3 days</p></li>
+							<li><p>ALL Complete Lessons</p></li>
+							<li><p>Lesson Commenting</p></li>
+							<li><p>Bass Nation Forum Access</p></li>
+							<li><p>Member Directory</p></li>
+							<li><p>Messaging System</p></li>
+						</ul>
+					</div>
 					<div class="button_wrap full_width">
 						<?php if(empty($current_user->membership_level->ID)) { ?>
-							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
+							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?>
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</a>
 						<?php } elseif ( !$current_level ) { ?>
-							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?></a>
+							<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?>
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</a>
 						<?php } elseif($current_level) { ?>
 
 							<?php
 							//if it's a one-time-payment level, offer a link to renew
 							if( pmpro_isLevelExpiringSoon( $current_user->membership_level) && $current_user->membership_level->allow_signups ) {
 								?>
-								<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('Renew', 'pmpro');?></a>
+								<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('Renew', 'pmpro');?>
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+								</a>
 								<?php
 							} else {
 								?>
-								<a class="pmpro_btn disabled button yellow" href="<?php echo pmpro_url("account")?>"><?php _e('Your&nbsp;Level', 'pmpro');?></a>
+								<a class="pmpro_btn disabled button yellow" href="<?php echo pmpro_url("account")?>"><?php _e('Your&nbsp;Level', 'pmpro');?>
+									<span>
+										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+									</span>
+								</a>
 								<?php
 							}
 							?>
 
 						<?php } ?>
 					</div><!-- button wrap -->
-				</div> <!-- cost -->
-				<div class="description full_width">
-					<ul>
-						<li><p>FREE for 3 days</p></li>
-						<li><p>ALL Complete Lessons</p></li>
-						<li><p>Lesson Commenting</p></li>
-						<li><p>Bass Nation Forum Access</p></li>
-						<li><p>Member Directory</p></li>
-						<li><p>Messaging System</p></li>
-					</ul>
 				</div>
 			</div><!-- column -->
 			<?php

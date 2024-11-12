@@ -121,27 +121,20 @@
     flex-wrap: nowrap;
     color: $black;
     text-align: center;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    border-top: 1px solid $borderGray;
-    border-left: 1px solid $borderGray;
-    border-bottom: 1px solid $borderGray;
+    gap: 40px;
+    padding-bottom: 100px;
 
-    @include media($tablet) {
-        display: block;
-        border: none;
+    @include media($desktop) {
+        gap: 20px;
     }
 
-    @include media($mobile) {
-        margin: 50px auto;
+    @include media($tablet) {
+        flex-wrap: wrap;
     }
 
     .column {
         width: 25%;
         float: left;
-        border-right: 1px solid $borderGray;
-        background: $lightGray;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -151,38 +144,64 @@
         flex-direction: column;
         -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
+        border-radius: 6px;
+
+        .column_content {
+            width: 100%;
+            float: left;
+            border: 1px solid $red;
+            border-radius: 6px;
+        }
 
         @include media($tablet) {
-            width: 50%;
-            display: block;
-            border-top: 1px solid $borderGray;
-            border-bottom: 1px solid $borderGray;
+            width: 48%;
+            margin-bottom: 40px;
         }
 
         @include media($smallMobile) {
             width: 100%;
+            margin-bottom: 0;
+        }
+
+        .column_heading {
+            background: $red;
+            color: $white;
+            padding: 15px;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+
+            h2 {
+                @include interbold;
+                font-size: 2.2rem;
+                margin-top: 0;
+
+                @include media($desktop) {
+                    font-size: 2rem;
+                }
+            }
+
+            p {
+                @include interregular;
+                font-size: 1.7rem;
+                margin: 0;
+
+                @include media($desktop) {
+                    font-size: 1.4rem;
+                }
+
+                span {
+                    @include interbold;
+                }
+            }
         }
 
         &:nth-child(3) {
-            @include media($tablet) {
-                margin-top: 60px;
-                padding-bottom: 3px;
-            }
-
-            @include media($smallMobile) {
-                margin-top: 0;
-                padding-bottom: 0;
-            }
-        }
-
-        &:last-child {
-            border-right: 4px solid #f2d12d;
-            border-left: 4px solid #f2d12d;
-            border-bottom: 4px solid #f2d12d;
             margin-top: -44px;
 
-            @include media($tablet) {
-                margin-top: 16px;
+            .column_content {
+                border: 1px solid $yellow;
+                border-top-right-radius: 0;
+                border-top-left-radius: 0;
             }
 
             @include media($smallMobile) {
@@ -190,7 +209,9 @@
             }
 
             .column_heading {
-                background: $black;
+                background: $yellow;
+                color: $black;
+                border-radius: 0;
             }
         }
     }
@@ -198,8 +219,10 @@
     .highlight {
         width: 100%;
         text-align: center;
-        background: #f2d12d;
+        background: $darkerGray;
         padding: 10px 0;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
 
         img {
             width: auto;
@@ -214,30 +237,20 @@
             margin: 0;
             font-size: 18px;
             vertical-align: top;
-        }
-    }
+            color: $yellow;
 
-    .column_heading {
-        background: $red;
-        color: $white;
-        padding: 15px 5px 10px;
+            @include media($desktop) {
+                font-size: 1.6vw;
+            }
 
-        h2 {
-            @include interbold;
-            font-size: 27px;
-            margin-top: 0;
-        }
-
-        p {
-            @include interregular;
-            font-size: 14px;
-            margin: 0;
+            @include media($tablet) {
+                font-size: 1.6rem;
+            }
         }
     }
 
     .cost {
-        background: $white;
-        padding: 0 10px 20px;
+        padding: 30px 20px;
 
         h3 {
             @include interbold;
@@ -248,42 +261,53 @@
 
         p {
             @include interregular;
-            font-size: 14px;
+            font-size: 1.5rem;
             color: $grayText;
             margin-bottom: 0;
+            line-height: 1.2;
         }
+    }
 
-        .button_wrap {
-            margin-top: 20px;
+    .button_wrap {
+        margin-top: 20px;
+        padding: 0 20px 20px 20px;
 
-            a {
-                display: inline-block !important;
-                font-size: 16px;
-                padding: 10px 20%;
-            }
+        a {
+            width: 100%;
         }
     }
 
     .description {
-        padding: 20px 10px;
-        background: $lightGray;
+        padding: 0 20px;
+
+        @include media($desktop) {
+            padding: 0 10px;
+        }
 
         ul {
             margin: 0;
             text-align: left;
             color: $black;
-            background: url("../images/bass-head.png") no-repeat center center;
-            background-size: 50%;
+            padding: 0;
+            max-width: 85%;
+            margin: 0 auto;
+
+            @include media($desktop) {
+                max-width: 100%;
+            }
 
             @include media($tablet) {
                 display: inline-block;
-                background-size: 60%;
             }
 
             li {
                 position: relative;
                 padding-left: 50px;
-                font-size: 14px;
+                margin-bottom: 15px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
 
                 &:before {
                     content: "";
@@ -291,8 +315,12 @@
                     background: url("../images/check.png") no-repeat;
                     width: 20px;
                     height: 15px;
-                    left: 21px;
+                    left: 15px;
                     top: 5px;
+                }
+
+                p {
+                    font-size: 1.5rem;
                 }
             }
         }

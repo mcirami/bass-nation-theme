@@ -217,7 +217,7 @@ require_once get_template_directory() . '/inc/plugin-functions/acf-functions.php
 require_once get_template_directory() . '/inc/plugin-functions/bbpress-functions.php';
 require_once get_template_directory() . '/inc/plugin-functions/pmpro-functions.php';
 require_once get_template_directory() . '/inc/plugin-functions/front-end-pm-functions.php';
-
+require_once get_template_directory() . '/inc/plugin-functions/one-user-avatar.php';
 /**
  * ShortCodes
  */

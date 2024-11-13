@@ -23,17 +23,11 @@ get_header();?>
 	<?php if (pmpro_hasMembershipLevel()) : ?>
 		<section class="profile_wrap">
 			<div class="container">
-				<div class="cover_img full_width">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/home-bass.jpg" alt="playing bass"/>
-				</div>
-				<div class="avatar_wrap full_width">
-					<?php echo get_avatar( get_current_user_id(), 96 );  ?>
-				</div>
 				<div class="form_wrap full_width">
-					<?php echo do_shortcode('[pmpro_member_profile_edit]');?>
 					<div class="avatar_upload">
-						<?php echo do_shortcode('[basic-user-avatars]');?>
+						<?php echo do_shortcode('[avatar_upload]');?>
 					</div>
+					<?php echo do_shortcode('[pmpro_member_profile_edit]');?>
 				</div>
 
 			</div>

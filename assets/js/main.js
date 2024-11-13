@@ -1175,4 +1175,13 @@ jQuery(document).ready(function ($) {
     if (isLodash()) {
         _.noConflict();
     }
+
+    if (currentPage.pageName.includes("Profile")) {
+        const text = document.getElementById("wpua-upload-messages-existing");
+        const targetElement = document.getElementById(
+            "wpua-upload-button-existing"
+        );
+        text.parentNode.removeChild(text);
+        targetElement.appendChild(text);
+    }
 });

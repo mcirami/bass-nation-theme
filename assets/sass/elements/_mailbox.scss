@@ -1,9 +1,11 @@
 #fep-wrapper {
+    @include boxShadow;
 
     #fep-header {
         @include intermedium;
         display: block;
         padding: 20px;
+        border: none;
 
         img {
             display: none;
@@ -13,25 +15,61 @@
             color: $grayText;
         }
 
+        strong {
+            @include smallFont;
+            color: $black;
+        }
+
+        .fep-header-content {
+            color: $darkGray;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .fep-header-top {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+
+        .fep-header-unread-text,
+        .fep-header-box-size {
+            color: $darkGray;
+        }
     }
 
     #fep-menu {
         @include interregular;
-        padding: 10px 0;
 
-        #fep-menu-message_box, #fep-menu-newmessage, #fep-menu-settings, #fep-menu-announcements, #fep-menu-directory {
-            background: $black;
-            font-size: 14px;
-            color: $white !important;
-            padding: 8px 20px;
-
-            @include media($smallMobile) {
-                width: 100%;
-            }
+        #fep-menu-message_box,
+        #fep-menu-newmessage,
+        #fep-menu-settings,
+        #fep-menu-announcements,
+        #fep-menu-directory,
+        .fep-button {
+            background: transparent;
+            border: none;
+            color: $darkGray;
+            border-bottom: 2px solid transparent;
+            border-radius: 0;
+            font-size: 1.5rem;
         }
 
-        #fep-menu-message_box:hover, #fep-menu-newmessage:hover, #fep-menu-settings:hover, #fep-menu-announcements:hover, #fep-menu-directory:hover, #fep-menu-message_box.fep-button-active, #fep-menu-newmessage.fep-button-active, #fep-menu-settings.fep-button-active, #fep-menu-announcements.fep-button-active, #fep-menu-directory.fep-button-active {
-            background: $red;
+        #fep-menu-message_box:hover,
+        #fep-menu-newmessage:hover,
+        #fep-menu-settings:hover,
+        #fep-menu-announcements:hover,
+        #fep-menu-directory:hover,
+        .fep-button:hover,
+        #fep-menu-message_box.fep-button-active,
+        #fep-menu-newmessage.fep-button-active,
+        #fep-menu-settings.fep-button-active,
+        #fep-menu-announcements.fep-button-active,
+        #fep-menu-directory.fep-button-active {
+            background: transparent;
+            color: $red;
+            border-bottom: 2px solid $red;
+            font-size: 1.5rem;
         }
     }
 
@@ -90,9 +128,11 @@
 
     #fep-content {
         padding: 20px;
+        border: none;
     }
 
-    .fep-message .fep-message-title-heading, .fep-per-message .fep-message-title {
+    .fep-message .fep-message-title-heading,
+    .fep-per-message .fep-message-title {
         background-color: $lightGray;
     }
 
@@ -220,7 +260,8 @@
         }
     }
 
-    .fep-column.fep-column-block_unblock a, .fep-column.fep-column-send_message a {
+    .fep-column.fep-column-block_unblock a,
+    .fep-column.fep-column-send_message a {
         color: $black;
     }
 
@@ -233,7 +274,8 @@
         border-color: $red;
     }
 
-    .fep-avatar-p .fep-avatar-1 img, .fep-avatar-p .fep-avatar-2 img {
+    .fep-avatar-p .fep-avatar-1 img,
+    .fep-avatar-p .fep-avatar-2 img {
         width: 30px;
     }
 }

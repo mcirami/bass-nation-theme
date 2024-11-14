@@ -1135,7 +1135,7 @@ input[type="submit"] {
     line-height: 1.6;
 }
 form {
-    input:not([type="submit"]):not(.ed_button),
+    input:not([type="submit"]):not(.ed_button):not([type="checkbox"]),
     input[type="text"],
     input[type="email"],
     select {
@@ -1264,7 +1264,7 @@ form {
 
 .logged-in {
     form {
-        input:not([type="submit"]):not(.ed_button),
+        input:not([type="submit"]):not(.ed_button):not([type="checkbox"]),
         input[type="text"],
         input[type="email"],
         select {

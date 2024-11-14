@@ -138,7 +138,7 @@ select {
     }
 }
 
-.button:not(.ed_button) {
+.button:not(.ed_button):not([type="checkbox"]) {
     @include basicButton;
 }
 

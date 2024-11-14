@@ -21,8 +21,7 @@ do_action('fep_display_before_messagebox', $action);
 			</form>
 		</div>
 	  	<form class="fep-message-table form" method="post" action="">
-		<div class="fep-table fep-action-table">
-			<div>
+			<div class="fep-table fep-action-table">
 				<div class="fep-bulk-action">
 					<select name="fep-bulk-action">
 						<option value=""><?php _e('Bulk action', 'front-end-pm'); ?></option>
@@ -30,10 +29,10 @@ do_action('fep_display_before_messagebox', $action);
 						<option value="<?php echo $bulk_action; ?>"><?php echo $bulk_action_display; ?></option>
 						<?php } ?>
 					</select>
-                    <div>
-                        <input type="hidden" name="token"  value="<?php echo fep_create_nonce('bulk_action'); ?>"/>
-                        <button type="submit" class="fep-button" name="fep_action" value="bulk_action"><?php _e('Apply', 'front-end-pm'); ?></button>
-                    </div>
+					<div>
+						<input type="hidden" name="token"  value="<?php echo fep_create_nonce('bulk_action'); ?>"/>
+						<button type="submit" class="fep-button" name="fep_action" value="bulk_action"><?php _e('Apply', 'front-end-pm'); ?></button>
+					</div>
 				</div>
 				<div class="fep-loading-gif-div">
 				</div>
@@ -45,22 +44,23 @@ do_action('fep_display_before_messagebox', $action);
 					</select>
 				</div>
 			</div>
-		</div>
-		<?php if( $messages->have_posts() ) { ?>
-		<div id="fep-table" class="fep-table fep-odd-even"><?php
-			while ( $messages->have_posts() ) { 
-				$messages->the_post(); ?>
-					<div id="fep-message-<?php the_ID(); ?>" class="fep-table-row"><?php
-						foreach ( Fep_Message::init()->get_table_columns() as $column => $display ) { ?>
-							<div class="fep-column fep-column-<?php echo $column; ?>"><?php Fep_Message::init()->get_column_content($column); ?></div>
-						<?php } ?>
-					</div>
-				<?php
-			} //endwhile
-			?></div><?php
-			echo fep_pagination();
-		} else {
-			?><div class="fep-error"><?php _e('No messages found. Try different filter.', 'front-end-pm'); ?></div><?php 
-		}
-		?></form><?php 
+			<?php if( $messages->have_posts() ) { ?>
+			<div id="fep-table" class="fep-table fep-odd-even"><?php
+				while ( $messages->have_posts() ) { 
+					$messages->the_post(); ?>
+						<div id="fep-message-<?php the_ID(); ?>" class="fep-table-row"><?php
+							foreach ( Fep_Message::init()->get_table_columns() as $column => $display ) { ?>
+								<div class="fep-column fep-column-<?php echo $column; ?>"><?php Fep_Message::init()->get_column_content($column); ?></div>
+							<?php } ?>
+						</div>
+					<?php
+				} //endwhile
+				?></div><?php
+				echo fep_pagination();
+			} else {
+				?><div class="fep-error"><?php _e('No messages found. Try different filter.', 'front-end-pm'); ?></div><?php 
+			}
+			?>
+		</form>
+	<?php 
 	wp_reset_postdata();

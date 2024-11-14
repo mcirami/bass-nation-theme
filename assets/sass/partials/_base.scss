@@ -153,6 +153,7 @@ select {
 
         @include media($mobile) {
             padding-bottom: 40px;
+            padding-top: 180px;
         }
 
         .sub_header {

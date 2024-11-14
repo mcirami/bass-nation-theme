@@ -14014,6 +14014,7 @@ img {
 @media screen and (max-width: 767px) {
   .page_content.member {
     padding-bottom: 40px;
+    padding-top: 180px;
   }
 }
 .page_content.member .sub_header h2, .page_content.member .sub_header .h2 {
@@ -14887,7 +14888,7 @@ h4,
   .sub_header {
     padding: 15px 0;
     font-size: 22px;
-    margin: 0 0 20px 0;
+    margin: 0;
   }
 }
 .sub_header h2, .sub_header .h2 {
@@ -23681,6 +23682,11 @@ form .acf-spinner {
   width: 100%;
   flex-direction: column;
 }
+@media screen and (max-width: 767px) {
+  .profile_wrap .pmpro_form_fields {
+    gap: 0;
+  }
+}
 .profile_wrap .pmpro_message.pmpro_success {
   position: absolute;
   z-index: 1;
@@ -23708,11 +23714,27 @@ form .acf-spinner {
   display: flex;
   flex-wrap: wrap-reverse;
 }
+@media screen and (max-width: 767px) {
+  .profile_wrap .wpua-edit-container {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
 .profile_wrap #wpua-upload-button-existing {
   display: flex;
   flex-wrap: wrap;
   width: 86%;
   order: 2;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap #wpua-upload-button-existing {
+    width: 66%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap #wpua-upload-button-existing {
+    width: 100%;
+  }
 }
 .profile_wrap #wpua-upload-button-existing .button {
   order: 3;
@@ -23723,9 +23745,25 @@ form .acf-spinner {
 .profile_wrap #wpua-upload-button-existing .button:hover {
   background: #c4a020;
 }
+@media screen and (max-width: 767px) {
+  .profile_wrap #wpua-upload-button-existing .button {
+    width: 100%;
+  }
+}
 .profile_wrap #wpua-images-existing {
   width: 14%;
   padding-right: 30px;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap #wpua-images-existing {
+    padding-right: 0;
+    width: 30%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap #wpua-images-existing {
+    width: 100%;
+  }
 }
 .profile_wrap #wpua-images-existing #wpua-preview-existing {
   width: 100%;
@@ -23737,6 +23775,11 @@ form .acf-spinner {
      object-fit: cover;
   max-height: 135px;
   border-radius: 6px;
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap #wpua-images-existing #wpua-preview-existing img {
+    max-height: unset;
+  }
 }
 .profile_wrap #wpua-images-existing #wpua-preview-existing .description {
   display: none;
@@ -23753,16 +23796,34 @@ form .acf-spinner {
   color: #880415;
 }
 .profile_wrap #wpua-upload-messages-existing {
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   font-size: 1.5rem;
   width: 32%;
   line-height: 1.4;
+}
+@media screen and (max-width: 991px) {
+  .profile_wrap #wpua-upload-messages-existing {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap #wpua-upload-messages-existing {
+    width: 100%;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+.profile_wrap #wpua-upload-messages-existing code {
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
 }
 .profile_wrap .form_wrap {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
   box-shadow: 0px 80px 50px -30px rgba(19, 19, 19, 0.15);
 }
 .profile_wrap .pmpro_member_profile_edit_wrap {
@@ -23781,19 +23842,30 @@ form .acf-spinner {
   height: 80px;
   position: relative;
 }
+@media screen and (max-width: 767px) {
+  .profile_wrap input#wpua-file-existing {
+    height: 65px;
+    margin: 0;
+  }
+}
 .profile_wrap input#wpua-file-existing:hover {
   cursor: pointer;
 }
 .profile_wrap input#wpua-file-existing:before {
   content: "";
   background: #fff url("../images/upload-icon.png") no-repeat;
-  background-size: 80px;
+  background-size: 100px;
   background-position: center;
   position: absolute;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap input#wpua-file-existing:before {
+    background-size: 80px;
+  }
 }
 .profile_wrap form {
   float: left;
@@ -23816,23 +23888,52 @@ form .acf-spinner {
 .profile_wrap form .pmpro_card_content {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 4rem;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap form .pmpro_card_content {
+    gap: 0;
+  }
 }
 .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
   border: 0;
   margin: 0;
   padding: 0;
-  width: 48.6%;
+  width: 48.8%;
   padding: 40px;
   border-radius: 6px;
+}
+@media screen and (max-width: 991px) {
+  .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
+    width: 48.5%;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
+    width: 100%;
+  }
 }
 .profile_wrap form .pmpro_card_content .pmpro_cols-2 > * {
   width: 100%;
 }
 .profile_wrap form .pmpro_form_submit {
-  width: 100%;
+  flex-basis: 100%;
   justify-content: space-between;
+  padding: 0 20px;
+  flex-wrap: nowrap;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap form .pmpro_form_submit {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap form .pmpro_form_submit {
+    flex-wrap: wrap;
+  }
 }
 .profile_wrap form .pmpro_btn {
   font-family: "interbold", sans-serif;
@@ -23928,11 +24029,13 @@ form .acf-spinner {
   .profile_wrap form .pmpro_btn {
     padding: 7px 10px;
     font-size: 12px;
+    width: 16rem;
   }
 }
 @media screen and (max-width: 550px) {
   .profile_wrap form .pmpro_btn {
     padding: 5px 8px;
+    width: 100%;
   }
 }
 .profile_wrap form input[type=text],
@@ -24171,6 +24274,11 @@ form .acf-spinner {
           }
       }
   } */
+}
+@media screen and (max-width: 991px) {
+  .profile_wrap .avatar_upload {
+    padding: 20px;
+  }
 }
 .profile_wrap .avatar_upload .success {
   width: 100%;
@@ -26838,6 +26946,32 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in #pmpro_account .pmpro_box .content_wrap li strong {
   color: #959494;
+}
+.db-dark-mode-active.logged-in .profile_wrap .avatar_upload {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .profile_wrap .avatar_upload input#wpua-file-existing:before {
+  background: #131313 url("../images/upload-icon.png") no-repeat;
+  background-size: 100px;
+  background-position: center;
+}
+@media screen and (max-width: 767px) {
+  .db-dark-mode-active.logged-in .profile_wrap .avatar_upload input#wpua-file-existing:before {
+    background-size: 80px;
+  }
+}
+.db-dark-mode-active.logged-in .profile_wrap .avatar_upload #wpua-upload-messages-existing {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .profile_wrap .avatar_upload #wpua-upload-messages-existing code {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .profile_wrap .pmpro_form_label,
+.db-dark-mode-active.logged-in .profile_wrap .pmpro_form_hint {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
+  background: #131313;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

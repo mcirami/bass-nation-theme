@@ -466,6 +466,40 @@
             }
         }
     }
+
+    .profile_wrap {
+        .avatar_upload {
+            background: $darkerGray;
+
+            input#wpua-file-existing:before {
+                background: $darkerGray url("../images/upload-icon.png")
+                    no-repeat;
+                background-size: 100px;
+                background-position: center;
+
+                @include media($mobile) {
+                    background-size: 80px;
+                }
+            }
+
+            #wpua-upload-messages-existing {
+                color: $white;
+
+                code {
+                    color: $white;
+                }
+            }
+        }
+
+        .pmpro_form_label,
+        .pmpro_form_hint {
+            color: $grayText;
+        }
+
+        form .pmpro_card_content .pmpro_form_fieldset {
+            background: $darkerGray;
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

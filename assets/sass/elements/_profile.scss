@@ -173,33 +173,7 @@
     }
 
     input#wpua-file-existing {
-        height: 80px;
-        position: relative;
-
-        @include media($mobile) {
-            height: 65px;
-            margin: 0;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-
-        &:before {
-            content: "";
-            background: $white url("../images/upload-icon.png") no-repeat;
-            background-size: 100px;
-            background-position: center;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 0;
-            top: 0;
-
-            @include media($mobile) {
-                background-size: 80px;
-            }
-        }
+        @include uploadButton;
     }
 
     /* input#wpua-file-existin .image_wrap {

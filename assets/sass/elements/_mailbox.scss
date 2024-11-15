@@ -1,11 +1,11 @@
 #fep-wrapper {
-    @include boxShadow;
-
     #fep-header {
+        @include boxShadow;
         @include intermedium;
         display: block;
         padding: 20px;
         border: none;
+        margin-bottom: 40px;
 
         img {
             display: none;
@@ -56,11 +56,14 @@
             @include interregular;
         }
     }
+    #fep-footer {
+        border: none;
+    }
     #fep-menu-toggle-button {
         background-color: unset;
         border: 1px solid $borderGray;
-        width: 88%;
-        margin: 0 auto;
+        width: 100%;
+        margin: 0 auto 20px;
 
         &:after {
             font-size: 20px;
@@ -75,6 +78,7 @@
     }
     #fep-menu {
         @include interregular;
+        padding: 0 20px;
 
         #fep-menu-message_box,
         #fep-menu-newmessage,
@@ -100,13 +104,41 @@
         #fep-menu-newmessage.fep-button-active,
         #fep-menu-settings.fep-button-active,
         #fep-menu-announcements.fep-button-active,
-        #fep-menu-directory.fep-button-active {
+        #fep-menu-directory.fep-button-active,
+        .fep-button-active {
             background: transparent;
             color: $yellowHover;
+            border: none;
             border-bottom: 2px solid $yellowHover;
             font-size: 1.5rem;
+            border-radius: 0;
         }
     }
+
+    #fep-content {
+        @include boxShadow;
+        padding: 20px;
+        border: none;
+        margin-top: -1px;
+
+        input[type="search"] {
+            width: 100%;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            margin: 0;
+        }
+
+        > h2 {
+            @include mediumFont;
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin: 0;
+        }
+    }
+
     .fep-action-table {
         select {
             margin-top: 0;
@@ -190,17 +222,51 @@
             }
         }
     }
+    .wp-editor-tabs {
+        @include media($mobile) {
+            display: flex;
+            width: 100%;
+        }
 
-    .fep-field input {
-        height: 40px;
-        padding: 0 10px;
-        margin-bottom: 20px;
+        .wp-switch-editor {
+            background: none;
+            padding: 15px 30px;
+            border-top-right-radius: 6px;
+            border-top-left-radius: 6px;
+            width: 150px;
+            margin-top: 5px;
+            color: $darkerGray;
+
+            @include media($mobile) {
+                width: 50%;
+            }
+        }
     }
 
-    .fep-field label input {
-        height: 15px;
-        padding: 0;
+    .mce-top-part {
+        @include textEditorToolbar;
+    }
+
+    .div.mce-toolbar-grp,
+    div.mce-toolbar-grp {
+        border-bottom: none;
+        background: none;
+    }
+
+    .mce-top-part:before {
+        content: none;
+    }
+
+    .mce-stack-layout-item {
         margin-bottom: 0;
+    }
+
+    .fep-label {
+        display: none;
+    }
+
+    .fep-field {
+        position: relative;
     }
 
     #fep-result {
@@ -215,14 +281,32 @@
         input {
             margin-top: 10px;
             margin-bottom: 0;
-            height: 30px;
-            padding: 0;
+            @include uploadButton;
         }
 
         a.fep-attachment-field {
             display: inline-block;
             color: $black;
             margin-bottom: 5px;
+        }
+    }
+
+    .fep-attachment-field-a {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    a:not(.fep-button, .fep-button-active) {
+        color: $red;
+    }
+
+    button[type="submit"] {
+        @include basicButton;
+        background: $yellow;
+
+        &:hover {
+            background: $yellowHover;
         }
     }
 
@@ -234,22 +318,9 @@
         background: $yellow;
     }
 
-    #fep-content {
-        padding: 20px;
-        border: none;
-    }
-
     .fep-message .fep-message-title-heading,
     .fep-per-message .fep-message-title {
         background-color: $lightGray;
-    }
-
-    #fep-content input[type="search"] {
-        width: 100%;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-        margin: 0;
     }
 
     .fep-loading-gif-div {
@@ -288,6 +359,54 @@
 
             input {
                 margin-right: 5px;
+            }
+        }
+    }
+
+    .token-input-list-facebook {
+        border: none;
+        width: 100%;
+        margin-top: 40px;
+
+        .token-input-input-token-facebook {
+            width: 100%;
+            input {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .fep-form-field {
+        margin-bottom: 15px;
+
+        &.fep-form-field-blocked_users {
+            margin-bottom: 0;
+        }
+        &.fep-form-field-announcement_roles {
+            .fep-field {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                row-gap: 10px;
+
+                @include media($mobile) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                @include media($smallMobile) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+
+        label {
+            @include interregular;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            input {
+                width: 15px;
+                height: 15px;
             }
         }
     }

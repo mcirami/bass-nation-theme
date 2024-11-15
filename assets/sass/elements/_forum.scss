@@ -1427,25 +1427,7 @@ label[for="bbp_topic_subscription"] {
     border-radius: 6px;
 
     .quicktags-toolbar {
-        background: none;
-        border-bottom: none;
-        display: flex;
-        gap: 10px;
-        box-shadow: 3px 5px 26px -10px rgba(0, 0, 0, 0.2);
-        margin-bottom: 10px;
-
-        input {
-            border: 1px solid transparent;
-            color: $darkGray;
-            background: none;
-            font-size: 1.5rem !important;
-
-            &:hover {
-                background: none;
-                border-color: rgba(61, 61, 61, 0.2);
-                border-style: inset;
-            }
-        }
+        @include textEditorToolbar;
     }
 
     textarea {

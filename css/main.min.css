@@ -14464,7 +14464,7 @@ h4,
   max-width: 98.2em;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 20px 20px;
+  padding: 0 20px;
 }
 .container.profile {
   max-width: 65em;
@@ -19761,7 +19761,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   text-align: left;
 }
 .two_column_template.member .two_column_section .columns_wrap .column:last-child .content_wrap {
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   background: #fff;
   border-radius: 4px;
 }
@@ -19799,7 +19799,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 #pmpro_account {
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   display: flex;
   width: 100%;
   text-align: center;
@@ -21565,7 +21565,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: flex;
   gap: 10px;
   box-shadow: 3px 5px 26px -10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
 }
 .wp-editor-container .quicktags-toolbar input {
   border: 1px solid transparent;
@@ -23393,7 +23392,7 @@ form .acf-spinner {
   margin-bottom: 40px;
 }
 .member_home .top_section {
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   display: flex;
   align-items: flex-start;
   float: none;
@@ -23824,7 +23823,7 @@ form .acf-spinner {
   flex-wrap: wrap;
   width: 100%;
   padding: 20px 0;
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
 }
 .profile_wrap .pmpro_member_profile_edit_wrap {
   margin-bottom: 0;
@@ -24475,11 +24474,11 @@ form .acf-spinner {
 }
 
 #fep-wrapper #fep-header {
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   font-family: "intermedium", sans-serif;
   font-weight: 500;
   display: block;
-  padding: 20px;
+  padding: 40px;
   border: none;
   margin-bottom: 40px;
 }
@@ -24517,8 +24516,8 @@ form .acf-spinner {
 }
 #fep-wrapper #fep-header .fep-header-unread-text,
 #fep-wrapper #fep-header .fep-header-box-size {
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
+  font-family: "interregular", sans-serif;
+  font-weight: 300;
   color: #3d3d3d;
   text-align: right;
 }
@@ -24595,8 +24594,8 @@ form .acf-spinner {
   border-radius: 0;
 }
 #fep-wrapper #fep-content {
-  box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
-  padding: 20px;
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+  padding: 50px;
   border: none;
   margin-top: -1px;
 }
@@ -24696,6 +24695,9 @@ form .acf-spinner {
 #fep-wrapper .fep-table > div .fep-button:hover {
   background: #c4a020;
 }
+#fep-wrapper .wp-editor-container {
+  border-top-right-radius: 0;
+}
 @media screen and (max-width: 767px) {
   #fep-wrapper .wp-editor-tabs {
     display: flex;
@@ -24703,7 +24705,7 @@ form .acf-spinner {
   }
 }
 #fep-wrapper .wp-editor-tabs .wp-switch-editor {
-  background: none;
+  background: rgba(155, 155, 155, 0.1);
   padding: 15px 30px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
@@ -24716,13 +24718,16 @@ form .acf-spinner {
     width: 50%;
   }
 }
+#fep-wrapper .html-active .wp-switch-editor.switch-html,
+#fep-wrapper .tmce-active .wp-switch-editor.switch-tmce {
+  background: #fff;
+}
 #fep-wrapper .mce-top-part {
   background: none;
   border-bottom: none;
   display: flex;
   gap: 10px;
   box-shadow: 3px 5px 26px -10px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10px;
 }
 #fep-wrapper .mce-top-part input {
   border: 1px solid transparent;
@@ -24767,8 +24772,7 @@ form .acf-spinner {
   margin-right: 0;
 }
 #fep-wrapper #fep_upload input {
-  margin-top: 10px;
-  margin-bottom: 0;
+  margin: 10px 0;
   height: 80px;
   position: relative;
 }
@@ -24943,6 +24947,7 @@ form .acf-spinner {
   border: none;
   width: 100%;
   margin-top: 40px;
+  background: none;
 }
 #fep-wrapper .token-input-list-facebook .token-input-input-token-facebook {
   width: 100%;
@@ -24994,11 +24999,26 @@ form .acf-spinner {
 }
 #fep-wrapper .fep-avatar-p-90 {
   min-width: unset;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#fep-wrapper .fep-avatar-p-90.fep-avatar-p .fep-avatar-1, #fep-wrapper .fep-avatar-p-90.fep-avatar-p .fep-avatar-2,
+#fep-wrapper .fep-avatar-p-90 .fep-avatar-more-60,
+#fep-wrapper .fep-avatar-p-90 .fep-avatar-group-60 {
+  height: auto;
+  width: auto;
+}
+#fep-wrapper .fep-avatar-p-90.fep-avatar-p .fep-avatar-2 {
+  margin-left: -5px;
+  position: relative;
+  left: auto;
+  top: auto;
 }
 #fep-wrapper .fep-column.fep-column-avatar img {
   width: 50px;
   height: auto;
-  padding: 12px 0;
+  background: #fff;
 }
 #fep-wrapper .fep-column.fep-column-title {
   margin-left: auto;
@@ -27035,7 +27055,7 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .page_content.member input:not([type=submit]) {
   background: #070707;
-  color: #fff;
+  color: #fff !important;
 }
 .db-dark-mode-active.logged-in .page_content.member.lessons_page .shuffle-container .lesson_content p {
   color: #b80008;
@@ -27265,7 +27285,7 @@ form .acf-spinner {
   background: #131313;
 }
 .db-dark-mode-active.logged-in .profile_wrap .avatar_upload input#wpua-file-existing:before {
-  background: #131313 url("../images/upload-icon.png") no-repeat;
+  background: #000000 url("../images/upload-icon.png") no-repeat;
   background-size: 100px;
   background-position: center;
 }
@@ -27286,6 +27306,86 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
   background: #131313;
+}
+.db-dark-mode-active.logged-in .mce-menu .mce-container-body {
+  color: #000000 !important;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep-content {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep-header {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep-header strong {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep-header .fep-header-unread-text,
+.db-dark-mode-active.logged-in #fep-wrapper #fep-header .fep-header-box-size {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep-menu #fep-menu-directory,
+.db-dark-mode-active.logged-in #fep-wrapper #fep-menu #fep-menu-settings,
+.db-dark-mode-active.logged-in #fep-wrapper #fep-menu .fep-button {
+  color: #959494 !important;
+}
+.db-dark-mode-active.logged-in #fep-wrapper #fep_upload input:before {
+  background-color: #000000;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .fep-column.fep-column-name,
+.db-dark-mode-active.logged-in #fep-wrapper .fep-form-field label {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part {
+  background: #000000;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .mce-ico {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .mce-btn-group .mce-btn:hover,
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .mce-toolbar .mce-btn-group .mce-btn:focus,
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .qt-dfw:focus,
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .qt-dfw:hover {
+  background: none;
+  box-shadow: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  border-style: inset;
+  border-radius: 4px;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .mce-top-part .mce-toolbar .mce-listbox button {
+  background: #000000;
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .quicktags-toolbar {
+  background: #000000;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .quicktags-toolbar .ed_button {
+  background: unset !important;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .quicktags-toolbar .ed_button:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  border-style: inset;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .wp-editor-tabs .wp-switch-editor {
+  color: #fff;
+  background: #131313;
+  border-bottom: none;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .tmce-active .switch-tmce,
+.db-dark-mode-active.logged-in #fep-wrapper .html-active .switch-html {
+  background: #000000;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .fep-message-author {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #fep-wrapper .fep-message-date,
+.db-dark-mode-active.logged-in #fep-wrapper .fep-message-excerpt {
+  opacity: 1;
+  color: #959494;
+}
+.db-dark-mode-active.logged-in #fep-wrapper a:not(.fep-button, .fep-button-active) {
+  color: #b80008;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

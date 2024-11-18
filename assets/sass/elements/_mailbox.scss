@@ -3,7 +3,7 @@
         @include boxShadow;
         @include intermedium;
         display: block;
-        padding: 20px;
+        padding: 40px;
         border: none;
         margin-bottom: 40px;
 
@@ -38,7 +38,7 @@
 
         .fep-header-unread-text,
         .fep-header-box-size {
-            @include intermedium;
+            @include interregular;
             color: $darkGray;
             text-align: right;
 
@@ -117,7 +117,7 @@
 
     #fep-content {
         @include boxShadow;
-        padding: 20px;
+        padding: 50px;
         border: none;
         margin-top: -1px;
 
@@ -222,6 +222,11 @@
             }
         }
     }
+
+    .wp-editor-container {
+        border-top-right-radius: 0;
+    }
+
     .wp-editor-tabs {
         @include media($mobile) {
             display: flex;
@@ -229,7 +234,7 @@
         }
 
         .wp-switch-editor {
-            background: none;
+            background: rgba(155, 155, 155, 0.1);
             padding: 15px 30px;
             border-top-right-radius: 6px;
             border-top-left-radius: 6px;
@@ -241,6 +246,11 @@
                 width: 50%;
             }
         }
+    }
+
+    .html-active .wp-switch-editor.switch-html,
+    .tmce-active .wp-switch-editor.switch-tmce {
+        background: $white;
     }
 
     .mce-top-part {
@@ -279,8 +289,7 @@
         @include span-columns(12);
 
         input {
-            margin-top: 10px;
-            margin-bottom: 0;
+            margin: 10px 0;
             @include uploadButton;
         }
 
@@ -367,6 +376,7 @@
         border: none;
         width: 100%;
         margin-top: 40px;
+        background: none;
 
         .token-input-input-token-facebook {
             width: 100%;
@@ -426,12 +436,30 @@
 
     .fep-avatar-p-90 {
         min-width: unset;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        &.fep-avatar-p .fep-avatar-1,
+        &.fep-avatar-p .fep-avatar-2,
+        .fep-avatar-more-60,
+        .fep-avatar-group-60 {
+            height: auto;
+            width: auto;
+        }
+
+        &.fep-avatar-p .fep-avatar-2 {
+            margin-left: -5px;
+            position: relative;
+            left: auto;
+            top: auto;
+        }
     }
 
     .fep-column.fep-column-avatar img {
         width: 50px;
         height: auto;
-        padding: 12px 0;
+        background: $white;
     }
 
     .fep-column.fep-column-title {

@@ -129,7 +129,7 @@
 
             input:not([type="submit"]) {
                 background: $darkModeBg;
-                color: $white;
+                color: $white !important;
             }
 
             &.lessons_page {
@@ -472,8 +472,7 @@
             background: $darkerGray;
 
             input#wpua-file-existing:before {
-                background: $darkerGray url("../images/upload-icon.png")
-                    no-repeat;
+                background: $black url("../images/upload-icon.png") no-repeat;
                 background-size: 100px;
                 background-position: center;
 
@@ -498,6 +497,111 @@
 
         form .pmpro_card_content .pmpro_form_fieldset {
             background: $darkerGray;
+        }
+    }
+
+    .mce-menu .mce-container-body {
+        color: $black !important;
+    }
+
+    #fep-wrapper {
+        #fep-content {
+            background: $darkerGray;
+        }
+        #fep-header {
+            background: $darkerGray;
+
+            strong {
+                color: $grayText;
+            }
+
+            .fep-header-unread-text,
+            .fep-header-box-size {
+                color: $grayText;
+            }
+        }
+
+        #fep-menu {
+            #fep-menu-directory,
+            #fep-menu-settings,
+            .fep-button {
+                color: $grayText !important;
+            }
+        }
+
+        #fep_upload input:before {
+            background-color: $black;
+        }
+
+        .fep-column.fep-column-name,
+        .fep-form-field label {
+            color: $white;
+        }
+        .mce-top-part {
+            background: $black;
+
+            .mce-toolbar {
+                .mce-ico {
+                    color: $white;
+                }
+
+                .mce-btn-group .mce-btn:hover,
+                .mce-toolbar .mce-btn-group .mce-btn:focus,
+                .qt-dfw:focus,
+                .qt-dfw:hover {
+                    background: none;
+                    box-shadow: none;
+                    border-color: rgba(255, 255, 255, 0.4);
+                    border-style: inset;
+                    border-radius: 4px;
+                }
+                .mce-listbox {
+                    button {
+                        background: $black;
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .quicktags-toolbar {
+            background: $black;
+
+            .ed_button {
+                background: unset !important;
+                border: 1px solid transparent;
+                border-radius: 4px;
+
+                &:hover {
+                    border-color: rgba(255, 255, 255, 0.4);
+                    border-style: inset;
+                }
+            }
+        }
+
+        .wp-editor-tabs .wp-switch-editor {
+            color: $white;
+            background: $darkerGray;
+            border-bottom: none;
+        }
+
+        .tmce-active .switch-tmce,
+        .html-active .switch-html {
+            background: $black;
+        }
+
+        .fep-message-author {
+            color: $white;
+        }
+
+        .fep-message-date,
+        .fep-message-excerpt {
+            opacity: 1;
+            color: $grayText;
+        }
+
+        a:not(.fep-button, .fep-button-active) {
+            color: $darkModeRed;
         }
     }
 }

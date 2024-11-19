@@ -73,9 +73,13 @@
     .bbp-reply-form,
     .bbp-topic-tag-form {
         width: 100%;
+        padding: 20px;
     }
 
     #new-post {
+        @include boxShadow;
+        padding: 20px;
+
         .bbp-form {
             border: none !important;
             padding: 0 !important;
@@ -1621,6 +1625,10 @@ label[for="bbp_topic_subscription"] {
 
 .bbp-attachments-form {
     @include span-columns(12);
+
+    input {
+        @include uploadButton;
+    }
 }
 
 .mejs-inner {

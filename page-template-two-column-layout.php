@@ -49,7 +49,7 @@ get_header();
                         <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
                             <h2>Ready To <span>Join Bass Nation?</span></h2>
                             <h3>It's as easy as...</h3>
-                            <div class="list">
+                            <div class="numbered_list">
                                 <div class="list_row">
                                     <div class="outer_circle">
                                         <span>1</span>

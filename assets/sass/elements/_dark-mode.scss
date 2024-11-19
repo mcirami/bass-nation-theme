@@ -345,6 +345,16 @@
             fieldset.bbp-form legend {
                 color: $grayText;
             }
+
+            .bbp-attachments-form input:before {
+                background-color: $black;
+            }
+
+            .bbp-topic-form,
+            .bbp-reply-form,
+            .bbp-topic-tag-form {
+                background: $darkerGray;
+            }
         }
     }
 

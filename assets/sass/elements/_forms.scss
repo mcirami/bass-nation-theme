@@ -1,129 +1,41 @@
 .form_wrapper {
-    background: $lightGray;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    border: 1px solid $borderGray;
-    padding: 40px;
     color: $black;
+    display: flex;
+    gap: 1.5rem;
 
     @include media($tablet) {
         display: table;
-        padding: 20px;
     }
 
     @include media($mobile) {
         margin: 40px 0;
-        padding: 15px;
     }
 
     .top_section {
-        @include media($tablet) {
-            text-align: center;
-        }
-
         h2 {
-            font-size: 21px;
-
-            @include media($tablet) {
-                font-size: 24px;
-            }
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
+            @include mediumFont;
         }
 
-        .list {
-            margin-top: 20px;
+        .numbered_list {
+            margin: 20px 0;
 
-            @include media($tablet) {
-                text-align: left;
-            }
-            p {
-                width: 100%;
-            }
-        }
-
-        p {
-            @include interregular;
-            border-bottom: 1px solid $borderGray;
-            display: inline-block;
-            padding-bottom: 15px;
-            margin-bottom: 15px;
-            font-size: 15px;
-            float: left;
-
-            @include media($tablet) {
-                @include span-columns(2.6);
-                font-size: 13px;
-                line-height: 1.4;
-            }
-
-            @include media($mobile) {
-                @include span-columns(4);
-            }
-
-            span {
-                float: left;
-                padding: 1px 7px;
-                background: $black;
-                color: $white;
-                margin-right: 10px;
-                font-size: 15px;
-                border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-
-                @include media($tablet) {
-                    font-size: 12px;
-                    line-height: 1.6;
-                    padding: 1px 6px;
-                }
-            }
-
-            &:last-child {
-                border-bottom: none;
-                margin-bottom: 10px;
-
-                @include media($tablet) {
-                    border-bottom: 1px solid $borderGray;
-                }
-
-                @include media($mobile) {
-                    border-bottom: none;
-                }
+            .outer_circle {
+                background: $lightGray;
+                padding-left: 0;
             }
         }
 
         .white_box {
             background: $white;
-            padding: 8px;
-            border: 1px solid $borderGray;
-            color: $grayText;
+            padding: 30px;
+            color: $darkGray;
             border-radius: 4px;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
-            margin-top: 15px;
-            //Temp for discount code
-            height: 90px;
-            text-align: center;
-
-            @include media($tablet) {
-                height: 85px;
-            }
-
-            @include media($mobile) {
-                height: 75px;
-            }
-
-            @include media($smallMobile) {
-                height: 90px;
-            }
+            width: 70%;
 
             p {
-                @include interbolditalic;
-                font-size: 16px;
+                @include exSmallFont;
                 margin: 0;
                 padding: 0;
 
@@ -131,38 +43,31 @@
                     width: 100%;
                     border-bottom: none;
                 }
-
-                @include media($mobile) {
-                    font-size: 14px;
-                }
             }
         }
 
         .sig {
             text-align: center;
-            margin: 20px 0 0;
             display: -webkit-box;
             display: -ms-flexbox;
             display: flex;
             -webkit-box-orient: horizontal;
             -webkit-box-direction: normal;
-            -ms-flex-direction: row;
-            flex-direction: row;
+            -ms-flex-direction: column;
+            flex-direction: column;
             -ms-flex-wrap: nowrap;
             flex-wrap: nowrap;
             justify-content: center;
             -webkit-justify-content: center;
+            align-items: center;
+            width: 30%;
 
             p {
                 @include intermediumitalic;
+                @include exSmallFont;
                 display: inline-block;
                 margin-bottom: 0;
-                margin-right: 10px;
-                padding-top: 18px;
-                vertical-align: top;
-                color: $red;
-                border: none;
-                float: none;
+                color: $darkGray;
 
                 @include media($tablet) {
                     width: auto;
@@ -173,37 +78,16 @@
                 position: relative;
                 display: inline-block;
                 width: 58px;
+            }
+        }
 
-                &:before {
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    right: 22.3%;
-                    bottom: 63px;
-                    border: 8px solid;
-                    border-color: $borderGray transparent transparent
-                        $borderGray;
+        .bottom_content {
+            text-align: center;
+            color: $darkGray;
+            line-height: 1.6;
 
-                    @include media($tablet) {
-                        right: 29.3%;
-                    }
-                }
-
-                &:after {
-                    content: "";
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    right: 24%;
-                    bottom: 65px;
-                    border: 7px solid;
-                    border-color: $white transparent transparent $white;
-
-                    @include media($tablet) {
-                        right: 32.1%;
-                    }
-                }
+            p {
+                margin: 0;
             }
         }
     }
@@ -255,26 +139,31 @@
 
         &:first-child {
             display: table-footer-group;
+
+            .column_content {
+                padding: 40px;
+            }
         }
 
         &:last-child {
             display: table-header-group;
+
+            .top_section {
+                background: $lightGray;
+                padding: 40px;
+
+                .two_columns {
+                    display: flex;
+                    margin: 20px 0 60px;
+                }
+            }
         }
 
         h3 {
-            font-size: 0.98em;
-            background: $red;
-            color: $white;
-            text-align: center;
-            text-transform: uppercase;
-            padding: 10px 0 14px;
+            @include medLargeFont;
+            @include interbold;
             margin: 0;
-
-            @include media($smallMobile) {
-                font-size: 3.3vw;
-                padding: 5px 0 10px;
-                line-height: 1.4;
-            }
+            line-height: 1.6;
         }
 
         #pmpro_account_loggedin {
@@ -283,12 +172,6 @@
         }
 
         .column_content {
-            border: 5px solid $red;
-            background: $white;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-
             .row_wrap {
                 @include span-columns(12);
 
@@ -302,7 +185,6 @@
                     flex-direction: row;
                     -ms-flex-wrap: nowrap;
                     flex-wrap: nowrap;
-                    border-bottom: 5px solid $red;
                 }
 
                 @include media($mobile) {
@@ -327,9 +209,11 @@
             }
 
             .row {
+                width: 100%;
                 padding: 40px 20px;
-                border-bottom: 5px solid $red;
-                background: $white;
+                border-bottom: 1px solid $borderGray;
+                display: flex;
+                gap: 2rem;
 
                 @include media($tablet) {
                     width: 50%;
@@ -351,28 +235,14 @@
 
                 @include media($mobile) {
                     @include span-columns(4);
-                    border-bottom: 5px solid $red;
-                }
-
-                &:first-child {
-                    @include media($tablet) {
-                        border-right: 1px solid $red;
-                    }
-
-                    @include media($mobile) {
-                        border-right: none;
-                    }
                 }
 
                 .image_wrap {
-                    padding-top: 7px;
                     width: 8%;
-                    float: left;
-                    margin-right: 5%;
+                    padding-left: 0;
 
                     @include media($tablet) {
                         @include span-columns(8);
-                        padding-top: 0;
                     }
 
                     img {
@@ -415,32 +285,34 @@
                         @include span-columns(8);
                     }
 
-                    h3 {
-                        font-size: 16px;
-                        margin: 0;
+                    h4 {
+                        @include interregular;
+                        margin: 0 0 15px;
                         color: $red;
-                        background: none;
-                        text-align: left;
-                        padding: 0;
 
                         @include media($tablet) {
                             text-align: center;
                         }
-
-                        @include media($mobile) {
-                            font-size: 14px;
-                        }
                     }
 
                     p {
-                        font-size: 14px;
+                        @include exSmallFont;
+                        margin: 0;
+                        color: $darkGray;
 
-                        @include media($mobile) {
+                        /*  @include media($mobile) {
                             font-size: 12px;
-                        }
+                        } */
                     }
                 }
             }
+        }
+
+        .pmpro_form_field-radio-item {
+            display: flex;
+            width: 100%;
+            gap: 1rem;
+            margin-bottom: 10px;
         }
 
         .pmpro_submit {
@@ -523,7 +395,7 @@
     }
 
     .bottom_section {
-        padding: 20px 0;
+        padding: 20px;
 
         @include media($tablet) {
             text-align: center;
@@ -535,14 +407,13 @@
 
         p {
             @include intermediumitalic;
-            color: $grayText;
-            font-size: 20px;
+            color: $darkGray;
             line-height: 1.4;
-
-            @include media($mobile) {
-                font-size: 15px;
-            }
         }
+    }
+
+    fieldset#pmpro_user_fields {
+        display: none;
     }
 }
 
@@ -684,22 +555,14 @@ form.pmpro_form .pmpro_checkout-fields div {
     }
 
     #pmpro_payment_method {
-        padding: 0 15px;
-        margin-bottom: 10px;
-        margin-top: 20px;
+        @include boxShadow;
+        padding: 40px;
+        margin: 40px 0;
+        background: $lightGray;
+        border: none;
 
-        @include media($mobile) {
-            padding: 0 10px;
-        }
-
-        h3 {
-            font-size: 18px;
-            background: none;
-            color: $red;
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
+        h2 {
+            @include medLargeFont;
         }
 
         .pmpro_checkout-fields {
@@ -739,16 +602,12 @@ form.pmpro_form .pmpro_checkout-fields div {
 
     #pmpro_billing_address_fields {
         margin-top: 0;
+        padding: 40px;
+        border: none;
 
         h3 {
-            font-size: 18px;
             background: none;
-            color: $red;
             padding-bottom: 0;
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
         }
 
         label {
@@ -770,6 +629,12 @@ form.pmpro_form .pmpro_checkout-fields div {
     }
 
     #pmpro_payment_information_fields {
+        @include boxShadow;
+        padding: 40px;
+        border: none;
+        background: $lightGray;
+        margin-top: 40px;
+
         .pmpro_payment-discount-code {
             display: none;
         }
@@ -1019,14 +884,10 @@ form.pmpro_form #other_discount_code.input {
 }
 
 #other_discount_code_p {
-    @include span-columns(12);
-    font-size: 16px;
-    border: none;
-    padding-bottom: 0;
-
-    @include media($smallMobile) {
-        font-size: 14px;
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 
     a,
     button {
@@ -1063,9 +924,14 @@ form.pmpro_form #other_discount_code.input {
 }
 
 #pmpro_pricing_fields {
-    padding: 20px;
-    text-align: left;
-    border-bottom: 4px solid $red;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+
+    h2.pmpro_card_title {
+        display: none;
+    }
 
     h3,
     #pmpro_level_cost,
@@ -1135,7 +1001,9 @@ input[type="submit"] {
     line-height: 1.6;
 }
 form {
-    input:not([type="submit"]):not(.ed_button):not([type="checkbox"]),
+    input:not([type="submit"]):not(.ed_button):not([type="checkbox"]):not(
+            [type="radio"]
+        ),
     input[type="text"],
     input[type="email"],
     select {

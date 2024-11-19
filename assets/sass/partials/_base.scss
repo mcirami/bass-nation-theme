@@ -321,6 +321,17 @@ ul.check_list {
     }
 }
 
+.numbered_list {
+    @include numberedList;
+}
+.light_gray_bg {
+    background: $lightGray;
+}
+
+.box_shadow {
+    @include boxShadow;
+}
+
 /* .social_media_row {
     margin-top: 50px;
     display: -webkit-box;

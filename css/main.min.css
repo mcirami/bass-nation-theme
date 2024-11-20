@@ -21996,7 +21996,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .form_wrapper .top_section .numbered_list .outer_circle {
   background: #f6f6f6;
-  padding-left: 0;
 }
 .form_wrapper .top_section .white_box {
   background: #fff;
@@ -22184,7 +22183,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .form_wrapper .column .column_content .row {
   width: 100%;
-  padding: 40px 20px;
+  padding: 40px 20px 40px 0;
   border-bottom: 1px solid #c8c8c8;
   display: flex;
   gap: 2rem;
@@ -22320,27 +22319,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     width: 100%;
   }
 }
-.form_wrapper .column #pmpro_submit_span:before {
-  content: "";
-  position: absolute;
-  background: url("../images/white-arrow.png") no-repeat;
-  width: 28px;
-  height: 12px;
-  right: 17px;
-  top: 15px;
-  z-index: 1;
-}
-@media screen and (max-width: 767px) {
-  .form_wrapper .column #pmpro_submit_span:before {
-    right: 12px;
-    background-size: 85%;
-  }
-}
-@media screen and (max-width: 550px) {
-  .form_wrapper .column #pmpro_submit_span:before {
-    background: none;
-  }
-}
 .form_wrapper .column p.terms {
   width: 100%;
   float: left;
@@ -22414,11 +22392,6 @@ form.pmpro_form div {
 form.pmpro_form select {
   max-width: none;
   width: 100%;
-}
-@media screen and (max-width: 767px) {
-  form.pmpro_form select {
-    margin: 0;
-  }
 }
 
 .red_border_wrap {
@@ -22720,11 +22693,15 @@ form.pmpro_form .pmpro_checkout-fields div {
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select {
   width: 48%;
 }
-.pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select#ExpirationMonth {
-  float: left;
+@media screen and (max-width: 550px) {
+  .pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select#ExpirationMonth {
+    width: 42%;
+  }
 }
-.pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select#ExpirationYear {
-  float: right;
+@media screen and (max-width: 550px) {
+  .pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select#ExpirationYear {
+    width: 54%;
+  }
 }
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-cvv {
   width: 48%;
@@ -23116,7 +23093,7 @@ form .acf-spinner {
   background: none;
 }
 
-.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]),
+.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]),
 .logged-in form input[type=text],
 .logged-in form input[type=email],
 .logged-in form select {
@@ -23125,14 +23102,14 @@ form .acf-spinner {
   color: #000000;
   outline: none !important;
 }
-.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):focus,
+.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]):focus,
 .logged-in form input[type=text]:focus,
 .logged-in form input[type=email]:focus,
 .logged-in form select:focus {
   color: #000000;
 }
 @media screen and (max-width: 767px) {
-  .logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]),
+  .logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]),
   .logged-in form input[type=text],
   .logged-in form input[type=email],
   .logged-in form select {
@@ -27276,6 +27253,43 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in #fep-wrapper a:not(.fep-button, .fep-button-active) {
   color: #b80008;
+}
+.db-dark-mode-active.logged-in .light_gray_bg {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .pmpro_form #pmpro_payment_method,
+.db-dark-mode-active.logged-in .pmpro_form #pmpro_payment_information_fields {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .form_wrapper .top_section .numbered_list .outer_circle {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .form_wrapper .top_section .numbered_list p {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper .top_section .white_box {
+  color: #fff;
+  background: #070707;
+}
+.db-dark-mode-active.logged-in .form_wrapper .top_section .bottom_content {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper .top_section .sig p {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper #other_discount_code_p,
+.db-dark-mode-active.logged-in .form_wrapper .pmpro_form_field-radio-item .pmpro_form_label,
+.db-dark-mode-active.logged-in .form_wrapper #pmpro_payment_information_fields .pmpro_form_fields label {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper .column .column_content .row .copy p {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .form_wrapper .column:last-child .top_section {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .form_wrapper .bottom_section p {
+  color: #fff;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

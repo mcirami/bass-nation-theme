@@ -614,6 +614,66 @@
             color: $darkModeRed;
         }
     }
+
+    .light_gray_bg {
+        background: $darkerGray;
+    }
+
+    .pmpro_form #pmpro_payment_method,
+    .pmpro_form #pmpro_payment_information_fields {
+        background: $darkerGray;
+    }
+
+    .form_wrapper {
+        .top_section {
+            .numbered_list {
+                .outer_circle {
+                    background: $darkerGray;
+                }
+
+                p {
+                    color: $white;
+                }
+            }
+
+            .white_box {
+                color: $white;
+                background: $darkModeBg;
+            }
+
+            .bottom_content {
+                color: $white;
+            }
+
+            .sig p {
+                color: $white;
+            }
+        }
+
+        #other_discount_code_p,
+        .pmpro_form_field-radio-item .pmpro_form_label,
+        #pmpro_payment_information_fields .pmpro_form_fields label {
+            color: $white;
+        }
+
+        .column {
+            .column_content {
+                .row .copy p {
+                    color: $grayText;
+                }
+            }
+
+            &:last-child {
+                .top_section {
+                    background: $darkerGray;
+                }
+            }
+        }
+
+        .bottom_section p {
+            color: $white;
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

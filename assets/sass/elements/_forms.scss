@@ -21,7 +21,6 @@
 
             .outer_circle {
                 background: $lightGray;
-                padding-left: 0;
             }
         }
 
@@ -210,7 +209,7 @@
 
             .row {
                 width: 100%;
-                padding: 40px 20px;
+                padding: 40px 20px 40px 0;
                 border-bottom: 1px solid $borderGray;
                 display: flex;
                 gap: 2rem;
@@ -333,26 +332,6 @@
             @include media($smallMobile) {
                 width: 100%;
             }
-
-            &:before {
-                content: "";
-                position: absolute;
-                background: url("../images/white-arrow.png") no-repeat;
-                width: 28px;
-                height: 12px;
-                right: 17px;
-                top: 15px;
-                z-index: 1;
-
-                @include media($mobile) {
-                    right: 12px;
-                    background-size: 85%;
-                }
-
-                @include media($smallMobile) {
-                    background: none;
-                }
-            }
         }
 
         p.terms {
@@ -424,10 +403,6 @@ form.pmpro_form div {
 form.pmpro_form select {
     max-width: none;
     width: 100%;
-
-    @include media($mobile) {
-        margin: 0;
-    }
 }
 
 .red_border_wrap {
@@ -677,11 +652,15 @@ form.pmpro_form .pmpro_checkout-fields div {
                 width: 48%;
 
                 &#ExpirationMonth {
-                    float: left;
+                    @include media($smallMobile) {
+                        width: 42%;
+                    }
                 }
 
                 &#ExpirationYear {
-                    float: right;
+                    @include media($smallMobile) {
+                        width: 54%;
+                    }
                 }
             }
         }
@@ -1094,7 +1073,9 @@ form {
 
 .logged-in {
     form {
-        input:not([type="submit"]):not(.ed_button):not([type="checkbox"]),
+        input:not([type="submit"]):not(.ed_button):not([type="checkbox"]):not(
+                [type="radio"]
+            ),
         input[type="text"],
         input[type="email"],
         select {

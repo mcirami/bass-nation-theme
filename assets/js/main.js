@@ -1058,8 +1058,17 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    const bcountryDiv = jQuery('label[for="bcountry"]').closest("div");
-    bcountryDiv.insertAfter(jQuery("#country_drop").closest("div"));
+    /* const bcountryDiv = jQuery('label[for="bcountry"]').closest("div");
+    bcountryDiv.insertAfter(jQuery("#country_drop").closest("div")); */
+    const countryDrop = document.getElementById("country_drop");
+
+    if (countryDrop) {
+        setTimeout(() => {
+            document
+                .getElementById("country_drop_target")
+                .appendChild(countryDrop);
+        }, 500);
+    }
 
     if ($(window).width() > 768) {
         const facadePlay = document.querySelector(

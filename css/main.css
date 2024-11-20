@@ -22477,18 +22477,6 @@ form.pmpro_form .pmpro_checkout-fields div {
   margin-left: 5px;
   font-size: 18px;
 }
-.pmpro_form select {
-  width: 100%;
-  max-width: none;
-  height: 40px;
-  background: #fff;
-  border: 1px solid #c8c8c8;
-}
-@media screen and (max-width: 767px) {
-  .pmpro_form select {
-    height: 35px;
-  }
-}
 .pmpro_form .content {
   padding-top: 60px;
   text-align: center;
@@ -22652,16 +22640,7 @@ form.pmpro_form .pmpro_checkout-fields div {
   margin-top: 10px;
 }
 .pmpro_form #pmpro_billing_address_fields .half_width {
-  width: 48%;
-  float: left;
-}
-@media screen and (max-width: 767px) {
-  .pmpro_form #pmpro_billing_address_fields .half_width {
-    width: 48%;
-  }
-}
-.pmpro_form #pmpro_billing_address_fields .half_width.right {
-  float: right;
+  width: 50%;
 }
 .pmpro_form #pmpro_payment_information_fields {
   box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
@@ -22673,21 +22652,13 @@ form.pmpro_form .pmpro_checkout-fields div {
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-discount-code {
   display: none;
 }
-.pmpro_form #pmpro_payment_information_fields h3, .pmpro_form #pmpro_payment_information_fields .h3 {
-  font-size: 18px;
-  background: none;
-  color: #ff000a;
-  padding-bottom: 0;
-  text-align: center;
+.pmpro_form #pmpro_payment_information_fields h2, .pmpro_form #pmpro_payment_information_fields .h2 {
+  font-size: 3.2rem;
 }
 @media screen and (max-width: 767px) {
-  .pmpro_form #pmpro_payment_information_fields h3, .pmpro_form #pmpro_payment_information_fields .h3 {
-    font-size: 16px;
+  .pmpro_form #pmpro_payment_information_fields h2, .pmpro_form #pmpro_payment_information_fields .h2 {
+    font-size: 2.5rem;
   }
-}
-.pmpro_form #pmpro_payment_information_fields h3 span, .pmpro_form #pmpro_payment_information_fields .h3 span {
-  width: 100%;
-  margin: 0;
 }
 .pmpro_form #pmpro_payment_information_fields .pmpro_thead-name {
   float: left;
@@ -22733,9 +22704,8 @@ form.pmpro_form .pmpro_checkout-fields div {
   width: 100%;
 }
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-account-number {
-  width: 48%;
-  float: right;
-  margin: 0 0 5px;
+  width: 100%;
+  float: left;
 }
 @media screen and (max-width: 767px) {
   .pmpro_form #pmpro_payment_information_fields .pmpro_payment-account-number {
@@ -22743,9 +22713,9 @@ form.pmpro_form .pmpro_checkout-fields div {
   }
 }
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration {
-  width: 100%;
+  width: 50%;
   float: left;
-  margin: 0 0 5px;
+  margin-right: 2%;
 }
 .pmpro_form #pmpro_payment_information_fields .pmpro_payment-expiration select {
   width: 48%;
@@ -22789,8 +22759,7 @@ form.pmpro_form .pmpro_checkout-fields div {
   margin: 100px 0;
   background: #f6f6f6;
   padding: 40px;
-  box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  border: 1px solid #c8c8c8;
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
 }
 @media screen and (max-width: 767px) {
   .billing_content {

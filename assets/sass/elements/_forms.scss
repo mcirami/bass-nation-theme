@@ -484,18 +484,6 @@ form.pmpro_form .pmpro_checkout-fields div {
         font-size: 18px;
     }
 
-    select {
-        width: 100%;
-        max-width: none;
-        height: 40px;
-        background: $white;
-        border: 1px solid $borderGray;
-
-        @include media($mobile) {
-            height: 35px;
-        }
-    }
-
     .content {
         padding-top: 60px;
         text-align: center;
@@ -615,16 +603,7 @@ form.pmpro_form .pmpro_checkout-fields div {
         }
 
         .half_width {
-            width: 48%;
-            float: left;
-
-            @include media($mobile) {
-                width: 48%;
-            }
-
-            &.right {
-                float: right;
-            }
+            width: 50%;
         }
     }
 
@@ -639,21 +618,8 @@ form.pmpro_form .pmpro_checkout-fields div {
             display: none;
         }
 
-        h3 {
-            font-size: 18px;
-            background: none;
-            color: $red;
-            padding-bottom: 0;
-            text-align: center;
-
-            @include media($mobile) {
-                font-size: 16px;
-            }
-
-            span {
-                width: 100%;
-                margin: 0;
-            }
+        h2 {
+            @include medLargeFont;
         }
 
         .pmpro_thead-name {
@@ -694,9 +660,8 @@ form.pmpro_form .pmpro_checkout-fields div {
         }
 
         .pmpro_payment-account-number {
-            width: 48%;
-            float: right;
-            margin: 0 0 5px;
+            width: 100%;
+            float: left;
 
             @include media($mobile) {
                 width: 100%;
@@ -704,9 +669,9 @@ form.pmpro_form .pmpro_checkout-fields div {
         }
 
         .pmpro_payment-expiration {
-            width: 100%;
+            width: 50%;
             float: left;
-            margin: 0 0 5px;
+            margin-right: 2%;
 
             select {
                 width: 48%;
@@ -759,10 +724,7 @@ form.pmpro_form .pmpro_checkout-fields div {
     margin: 100px 0;
     background: $lightGray;
     padding: 40px;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    border: 1px solid $borderGray;
+    @include boxShadow;
 
     @include media($mobile) {
         padding: 20px;

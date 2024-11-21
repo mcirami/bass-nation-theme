@@ -33,6 +33,10 @@
             -moz-border-radius: 4px;
             width: 70%;
 
+            @include media($smallMobile) {
+                width: 100%;
+            }
+
             p {
                 @include exSmallFont;
                 margin: 0;
@@ -61,6 +65,11 @@
             align-items: center;
             width: 30%;
 
+            @include media($smallMobile) {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
             p {
                 @include intermediumitalic;
                 @include exSmallFont;
@@ -84,6 +93,10 @@
             text-align: center;
             color: $darkGray;
             line-height: 1.6;
+
+            @include media($smallMobile) {
+                text-align: left;
+            }
 
             p {
                 margin: 0;
@@ -154,6 +167,10 @@
                 .two_columns {
                     display: flex;
                     margin: 20px 0 60px;
+
+                    @include media($smallMobile) {
+                        flex-wrap: wrap;
+                    }
                 }
             }
         }
@@ -327,18 +344,14 @@
         #pmpro_submit_span {
             position: relative;
             float: left;
-            width: 302px;
-
-            @include media($smallMobile) {
-                width: 100%;
-            }
+            width: 100%;
         }
 
         p.terms {
-            width: 100%;
-            float: left;
-            text-align: left;
-            margin-top: 5px;
+            max-width: 340px;
+            float: right;
+            text-align: right;
+            margin-top: 10px;
             font-size: 11px;
 
             a {
@@ -430,7 +443,8 @@ form.pmpro_form .pmpro_checkout-fields div {
 }
 
 .pmpro_btn.pmpro_btn-submit-checkout {
-    width: 100%;
+    width: auto !important;
+    float: right !important;
 }
 
 .pmpro_form {

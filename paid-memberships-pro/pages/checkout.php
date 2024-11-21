@@ -800,6 +800,7 @@ switch($checkoutLevel) {
 								<input type="hidden" name="submit-checkout" value="1" />
 								<input type="submit" id="pmpro_btn-submit" class="<?php echo esc_attr( pmpro_get_element_class(  'pmpro_btn pmpro_btn-submit-checkout', 'pmpro_btn-submit-checkout' ) ); ?>" value="<?php if($pmpro_requirebilling) { esc_html_e('Submit and Check Out', 'paid-memberships-pro' ); } else { esc_html_e('Submit and Confirm', 'paid-memberships-pro' );}?>" />
 							</span>
+							<p class="terms">By clicking "Submit And Check Out" you agree to our <a target="_blank" href="<?php echo $webroot; ?>privacy">Privacy Policy</a>, <a target="_blank" href="<?php echo $webroot?>terms-of-use">Terms of Service</a> and <a target="_blank" href="<?php echo $webroot?>terms-of-use/#refund">Refund Policy</a>.
 							<?php
 							}
 						?>

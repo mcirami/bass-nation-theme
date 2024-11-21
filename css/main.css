@@ -22006,6 +22006,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -moz-border-radius: 4px;
   width: 70%;
 }
+@media screen and (max-width: 550px) {
+  .form_wrapper .top_section .white_box {
+    width: 100%;
+  }
+}
 .form_wrapper .top_section .white_box p {
   font-size: 1.5rem;
   margin: 0;
@@ -22026,6 +22031,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -webkit-justify-content: center;
   align-items: center;
   width: 30%;
+}
+@media screen and (max-width: 550px) {
+  .form_wrapper .top_section .sig {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .form_wrapper .top_section .sig p {
   font-family: "intermediumitalic", sans-serif;
@@ -22049,6 +22060,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   text-align: center;
   color: #3d3d3d;
   line-height: 1.6;
+}
+@media screen and (max-width: 550px) {
+  .form_wrapper .top_section .bottom_content {
+    text-align: left;
+  }
 }
 .form_wrapper .top_section .bottom_content p {
   margin: 0;
@@ -22116,6 +22132,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .form_wrapper .column:last-child .top_section .two_columns {
   display: flex;
   margin: 20px 0 60px;
+}
+@media screen and (max-width: 550px) {
+  .form_wrapper .column:last-child .top_section .two_columns {
+    flex-wrap: wrap;
+  }
 }
 .form_wrapper .column h3, .form_wrapper .column .h3 {
   font-size: 3.2rem;
@@ -22312,18 +22333,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .form_wrapper .column #pmpro_submit_span {
   position: relative;
   float: left;
-  width: 302px;
-}
-@media screen and (max-width: 550px) {
-  .form_wrapper .column #pmpro_submit_span {
-    width: 100%;
-  }
+  width: 100%;
 }
 .form_wrapper .column p.terms {
-  width: 100%;
-  float: left;
-  text-align: left;
-  margin-top: 5px;
+  max-width: 340px;
+  float: right;
+  text-align: right;
+  margin-top: 10px;
   font-size: 11px;
 }
 .form_wrapper .column p.terms a {
@@ -22420,7 +22436,8 @@ form.pmpro_form .pmpro_checkout-fields div {
 }
 
 .pmpro_btn.pmpro_btn-submit-checkout {
-  width: 100%;
+  width: auto !important;
+  float: right !important;
 }
 
 .pmpro_form {
@@ -26984,7 +27001,7 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .page_content.member .member_home a {
   color: #959494;
 }
-.db-dark-mode-active.logged-in form input:not([type=submit]),
+.db-dark-mode-active.logged-in form input:not([type=submit]):not([type=radio]),
 .db-dark-mode-active.logged-in form input[type=text],
 .db-dark-mode-active.logged-in form input[type=email],
 .db-dark-mode-active.logged-in form select {
@@ -26992,14 +27009,14 @@ form .acf-spinner {
   background: #000000 !important;
   color: #fff;
 }
-.db-dark-mode-active.logged-in form input:not([type=submit]):focus,
+.db-dark-mode-active.logged-in form input:not([type=submit]):not([type=radio]):focus,
 .db-dark-mode-active.logged-in form input[type=text]:focus,
 .db-dark-mode-active.logged-in form input[type=email]:focus,
 .db-dark-mode-active.logged-in form select:focus {
   color: #fff;
 }
 @media screen and (max-width: 767px) {
-  .db-dark-mode-active.logged-in form input:not([type=submit]),
+  .db-dark-mode-active.logged-in form input:not([type=submit]):not([type=radio]),
   .db-dark-mode-active.logged-in form input[type=text],
   .db-dark-mode-active.logged-in form input[type=email],
   .db-dark-mode-active.logged-in form select {
@@ -27290,6 +27307,9 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .form_wrapper .bottom_section p {
   color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper p.terms {
+  color: #959494;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

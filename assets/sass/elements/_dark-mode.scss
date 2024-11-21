@@ -242,7 +242,7 @@
     }
 
     form {
-        input:not([type="submit"]),
+        input:not([type="submit"]):not([type="radio"]),
         input[type="text"],
         input[type="email"],
         select {
@@ -672,6 +672,10 @@
 
         .bottom_section p {
             color: $white;
+        }
+
+        p.terms {
+            color: $grayText;
         }
     }
 }

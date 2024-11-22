@@ -14930,7 +14930,6 @@ h4,
   .sub_header {
     padding: 15px 0;
     font-size: 22px;
-    margin: 0;
   }
 }
 .sub_header h2, .sub_header .h2 {
@@ -16670,8 +16669,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin: 0 !important;
 }
 .pm_pro .pmpro_card .pmpro_card_content {
-  margin: 0 !important;
-  padding-top: 0 !important;
+  padding: 0 !important;
 }
 
 #password-lost-form-wrap a {
@@ -16760,9 +16758,17 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 
-#pmpro_levels_table {
+#pmpro_levels {
   width: 100%;
   float: left;
+  margin-top: -50px;
+}
+@media screen and (max-width: 767px) {
+  #pmpro_levels {
+    margin-top: 0;
+  }
+}
+#pmpro_levels .pmpro_card_content {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -16770,18 +16776,24 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   text-align: center;
   gap: 40px;
   padding-bottom: 100px;
+  padding-top: 50px !important;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table {
+  #pmpro_levels .pmpro_card_content {
     gap: 20px;
   }
 }
 @media screen and (max-width: 991px) {
-  #pmpro_levels_table {
+  #pmpro_levels .pmpro_card_content {
     flex-wrap: wrap;
   }
 }
-#pmpro_levels_table .column {
+@media screen and (max-width: 767px) {
+  #pmpro_levels .pmpro_card_content {
+    padding-top: 0 !important;
+  }
+}
+#pmpro_levels .column {
   width: 25%;
   float: left;
   display: flex;
@@ -16789,90 +16801,88 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   flex-wrap: nowrap;
   border-radius: 6px;
 }
-#pmpro_levels_table .column .column_content {
+#pmpro_levels .column .column_content {
   width: 100%;
   float: left;
   border: 1px solid #ff000a;
   border-radius: 6px;
 }
 @media screen and (max-width: 991px) {
-  #pmpro_levels_table .column {
+  #pmpro_levels .column {
     width: 48%;
     margin-bottom: 40px;
   }
 }
 @media screen and (max-width: 550px) {
-  #pmpro_levels_table .column {
+  #pmpro_levels .column {
     width: 100%;
     margin-bottom: 0;
   }
 }
-#pmpro_levels_table .column .column_heading {
+#pmpro_levels .column .column_heading {
   background: #ff000a;
   color: #fff;
   padding: 15px;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
-#pmpro_levels_table .column .column_heading h2, #pmpro_levels_table .column .column_heading .h2 {
+#pmpro_levels .column .column_heading h2, #pmpro_levels .column .column_heading .h2 {
   font-family: "interbold", sans-serif;
   font-weight: 700;
   font-size: 2.2rem;
   margin-top: 0;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table .column .column_heading h2, #pmpro_levels_table .column .column_heading .h2 {
+  #pmpro_levels .column .column_heading h2, #pmpro_levels .column .column_heading .h2 {
     font-size: 2rem;
   }
 }
-#pmpro_levels_table .column .column_heading p {
+#pmpro_levels .column .column_heading p {
   font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 1.7rem;
   margin: 0;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table .column .column_heading p {
+  #pmpro_levels .column .column_heading p {
     font-size: 1.4rem;
   }
 }
-#pmpro_levels_table .column .column_heading p span {
+#pmpro_levels .column .column_heading p span {
   font-family: "interbold", sans-serif;
   font-weight: 700;
 }
-#pmpro_levels_table .column:nth-child(3) {
-  margin-top: -44px;
-}
-#pmpro_levels_table .column:nth-child(3) .column_content {
+#pmpro_levels .column:nth-child(3) .column_content {
   border: 1px solid #f5bf04;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-@media screen and (max-width: 550px) {
-  #pmpro_levels_table .column:nth-child(3) {
-    margin-top: 0;
-  }
-}
-#pmpro_levels_table .column:nth-child(3) .column_heading {
+#pmpro_levels .column:nth-child(3) .column_heading {
   background: #f5bf04;
   color: #000000;
   border-radius: 0;
 }
-#pmpro_levels_table .highlight {
+#pmpro_levels .highlight {
   width: 100%;
   text-align: center;
   background: #131313;
   padding: 10px 0;
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
+  margin-top: -44px;
 }
-#pmpro_levels_table .highlight img {
+@media screen and (max-width: 550px) {
+  #pmpro_levels .highlight {
+    margin-top: 0;
+  }
+}
+#pmpro_levels .highlight img {
   width: auto;
   display: inline-block;
   vertical-align: bottom;
   margin-right: 5px;
 }
-#pmpro_levels_table .highlight p {
+#pmpro_levels .highlight p {
   font-family: "intermedium", sans-serif;
   font-weight: 500;
   display: inline-block;
@@ -16882,26 +16892,26 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #f5bf04;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table .highlight p {
+  #pmpro_levels .highlight p {
     font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 991px) {
-  #pmpro_levels_table .highlight p {
+  #pmpro_levels .highlight p {
     font-size: 1.6rem;
   }
 }
-#pmpro_levels_table .cost {
+#pmpro_levels .cost {
   padding: 30px 20px;
 }
-#pmpro_levels_table .cost h3, #pmpro_levels_table .cost .h3 {
+#pmpro_levels .cost h3, #pmpro_levels .cost .h3 {
   font-family: "interbold", sans-serif;
   font-weight: 700;
   display: inline-block;
   font-size: 30px;
   margin: 20px 0;
 }
-#pmpro_levels_table .cost p {
+#pmpro_levels .cost p {
   font-family: "interregular", sans-serif;
   font-weight: 300;
   font-size: 1.5rem;
@@ -16909,22 +16919,25 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-bottom: 0;
   line-height: 1.2;
 }
-#pmpro_levels_table .button_wrap {
+#pmpro_levels .button_wrap {
   margin-top: 20px;
   padding: 0 20px 20px 20px;
 }
-#pmpro_levels_table .button_wrap a {
+#pmpro_levels .button_wrap a {
   width: 100%;
 }
-#pmpro_levels_table .description {
+#pmpro_levels .button_wrap .pmpro_btn.disabled {
+  background: #c4a020;
+}
+#pmpro_levels .description {
   padding: 0 20px;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table .description {
+  #pmpro_levels .description {
     padding: 0 10px;
   }
 }
-#pmpro_levels_table .description ul {
+#pmpro_levels .description ul {
   margin: 0;
   text-align: left;
   color: #000000;
@@ -16933,24 +16946,24 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin: 0 auto;
 }
 @media screen and (max-width: 1199px) {
-  #pmpro_levels_table .description ul {
+  #pmpro_levels .description ul {
     max-width: 100%;
   }
 }
 @media screen and (max-width: 991px) {
-  #pmpro_levels_table .description ul {
+  #pmpro_levels .description ul {
     display: inline-block;
   }
 }
-#pmpro_levels_table .description ul li {
+#pmpro_levels .description ul li {
   position: relative;
   padding-left: 50px;
   margin-bottom: 15px;
 }
-#pmpro_levels_table .description ul li:last-child {
+#pmpro_levels .description ul li:last-child {
   margin-bottom: 0;
 }
-#pmpro_levels_table .description ul li:before {
+#pmpro_levels .description ul li:before {
   content: "";
   position: absolute;
   background: url("../images/check.png") no-repeat;
@@ -16959,7 +16972,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   left: 15px;
   top: 5px;
 }
-#pmpro_levels_table .description ul li p {
+#pmpro_levels .description ul li p {
   font-size: 1.5rem;
 }
 
@@ -22622,6 +22635,9 @@ form.pmpro_form .pmpro_checkout-fields div {
   padding: 40px;
   border: none;
 }
+.pmpro_form #pmpro_billing_address_fields .pmpro_cols-2 {
+  width: 100%;
+}
 .pmpro_form #pmpro_billing_address_fields h3, .pmpro_form #pmpro_billing_address_fields .h3 {
   background: none;
   padding-bottom: 0;
@@ -23108,6 +23124,117 @@ form .acf-loading,
 form .acf-spinner {
   background-image: none;
   background: none;
+}
+
+.membership-billing .pmpro_form_fields {
+  width: 100%;
+}
+.membership-billing .pmpro_card {
+  overflow: visible;
+}
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+  padding: 40px;
+  color: #000000;
+  margin-bottom: 60px;
+  background: #f6f6f6;
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+}
+@media screen and (max-width: 991px) {
+  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+    margin-bottom: 40px;
+  }
+}
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a {
+  color: #ff000a;
+}
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a:hover {
+  color: #880415;
+}
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3 {
+  font-size: 3.2rem;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+@media screen and (max-width: 767px) {
+  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3 {
+    font-size: 2.5rem;
+  }
+}
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .pmpro_card_content {
+  flex-direction: column;
+}
+.membership-billing .pmpro_card_content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.membership-billing .pmpro_card_content #pmpro_billing_address_fields,
+.membership-billing .pmpro_card_content #pmpro_payment_information_fields {
+  width: 47.5%;
+  margin-top: 0;
+}
+@media screen and (max-width: 991px) {
+  .membership-billing .pmpro_card_content #pmpro_billing_address_fields,
+  .membership-billing .pmpro_card_content #pmpro_payment_information_fields {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.membership-billing .pmpro_card_content #pmpro_billing_address_fields .pmpro_payment-expiration,
+.membership-billing .pmpro_card_content #pmpro_payment_information_fields .pmpro_payment-expiration {
+  width: 100%;
+  margin-right: 0;
+}
+.membership-billing .pmpro_card_content h3, .membership-billing .pmpro_card_content .h3,
+.membership-billing .pmpro_card_content h2,
+.membership-billing .pmpro_card_content .h2 {
+  font-size: 3.2rem;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+}
+@media screen and (max-width: 767px) {
+  .membership-billing .pmpro_card_content h3, .membership-billing .pmpro_card_content .h3,
+  .membership-billing .pmpro_card_content h2,
+  .membership-billing .pmpro_card_content .h2 {
+    font-size: 2.5rem;
+  }
+}
+.membership-billing .pmpro_form_input {
+  height: 55px;
+  color: #000000;
+  border-color: #c8c8c8;
+  border-radius: 6px;
+}
+.membership-billing form label {
+  color: #000000 !important;
+}
+.membership-billing .pmpro_form_submit {
+  margin-top: 10px;
+}
+@media screen and (max-width: 991px) {
+  .membership-billing .pmpro_form_submit {
+    margin-top: 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .membership-billing .pmpro_form_submit {
+    width: 100% !important;
+  }
+}
+.membership-billing .pmpro_form_submit input {
+  margin-top: 0;
+  width: 28rem !important;
+}
+@media screen and (max-width: 550px) {
+  .membership-billing .pmpro_form_submit input {
+    width: 100% !important;
+  }
+}
+.membership-billing .pmpro_form_submit input.pmpro_btn-cancel {
+  display: none;
 }
 
 .logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]),
@@ -27136,16 +27263,16 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .directory_wrapper .pmpro_member_directory .content_wrap a.button {
   color: #000000;
 }
-.db-dark-mode-active.logged-in #pmpro_levels_table .column:nth-child(3) .column_heading h2, .db-dark-mode-active.logged-in #pmpro_levels_table .column:nth-child(3) .column_heading .h2 {
+.db-dark-mode-active.logged-in #pmpro_levels .column:nth-child(3) .column_heading h2, .db-dark-mode-active.logged-in #pmpro_levels .column:nth-child(3) .column_heading .h2 {
   color: #000000;
 }
-.db-dark-mode-active.logged-in #pmpro_levels_table .cost p {
+.db-dark-mode-active.logged-in #pmpro_levels .cost p {
   color: #f6f6f6;
 }
-.db-dark-mode-active.logged-in #pmpro_levels_table .description ul li p {
+.db-dark-mode-active.logged-in #pmpro_levels .description ul li p {
   color: #959494;
 }
-.db-dark-mode-active.logged-in #pmpro_levels_table .column .column_content {
+.db-dark-mode-active.logged-in #pmpro_levels .column .column_content {
   background: #131313;
   border: none;
 }
@@ -27310,6 +27437,13 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .form_wrapper p.terms {
   color: #959494;
+}
+.db-dark-mode-active.logged-in .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+  background: #131313;
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .membership-billing form label {
+  color: #fff !important;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

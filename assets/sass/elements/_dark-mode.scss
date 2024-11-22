@@ -429,7 +429,7 @@
             }
         }
     }
-    #pmpro_levels_table {
+    #pmpro_levels {
         .column:nth-child(3) {
             .column_heading {
                 h2 {
@@ -676,6 +676,17 @@
 
         p.terms {
             color: $grayText;
+        }
+    }
+
+    .membership-billing {
+        .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+            background: $darkerGray;
+            color: $grayText;
+        }
+
+        form label {
+            color: $white !important;
         }
     }
 }

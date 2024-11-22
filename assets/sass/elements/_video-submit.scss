@@ -23,16 +23,7 @@
 
         .acf-field--post-title {
             .acf-label {
-                z-index: 1;
-                position: absolute;
-                left: 20px;
-                top: 15px;
-                color: $grayText;
-                font-size: 1.4rem;
-
-                &.active {
-                    display: none;
-                }
+                @include makeLabelPlaceholder;
             }
         }
 

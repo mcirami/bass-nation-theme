@@ -18723,12 +18723,17 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-right: 0;
 }
 #comments .comment-meta img {
-  border-radius: 4px;
+  border-radius: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
 }
 #comments .comment-meta .comment-author {
   padding: 1px;
-  background: #fff;
-  border-radius: 4px;
+  background: #f6f6f6;
+  border-radius: 50px;
 }
 #comments .comment-reply-title {
   color: #fff;
@@ -18784,6 +18789,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   padding-top: 5px;
   font-size: 10px;
   line-height: 1.2;
+  background: #f6f6f6;
 }
 #comments .comment-content .comment-metadata:last-child {
   margin-right: 0;
@@ -18826,7 +18832,6 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   justify-content: space-between;
   padding: 10px;
   border-bottom: 1px solid #c8c8c8;
-  background: #fff;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
   position: relative;
@@ -18858,8 +18863,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #comments .comment-content .comment-metadata .bottom_section {
-  color: #959494;
-  background: #fff;
+  color: #3d3d3d;
   padding: 10px 10px 20px 10px;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -19315,7 +19319,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .banner_wrap {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   padding: 60px 0;
   background: #191919;
 }
@@ -25630,15 +25634,19 @@ form .acf-spinner {
   font-family: "intersemibold", sans-serif;
   font-weight: 600;
 }
+@media screen and (max-width: 550px) {
+  .video_submit .banner_wrap #post_video_btn {
+    width: 100%;
+  }
+}
 .video_submit #post_submit_form {
   max-height: 0;
   overflow: auto;
   transition: 1s ease-in-out;
-  padding: 0 40px;
 }
-@media screen and (max-width: 767px) {
-  .video_submit #post_submit_form {
-    padding: 0;
+@media screen and (max-width: 550px) {
+  .video_submit #post_submit_form #acf-form {
+    padding-bottom: 60px;
   }
 }
 .video_submit #post_submit_form .acf-required {
@@ -25651,6 +25659,11 @@ form .acf-spinner {
   top: 15px;
   color: #959494;
   font-size: 1.4rem;
+}
+@media screen and (max-width: 767px) {
+  .video_submit #post_submit_form .acf-field--post-title .acf-label {
+    top: 10px;
+  }
 }
 .video_submit #post_submit_form .acf-field--post-title .acf-label.active {
   display: none;
@@ -25668,23 +25681,18 @@ form .acf-spinner {
     width: 100%;
   }
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 550px) {
   .video_submit #post_submit_form .form_wrap {
-    padding: 10px 10px 20px;
+    padding: 30px;
   }
 }
 .video_submit #post_submit_form.show {
   max-height: 1000px;
-  padding-bottom: 10px;
+  padding: 20px 0 50px;
 }
 .video_submit #post_submit_form h3, .video_submit #post_submit_form .h3 {
   text-align: center;
   margin: 0 0 20px 0;
-}
-@media screen and (max-width: 767px) {
-  .video_submit #post_submit_form h3, .video_submit #post_submit_form .h3 {
-    font-size: 22px;
-  }
 }
 .video_submit #post_submit_form .acf-field-5a3d42a6c17cc label,
 .video_submit #post_submit_form .acf-field-5a3d4282c17cb label,
@@ -25724,7 +25732,7 @@ form .acf-spinner {
 }
 @media screen and (max-width: 550px) {
   .video_submit #post_submit_form .acf-form-submit {
-    width: 45%;
+    width: 100%;
   }
 }
 .video_submit #post_submit_form .acf-form-submit input {
@@ -25823,7 +25831,8 @@ form .acf-spinner {
 }
 @media screen and (max-width: 550px) {
   .video_submit #post_submit_form .cancel_post {
-    width: 45%;
+    width: 100%;
+    bottom: -12.5rem;
   }
 }
 @media all and (max-width: 400px) {
@@ -25860,76 +25869,87 @@ form .acf-spinner {
 .video_submit .content {
   padding: 0 0 60px;
   width: 100%;
-  border-top: 1px solid #3d3d3d;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
-.video_submit .row {
-  padding: 40px 0;
-  border-bottom: 1px solid #3d3d3d;
+@media screen and (max-width: 991px) {
+  .video_submit .content {
+    grid-template-columns: 1fr;
+  }
 }
-.video_submit .row:last-child {
-  border-bottom: none;
-}
-.video_submit .row .column {
-  float: left;
-  display: block;
-  margin-right: 2.3576515979%;
-  width: 48.821174201%;
+.video_submit .column {
+  width: 100%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 }
-.video_submit .row .column:last-child {
-  margin-right: 0;
+.video_submit .column .row {
+  display: flex;
+  flex-direction: column;
 }
-@media screen and (max-width: 767px) {
-  .video_submit .row .column {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
-  }
-  .video_submit .row .column:last-child {
-    margin-right: 0;
-  }
+.video_submit .column .row .desc_wrap {
+  max-height: 120px;
+  overflow-y: scroll;
+  scrollbar-color: transparent transparent;
 }
-.video_submit .row .column:last-child {
-  padding-left: 40px;
+.video_submit .column .row .desc_wrap:hover {
+  scrollbar-color: #3d3d3d #fff;
 }
-@media screen and (max-width: 767px) {
-  .video_submit .row .column:last-child {
-    padding-left: 0;
-  }
-}
-.video_submit .row .column a {
+.video_submit .column a {
   text-transform: uppercase;
   position: relative;
+  margin-bottom: 20px;
+  display: block;
 }
-.video_submit .row .column h3, .video_submit .row .column .h3 {
+.video_submit .column a img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 400px;
+  border-radius: 6px;
+}
+@media screen and (max-width: 991px) {
+  .video_submit .column a img {
+    height: auto;
+  }
+}
+.video_submit .column h3, .video_submit .column .h3 {
   margin-top: 0;
   margin-bottom: 5px;
 }
-.video_submit .row .column h3 a, .video_submit .row .column .h3 a {
+.video_submit .column h3 a, .video_submit .column .h3 a {
   color: #000000;
 }
-.video_submit .row .column h4, .video_submit .row .column .h4 {
+.video_submit .column h4, .video_submit .column .h4 {
   margin: 5px 0;
   font-size: 12px;
 }
-.video_submit .row .column h4 a, .video_submit .row .column .h4 a {
+.video_submit .column h4 a, .video_submit .column .h4 a {
   color: #000000;
   text-decoration: underline;
 }
-.video_submit .row .column h4.sub_title, .video_submit .row .column .sub_title.h4 {
+.video_submit .column h4.sub_title, .video_submit .column .sub_title.h4 {
   font-size: 18px;
 }
 @media screen and (max-width: 991px) {
-  .video_submit .row .column p {
+  .video_submit .column p {
     font-size: 14px;
   }
 }
-.video_submit .row .column .button_wrap {
-  margin-top: 20px;
+.video_submit .column .button_wrap {
+  margin-top: auto;
 }
-.video_submit .row .column .button_wrap .button {
+.video_submit .column .button_wrap .button {
+  width: 20rem;
   padding: 10px 30px;
+}
+@media screen and (max-width: 550px) {
+  .video_submit .column .button_wrap .button {
+    width: 100%;
+  }
+}
+.video_submit .column .button_wrap .button:hover span {
+  width: 25px;
 }
 
 .single_video {

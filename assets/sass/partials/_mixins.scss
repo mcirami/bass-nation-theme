@@ -337,6 +337,10 @@
     color: $grayText;
     font-size: 1.4rem;
 
+    @include media($mobile) {
+        top: 10px;
+    }
+
     &.active {
         display: none;
     }

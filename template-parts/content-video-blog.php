@@ -13,9 +13,9 @@
 ?>
 
 
-<div class="row full_width">
+<div class="column full_width">
 
-    <div class="column">
+    <div class="row">
 
 	    <?php if ($postType == "videos") : ?>
 
@@ -58,7 +58,7 @@
 
 
     </div>
-    <div class="column">
+    <div class="row">
         <h3><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
 	    <?php if ($postType == "videos") : ?>
@@ -83,21 +83,21 @@
 		                <?php echo $commentCount->total_comments; ?>
 	        </h4>
 
-	        <p><?php the_field('description'); ?></p>
+	        <div class="desc_wrap">
+				<p><?php the_field('description'); ?></p>
+			</div>
 	    <?php endif; ?>
-	    <div class="button_wrap">
-            <a class="button yellow" href="<?php the_permalink(); ?>">
-				<?php if ($postType == "videos") { 
-					echo "Open Thread"; 
-				} else {  
-					the_field('button_text'); 
-				} ?>
+    </div>
+	<div class="button_wrap">
+		<a class="button yellow" href="<?php the_permalink(); ?>">
+			<?php if ($postType == "videos") { 
+				echo "Open Thread"; 
+			} else {  
+				the_field('button_text'); 
+			} ?>
 				<span>
 					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
 				</span>
 		</a>
-        </div>
-    </div>
-
-
+	</div>
 </div>

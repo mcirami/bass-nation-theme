@@ -69,7 +69,7 @@ $posts = new WP_Query($args);
 							<?php if($pageTitle == "Video Q &#038; A") : ?>
 								<div id="post_submit_form" class="full_width">
 
-									<div class="form_wrap full_width">
+									<div class="form_wrap light_gray_bg box_shadow full_width">
 
 										<h3>Upload A YouTube Video & Question</h3>
 										<?php

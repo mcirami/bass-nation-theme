@@ -3,6 +3,14 @@
         @include intersemibold;
     }
 
+    .banner_wrap {
+        #post_video_btn {
+            @include media($smallMobile) {
+                width: 100%;
+            }
+        }
+    }
+
     #post_submit_form {
         max-height: 0;
         overflow: auto;
@@ -11,10 +19,11 @@
         -ms-transition: 1s ease-in-out;
         -o-transition: 1s ease-in-out;
         transition: 1s ease-in-out;
-        padding: 0 40px;
 
-        @include media($mobile) {
-            padding: 0;
+        #acf-form {
+            @include media($smallMobile) {
+                padding-bottom: 60px;
+            }
         }
 
         .acf-required {
@@ -41,23 +50,19 @@
                 width: 100%;
             }
 
-            @include media($mobile) {
-                padding: 10px 10px 20px;
+            @include media($smallMobile) {
+                padding: 30px;
             }
         }
 
         &.show {
             max-height: 1000px;
-            padding-bottom: 10px;
+            padding: 20px 0 50px;
         }
 
         h3 {
             text-align: center;
             margin: 0 0 20px 0;
-
-            @include media($mobile) {
-                font-size: 22px;
-            }
         }
 
         .acf-field-5a3d42a6c17cc label,
@@ -99,7 +104,7 @@
             }
 
             @include media($smallMobile) {
-                width: 45%;
+                width: 100%;
             }
 
             input {
@@ -133,7 +138,8 @@
             }
 
             @include media($smallMobile) {
-                width: 45%;
+                width: 100%;
+                bottom: -12.5rem;
             }
 
             @media all and (max-width: 400px) {
@@ -177,72 +183,97 @@
     .content {
         padding: 0 0 60px;
         width: 100%;
-        border-top: 1px solid $darkGray;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @include media($tablet) {
+            grid-template-columns: 1fr;
+        }
     }
 
-    .row {
-        padding: 40px 0;
-        border-bottom: 1px solid $darkGray;
+    .column {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
 
-        &:last-child {
-            border-bottom: none;
+        .row {
+            display: flex;
+            flex-direction: column;
+
+            .desc_wrap {
+                max-height: 120px;
+                overflow-y: scroll;
+                scrollbar-color: transparent transparent;
+
+                &:hover {
+                    scrollbar-color: $darkGray $white;
+                }
+            }
         }
 
-        .column {
-            @include span-columns(6);
-            text-align: left;
+        a {
+            text-transform: uppercase;
+            position: relative;
+            margin-bottom: 20px;
+            display: block;
 
-            @include media($mobile) {
-                @include span-columns(4);
-            }
+            img {
+                object-fit: cover;
+                height: 400px;
+                border-radius: 6px;
 
-            &:last-child {
-                padding-left: 40px;
-
-                @include media($mobile) {
-                    padding-left: 0;
+                @include media($tablet) {
+                    height: auto;
                 }
             }
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
 
             a {
-                text-transform: uppercase;
-                position: relative;
+                color: $black;
+            }
+        }
+
+        h4 {
+            margin: 5px 0;
+            font-size: 12px;
+
+            a {
+                color: $black;
+                text-decoration: underline;
             }
 
-            h3 {
-                margin-top: 0;
-                margin-bottom: 5px;
-
-                a {
-                    color: $black;
-                }
+            &.sub_title {
+                font-size: 18px;
             }
+        }
 
-            h4 {
-                margin: 5px 0;
-                font-size: 12px;
-
-                a {
-                    color: $black;
-                    text-decoration: underline;
-                }
-
-                &.sub_title {
-                    font-size: 18px;
-                }
+        p {
+            @include media($tablet) {
+                font-size: 14px;
             }
+        }
 
-            p {
-                @include media($tablet) {
-                    font-size: 14px;
+        .button_wrap {
+            margin-top: auto;
+
+            .button {
+                width: 20rem;
+                padding: 10px 30px;
+
+                @include media($smallMobile) {
+                    width: 100%;
                 }
-            }
 
-            .button_wrap {
-                margin-top: 20px;
-
-                .button {
-                    padding: 10px 30px;
+                &:hover {
+                    span {
+                        width: 25px;
+                    }
                 }
             }
         }

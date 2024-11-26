@@ -30,6 +30,10 @@
             display: none;
         }
 
+        .acf-fields > .acf-field {
+            border-top: none;
+        }
+
         .acf-field--post-title {
             .acf-label {
                 @include makeLabelPlaceholder;
@@ -185,7 +189,7 @@
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 2rem;
+        gap: 3rem;
 
         @include media($tablet) {
             grid-template-columns: 1fr;
@@ -202,6 +206,10 @@
             display: flex;
             flex-direction: column;
 
+            &.text {
+                padding: 20px 0 10px;
+            }
+
             .desc_wrap {
                 max-height: 120px;
                 overflow-y: scroll;
@@ -216,7 +224,6 @@
         a {
             text-transform: uppercase;
             position: relative;
-            margin-bottom: 20px;
             display: block;
 
             img {
@@ -232,7 +239,7 @@
 
         h3 {
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
 
             a {
                 color: $black;
@@ -244,8 +251,8 @@
             font-size: 12px;
 
             a {
-                color: $black;
-                text-decoration: underline;
+                color: $red;
+                display: inline-block;
             }
 
             &.sub_title {
@@ -285,6 +292,7 @@
 
     .wrap {
         padding: 40px 0;
+        display: flex;
     }
 
     .back_link {
@@ -320,6 +328,18 @@
                 background-size: 100%;
             }
         }
+    }
+
+    h3 {
+        @include intersemibold;
+        @include medLargeFont;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .content-area {
+        max-width: 70%;
+        margin: 0 auto;
     }
 
     .navigation {
@@ -404,32 +424,24 @@
         }
     }
 
-    .column {
-        @include span-columns(6);
+    .row {
+        @include span-columns(12);
 
         @include media($mobile) {
-            @include span-columns(4);
             margin-bottom: 20px;
         }
 
-        h3 {
-            @include intermedium;
-            font-size: 30px;
-            margin-top: 0;
-            margin-bottom: 10px;
-
-            @include media($tablet) {
-                font-size: 26px;
-            }
+        &.desc {
+            padding: 20px 0;
         }
 
         h4 {
             font-size: 12px;
-            margin: 5px 0;
+            margin: 0;
+            padding: 0;
 
             a {
-                color: $black;
-                text-decoration: underline;
+                color: $red;
             }
 
             &.sub_title {
@@ -449,6 +461,7 @@
 
         p {
             @include interregular;
+            padding: 0;
 
             @include media($tablet) {
                 font-size: 14px;

@@ -20581,6 +20581,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-freshness .bbp-topic-freshness-author img {
   border-radius: 50px;
+  width: 100px;
+  height: 85px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-forum-freshness .bbp-author-name {
   width: 100%;
@@ -20702,9 +20707,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-freshness .bbp-topic-freshness-author img {
-  width: 100%;
   border: 1px solid #c8c8c8;
   border-radius: 50px;
+  width: 100px;
+  height: 85px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  overflow: hidden;
 }
 .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-freshness a {
   font-family: "interregular", sans-serif;
@@ -25652,6 +25661,9 @@ form .acf-spinner {
 .video_submit #post_submit_form .acf-required {
   display: none;
 }
+.video_submit #post_submit_form .acf-fields > .acf-field {
+  border-top: none;
+}
 .video_submit #post_submit_form .acf-field--post-title .acf-label {
   z-index: 1;
   position: absolute;
@@ -25871,7 +25883,7 @@ form .acf-spinner {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  gap: 3rem;
 }
 @media screen and (max-width: 991px) {
   .video_submit .content {
@@ -25888,6 +25900,9 @@ form .acf-spinner {
   display: flex;
   flex-direction: column;
 }
+.video_submit .column .row.text {
+  padding: 20px 0 10px;
+}
 .video_submit .column .row .desc_wrap {
   max-height: 120px;
   overflow-y: scroll;
@@ -25899,7 +25914,6 @@ form .acf-spinner {
 .video_submit .column a {
   text-transform: uppercase;
   position: relative;
-  margin-bottom: 20px;
   display: block;
 }
 .video_submit .column a img {
@@ -25915,7 +25929,7 @@ form .acf-spinner {
 }
 .video_submit .column h3, .video_submit .column .h3 {
   margin-top: 0;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 .video_submit .column h3 a, .video_submit .column .h3 a {
   color: #000000;
@@ -25925,8 +25939,8 @@ form .acf-spinner {
   font-size: 12px;
 }
 .video_submit .column h4 a, .video_submit .column .h4 a {
-  color: #000000;
-  text-decoration: underline;
+  color: #ff000a;
+  display: inline-block;
 }
 .video_submit .column h4.sub_title, .video_submit .column .sub_title.h4 {
   font-size: 18px;
@@ -25957,6 +25971,7 @@ form .acf-spinner {
 }
 .single_video .wrap {
   padding: 40px 0;
+  display: flex;
 }
 .single_video .back_link {
   color: #c4a020;
@@ -25988,6 +26003,22 @@ form .acf-spinner {
   width: 5px;
   height: 10px;
   background-size: 100%;
+}
+.single_video h3, .single_video .h3 {
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  font-size: 3.2rem;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+@media screen and (max-width: 767px) {
+  .single_video h3, .single_video .h3 {
+    font-size: 2.5rem;
+  }
+}
+.single_video .content-area {
+  max-width: 70%;
+  margin: 0 auto;
 }
 .single_video .navigation {
   float: left;
@@ -26072,64 +26103,49 @@ form .acf-spinner {
     padding: 8px 20px 8px 10px;
   }
 }
-.single_video .column {
+.single_video .row {
   float: left;
   display: block;
   margin-right: 2.3576515979%;
-  width: 48.821174201%;
+  width: 100%;
 }
-.single_video .column:last-child {
+.single_video .row:last-child {
   margin-right: 0;
 }
 @media screen and (max-width: 767px) {
-  .single_video .column {
-    float: left;
-    display: block;
-    margin-right: 7.4229703521%;
-    width: 100%;
+  .single_video .row {
     margin-bottom: 20px;
   }
-  .single_video .column:last-child {
-    margin-right: 0;
-  }
 }
-.single_video .column h3, .single_video .column .h3 {
-  font-family: "intermedium", sans-serif;
-  font-weight: 500;
-  font-size: 30px;
-  margin-top: 0;
-  margin-bottom: 10px;
+.single_video .row.desc {
+  padding: 20px 0;
 }
-@media screen and (max-width: 991px) {
-  .single_video .column h3, .single_video .column .h3 {
-    font-size: 26px;
-  }
-}
-.single_video .column h4, .single_video .column .h4 {
+.single_video .row h4, .single_video .row .h4 {
   font-size: 12px;
-  margin: 5px 0;
+  margin: 0;
+  padding: 0;
 }
-.single_video .column h4 a, .single_video .column .h4 a {
-  color: #000000;
-  text-decoration: underline;
+.single_video .row h4 a, .single_video .row .h4 a {
+  color: #ff000a;
 }
-.single_video .column h4.sub_title, .single_video .column .sub_title.h4 {
+.single_video .row h4.sub_title, .single_video .row .sub_title.h4 {
   font-size: 18px;
 }
-.single_video .column h5, .single_video .column .h5 {
+.single_video .row h5, .single_video .row .h5 {
   font-size: 20px;
   color: #ff000a;
   margin-bottom: 10px;
 }
-.single_video .column .members_only_video_pop {
+.single_video .row .members_only_video_pop {
   display: inline-block;
 }
-.single_video .column p {
+.single_video .row p {
   font-family: "interregular", sans-serif;
   font-weight: 300;
+  padding: 0;
 }
 @media screen and (max-width: 991px) {
-  .single_video .column p {
+  .single_video .row p {
     font-size: 14px;
   }
 }
@@ -27178,6 +27194,9 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums span.bbp-admin-links a {
   color: #959494;
 }
+.db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums p.bbp-topic-meta span.bbp-author-name {
+  color: #959494;
+}
 .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums .bbp-breadcrumb a {
   color: #b80008;
 }
@@ -27188,6 +27207,9 @@ form .acf-spinner {
   color: #959494;
 }
 .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums li.bbp-body li.bbp-topic-title p {
+  color: #b80008;
+}
+.db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums li.bbp-body div.bbp-reply-author .bbp-author-name {
   color: #b80008;
 }
 .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums li.bbp-body ul.topic, .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums li.bbp-body ul.forum {
@@ -27464,6 +27486,18 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .membership-billing form label {
   color: #fff !important;
+}
+.db-dark-mode-active.logged-in .video_submit .column h3 a, .db-dark-mode-active.logged-in .video_submit .column .h3 a {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .video_submit .column p {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .video_submit .column h4 a, .db-dark-mode-active.logged-in .video_submit .column .h4 a {
+  color: #b80008;
+}
+.db-dark-mode-active.logged-in .single_video .row.desc {
+  color: #959494;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

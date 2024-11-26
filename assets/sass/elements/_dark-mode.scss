@@ -272,6 +272,10 @@
                 color: $grayText;
             }
 
+            p.bbp-topic-meta span.bbp-author-name {
+                color: $grayText;
+            }
+
             .bbp-breadcrumb {
                 a {
                     color: $darkModeRed;
@@ -291,6 +295,10 @@
                     p {
                         color: $darkModeRed;
                     }
+                }
+
+                div.bbp-reply-author .bbp-author-name {
+                    color: $darkModeRed;
                 }
 
                 ul {
@@ -688,6 +696,30 @@
         form label {
             color: $white !important;
         }
+    }
+
+    .video_submit {
+        .column {
+            h3 {
+                a {
+                    color: $white;
+                }
+            }
+
+            p {
+                color: $white;
+            }
+
+            h4 {
+                a {
+                    color: $darkModeRed;
+                }
+            }
+        }
+    }
+
+    .single_video .row.desc {
+        color: $grayText;
     }
 }
 

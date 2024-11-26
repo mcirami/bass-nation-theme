@@ -512,6 +512,10 @@
 
                     img {
                         border-radius: 50px;
+                        width: 100px;
+                        height: 85px;
+                        object-fit: cover;
+                        overflow: hidden;
                     }
                 }
 
@@ -631,9 +635,12 @@
                     }
 
                     img {
-                        width: 100%;
                         border: 1px solid $borderGray;
                         border-radius: 50px;
+                        width: 100px;
+                        height: 85px;
+                        object-fit: cover;
+                        overflow: hidden;
                     }
                 }
 

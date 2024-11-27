@@ -10,7 +10,8 @@
     }
 }
 .pmpro_login_wrap,
-.pmpro_lost_password_wrap {
+.pmpro_lost_password_wrap,
+.pmpro_reset_password_wrap {
     text-align: center;
     position: relative;
 
@@ -55,7 +56,9 @@
 .pmpro_section {
     #loginform {
         .login-submit {
-            .button:not(#pmpro_btn-password-toggle-1) {
+            .button:not(#pmpro_btn-password-toggle-1):not(
+                    .pmpro_btn-password-toggle
+                ) {
                 font-family: "robotoregular", sans-serif;
                 background: $black;
                 padding: 8px 24px 12px;
@@ -87,6 +90,7 @@
 
 #loginform,
 #lostpasswordform,
+#resetpassform,
 #red_registration_form {
     float: none;
     @include robotoreg;
@@ -120,7 +124,7 @@
     }
 
     input[type="submit"],
-    button:not(#pmpro_btn-password-toggle-1) {
+    button:not(#pmpro_btn-password-toggle-1):not(.pmpro_btn-password-toggle) {
         font-family: "robotoregular", sans-serif;
         background: $black;
         padding: 8px 24px 12px;
@@ -198,6 +202,17 @@
     font-size: 18px;
     width: 100%;
     float: left;
+}
+
+.pmpro {
+    #resetpassform {
+        .pmpro_cols-2 {
+            flex-wrap: wrap;
+            > * {
+                width: 100%;
+            }
+        }
+    }
 }
 
 #loginform {

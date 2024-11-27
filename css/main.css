@@ -4644,38 +4644,46 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   color: #f20f2b;
 }
 
-.pmpro_login_wrap, .pmpro_lost_password_wrap {
+.pmpro_login_wrap,
+.pmpro_lost_password_wrap {
   text-align: center;
   position: relative;
 }
-.pmpro_login_wrap hr, .pmpro_lost_password_wrap hr {
+.pmpro_login_wrap hr,
+.pmpro_lost_password_wrap hr {
   display: none;
 }
-.pmpro_login_wrap.pmpro_card, .pmpro_lost_password_wrap.pmpro_card {
+.pmpro_login_wrap.pmpro_card,
+.pmpro_lost_password_wrap.pmpro_card {
   border: none;
   box-shadow: none;
   margin: 0;
 }
-.pmpro_login_wrap .pmpro_card_content, .pmpro_lost_password_wrap .pmpro_card_content {
+.pmpro_login_wrap .pmpro_card_content,
+.pmpro_lost_password_wrap .pmpro_card_content {
   padding-top: 0 !important;
   padding-bottom: 20px;
 }
-.pmpro_login_wrap .pmpro_card_actions, .pmpro_lost_password_wrap .pmpro_card_actions {
+.pmpro_login_wrap .pmpro_card_actions,
+.pmpro_lost_password_wrap .pmpro_card_actions {
   background-color: unset;
   border: none !important;
   padding: 0;
 }
-.pmpro_login_wrap .pmpro_actions_nav a, .pmpro_lost_password_wrap .pmpro_actions_nav a {
+.pmpro_login_wrap .pmpro_actions_nav a,
+.pmpro_lost_password_wrap .pmpro_actions_nav a {
   font-family: "robotomedium", sans-serif;
   font-weight: 500;
   color: #f20f2b;
 }
 @media screen and (max-width: 768px) {
-  .pmpro_login_wrap .pmpro_actions_nav a, .pmpro_lost_password_wrap .pmpro_actions_nav a {
+  .pmpro_login_wrap .pmpro_actions_nav a,
+  .pmpro_lost_password_wrap .pmpro_actions_nav a {
     font-size: 12px;
   }
 }
-.pmpro_login_wrap .pmpro_actions_nav a:hover, .pmpro_lost_password_wrap .pmpro_actions_nav a:hover {
+.pmpro_login_wrap .pmpro_actions_nav a:hover,
+.pmpro_lost_password_wrap .pmpro_actions_nav a:hover {
   color: #880415;
 }
 
@@ -4708,10 +4716,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 .pmpro_section #loginform .login-submit .button:not(#pmpro_btn-password-toggle-1):hover {
-  background: #4D4D54;
+  background: #4d4d54;
 }
 
-#loginform, #password-lost-form-wrap, #red_registration_form {
+#loginform,
+#lostpasswordform,
+#red_registration_form {
   float: none;
   font-family: "robotoregular", sans-serif;
   font-weight: 300;
@@ -4729,23 +4739,34 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   -moz-border-radius: 6px;
 }
 @media screen and (max-width: 1023px) {
-  #loginform, #password-lost-form-wrap, #red_registration_form {
+  #loginform,
+  #lostpasswordform,
+  #red_registration_form {
     width: 425px;
   }
 }
 @media screen and (max-width: 768px) {
-  #loginform, #password-lost-form-wrap, #red_registration_form {
+  #loginform,
+  #lostpasswordform,
+  #red_registration_form {
     width: 375px;
     padding: 25px;
     font-size: 14px;
   }
 }
 @media screen and (max-width: 550px) {
-  #loginform, #password-lost-form-wrap, #red_registration_form {
+  #loginform,
+  #lostpasswordform,
+  #red_registration_form {
     width: 100%;
   }
 }
-#loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
+#loginform input[type=submit],
+#loginform button:not(#pmpro_btn-password-toggle-1),
+#lostpasswordform input[type=submit],
+#lostpasswordform button:not(#pmpro_btn-password-toggle-1),
+#red_registration_form input[type=submit],
+#red_registration_form button:not(#pmpro_btn-password-toggle-1) {
   font-family: "robotoregular", sans-serif;
   background: #131313;
   padding: 8px 24px 12px;
@@ -4758,34 +4779,57 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: none;
 }
 @media screen and (max-width: 1023px) {
-  #loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
+  #loginform input[type=submit],
+  #loginform button:not(#pmpro_btn-password-toggle-1),
+  #lostpasswordform input[type=submit],
+  #lostpasswordform button:not(#pmpro_btn-password-toggle-1),
+  #red_registration_form input[type=submit],
+  #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 768px) {
-  #loginform input[type=submit], #loginform button:not(#pmpro_btn-password-toggle-1), #password-lost-form-wrap input[type=submit], #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1), #red_registration_form input[type=submit], #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
+  #loginform input[type=submit],
+  #loginform button:not(#pmpro_btn-password-toggle-1),
+  #lostpasswordform input[type=submit],
+  #lostpasswordform button:not(#pmpro_btn-password-toggle-1),
+  #red_registration_form input[type=submit],
+  #red_registration_form button:not(#pmpro_btn-password-toggle-1) {
     font-size: 14px;
     height: 35px;
     padding: 0;
   }
 }
-#loginform input[type=submit]:hover, #loginform button:not(#pmpro_btn-password-toggle-1):hover, #password-lost-form-wrap input[type=submit]:hover, #password-lost-form-wrap button:not(#pmpro_btn-password-toggle-1):hover, #red_registration_form input[type=submit]:hover, #red_registration_form button:not(#pmpro_btn-password-toggle-1):hover {
-  background: #4D4D54;
+#loginform input[type=submit]:hover,
+#loginform button:not(#pmpro_btn-password-toggle-1):hover,
+#lostpasswordform input[type=submit]:hover,
+#lostpasswordform button:not(#pmpro_btn-password-toggle-1):hover,
+#red_registration_form input[type=submit]:hover,
+#red_registration_form button:not(#pmpro_btn-password-toggle-1):hover {
+  background: #4d4d54;
 }
-#loginform legend, #password-lost-form-wrap legend, #red_registration_form legend {
+#loginform legend,
+#lostpasswordform legend,
+#red_registration_form legend {
   display: none;
 }
-#loginform fieldset, #password-lost-form-wrap fieldset, #red_registration_form fieldset {
+#loginform fieldset,
+#lostpasswordform fieldset,
+#red_registration_form fieldset {
   border: none;
 }
-#loginform label, #password-lost-form-wrap label, #red_registration_form label {
+#loginform label,
+#lostpasswordform label,
+#red_registration_form label {
   font-family: "robotolight", sans-serif;
   font-weight: 200;
   color: #131313;
   line-height: 22px;
   margin-bottom: 8px;
 }
-#loginform input, #password-lost-form-wrap input, #red_registration_form input {
+#loginform input,
+#lostpasswordform input,
+#red_registration_form input {
   height: 40px;
   border: 1px solid #c8c8c8;
   padding: 10px;
@@ -4793,18 +4837,29 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   width: 100%;
 }
 @media screen and (max-width: 768px) {
-  #loginform input, #password-lost-form-wrap input, #red_registration_form input {
+  #loginform input,
+  #lostpasswordform input,
+  #red_registration_form input {
     height: 35px;
     width: 100% !important;
   }
 }
-#loginform .login-remember input, #password-lost-form-wrap .login-remember input, #red_registration_form .login-remember input {
+#loginform .login-remember input,
+#lostpasswordform .login-remember input,
+#red_registration_form .login-remember input {
   height: 16px;
   width: 20px;
 }
-#loginform .som-password-sent-message, #password-lost-form-wrap .som-password-sent-message, #red_registration_form .som-password-sent-message {
+#loginform .som-password-sent-message,
+#lostpasswordform .som-password-sent-message,
+#red_registration_form .som-password-sent-message {
   text-align: center;
   color: #131313;
+}
+
+#lostpasswordform {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #password-lost-form-wrap a {

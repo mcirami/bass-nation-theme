@@ -727,8 +727,58 @@
             background: $darkerGray;
         }
 
-        .wcContainer.wcCrystalTheme .wcClassic {
-            background-color: $darkerGray;
+        .wcContainer {
+            &.wcCrystalTheme {
+                * {
+                    color: $grayText;
+                }
+                .wcClassic {
+                    background-color: $darkerGray;
+
+                    .wcTitle {
+                        background: $darkerGray;
+                        color: $white;
+                    }
+                }
+
+                .wcChannel {
+                    .wcChannelData .wcMessages {
+                        background: $black !important;
+                        .wcMessage.wcCurrentUser {
+                            color: $grayText;
+                            border-color: $grayText !important;
+                            background: $black !important;
+
+                            .wcRowHead .wcUser {
+                                color: $white;
+                            }
+                        }
+                    }
+                    .wcChannelInput .wcInputs div.wcInput {
+                        border: 1px solid $white;
+                        background: $black;
+                        color: $white;
+
+                        &:focus {
+                            background: $black;
+                        }
+                    }
+                }
+            }
+
+            .wcTabs .wcTab {
+                background: $darkModeBg;
+            }
+
+            .wcChannel
+                .wcChannelData
+                .wcMessages
+                .wcMessage
+                .wcRowBody
+                .wcContent
+                .wcInternalContent {
+                color: $white;
+            }
         }
     }
 }

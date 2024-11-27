@@ -26276,6 +26276,7 @@ form .acf-spinner {
   .wcContainer {
     width: 100% !important;
     height: 500px !important;
+    padding-left: 20px;
   }
 }
 .wcContainer input[type=button] {
@@ -26309,6 +26310,10 @@ form .acf-spinner {
 }
 .wcContainer.wcCrystalTheme .wcClassic .wcTitle {
   background: #fff;
+}
+.wcContainer.wcCrystalTheme .wcClassic.wcMobile .wcTabContent.wcTabContentChannel .wcChannelContainer:not(.wcInvisible) .wcChannel {
+  padding-right: 0;
+  padding-left: 0;
 }
 .wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
   width: 100%;
@@ -27452,8 +27457,40 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .live_stream .wp-block-columns .wp-block-column {
   background: #131313;
 }
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme * {
+  color: #959494;
+}
 .db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcClassic {
   background-color: #131313;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcClassic .wcTitle {
+  background: #131313;
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages {
+  background: #000000 !important;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage.wcCurrentUser {
+  color: #959494;
+  border-color: #959494 !important;
+  background: #000000 !important;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage.wcCurrentUser .wcRowHead .wcUser {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelInput .wcInputs div.wcInput {
+  border: 1px solid #fff;
+  background: #000000;
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelInput .wcInputs div.wcInput:focus {
+  background: #000000;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer .wcTabs .wcTab {
+  background: #070707;
+}
+.db-dark-mode-active.logged-in .live_stream .wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcInternalContent {
+  color: #fff;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

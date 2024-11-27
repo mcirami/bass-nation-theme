@@ -184,6 +184,7 @@
     @include media($tablet) {
         width: 100% !important;
         height: 500px !important;
+        padding-left: 20px;
     }
 
     input[type="button"] {
@@ -222,6 +223,14 @@
 
             .wcTitle {
                 background: $white;
+            }
+
+            &.wcMobile
+                .wcTabContent.wcTabContentChannel
+                .wcChannelContainer:not(.wcInvisible)
+                .wcChannel {
+                padding-right: 0;
+                padding-left: 0;
             }
         }
     }

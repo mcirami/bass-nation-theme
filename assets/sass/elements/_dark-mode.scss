@@ -721,6 +721,16 @@
     .single_video .row.desc {
         color: $grayText;
     }
+
+    .live_stream {
+        .wp-block-columns .wp-block-column {
+            background: $darkerGray;
+        }
+
+        .wcContainer.wcCrystalTheme .wcClassic {
+            background-color: $darkerGray;
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

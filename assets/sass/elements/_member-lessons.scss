@@ -933,6 +933,11 @@
         margin-right: 15px;
         max-width: 60px;
 
+        @include media($smallMobile) {
+            margin-right: 2%;
+            width: 20%;
+        }
+
         img {
             border-radius: 50px;
             object-fit: cover;
@@ -979,7 +984,7 @@
             color: $red;
             text-align: left;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
         }
 
         > p {
@@ -996,15 +1001,11 @@
         }
 
         .comment-metadata {
-            @include span-columns(10);
+            width: 100%;
             padding-top: 5px;
             font-size: 10px;
             line-height: 1.2;
             background: $lightGray;
-
-            @include media($mobile) {
-                @include span-columns(3);
-            }
 
             a:not(.button) {
                 float: left;

@@ -140,6 +140,13 @@ select {
 
 .button:not(.ed_button):not([type="checkbox"]) {
     @include basicButton;
+
+    &:hover {
+        span {
+            opacity: 100%;
+            width: 30px;
+        }
+    }
 }
 
 .page_content {

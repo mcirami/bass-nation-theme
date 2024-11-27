@@ -290,9 +290,14 @@
 .single_video {
     color: $black;
 
+    .video {
+        margin-top: 40px;
+    }
+
     .wrap {
         padding: 40px 0;
         display: flex;
+        flex-wrap: wrap;
     }
 
     .back_link {
@@ -300,7 +305,7 @@
         text-transform: uppercase;
         font-size: 14px;
         display: inline-block;
-        padding-left: 10px;
+        padding-left: 15px;
         margin-bottom: 40px;
 
         &:before {
@@ -309,24 +314,18 @@
             position: absolute;
             left: 0;
             top: 8px;
-            width: 5px;
+            width: 10px;
             height: 10px;
             background-size: 100%;
+            -webkit-transform: rotateZ(180deg);
+            -moz-transform: rotateZ(180deg);
+            -ms-transform: rotateZ(180deg);
+            -o-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
         }
 
         &:hover {
             color: $yellow;
-
-            &:before {
-                content: "";
-                background: url(../images/yellow-arrow-alt.png) no-repeat;
-                position: absolute;
-                left: 0;
-                top: 8px;
-                width: 5px;
-                height: 10px;
-                background-size: 100%;
-            }
         }
     }
 
@@ -340,6 +339,10 @@
     .content-area {
         max-width: 70%;
         margin: 0 auto;
+
+        @include media($tablet) {
+            max-width: 100%;
+        }
     }
 
     .navigation {
@@ -360,26 +363,22 @@
             a {
                 position: relative;
 
-                &:before {
+                /*  &:before {
                     content: "";
-                    background: url(../images/arrow_white.png) no-repeat;
-                    width: 6px;
-                    height: 10px;
+                    background: url(../images/yellow-arrow.png) no-repeat;
+                    width: 15px;
+                    height: 15px;
                     background-size: 100%;
                     position: absolute;
-                    left: 13px;
-                    top: 4px;
+                    left: 0;
+                    top: 0;
                     z-index: 1;
                     -webkit-transform: rotateZ(180deg);
                     -moz-transform: rotateZ(180deg);
                     -ms-transform: rotateZ(180deg);
                     -o-transform: rotateZ(180deg);
                     transform: rotateZ(180deg);
-
-                    @include media($mobile) {
-                        left: 8px;
-                    }
-                }
+                } */
             }
 
             span {
@@ -398,20 +397,16 @@
             a {
                 position: relative;
 
-                &:after {
+                /*  &:after {
                     content: "";
-                    background: url(../images/arrow_white.png) no-repeat;
-                    width: 6px;
-                    height: 10px;
+                    background: url(../images/yellow-arrow.png) no-repeat;
+                    width: 15px;
+                    height: 15px;
                     background-size: 100%;
                     position: absolute;
-                    right: 12px;
-                    top: 5px;
-
-                    @include media($mobile) {
-                        right: 8px;
-                    }
-                }
+                    right: 0px;
+                    top: 0px;
+                } */
             }
 
             span {

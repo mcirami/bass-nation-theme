@@ -197,13 +197,6 @@
         }
     }
 
-    &:hover {
-        span {
-            opacity: 100%;
-            width: 30px;
-        }
-    }
-
     &.black {
         color: $red;
         border: 1px;

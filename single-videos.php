@@ -39,12 +39,12 @@ get_header(); ?>
                     </main><!-- #main -->
                     <?php 
                         the_post_navigation( array(
-                            'prev_text' => '<span class="button yellow"><span>
+                            'prev_text' => '<span><span>
 							<img src="' . esc_url( get_template_directory_uri() ) . '/images/arrow-right.svg" alt="Bass Nation Logo"/>
 						</span>' . __( 'Previous Submission', 'boiler' ) . '</span>',
-                            'next_text' => '<span class="button yellow"><span>
+                            'next_text' => '<span>' . __( 'Next Submission', 'boiler' ) . '<span>
 							<img src="' . esc_url( get_template_directory_uri() ) . '/images/arrow-right.svg" alt="Bass Nation Logo"/>
-						</span>' . __( 'Next Submission', 'boiler' ) . '</span>'
+						</span></span>'
                         ) );
                     ?>
                 </div><!-- #primary -->

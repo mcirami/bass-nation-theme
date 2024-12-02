@@ -79,7 +79,7 @@ function send_post_author_notification($comment_ID, $comment_approved, $commentd
 	$commentAuthorEmail = $commentdata['comment_author_email'];
 	$postAuthorID    = get_post_field( 'post_author', $postID );
 	$postAuthorEmail = get_the_author_meta( 'user_email', $postAuthorID );
-	$postURL     = get_post_permalink( $postID );
+	$postURL     = preg_replace( '/%..|[^a-zA-Z0-9-]/', '', get_post_permalink( $postID ));
 	//$commentContent = $commentdata['comment_content'];
 
 	if(strpos($postURL, 'video-q-and-a') !== false && $commentAuthorEmail !== $postAuthorEmail) {

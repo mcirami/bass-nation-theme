@@ -310,7 +310,10 @@ jQuery(document).ready(function ($) {
     if (window.location.hash) {
         let id = "";
 
-        const hashTitle = window.location.hash;
+        const hashTitle = window.location.hash.replace(
+            /%..|[^a-zA-Z0-9-]/g,
+            ""
+        );
 
         if (hashTitle.indexOf("&") !== -1) {
             id = hashTitle.replace(/&/g, "and");
@@ -726,6 +729,12 @@ jQuery(document).ready(function ($) {
                 1000
             );
         } else {
+            const clickSlug = currentPage.postSlug
+                .split("courses/")[1]
+                .replace("/", "");
+            console.log("postSlug: ", clickSlug);
+            createCookie("clickSlug", clickSlug);
+
             var hash = clickHash + "-video";
             videoPlayer = $(this)
                 .closest(".row")

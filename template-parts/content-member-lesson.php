@@ -64,7 +64,7 @@
     }
 
     $totalCount = count($taxonomies);
-    $hash = $post->post_name;
+    $hash = preg_replace( '/%..|[^a-zA-Z0-9-]/', '', $post->post_name);
     ?>
 
         <div class="column filtr-item" data-sort="value" data-category="<?php

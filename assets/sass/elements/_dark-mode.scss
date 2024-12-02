@@ -744,13 +744,16 @@
                 .wcChannel {
                     .wcChannelData .wcMessages {
                         background: $black !important;
-                        .wcMessage.wcCurrentUser {
-                            color: $grayText;
-                            border-color: $grayText !important;
-                            background: $black !important;
+                        .wcMessage {
+                            background: $black;
+                            &.wcCurrentUser {
+                                color: $grayText;
+                                border-color: transparent;
+                                background: rgba(155, 155, 155, 0.1);
 
-                            .wcRowHead .wcUser {
-                                color: $white;
+                                .wcRowHead .wcUser {
+                                    color: $white;
+                                }
                             }
                         }
                     }

@@ -530,6 +530,31 @@
             }
         } */
     }
+
+    #pmpro_change_password {
+        .pmpro_form_fieldset {
+            .pmpro_form_fields {
+                gap: 0;
+
+                input {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .pmpro_form_submit {
+            margin-top: 0;
+            padding: 0 40px;
+
+            input[name="cancel"] {
+                display: none;
+            }
+
+            input[type="submit"] {
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 #update-password {

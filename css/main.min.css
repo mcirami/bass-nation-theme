@@ -24267,6 +24267,22 @@ form .acf-spinner {
   width: 100%;
   text-align: center;
 }
+.profile_wrap #pmpro_change_password .pmpro_form_fieldset .pmpro_form_fields {
+  gap: 0;
+}
+.profile_wrap #pmpro_change_password .pmpro_form_fieldset .pmpro_form_fields input {
+  margin-bottom: 0;
+}
+.profile_wrap #pmpro_change_password .pmpro_form_submit {
+  margin-top: 0;
+  padding: 0 40px;
+}
+.profile_wrap #pmpro_change_password .pmpro_form_submit input[name=cancel] {
+  display: none;
+}
+.profile_wrap #pmpro_change_password .pmpro_form_submit input[type=submit] {
+  margin-top: 0;
+}
 
 #update-password .pw-weak {
   text-align: left;
@@ -26285,6 +26301,10 @@ form .acf-spinner {
   padding-right: 0;
   padding-left: 0;
 }
+.wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage.wcCurrentUser {
+  background: #f6f6f6;
+  border-radius: 6px;
+}
 .wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
   width: 100%;
 }
@@ -26318,7 +26338,10 @@ form .acf-spinner {
   background-color: #fff !important;
 }
 .wcContainer .wcMessages .wcMessage {
-  background-color: #fff !important;
+  background-color: #fff;
+}
+.wcContainer .wcMessages .wcMessage.wcCurrentUser {
+  background-color: #f6f6f6;
 }
 .wcContainer .wcMessages .wcMessage img.wcMessageAvatar {
   width: 38px;
@@ -27440,10 +27463,13 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages {
   background: #000000 !important;
 }
+.db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage {
+  background: #000000;
+}
 .db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage.wcCurrentUser {
   color: #959494;
-  border-color: #959494 !important;
-  background: #000000 !important;
+  border-color: transparent;
+  background: rgba(155, 155, 155, 0.1);
 }
 .db-dark-mode-active.logged-in .live_stream .wcContainer.wcCrystalTheme .wcChannel .wcChannelData .wcMessages .wcMessage.wcCurrentUser .wcRowHead .wcUser {
   color: #fff;

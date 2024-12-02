@@ -233,6 +233,15 @@
                 padding-left: 0;
             }
         }
+
+        .wcChannel {
+            .wcChannelData .wcMessages {
+                .wcMessage.wcCurrentUser {
+                    background: $lightGray;
+                    border-radius: 6px;
+                }
+            }
+        }
     }
 
     .wcChannel
@@ -288,7 +297,11 @@
         background-color: $white !important;
 
         .wcMessage {
-            background-color: $white !important;
+            background-color: $white;
+
+            &.wcCurrentUser {
+                background-color: $lightGray;
+            }
 
             img.wcMessageAvatar {
                 width: 38px;

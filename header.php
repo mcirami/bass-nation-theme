@@ -198,7 +198,7 @@ $username = $current_user->user_login;
 		</div>
 	</header>
 	<div class="wrapper">
-		<?php if (!is_user_logged_in()) :?>
+		<?php /* if (!is_user_logged_in()) : */?>
 			<div style="display: none;" id="email_join">
 				<a href="/">
 					<div class="logo">
@@ -230,4 +230,4 @@ $username = $current_user->user_login;
 				<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 				<script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[3]='PMPLEVELID';ftypes[3]='number';fnames[4]='PMPLEVEL';ftypes[4]='text';fnames[8]='TABLP';ftypes[8]='text';fnames[5]='TABDL';ftypes[5]='text';fnames[6]='PMPALLIDS';ftypes[6]='text';fnames[7]='FC6';ftypes[7]='text';fnames[9]='TABDL2';ftypes[9]='text';fnames[10]='TABDL3';ftypes[10]='text';fnames[1]='TABDL4';ftypes[1]='text';fnames[2]='TABDL5';ftypes[2]='text';fnames[11]='TABDL6';ftypes[11]='text';fnames[12]='TABDL7';ftypes[12]='text';fnames[13]='TABDL8';ftypes[13]='text';fnames[14]='TABDL9';ftypes[14]='text';fnames[15]='LIVESTRMLP';ftypes[15]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 			</div>
-		<?php endif; ?>
+		<?php /* endif;  */?>

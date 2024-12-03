@@ -807,6 +807,23 @@
             }
         }
     }
+
+    .directory_profile_wrap {
+        .content_wrap {
+            color: $white;
+        }
+
+        .pmpro_member_profile p {
+            color: $grayText;
+        }
+
+        .button.black {
+            &:hover {
+                border-color: $white;
+                color: $white;
+            }
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

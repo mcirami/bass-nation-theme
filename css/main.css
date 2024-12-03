@@ -26600,12 +26600,19 @@ form .acf-spinner {
   }
 }
 
+.member-profile {
+  display: flex;
+  justify-content: center;
+}
+
 .directory_profile_wrap {
   text-align: center;
+  max-width: 1200px;
 }
 @media screen and (max-width: 767px) {
   .directory_profile_wrap {
     margin: 40px 0;
+    max-width: unset;
   }
 }
 .directory_profile_wrap .pmpro_member_directory_avatar {
@@ -26613,21 +26620,14 @@ form .acf-spinner {
 }
 .directory_profile_wrap .pmpro_member_profile {
   padding: 40px;
-  box-shadow: 0 0 25px -5px rgba(0, 0, 0, 0.14);
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  grid-column-gap: 20px;
-  max-width: 1200px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 4rem;
   margin: 0 auto 60px;
   text-align: left;
-}
-@media screen and (max-width: 550px) {
-  .directory_profile_wrap .pmpro_member_profile {
-    grid-template-columns: 1fr;
-  }
 }
 @media screen and (max-width: 991px) {
   .directory_profile_wrap .pmpro_member_profile {
@@ -26654,9 +26654,31 @@ form .acf-spinner {
     font-size: 1.4rem;
   }
 }
+.directory_profile_wrap .pmpro_member_profile .avatar {
+  border-radius: 100%;
+}
+.directory_profile_wrap .pmpro_member_profile .avatar img {
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-height: 200px;
+  max-width: 200px;
+  margin: 0;
+}
 .directory_profile_wrap .content_wrap {
+  width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+@media screen and (max-width: 991px) {
+  .directory_profile_wrap .content_wrap {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .directory_profile_wrap .content_wrap {
+    width: 100%;
+  }
 }
 .directory_profile_wrap .content_wrap .bass_guitars,
 .directory_profile_wrap .content_wrap .bass_amps {
@@ -26669,18 +26691,42 @@ form .acf-spinner {
   grid-row: 4;
   grid-column: 1/4;
 }
-.directory_profile_wrap .content_wrap .send_message {
-  grid-row: 5;
-  grid-column: 1/4;
+.directory_profile_wrap .send_message {
+  float: left;
+  display: block;
+}
+@media screen and (max-width: 550px) {
+  .directory_profile_wrap .send_message {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .directory_profile_wrap .send_message a {
+    width: 100% !important;
+  }
 }
 .directory_profile_wrap .pmpro_actions_nav {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
-  -webkit-justify-content: space-between;
-  max-width: 1200px;
+  justify-content: flex-end !important;
+  -webkit-justify-content: flex-end !important;
   margin: 0 auto;
+}
+@media screen and (max-width: 550px) {
+  .directory_profile_wrap .pmpro_actions_nav {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 550px) {
+  .directory_profile_wrap .pmpro_actions_nav .button.black {
+    width: 100%;
+  }
+}
+.directory_profile_wrap .pmpro_actions_nav .button.black:hover {
+  border-color: #000000;
+  color: #000000;
 }
 
 .two_column_template #red_registration_form {
@@ -27479,6 +27525,16 @@ form .acf-spinner {
   color: #fff;
 }
 .db-dark-mode-active.logged-in #pmpro_cancel .pmpro_form_submit input[type=submit]:hover {
+  border-color: #fff;
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .directory_profile_wrap .content_wrap {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .directory_profile_wrap .pmpro_member_profile p {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .directory_profile_wrap .button.black:hover {
   border-color: #fff;
   color: #fff;
 }

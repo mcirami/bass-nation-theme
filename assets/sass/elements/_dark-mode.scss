@@ -784,6 +784,29 @@
             }
         }
     }
+
+    #pmpro_cancel {
+        .content_wrap {
+            background: $darkerGray;
+
+            h4 {
+                color: $darkModeRed;
+            }
+
+            > h3 {
+                color: $white;
+            }
+        }
+
+        .pmpro_form_submit {
+            input[type="submit"] {
+                &:hover {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
+        }
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {

@@ -451,88 +451,14 @@
             width: 100%;
             text-align: center;
         }
-
-        /* #basic-user-avatar-form {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            -ms-flex-wrap: nowrap;
-            flex-wrap: nowrap;
-            padding: 40px 40px 0;
-            height: 100%;
-
-            @include media($tablet) {
-                padding-left: 0;
-            }
-
-            > img {
-                max-width: 100px;
-                border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-            }
-
-            h3 {
-                margin-bottom: 10px;
-                margin-top: 0;
-                font-size: 24px;
-            }
-
-            input[type="submit"] {
-                @include interregular;
-                font-size: 16px;
-                padding: 7px 15px;
-                border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                height: 40px;
-                background: $red;
-                color: $white;
-                border: none;
-                margin-bottom: 0;
-                width: 150px;
-
-                &:hover {
-                    background: $darkRed;
-                }
-
-                @include media($mobile) {
-                    @include span-columns(4);
-                }
-            }
-
-            input[type="file"] {
-                margin-bottom: 0;
-                height: auto;
-                margin-top: 10px;
-            }
-
-            input[type="checkbox"] {
-                margin: 20px 0 0;
-                height: auto;
-                width: auto;
-            }
-
-            button {
-                background: #aeabab;
-                padding: 8px 5px;
-                height: 40px;
-
-                @include media($mobile) {
-                    height: 35px;
-                    padding: 8px 12px;
-                    width: auto;
-                }
-            }
-        } */
     }
 
     #pmpro_change_password {
         .pmpro_form_fieldset {
+            @include media($tablet) {
+                width: 100%;
+            }
+
             .pmpro_form_fields {
                 gap: 0;
 

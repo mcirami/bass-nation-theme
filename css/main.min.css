@@ -14465,7 +14465,7 @@ h2, .h2 {
 }
 @media screen and (max-width: 550px) {
   h2, .h2 {
-    font-size: 6vw;
+    font-size: 2.5rem;
   }
 }
 
@@ -19987,25 +19987,18 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 
-#pmpro_cancel {
-  text-align: center;
-  margin: 100px 0;
-}
-@media screen and (max-width: 767px) {
-  #pmpro_cancel {
-    margin: 60px 0;
-  }
-}
 #pmpro_cancel .content_wrap {
-  width: auto;
-  display: inline-block;
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
   background: #f6f6f6;
   padding: 40px 60px;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  border: 1px solid #c8c8c8;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
 }
 @media screen and (max-width: 767px) {
   #pmpro_cancel .content_wrap {
@@ -20013,29 +20006,56 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   }
 }
 #pmpro_cancel .content_wrap .copy_wrap {
-  margin: 30px 0;
+  width: 48%;
+}
+@media screen and (max-width: 991px) {
+  #pmpro_cancel .content_wrap .copy_wrap {
+    width: 100%;
+  }
+}
+#pmpro_cancel .content_wrap .copy_wrap:last-child {
+  background: #000000;
+  padding: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+#pmpro_cancel .content_wrap .copy_wrap:last-child h3, #pmpro_cancel .content_wrap .copy_wrap:last-child .h3 {
+  line-height: 2;
+  color: #fff;
 }
 #pmpro_cancel .content_wrap h4, #pmpro_cancel .content_wrap .h4 {
   color: #ff000a;
+  margin: 0;
 }
 #pmpro_cancel .content_wrap h3, #pmpro_cancel .content_wrap .h3 {
-  font-family: "interregular", sans-serif;
-  font-weight: 300;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
+  width: 100%;
+  margin: 0;
+  color: #131313;
+  font-size: 3rem;
+}
+@media screen and (max-width: 767px) {
+  #pmpro_cancel .content_wrap h3, #pmpro_cancel .content_wrap .h3 {
+    font-size: 2.7rem;
+  }
+}
+#pmpro_cancel .content_wrap > h3, #pmpro_cancel .content_wrap > .h3 {
+  margin-bottom: 20px;
 }
 #pmpro_cancel .content_wrap ul {
   display: inline-block;
   text-align: left;
+  margin-top: 20px;
 }
 #pmpro_cancel .content_wrap ul li {
   position: relative;
 }
 #pmpro_cancel .content_wrap p {
-  color: #ff000a;
-  padding-left: 28px;
+  color: #959494;
 }
 #pmpro_cancel .content_wrap .pmpro_btn {
   display: inline-block;
-  padding: 7px 0;
   width: 50%;
   margin: 0 auto;
 }
@@ -20057,6 +20077,39 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 #pmpro_cancel .content_wrap .yellow {
   background: #f5bf04 !important;
   margin-top: 15px;
+}
+#pmpro_cancel .pmpro_form_submit {
+  justify-content: space-between;
+  align-items: center;
+}
+#pmpro_cancel .pmpro_form_submit input[type=submit] {
+  width: auto;
+  background: transparent;
+  border: 1px solid #ff000a !important;
+  color: #ff000a !important;
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  #pmpro_cancel .pmpro_form_submit input[type=submit] {
+    width: 100%;
+  }
+}
+#pmpro_cancel .pmpro_form_submit input[type=submit]:hover {
+  color: #000000 !important;
+  border-color: #000000 !important;
+}
+#pmpro_cancel .pmpro_form_submit a.pmpro_btn.pmpro_btn-cancel {
+  background-color: #f5bf04;
+  border: none;
+  color: #000000;
+}
+@media screen and (max-width: 767px) {
+  #pmpro_cancel .pmpro_form_submit a.pmpro_btn.pmpro_btn-cancel {
+    width: 100%;
+  }
+}
+#pmpro_cancel .pmpro_form_submit a.pmpro_btn.pmpro_btn-cancel:hover {
+  background-color: #c4a020;
 }
 
 .forum_wrapper {
@@ -24180,83 +24233,6 @@ form .acf-spinner {
   width: 100%;
   border-radius: 6px;
   padding: 40px;
-  /* #basic-user-avatar-form {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      padding: 40px 40px 0;
-      height: 100%;
-
-      @include media($tablet) {
-          padding-left: 0;
-      }
-
-      > img {
-          max-width: 100px;
-          border-radius: 4px;
-          -webkit-border-radius: 4px;
-          -moz-border-radius: 4px;
-      }
-
-      h3 {
-          margin-bottom: 10px;
-          margin-top: 0;
-          font-size: 24px;
-      }
-
-      input[type="submit"] {
-          @include interregular;
-          font-size: 16px;
-          padding: 7px 15px;
-          border-radius: 4px;
-          -webkit-border-radius: 4px;
-          -moz-border-radius: 4px;
-          height: 40px;
-          background: $red;
-          color: $white;
-          border: none;
-          margin-bottom: 0;
-          width: 150px;
-
-          &:hover {
-              background: $darkRed;
-          }
-
-          @include media($mobile) {
-              @include span-columns(4);
-          }
-      }
-
-      input[type="file"] {
-          margin-bottom: 0;
-          height: auto;
-          margin-top: 10px;
-      }
-
-      input[type="checkbox"] {
-          margin: 20px 0 0;
-          height: auto;
-          width: auto;
-      }
-
-      button {
-          background: #aeabab;
-          padding: 8px 5px;
-          height: 40px;
-
-          @include media($mobile) {
-              height: 35px;
-              padding: 8px 12px;
-              width: auto;
-          }
-      }
-  } */
 }
 @media screen and (max-width: 991px) {
   .profile_wrap .avatar_upload {
@@ -24266,6 +24242,11 @@ form .acf-spinner {
 .profile_wrap .avatar_upload .success {
   width: 100%;
   text-align: center;
+}
+@media screen and (max-width: 991px) {
+  .profile_wrap #pmpro_change_password .pmpro_form_fieldset {
+    width: 100%;
+  }
 }
 .profile_wrap #pmpro_change_password .pmpro_form_fieldset .pmpro_form_fields {
   gap: 0;
@@ -27486,6 +27467,19 @@ form .acf-spinner {
   background: #070707;
 }
 .db-dark-mode-active.logged-in .live_stream .wcContainer .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcInternalContent {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #pmpro_cancel .content_wrap {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in #pmpro_cancel .content_wrap h4, .db-dark-mode-active.logged-in #pmpro_cancel .content_wrap .h4 {
+  color: #b80008;
+}
+.db-dark-mode-active.logged-in #pmpro_cancel .content_wrap > h3, .db-dark-mode-active.logged-in #pmpro_cancel .content_wrap > .h3 {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in #pmpro_cancel .pmpro_form_submit input[type=submit]:hover {
+  border-color: #fff;
   color: #fff;
 }
 

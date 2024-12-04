@@ -46,21 +46,22 @@
 }
 
 .registration-confirmation {
+    @include boxShadow;
     min-height: 400px;
     color: $black;
     display: flex;
     flex-direction: column;
-    padding-bottom: 60px;
-    max-width: 1000px;
+    max-width: 1200px;
     float: none;
     margin-right: auto !important;
     margin-left: auto;
+    background: $lightGray;
+    border-radius: 6px;
+    padding: 40px;
 
     h2 {
+        @include medLargeFont;
         margin-bottom: 20px;
-        padding-bottom: 40px;
-        border-bottom: 1px solid;
-        border-color: rgba(200, 200, 200, 0.4);
     }
 
     h3 {
@@ -80,6 +81,9 @@
         border-radius: 6px;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
+        background: $darkModeBg !important;
+        color: $white;
+        line-height: 2;
     }
 }
 
@@ -139,7 +143,9 @@
 }
 
 .verify-account {
+    width: 100%;
     min-height: 300px;
+    max-width: 1200px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -151,6 +157,11 @@
     flex-wrap: nowrap;
     justify-content: center;
     -webkit-justify-content: center;
+    float: none;
+    margin-right: auto !important;
+    margin-left: auto;
+    background: $lightGray;
+    border-radius: 6px;
 
     h2 {
         margin-bottom: 40px;
@@ -163,5 +174,7 @@
     form {
         width: 100%;
         text-align: center;
+        display: flex;
+        justify-content: center;
     }
 }

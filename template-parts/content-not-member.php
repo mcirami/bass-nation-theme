@@ -2,11 +2,13 @@
 	<section class="two_column_section full_width">
 		<div class="container">
 			<h2> You Must Be A Member To View This Page...</h2>
-			<div class="columns_wrap">
+			<div class="columns_wrap <?php echo is_user_logged_in() ? "logged_in" : ""; ?>">
+				<?php if(!is_user_logged_in()) : ?>
 				<div class="column">
 					<h3><span>Already A Member?</span> Login Below</h3>
 					<?php echo do_shortcode('[pmpro_login]'); ?>
 				</div>
+				<?php endif; ?>
 				<div class="column">
 					<div class="content_wrap">
 						<h3>Not A Member? <span> Join Free Today!</span></h3>
@@ -17,7 +19,8 @@
 								<p>then only <span>$9.99/mo</span> after that!</p>
 							</div>
 							<div class="button_wrap">
-								<a class="button yellow" href="/membership-account/membership-levels/">
+								<?php $url = is_user_logged_in() ? "/membership-account/membership-levels/" : '/register' ?>
+								<a class="button yellow" href="<?php echo $url; ?>">
 									Start My 3 Day Free Trial Now!
 									<span>
 										<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>

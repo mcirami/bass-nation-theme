@@ -54,7 +54,7 @@
 
                     .content_wrap {
                         padding: 40px;
-                        background: $darkerGray;
+                        background: $lightGray;
 
                         @include media($desktop) {
                             padding: 40px 20px;
@@ -97,6 +97,7 @@
             border-bottom: none;
             margin-bottom: 80px;
             font-size: 3.4rem;
+            color: $darkGray;
 
             &.pmpro_card_title {
                 display: none;
@@ -105,7 +106,7 @@
 
         h3 {
             line-height: 1.4;
-            color: $white;
+            color: $darkerGray;
             display: block;
             margin: 0 0 40px 0;
 
@@ -127,7 +128,7 @@
 
             .column {
                 @include span-columns(4);
-                background: $darkerGray;
+                @include boxShadow;
                 display: -webkit-box;
                 display: -ms-flexbox;
                 display: flex;
@@ -139,6 +140,7 @@
                 flex-wrap: nowrap;
                 padding: 40px;
                 border-radius: 6px;
+                background: $darkerGray;
 
                 @include media($desktop) {
                     @include span-columns(6);
@@ -156,6 +158,12 @@
                     }
                 }
 
+                &:last-child {
+                    h3 {
+                        color: $white;
+                    }
+                }
+
                 &:nth-child(2) {
                     @include media($desktop) {
                         margin-right: 0;
@@ -164,7 +172,7 @@
 
                 &:nth-child(3) {
                     padding: 0;
-                    border: 1px solid $red;
+
                     @include media($desktop) {
                         width: 100%;
                         margin-top: 30px;
@@ -200,6 +208,20 @@
                         padding: 20px;
                         margin: 30px auto;
                         border-radius: 6px;
+                    }
+                }
+            }
+
+            &.logged_in {
+                .column {
+                    width: 48%;
+
+                    @include media($mobile) {
+                        width: 100%;
+                    }
+
+                    &:last-child {
+                        padding: 0;
                     }
                 }
             }
@@ -257,6 +279,7 @@
                 .content {
                     padding: 30px;
                     text-align: left;
+                    width: 100%;
 
                     li {
                         p {
@@ -307,7 +330,7 @@
             &:last-child {
                 .content_wrap {
                     @include boxShadow;
-                    background: $white;
+                    background: $lightGray;
                     border-radius: 4px;
 
                     p,

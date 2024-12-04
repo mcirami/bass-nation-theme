@@ -6,6 +6,7 @@
         padding: 40px;
         border: none;
         margin-bottom: 40px;
+        background: $lightGray;
 
         img {
             display: none;
@@ -117,6 +118,7 @@
 
     #fep-content {
         @include boxShadow;
+        background: $lightGray;
         padding: 50px;
         border: none;
         margin-top: -1px;

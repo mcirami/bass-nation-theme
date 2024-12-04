@@ -156,7 +156,6 @@
         flex-wrap: wrap;
         width: 100%;
         padding: 20px 0;
-        @include boxShadow;
     }
 
     .pmpro_member_profile_edit_wrap {
@@ -231,6 +230,7 @@
             justify-content: space-between;
             gap: 1rem;
             margin-top: 3rem;
+            padding: 0 10px;
 
             @include media($mobile) {
                 gap: 0;
@@ -243,6 +243,8 @@
                 width: 48.8%;
                 padding: 40px;
                 border-radius: 6px;
+                @include boxShadow;
+                background: $lightGray;
 
                 @include media($tablet) {
                     width: 48.5%;
@@ -438,10 +440,12 @@
     }
 
     .avatar_upload {
+        @include boxShadow;
+        background: $lightGray;
         width: 100%;
         border-radius: 6px;
         padding: 40px;
-        //border: 1px solid $borderGray;
+        margin: 0 10px;
 
         @include media($tablet) {
             padding: 20px;
@@ -466,6 +470,10 @@
                     margin-bottom: 0;
                 }
             }
+
+            .pmpro_form_legend {
+                display: none;
+            }
         }
 
         .pmpro_form_submit {
@@ -477,8 +485,38 @@
             }
 
             input[type="submit"] {
-                margin-top: 0;
+                margin: 0;
             }
+        }
+    }
+
+    &.change-password {
+        .avatar_upload {
+            display: none;
+        }
+
+        form .pmpro_card_content {
+            margin-top: 0;
+
+            .pmpro_form_fieldset {
+                max-width: 1200px;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
+        #pmpro_change_password {
+            .pmpro_form_submit {
+                max-width: 1200px;
+                margin: 20px auto 0;
+                justify-content: flex-end;
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        .form_wrap {
+            padding: 0;
         }
     }
 }

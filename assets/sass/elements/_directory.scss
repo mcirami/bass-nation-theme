@@ -295,6 +295,10 @@
             padding: 20px;
         }
 
+        @include media($smallMobile) {
+            flex-wrap: wrap;
+        }
+
         .label {
             @include interbold;
             font-size: 1.8rem;

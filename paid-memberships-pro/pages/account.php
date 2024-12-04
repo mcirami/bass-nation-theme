@@ -46,7 +46,7 @@ global $wpdb, $pmpro_msg, $pmpro_msgt, $pmpro_levels, $current_user, $levels, $a
 
 
 
-		<div id="pmpro_account">
+		<div id="pmpro_account" class="light_gray_bg">
 
 			<?php if(in_array('profile', $sections)) { ?>
 				<div id="pmpro_account-profile" class="pmpro_box">

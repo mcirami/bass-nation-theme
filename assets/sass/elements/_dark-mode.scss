@@ -824,6 +824,32 @@
             }
         }
     }
+
+    .registration-confirmation {
+        background: $darkerGray;
+
+        h3 {
+            color: $darkModeRed !important;
+        }
+    }
+
+    .verify-account {
+        background: $darkerGray;
+    }
+}
+
+body:not(.logged-in) {
+    .two_column_template
+        .two_column_section
+        .columns_wrap
+        .column:last-child
+        .content_wrap {
+        background: $darkerGray;
+    }
+
+    .two_column_template.not_member h2 {
+        color: $white;
+    }
 }
 
 .logged-in:not(.db-dark-mode-active) {
@@ -860,5 +886,10 @@
                 }
             }
         }
+    }
+
+    .two_column_template.not_member .two_column_section .columns_wrap .column {
+        color: $darkerGray;
+        background: $lightGray;
     }
 }

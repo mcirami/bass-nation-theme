@@ -32,7 +32,7 @@
 			 	<div class="container">
 
 				 	<div class="member_home full_width">
-						<div class="full_width top_section">
+						<div class="full_width top_section light_gray_bg">
 							<div class="video_column">
 								<div class="video_wrapper">
 									<iframe src="https://player.vimeo.com/video/1006352212?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allowfullscreen></iframe>

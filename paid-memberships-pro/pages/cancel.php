@@ -68,10 +68,38 @@ $user_levels = pmpro_getMembershipLevelsForUser( $current_user->ID );
 					<div class="copy_wrap">
 						<h3>It's a true bargain!<br>We'd love for you to stick around and grow with us!</h3>
 					</div>
+					<?php 
+						// Figure out which memberships will be cancelled immediately and which will be cancelled on the next payment date. Show a message.
+						$conpd_levels = array();
+						foreach ( $old_level_ids as $old_level_id ) {
+							if ( apply_filters( 'pmpro_cancel_on_next_payment_date', true, $old_level_id, $current_user->ID ) ) {
+								$conpd_levels[] = $old_level_id;
+							}
+						}
+						$subscriptions = empty( $conpd_levels ) ? null : PMPro_Subscription::get_subscriptions_for_user( $current_user->ID, $conpd_levels );
+						if ( count( $old_level_ids ) <= 1 ) {
+							if ( ! empty( $subscriptions ) ) {
+								// There is a subscription. Show the next payment date.
+								$cancellation_behavior_text = sprintf( __( 'Your subscription will be cancelled. You will not be billed again. Your membership will remain active until %s. ', 'paid-memberships-pro' ), $subscriptions[0]->get_next_payment_date( get_option( 'date_format' ) ) );
+							} else {
+								// No subscription. Show a generic message.
+								//$cancellation_behavior_text = __( 'Your membership will be cancelled immediately.', 'paid-memberships-pro' );
+							}
+						} else {
+							if ( ! empty( $subscriptions ) ) {
+								// There is a subscription. Show a generic message.
+								$cancellation_behavior_text = __( 'Some of the memberships you are cancelling have a recurring subscription. These subscriptions will be cancelled, you will not be billed again, and the associated memberships will remain active through the end of the current payment period.', 'paid-memberships-pro' );
+							} else {
+								// No subscription. Show a generic message.
+								//$cancellation_behavior_text = __( 'Your memberships will be cancelled immediately.', 'paid-memberships-pro' );
+							}
+						}
+					?>
 					<?php
 						$cancel_memberships_text = _n( 'Yes -  I\'m Resigning from Bass Nation', 'Yes, cancel these memberships', count( $old_level_ids ), 'paid-memberships-pro' );
 						$keep_memberships_text = _n( 'No - I Changed My Mind', 'No, keep these memberships', count( $old_level_ids ), 'paid-memberships-pro' );
 					?>
+					
 				</div>
 <?php			} else {
 				// All levels are being cancelled.
@@ -81,32 +109,6 @@ $user_levels = pmpro_getMembershipLevelsForUser( $current_user->ID );
 				$are_you_sure = _n( 'Are you sure you want to cancel your membership?', 'Are you sure you want to cancel all of your memberships?', count( $user_levels ), 'paid-memberships-pro' );
 				$cancel_memberships_text = _n( 'Yes, cancel my membership', 'Yes, cancel all of my memberships', count( $user_levels ), 'paid-memberships-pro' );
 				$keep_memberships_text = _n( 'No, keep my membership', 'No, keep my memberships', count( $user_levels ), 'paid-memberships-pro' );
-			}
-
-			// Figure out which memberships will be cancelled immediately and which will be cancelled on the next payment date. Show a message.
-			$conpd_levels = array();
-			foreach ( $old_level_ids as $old_level_id ) {
-				if ( apply_filters( 'pmpro_cancel_on_next_payment_date', true, $old_level_id, $current_user->ID ) ) {
-					$conpd_levels[] = $old_level_id;
-				}
-			}
-			$subscriptions = empty( $conpd_levels ) ? null : PMPro_Subscription::get_subscriptions_for_user( $current_user->ID, $conpd_levels );
-			if ( count( $old_level_ids ) <= 1 ) {
-				if ( ! empty( $subscriptions ) ) {
-					// There is a subscription. Show the next payment date.
-					$cancellation_behavior_text = sprintf( __( 'Your subscription will be cancelled. You will not be billed again. Your membership will remain active until %s. ', 'paid-memberships-pro' ), $subscriptions[0]->get_next_payment_date( get_option( 'date_format' ) ) );
-				} else {
-					// No subscription. Show a generic message.
-					//$cancellation_behavior_text = __( 'Your membership will be cancelled immediately.', 'paid-memberships-pro' );
-				}
-			} else {
-				if ( ! empty( $subscriptions ) ) {
-					// There is a subscription. Show a generic message.
-					$cancellation_behavior_text = __( 'Some of the memberships you are cancelling have a recurring subscription. These subscriptions will be cancelled, you will not be billed again, and the associated memberships will remain active through the end of the current payment period.', 'paid-memberships-pro' );
-				} else {
-					// No subscription. Show a generic message.
-					//$cancellation_behavior_text = __( 'Your memberships will be cancelled immediately.', 'paid-memberships-pro' );
-				}
 			}
 
 			// Output the form.

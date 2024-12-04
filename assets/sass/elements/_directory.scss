@@ -264,6 +264,12 @@
 .member-profile {
     display: flex;
     justify-content: center;
+
+    .directory_profile_wrap {
+        > form {
+            display: none;
+        }
+    }
 }
 
 .directory_profile_wrap {

@@ -26652,6 +26652,9 @@ form .acf-spinner {
   display: flex;
   justify-content: center;
 }
+.member-profile .directory_profile_wrap > form {
+  display: none;
+}
 
 .directory_profile_wrap {
   text-align: center;

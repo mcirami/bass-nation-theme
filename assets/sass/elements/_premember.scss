@@ -31,34 +31,26 @@
 }
 
 .confirmation_page {
-    margin: 100px 0;
     background: $lightGray;
-    padding: 40px 40px 80px;
+    @include boxShadow;
+    padding: 40px;
     text-align: center;
-    -webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    -moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-    border: 1px solid $borderGray;
-    border-radius: 4px;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-
-    @include media($tablet) {
-        padding: 30px 30px 70px;
-    }
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    max-width: 1200px;
+    margin: 0 auto;
+    float: none;
 
     @include media($mobile) {
-        margin: 40px 0;
-        padding: 20px 20px 40px;
+        padding: 20px;
     }
 
     .heading {
-        font-size: 20px;
+        @include intersemibold;
         margin-bottom: 20px;
-
-        @include media($mobile) {
-            font-size: 18px;
-        }
+        line-height: 1.8;
+        text-transform: uppercase;
 
         span {
             color: $red;
@@ -67,11 +59,14 @@
 
     .button_wrap {
         margin-top: 20px;
+        float: none;
     }
 
     ul {
         margin-top: 60px;
         display: inline-block;
+        margin-left: 0;
+        padding: 0;
 
         @include media($mobile) {
             margin-top: 40px;

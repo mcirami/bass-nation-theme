@@ -836,6 +836,20 @@
     .verify-account {
         background: $darkerGray;
     }
+
+    .confirmation_page {
+        background: $darkerGray;
+        color: $white;
+
+        ul {
+            li {
+                background: $black;
+                span {
+                    color: $darkModeRed;
+                }
+            }
+        }
+    }
 }
 
 body:not(.logged-in) {
@@ -849,6 +863,12 @@ body:not(.logged-in) {
 
     .two_column_template.not_member h2 {
         color: $white;
+    }
+
+    .registration-confirmation {
+        background: $darkerGray;
+        color: $white;
+        margin-bottom: 80px;
     }
 }
 

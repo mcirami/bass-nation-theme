@@ -16671,45 +16671,41 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 
 .confirmation_page {
-  margin: 100px 0;
   background: #f6f6f6;
-  padding: 40px 40px 80px;
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+  padding: 40px;
   text-align: center;
-  box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, 0.14);
-  border: 1px solid #c8c8c8;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-}
-@media screen and (max-width: 991px) {
-  .confirmation_page {
-    padding: 30px 30px 70px;
-  }
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  max-width: 1200px;
+  margin: 0 auto;
+  float: none;
 }
 @media screen and (max-width: 767px) {
   .confirmation_page {
-    margin: 40px 0;
-    padding: 20px 20px 40px;
+    padding: 20px;
   }
 }
 .confirmation_page .heading {
-  font-size: 20px;
+  font-family: "intersemibold", sans-serif;
+  font-weight: 600;
   margin-bottom: 20px;
-}
-@media screen and (max-width: 767px) {
-  .confirmation_page .heading {
-    font-size: 18px;
-  }
+  line-height: 1.8;
+  text-transform: uppercase;
 }
 .confirmation_page .heading span {
   color: #ff000a;
 }
 .confirmation_page .button_wrap {
   margin-top: 20px;
+  float: none;
 }
 .confirmation_page ul {
   margin-top: 60px;
   display: inline-block;
+  margin-left: 0;
+  padding: 0;
 }
 @media screen and (max-width: 767px) {
   .confirmation_page ul {
@@ -27621,12 +27617,27 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .verify-account {
   background: #131313;
 }
+.db-dark-mode-active.logged-in .confirmation_page {
+  background: #131313;
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .confirmation_page ul li {
+  background: #000000;
+}
+.db-dark-mode-active.logged-in .confirmation_page ul li span {
+  color: #b80008;
+}
 
 body:not(.logged-in) .two_column_template .two_column_section .columns_wrap .column:last-child .content_wrap {
   background: #131313;
 }
 body:not(.logged-in) .two_column_template.not_member h2, body:not(.logged-in) .two_column_template.not_member .h2 {
   color: #fff;
+}
+body:not(.logged-in) .registration-confirmation {
+  background: #131313;
+  color: #fff;
+  margin-bottom: 80px;
 }
 
 .logged-in:not(.db-dark-mode-active) .lessons_page.free_lessons .intro_text {

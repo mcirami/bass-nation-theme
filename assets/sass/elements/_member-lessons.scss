@@ -169,6 +169,10 @@
             justify-content: center;
             align-items: center;
             padding: 5% 0;
+
+            @include media($mobile) {
+                padding: 15% 0;
+            }
         }
 
         .content_wrap {
@@ -938,18 +942,21 @@
             width: 20%;
         }
 
-        img {
-            border-radius: 50px;
-            object-fit: cover;
-            height: 50px;
-            width: 50px;
-            overflow: hidden;
-        }
-
         .comment-author {
             padding: 1px;
             background: $lightGray;
-            border-radius: 50px;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            justify-self: flex-end;
+
+            img {
+                border-radius: 100%;
+                object-fit: cover;
+                object-position: center;
+                height: 100%;
+            }
         }
     }
 
@@ -988,9 +995,10 @@
         }
 
         > p {
-            @include span-columns(12);
-            padding: 10px 20px;
-            text-align: left;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .video_embed {
@@ -1135,6 +1143,10 @@
             color: $black;
             width: 18rem;
             margin-top: 5px;
+
+            @include media($smallMobile) {
+                width: 100%;
+            }
 
             &:hover {
                 background: #c4a020;
@@ -1289,19 +1301,11 @@
     height: 100%;
     z-index: 1;
     text-align: center;
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 24px !important;
+    background: rgba(0, 0, 0, 0.8);
     color: $yellow;
-    line-height: 1.4;
-    padding-top: 5% !important;
-
-    @include media($tablet) {
-        padding-top: 10% !important;
-    }
-
-    @include media($mobile) {
-        padding-top: 15% !important;
-    }
+    line-height: 1.6;
+    padding: 20px;
+    font-size: 1.6rem;
 }
 
 #respond #comment-form-identity {

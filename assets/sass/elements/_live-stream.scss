@@ -3,6 +3,10 @@
 
     .epyt-gallery {
         padding: 0 10%;
+
+        @include media($smallMobile) {
+            padding: 0;
+        }
     }
 
     .columns_wrap {
@@ -41,6 +45,11 @@
         -webkit-justify-content: space-between;
         align-items: center;
         -webkit-align-items: center;
+        padding: 10px 0;
+
+        @include media($smallMobile) {
+            flex-wrap: wrap;
+        }
 
         &:first-child {
             display: none;
@@ -48,16 +57,41 @@
 
         .epyt-pagebutton {
             @include interregular;
-            font-size: 16px;
-            padding: 7px 15px;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            background: $red;
-            color: $white;
+            font-size: 1.8rem;
+            color: $yellow;
+            text-transform: uppercase;
+            padding: 0;
+
+            @include media($mobile) {
+                font-size: 1.4rem;
+            }
+
+            @include media($smallMobile) {
+                order: 2;
+                width: 50%;
+            }
 
             &:hover {
-                background: $darkRed;
+                color: $yellowHover;
+            }
+
+            &.epyt-prev {
+                text-align: left;
+            }
+
+            &.epyt-next {
+                text-align: right;
+            }
+        }
+
+        .epyt-pagenumbers {
+            color: $grayText;
+
+            @include media($mobile) {
+                width: 100%;
+                display: flex;
+                margin-bottom: 20px;
+                order: 1;
             }
         }
 
@@ -190,9 +224,9 @@
     input[type="button"] {
         background: #f20f2b !important;
         padding: 0 20px;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
         height: 40px;
         color: $white !important;
         margin: 10px 0;
@@ -309,9 +343,9 @@
 
             .wcMessageContent {
                 background-color: rgba(241, 241, 241, 0.7) !important;
-                border-radius: 50px !important;
-                -webkit-border-radius: 50px !important;
-                -moz-border-radius: 50px !important;
+                border-radius: 100% !important;
+                -webkit-border-radius: 100% !important;
+                -moz-border-radius: 100% !important;
             }
 
             > .wcMessageUser {
@@ -346,9 +380,9 @@
 
     input.wcInput {
         background: $white !important;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
         padding: 10px;
         height: 40px;
         margin: 10px 0;

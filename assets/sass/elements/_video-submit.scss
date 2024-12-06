@@ -298,6 +298,10 @@
         padding: 40px 0;
         display: flex;
         flex-wrap: wrap;
+
+        @include media($mobile) {
+            padding: 0 0 40px;
+        }
     }
 
     .back_link {

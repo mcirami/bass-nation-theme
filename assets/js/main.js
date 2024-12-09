@@ -1193,4 +1193,14 @@ jQuery(document).ready(function ($) {
         text.parentNode.removeChild(text);
         targetElement.appendChild(text);
     }
+
+    const customFileUpload = document.querySelector("input[type='file']");
+
+    if (customFileUpload) {
+        customFileUpload.onchange = function () {
+            const file = this.value.replace("C:");
+            this.style.setProperty("--before-content", `"${file}"`);
+            this.style.background = "#000000";
+        };
+    }
 });

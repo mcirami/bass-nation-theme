@@ -34,6 +34,11 @@
             grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             column-gap: 40px;
             row-gap: 60px;
+
+            @include media($smallMobile) {
+                grid-template-columns: 1fr;
+                row-gap: 30px;
+            }
         }
 
         h2 {

@@ -16869,6 +16869,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     width: 100%;
   }
 }
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap {
+    padding-right: 0;
+  }
+}
 .lessons_page.free_lessons #video_player .video_content_wrap .upgrade h3, .lessons_page.free_lessons #video_player .video_content_wrap .upgrade .h3 {
   font-size: 2rem;
   text-align: center;
@@ -16890,6 +16895,16 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     justify-content: center;
   }
 }
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .share_buttons {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .social_button_wrap {
+    width: 100%;
+  }
+}
 .lessons_page.free_lessons #video_player .video_content_wrap .social_button_wrap a {
   gap: 10px;
   display: flex;
@@ -16897,6 +16912,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   align-items: center;
   margin: 0;
   width: 100%;
+  text-align: center;
 }
 .lessons_page.free_lessons #video_player .video_content_wrap .social_button_wrap a img {
   float: none;
@@ -17763,6 +17779,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action .button {
     width: 42rem;
     margin: 10px auto 0;
+  }
+}
+@media screen and (max-width: 550px) {
+  .lessons_page.free_lessons #video_player .video_content_wrap .call_to_action .button {
+    width: 100%;
   }
 }
 .lessons_page.free_lessons #video_player .description {
@@ -19049,6 +19070,11 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .two_column_template.member .two_column_section .columns_wrap .column:last-child .content_wrap h3,
 .two_column_template.member .two_column_section .columns_wrap .column:last-child .content_wrap .h3 {
   color: #000000;
+}
+@media screen and (max-width: 550px) {
+  .two_column_template.contact-us form input[type=submit] {
+    width: 100%;
+  }
 }
 
 .member {
@@ -22903,6 +22929,11 @@ form .acf-spinner {
     justify-content: center;
   }
 }
+.member_home .bottom_section .info_wrap .column_text .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 .member_home .bottom_section .info_wrap a {
   color: #000000;
   position: relative;
@@ -22938,15 +22969,17 @@ form .acf-spinner {
   border-bottom: 1px solid #880415;
 }
 .member_home .bottom_section .info_wrap a:first-child::after {
-  content: "|";
+  content: "";
   position: absolute;
   right: -14px;
-  top: -3px;
-  font-size: 0.9rem;
+  bottom: 10px;
+  width: 1px;
+  height: 12px;
+  background: #131313;
 }
 @media screen and (max-width: 991px) {
   .member_home .bottom_section .info_wrap a:first-child::after {
-    content: "";
+    background: transparent;
   }
 }
 .member_home .bottom_section .info_wrap h4, .member_home .bottom_section .info_wrap .h4 {
@@ -26532,6 +26565,9 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap a:hover {
   border-color: #b80008;
   color: #b80008;
+}
+.db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap a:first-child::after {
+  background: #959494;
 }
 .db-dark-mode-active.logged-in .page_content.member .member_home .bottom_section .info_wrap img {
   filter: invert(65%) sepia(3%) saturate(3%) hue-rotate(338deg) brightness(91%) contrast(85%);

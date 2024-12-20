@@ -186,6 +186,12 @@
                 @include media($mobile) {
                     justify-content: center;
                 }
+
+                .links {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                }
             }
 
             a {
@@ -221,14 +227,16 @@
                 }
 
                 &:first-child::after {
-                    content: "|";
+                    content: "";
                     position: absolute;
                     right: -14px;
-                    top: -3px;
-                    font-size: 0.9rem;
+                    bottom: 10px;
+                    width: 1px;
+                    height: 12px;
+                    background: $darkerGray;
 
                     @include media($tablet) {
-                        content: "";
+                        background: transparent;
                     }
                 }
             }

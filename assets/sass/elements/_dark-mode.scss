@@ -225,6 +225,10 @@
                             border-color: $darkModeRed;
                             color: $darkModeRed;
                         }
+
+                        &:first-child::after {
+                            background: $grayText;
+                        }
                     }
 
                     img {

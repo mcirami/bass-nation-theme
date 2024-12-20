@@ -754,6 +754,10 @@
                             width: 42rem;
                             margin: 10px auto 0;
                         }
+
+                        @include media($smallMobile) {
+                            width: 100%;
+                        }
                     }
                 }
             }

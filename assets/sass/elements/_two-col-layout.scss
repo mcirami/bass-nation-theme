@@ -341,4 +341,12 @@
             }
         }
     }
+
+    &.contact-us {
+        form input[type="submit"] {
+            @include media($smallMobile) {
+                width: 100%;
+            }
+        }
+    }
 }

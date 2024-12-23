@@ -734,13 +734,13 @@
                         -moz-border-radius: 4px;
                         margin: 0 auto;
 
-                        @include media($tablet) {
+                        /* @include media($tablet) {
                             width: 40% !important;
                         }
 
                         @include media($mobile) {
                             width: 60% !important;
-                        }
+                        } */
                     }
                 }
             }
@@ -932,6 +932,7 @@
                     width: 37%;
                     margin: 0;
                     padding-left: 0;
+                    padding-right: 5px;
                 }
 
                 a {
@@ -1014,7 +1015,6 @@
                         width: 100%;
                         margin: 0;
                         font-size: 14px;
-                        text-align: center;
                     }
 
                     @include media($mobile) {

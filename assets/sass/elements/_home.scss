@@ -21,6 +21,10 @@
             padding: 15% 0 8%;
         }
 
+        @include media($smallMobile) {
+            padding: 25% 0 8%;
+        }
+
         .ie10 {
             top: -1px;
         }
@@ -234,7 +238,11 @@
 
             .column {
                 @include media($mobile) {
-                    width: 40%;
+                    width: 48%;
+                }
+
+                @include media($smallMobile) {
+                    width: 100%;
                 }
 
                 h3 {
@@ -244,6 +252,11 @@
                     @include smallFont;
                     border-radius: 30px;
                     margin: 0;
+                    width: 100%;
+
+                    @include media($smallMobile) {
+                        padding: 15px;
+                    }
                 }
             }
         }

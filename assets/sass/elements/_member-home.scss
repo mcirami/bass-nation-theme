@@ -226,7 +226,7 @@
                     border-bottom: 1px solid $darkRed;
                 }
 
-                &:first-child::after {
+                /* &:first-child::after {
                     content: "";
                     position: absolute;
                     right: -14px;
@@ -238,7 +238,7 @@
                     @include media($tablet) {
                         background: transparent;
                     }
-                }
+                } */
             }
 
             h4 {

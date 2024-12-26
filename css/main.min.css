@@ -23021,47 +23021,6 @@ form .acf-spinner {
   margin-right: 2.3576515979%;
   width: 100%;
   position: relative;
-  /* input#wpua-file-existin .image_wrap {
-      @include span-columns(6);
-
-      @include media($mobile) {
-          @include span-columns(4);
-          line-height: 1.4;
-      }
-
-      label {
-          @include interregular;
-          color: $black;
-          width: auto;
-          float: left;
-          font-size: 16px;
-          margin-right: 10px;
-
-          @include media($mobile) {
-              font-size: 14px;
-          }
-      }
-
-      input {
-          border: none;
-          float: left;
-          width: auto;
-          padding: 1px 0 0 0;
-          height: auto;
-          margin: 0;
-          font-size: 16px;
-          background: $white;
-      }
-
-      .description {
-          @include span-columns(12);
-          font-size: 13px;
-
-          @include media($mobile) {
-              font-size: 11px;
-          }
-      }
-  } */
 }
 .profile_wrap:last-child {
   margin-right: 0;
@@ -23211,7 +23170,7 @@ form .acf-spinner {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px 0;
+  padding: 100px 0 20px;
 }
 .profile_wrap .pmpro_member_profile_edit_wrap {
   margin-bottom: 0;
@@ -23308,6 +23267,13 @@ form .acf-spinner {
 }
 .profile_wrap form .pmpro_card_content .pmpro_cols-2 > * {
   width: 100%;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit) {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
 }
 .profile_wrap form .pmpro_form_submit {
   flex-basis: 100%;

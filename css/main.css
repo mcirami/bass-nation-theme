@@ -23276,7 +23276,9 @@ form .acf-spinner {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   background: #f6f6f6;
+  padding: 40px;
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
   font-size: 2.2rem;
@@ -23309,13 +23311,15 @@ form .acf-spinner {
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
   width: 47%;
   text-align: center;
-  background-color: none;
+  background-color: unset;
   margin-right: 0;
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {
-  background-color: none !important;
+  background-color: unset !important;
   height: auto;
   color: #ff000a;
+  border: 1px solid #ff000a;
+  border-radius: 6px;
 }
 .profile_wrap form .pmpro_card_content .pmpro_member_profile_edit-field-hide_directory {
   display: none;

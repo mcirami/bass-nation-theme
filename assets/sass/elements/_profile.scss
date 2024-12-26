@@ -228,7 +228,9 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                flex-wrap: wrap;
                 background: $lightGray;
+                padding: 40px;
 
                 label {
                     @include mediumFont;
@@ -258,13 +260,15 @@
                     > span {
                         width: 47%;
                         text-align: center;
-                        background-color: none;
+                        background-color: unset;
                         margin-right: 0;
 
                         i {
-                            background-color: none !important;
+                            background-color: unset !important;
                             height: auto;
                             color: $red;
+                            border: 1px solid $red;
+                            border-radius: 6px;
                         }
                     }
                 }

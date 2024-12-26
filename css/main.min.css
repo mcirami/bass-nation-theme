@@ -23170,7 +23170,7 @@ form .acf-spinner {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 100px 0 20px;
+  padding: 20px 0 225px;
 }
 .profile_wrap .pmpro_member_profile_edit_wrap {
   margin-bottom: 0;
@@ -23268,12 +23268,57 @@ form .acf-spinner {
 .profile_wrap form .pmpro_card_content .pmpro_cols-2 > * {
   width: 100%;
 }
-.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit) {
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) {
+  box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   position: absolute;
   width: 100%;
-  top: 0;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: #f6f6f6;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
+  font-size: 2.2rem;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  color: #000000;
+  width: 100%;
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 767px) {
+  .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
+    font-size: 1.8rem;
+  }
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets-btn {
+  color: #000000;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets-btn:hover {
+  background: #c4a020;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 17%;
+  gap: 5px;
+  margin-top: 0;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
+  width: 47%;
+  text-align: center;
+  background-color: none;
+  margin-right: 0;
+}
+.profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {
+  background-color: none !important;
+  height: auto;
+  color: #ff000a;
+}
+.profile_wrap form .pmpro_card_content .pmpro_member_profile_edit-field-hide_directory {
+  display: none;
 }
 .profile_wrap form .pmpro_form_submit {
   flex-basis: 100%;
@@ -23422,9 +23467,6 @@ form .acf-spinner {
   .profile_wrap form label {
     font-size: 13px;
   }
-}
-.profile_wrap form .pmpro_member_profile_edit-field-hide_directory {
-  display: none;
 }
 .profile_wrap form .pmpro_checkout_box-user,
 .profile_wrap form .pmpro_checkout_box-more-information {

@@ -155,7 +155,7 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         width: 100%;
-        padding: 100px 0 20px;
+        padding: 20px 0 225px;
     }
 
     .pmpro_member_profile_edit_wrap {
@@ -218,12 +218,60 @@
                 width: 100%;
             }
 
-            > div:not(.pmpro_spacer):not(.pmpro_form_submit) {
+            > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(
+                    .pmpro_member_profile_edit-field-hide_directory
+                ) {
+                @include boxShadow;
                 position: absolute;
                 width: 100%;
-                top: 0;
+                bottom: 0;
                 display: flex;
                 justify-content: space-between;
+                align-items: center;
+                background: $lightGray;
+
+                label {
+                    @include mediumFont;
+                    @include interbold;
+                    color: $black;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+
+                .ets-btn {
+                    color: $black;
+
+                    &:hover {
+                        background: $yellowHover;
+                    }
+                }
+
+                .ets_assigned_role {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    width: 17%;
+                    gap: 5px;
+                    margin-top: 0;
+
+                    > span {
+                        width: 47%;
+                        text-align: center;
+                        background-color: none;
+                        margin-right: 0;
+
+                        i {
+                            background-color: none !important;
+                            height: auto;
+                            color: $red;
+                        }
+                    }
+                }
+            }
+
+            .pmpro_member_profile_edit-field-hide_directory {
+                display: none;
             }
         }
 
@@ -303,10 +351,6 @@
             @include media($mobile) {
                 font-size: 13px;
             }
-        }
-
-        .pmpro_member_profile_edit-field-hide_directory {
-            display: none;
         }
 
         .pmpro_checkout_box-user,

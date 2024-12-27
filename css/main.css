@@ -23177,6 +23177,11 @@ form .acf-spinner {
     padding: 20px 0 275px;
   }
 }
+@media screen and (max-width: 550px) {
+  .profile_wrap .form_wrap {
+    padding: 20px 0 300px;
+  }
+}
 .profile_wrap .pmpro_member_profile_edit_wrap {
   margin-bottom: 0;
 }
@@ -23312,6 +23317,12 @@ form .acf-spinner {
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets-btn:hover {
   background: #c4a020;
 }
+@media screen and (max-width: 550px) {
+  .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets-btn {
+    width: 100%;
+    font-size: 12px;
+  }
+}
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role {
   display: flex;
   justify-content: flex-start;
@@ -23339,7 +23350,7 @@ form .acf-spinner {
 }
 @media screen and (max-width: 550px) {
   .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
-    width: 100%;
+    width: 47%;
   }
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {

@@ -160,6 +160,10 @@
         @include media($tablet) {
             padding: 20px 0 275px;
         }
+
+        @include media($smallMobile) {
+            padding: 20px 0 300px;
+        }
     }
 
     .pmpro_member_profile_edit_wrap {
@@ -257,6 +261,11 @@
                     &:hover {
                         background: $yellowHover;
                     }
+
+                    @include media($smallMobile) {
+                        width: 100%;
+                        font-size: 12px;
+                    }
                 }
 
                 .ets_assigned_role {
@@ -283,7 +292,7 @@
                         }
 
                         @include media($smallMobile) {
-                            width: 100%;
+                            width: 47%;
                         }
 
                         i {

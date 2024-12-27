@@ -26834,7 +26834,7 @@ form .acf-spinner {
 .db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
   color: #fff;
 }
-.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role p {
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role {
   color: #959494;
 }
 .db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {

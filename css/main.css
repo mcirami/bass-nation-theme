@@ -23172,6 +23172,11 @@ form .acf-spinner {
   width: 100%;
   padding: 20px 0 225px;
 }
+@media screen and (max-width: 991px) {
+  .profile_wrap .form_wrap {
+    padding: 20px 0 275px;
+  }
+}
 .profile_wrap .pmpro_member_profile_edit_wrap {
   margin-bottom: 0;
 }
@@ -23263,6 +23268,7 @@ form .acf-spinner {
 @media screen and (max-width: 767px) {
   .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
     width: 100%;
+    margin-bottom: 40px;
   }
 }
 .profile_wrap form .pmpro_card_content .pmpro_cols-2 > * {
@@ -23272,6 +23278,7 @@ form .acf-spinner {
   box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
   position: absolute;
   width: 100%;
+  max-width: 98%;
   bottom: 0;
   display: flex;
   justify-content: space-between;
@@ -23310,9 +23317,14 @@ form .acf-spinner {
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  width: 17%;
   gap: 5px;
   margin-top: 0;
+}
+@media screen and (max-width: 991px) {
+  .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role {
+    width: 100%;
+    margin-top: 20px;
+  }
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
   width: 47%;
@@ -23320,12 +23332,23 @@ form .acf-spinner {
   background-color: unset;
   margin-right: 0;
 }
+@media screen and (max-width: 991px) {
+  .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
+    width: auto;
+  }
+}
+@media screen and (max-width: 550px) {
+  .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
+    width: 100%;
+  }
+}
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {
   background-color: unset !important;
   height: auto;
   color: #ff000a;
   border: 1px solid #ff000a;
   border-radius: 6px;
+  padding: 0 5px;
 }
 .profile_wrap form .pmpro_card_content .pmpro_member_profile_edit-field-hide_directory {
   display: none;

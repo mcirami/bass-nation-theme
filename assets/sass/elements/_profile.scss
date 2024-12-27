@@ -156,6 +156,10 @@
         flex-wrap: wrap;
         width: 100%;
         padding: 20px 0 225px;
+
+        @include media($tablet) {
+            padding: 20px 0 275px;
+        }
     }
 
     .pmpro_member_profile_edit_wrap {
@@ -211,6 +215,7 @@
 
                 @include media($mobile) {
                     width: 100%;
+                    margin-bottom: 40px;
                 }
             }
 
@@ -224,6 +229,7 @@
                 @include boxShadow;
                 position: absolute;
                 width: 100%;
+                max-width: 98%;
                 bottom: 0;
                 display: flex;
                 justify-content: space-between;
@@ -258,9 +264,13 @@
                     justify-content: flex-start;
                     align-items: flex-start;
                     flex-wrap: wrap;
-                    width: 17%;
                     gap: 5px;
                     margin-top: 0;
+
+                    @include media($tablet) {
+                        width: 100%;
+                        margin-top: 20px;
+                    }
 
                     > span {
                         width: 47%;
@@ -268,12 +278,21 @@
                         background-color: unset;
                         margin-right: 0;
 
+                        @include media($tablet) {
+                            width: auto;
+                        }
+
+                        @include media($smallMobile) {
+                            width: 100%;
+                        }
+
                         i {
                             background-color: unset !important;
                             height: auto;
                             color: $red;
                             border: 1px solid $red;
                             border-radius: 6px;
+                            padding: 0 5px;
                         }
                     }
                 }

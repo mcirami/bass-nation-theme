@@ -1198,9 +1198,9 @@ jQuery(document).ready(function ($) {
 
     if (customFileUpload) {
         customFileUpload.onchange = function () {
-            const file = this.value.replace("C:");
+            const file = this.value.replace(/C:.*?fakepath\\/g, "");
             this.style.setProperty("--before-content", `"${file}"`);
-            this.style.background = "#000000";
+            this.classList.add("file_selected");
         };
     }
 });

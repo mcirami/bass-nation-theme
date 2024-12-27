@@ -19623,7 +19623,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   border: none;
   margin-top: 20px;
   min-width: 500px;
-  width: 600px;
+  width: 100%;
 }
 .forum_wrapper #bbpress-forums div.bbp-search-form {
   display: none;
@@ -22750,6 +22750,10 @@ form .acf-spinner {
 
 .wp-media-buttons {
   display: none !important;
+}
+
+input[type=file].file_selected:before {
+  background: #fff !important;
 }
 
 .member_home {
@@ -27062,6 +27066,9 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .confirmation_page ul li span {
   color: #b80008;
+}
+.db-dark-mode-active.logged-in input[type=file].file_selected:before {
+  background: #000000 !important;
 }
 
 body:not(.logged-in) .two_column_template .two_column_section .columns_wrap .column:last-child .content_wrap {

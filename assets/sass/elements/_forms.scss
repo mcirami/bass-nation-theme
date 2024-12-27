@@ -1371,3 +1371,11 @@ form {
 .wp-media-buttons {
     display: none !important;
 }
+
+input[type="file"] {
+    &.file_selected {
+        &:before {
+            background: $white !important;
+        }
+    }
+}

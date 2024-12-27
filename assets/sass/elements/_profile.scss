@@ -241,7 +241,12 @@
                 }
 
                 .ets-btn {
+                    @include interbold;
                     color: $black;
+                    width: 28rem;
+                    border-radius: 6px;
+                    text-align: center;
+                    padding: 15px 20px;
 
                     &:hover {
                         background: $yellowHover;
@@ -282,7 +287,6 @@
         .pmpro_form_submit {
             flex-basis: 100%;
             justify-content: space-between;
-            padding: 0 20px;
             flex-wrap: nowrap;
 
             @include media($mobile) {
@@ -305,16 +309,7 @@
             }
 
             &.pmpro_btn-cancel {
-                color: $red;
-                border: 1px;
-                border-style: inset;
-                border-color: $red;
-
-                &:hover {
-                    color: $black;
-                    border-color: $black;
-                    background: transparent;
-                }
+                display: none;
             }
 
             @include media($tablet) {

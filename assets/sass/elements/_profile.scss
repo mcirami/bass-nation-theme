@@ -241,6 +241,7 @@
                 flex-wrap: wrap;
                 background: $lightGray;
                 padding: 40px;
+                border-radius: 6px;
 
                 label {
                     @include mediumFont;

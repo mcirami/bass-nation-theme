@@ -517,8 +517,33 @@
             color: $grayText;
         }
 
-        form .pmpro_card_content .pmpro_form_fieldset {
-            background: $darkerGray;
+        form .pmpro_card_content {
+            .pmpro_form_fieldset {
+                background: $darkerGray;
+            }
+
+            > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(
+                    .pmpro_member_profile_edit-field-hide_directory
+                ) {
+                background: $darkerGray;
+
+                label {
+                    color: $white;
+                }
+
+                .ets_assigned_role {
+                    p {
+                        color: $grayText;
+                    }
+
+                    > span {
+                        i {
+                            color: $darkModeRed;
+                            border: 1px solid $darkModeRed;
+                        }
+                    }
+                }
+            }
         }
     }
 

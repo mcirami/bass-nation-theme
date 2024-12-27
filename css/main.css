@@ -23291,6 +23291,7 @@ form .acf-spinner {
   flex-wrap: wrap;
   background: #f6f6f6;
   padding: 40px;
+  border-radius: 6px;
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
   font-size: 2.2rem;
@@ -26826,6 +26827,19 @@ form .acf-spinner {
 }
 .db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content .pmpro_form_fieldset {
   background: #131313;
+}
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) {
+  background: #131313;
+}
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) label {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role p {
+  color: #959494;
+}
+.db-dark-mode-active.logged-in .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {
+  color: #b80008;
+  border: 1px solid #b80008;
 }
 .db-dark-mode-active.logged-in .mce-menu .mce-container-body {
   color: #000000 !important;

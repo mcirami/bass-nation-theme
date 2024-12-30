@@ -132,7 +132,7 @@ get_header(); ?>
 				<h2>About Me & My Goals For You</h2>
 				<div class="columns_2">
 					<div class="column">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/daric-about.jpg" alt="">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/about-image.png" alt="">
 					</div>
 					<div class="column">
 						<p>My goal is to bring every bass player the best online bass guitar lessons at an affordable price so everyone can take their playing to the next level! I offer free bass lessons on the site and full bass lessons, forums, messaging and much more to Bass Nation members with <span>100% Free Trials to test it out!</span> Grab your bass and let's get started!</p>

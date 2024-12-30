@@ -15917,6 +15917,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .home_section .video .text_wrap {
   margin-top: 20px;
+  text-align: left;
 }
 .home_section .video .text_wrap .signup_text {
   font-family: "interbold", sans-serif;
@@ -15925,6 +15926,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   max-width: 40%;
   line-height: 1.6;
   margin: 40px auto 20px;
+  text-align: center;
 }
 @media screen and (max-width: 767px) {
   .home_section .video .text_wrap .signup_text {
@@ -26223,6 +26225,51 @@ input[type=file].file_selected:before {
 }
 .two_column_template.register .two_column_section {
   padding-bottom: 100px;
+}
+.two_column_template.register .two_column_section .columns_wrap {
+  flex-wrap: wrap-reverse;
+}
+.two_column_template.register .two_column_section .columns_wrap .column:first-child {
+  width: 100%;
+  margin-top: 20px;
+}
+.two_column_template.register .two_column_section .columns_wrap .column:first-child .numbered_list {
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and (max-width: 767px) {
+  .two_column_template.register .two_column_section .columns_wrap .column:first-child .numbered_list {
+    flex-wrap: wrap;
+  }
+}
+.two_column_template.register .two_column_section .columns_wrap .column:first-child .numbered_list .list_row {
+  width: 33%;
+}
+@media screen and (max-width: 767px) {
+  .two_column_template.register .two_column_section .columns_wrap .column:first-child .numbered_list .list_row {
+    width: 100%;
+  }
+}
+.two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) {
+  width: 40%;
+}
+@media screen and (max-width: 991px) {
+  .two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) {
+    width: 100%;
+  }
+}
+.two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) h2, .two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) .h2 {
+  font-size: 3.2rem;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 767px) {
+  .two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) h2, .two_column_template.register .two_column_section .columns_wrap .column:nth-child(2) .h2 {
+    font-size: 2.5rem;
+  }
+}
+.two_column_template.register .two_column_section .columns_wrap .column:last-child .content_wrap {
+  background: unset !important;
+  width: 100%;
 }
 .two_column_template .list {
   max-width: 650px;

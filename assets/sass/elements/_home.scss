@@ -156,6 +156,7 @@
 
         .text_wrap {
             margin-top: 20px;
+            text-align: left;
 
             .signup_text {
                 @include interbold;
@@ -163,6 +164,7 @@
                 max-width: 40%;
                 line-height: 1.6;
                 margin: 40px auto 20px;
+                text-align: center;
 
                 @include media($tablet) {
                     max-width: 50%;

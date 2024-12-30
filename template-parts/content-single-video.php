@@ -1,6 +1,7 @@
 <div class="video full_width">
 
-    <div class="column">
+    <h3><?php the_title(); ?></h3>  
+    <div class="row">
 
             <?php $videoLink = get_field('video_link');
             $embedLink = null;
@@ -29,11 +30,10 @@
             <?php endif; ?>
 
     </div>
-    <div class="column">
-        <h3><?php the_title(); ?></h3>
+    <div class="row desc">
+        <p><?php the_field('description'); ?></p>
         <?php $author = get_the_author_meta('user_login'); ?>
         <h4>Submitted by <a href="/membership-account/member-profile/?pu=<?php echo $author; ?>"><?php echo $author; ?></a></h4>
-        <p><?php the_field('description'); ?></p>
     </div>
 
 </div>

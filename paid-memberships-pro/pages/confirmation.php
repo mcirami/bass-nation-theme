@@ -1,12 +1,12 @@
 <?php
 /**
  * Template: Confirmation
- * Version: 3.0
+ * Version: 3.1
  *
  * See documentation for how to override the PMPro templates.
  * @link https://www.paidmembershipspro.com/documentation/templates/
  *
- * @version 3.0
+ * @version 3.1
  *
  * @author Paid Memberships Pro
  */
@@ -104,9 +104,9 @@
 			}
 			
 			if(empty($current_user->membership_level))
-				$confirmation_message = "<p>" . __('Your payment has been submitted. Your membership will be activated shortly.', 'pmpro') . "</p>";
+				$confirmation_message = "<h3>" . __('Your payment has been submitted. Your membership will be activated shortly.', 'pmpro') . "</h3>";
 			else
-				$confirmation_message = "<p class='heading'>" . sprintf(__('Thank you for joining Daric Bennett\'s Bass Nation. Your membership is <span>now active.</span>', 'pmpro'), get_bloginfo("name"), $current_user->membership_level->name) . "</p>";		
+				$confirmation_message = "<h3 class='heading'>" . sprintf(__('Thank you for joining Bass Nation! <br/> Your membership is <span>now active.</span>', 'pmpro'), get_bloginfo("name"), $current_user->membership_level->name) . "</h3>";		
 			/*
 			//confirmation message for this level
 			$level_message = $wpdb->get_var("SELECT l.confirmation FROM $wpdb->pmpro_membership_levels l LEFT JOIN $wpdb->pmpro_memberships_users mu ON l.id = mu.membership_id WHERE mu.status = 'active' AND mu.user_id = '" . $current_user->ID . "' LIMIT 1");
@@ -216,7 +216,12 @@
 				<li><?php _e('Membership Level', 'pmpro');?>: <?php if(!empty($current_user->membership_level)) echo $current_user->membership_level->name; else _e("Pending", "pmpro");?></li>
 			</ul>
 			<div class="button_wrap full_width">
-				<a class="button black" href="/member-home">Go To My Home Page</a>
+				<a class="button yellow" href="/member-home">
+					Go To My Home Page
+					<span>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+					</span>
+				</a>
 			</div>
 			
 		<?php 

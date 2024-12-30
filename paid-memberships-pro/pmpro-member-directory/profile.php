@@ -305,7 +305,7 @@ function pmpromd_profile_shortcode($atts, $content=null, $code="")
 
 
 			?>
-			<div id="pmpro_member_profile-<?php echo esc_attr( $pu->ID ); ?>" class="<?php echo pmpro_get_element_class( 'pmpro_member_profile', 'profile'); ?>">
+			<div id="pmpro_member_profile-<?php echo esc_attr( $pu->ID ); ?>" class="light_gray_bg box_shadow <?php echo pmpro_get_element_class( 'pmpro_member_profile', 'profile'); ?>">
 
 				<?php do_action( 'pmpro_member_profile_before', $pu ); ?>
 				<?php if(!empty($show_avatar)) { ?>
@@ -477,18 +477,26 @@ function pmpromd_profile_shortcode($atts, $content=null, $code="")
 								</div>
 								<p><?php echo $pu->description; ?></p>
 							</div>
-						<?php }
-						if ($pu->user_nicename) :
-						?>
-						<div class="send_message">
-							<a class="button red" href="/my-inbox/?fepaction=newmessage&fep_to=<?php echo $pu->user_nicename; ?>">Send Message</a>
-						</div>
-						<?php endif; ?>
+						<?php } ?>
+						
 					</div>
 				</div>
+				<?php if ($pu->user_nicename) :
+						?>
+						<div class="send_message">
+							<a class="button yellow" href="/my-inbox/?fepaction=newmessage&fep_to=<?php echo $pu->user_nicename; ?>">
+								Send Message
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</a>
+						</div>
+						<?php endif; ?>
 				<?php do_action( 'pmpro_member_profile_after', $pu ); ?>
 				<div class="pmpro_clear"></div>
+				
 			<p class="pmpro_actions_nav">
+				
 				<?php
 				// Build the links to return.
 				$pmpro_member_profile_action_links = array();

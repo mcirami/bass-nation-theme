@@ -93,64 +93,66 @@
 
 					<?php endif; ?>
 
-					<?php if ( bbp_allow_topic_tags() && current_user_can( 'assign_topic_tags' ) ) : ?>
+					<div class="options_wrap">
+						<?php if ( bbp_allow_topic_tags() && current_user_can( 'assign_topic_tags' ) ) : ?>
 
-						<?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>
+							<?php do_action( 'bbp_theme_before_topic_form_tags' ); ?>
 
-						<p class="adjust">
-							<label for="bbp_topic_tags"><?php _e( 'Topic Tags:', 'bbpress' ); ?></label><br />
-							<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
-						</p>
+							<p class="adjust">
+								<label for="bbp_topic_tags"><?php _e( 'Topic Tags:', 'bbpress' ); ?></label><br />
+								<input type="text" value="<?php bbp_form_topic_tags(); ?>" tabindex="<?php bbp_tab_index(); ?>" size="40" name="bbp_topic_tags" id="bbp_topic_tags" <?php disabled( bbp_is_topic_spam() ); ?> />
+							</p>
 
-						<?php do_action( 'bbp_theme_after_topic_form_tags' ); ?>
+							<?php do_action( 'bbp_theme_after_topic_form_tags' ); ?>
 
-					<?php endif; ?>
+						<?php endif; ?>
 
-					<?php if ( !bbp_is_single_forum() ) : ?>
+						<?php if ( !bbp_is_single_forum() ) : ?>
 
-						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
+							<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-						<p class="adjust">
-							<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
-							<?php
-								bbp_dropdown( array(
-									'show_none' => __( '(No Forum)', 'bbpress' ),
-									'selected'  => bbp_get_form_topic_forum()
-								) );
-							?>
-						</p>
+							<p class="adjust">
+								<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
+								<?php
+									bbp_dropdown( array(
+										'show_none' => __( '(No Forum)', 'bbpress' ),
+										'selected'  => bbp_get_form_topic_forum()
+									) );
+								?>
+							</p>
 
-						<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
+							<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
 
-					<?php endif; ?>
+						<?php endif; ?>
 
-					<?php if ( current_user_can( 'moderate' ) ) : ?>
+						<?php if ( current_user_can( 'moderate' ) ) : ?>
 
-						<?php do_action( 'bbp_theme_before_topic_form_type' ); ?>
+							<?php do_action( 'bbp_theme_before_topic_form_type' ); ?>
 
-						<p class="adjust">
+							<p class="adjust">
 
-							<label for="bbp_stick_topic"><?php _e( 'Topic Type:', 'bbpress' ); ?></label><br />
+								<label for="bbp_stick_topic"><?php _e( 'Topic Type:', 'bbpress' ); ?></label><br />
 
-							<?php bbp_form_topic_type_dropdown(); ?>
+								<?php bbp_form_topic_type_dropdown(); ?>
 
-						</p>
+							</p>
 
-						<?php do_action( 'bbp_theme_after_topic_form_type' ); ?>
+							<?php do_action( 'bbp_theme_after_topic_form_type' ); ?>
 
-						<?php do_action( 'bbp_theme_before_topic_form_status' ); ?>
+							<?php do_action( 'bbp_theme_before_topic_form_status' ); ?>
 
-						<p class="adjust">
+							<p class="adjust">
 
-							<label for="bbp_topic_status"><?php _e( 'Topic Status:', 'bbpress' ); ?></label><br />
+								<label for="bbp_topic_status"><?php _e( 'Topic Status:', 'bbpress' ); ?></label><br />
 
-							<?php bbp_form_topic_status_dropdown(); ?>
+								<?php bbp_form_topic_status_dropdown(); ?>
 
-						</p>
+							</p>
 
-						<?php do_action( 'bbp_theme_after_topic_form_status' ); ?>
+							<?php do_action( 'bbp_theme_after_topic_form_status' ); ?>
 
-					<?php endif; ?>
+						<?php endif; ?>
+					</div>
 
 					<?php if ( bbp_is_subscriptions_active() && !bbp_is_anonymous() && ( !bbp_is_topic_edit() || ( bbp_is_topic_edit() && !bbp_is_topic_anonymous() ) ) ) : ?>
 

@@ -1,50 +1,336 @@
 // mixins
 
 @mixin clearRow($nth) {
-	&:nth-child(#{$nth}+1) {
-		clear: both;
-	}
+    &:nth-child(#{$nth} + 1) {
+        clear: both;
+    }
 }
 
 // Omega Reset
 @mixin omega-reset($nth, $columns) {
-  &:nth-child(#{$nth}) { margin-right: flex-gutter($columns); }
-  &:nth-child(#{$nth}+1) { clear: none }
+    &:nth-child(#{$nth}) {
+        margin-right: flex-gutter($columns);
+    }
+    &:nth-child(#{$nth} + 1) {
+        clear: none;
+    }
 }
 
 // Vertical Align
 @mixin vertical-align {
-	position: relative;
-	top: 50%;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 @mixin horizontal-align {
-	position: relative;
-	left: 50%;
-	-webkit-transform: translateX(-50%);
-	-ms-transform: translateX(-50%);
-	transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 
-@mixin robotoreg {
-	font-family: 'robotoregular', sans-serif;
-	font-weight: 300;
+@mixin interregular {
+    font-family: "interregular", sans-serif;
+    font-weight: 300;
 }
 
-@mixin robotomed {
-	font-family: 'robotomedium', sans-serif;
-	font-weight: 500;
+@mixin intermedium {
+    font-family: "intermedium", sans-serif;
+    font-weight: 500;
 }
 
-@mixin robotobold {
-	font-family: 'robotobold', sans-serif;
-	font-weight: 700;
+@mixin intersemibold {
+    font-family: "intersemibold", sans-serif;
+    font-weight: 600;
 }
 
-@mixin robotolight {
-	font-family: 'robotolight', sans-serif;
-	font-weight: 200;
+@mixin interbold {
+    font-family: "interbold", sans-serif;
+    font-weight: 700;
+}
+
+@mixin interbolditalic {
+    font-family: "interbolditalic", sans-serif;
+    font-weight: 700;
+}
+
+@mixin interextrabold {
+    font-family: "interextrabold", sans-serif;
+    font-weight: 900;
+}
+
+@mixin interextrabolditalic {
+    font-family: "interextrabolditalic", sans-serif;
+    font-weight: 900;
+}
+
+@mixin interitalic {
+    font-family: "interitalic", sans-serif;
+    font-weight: 300;
+}
+
+@mixin intermediumitalic {
+    font-family: "intermediumitalic", sans-serif;
+    font-weight: 500;
+}
+
+@mixin intersemibolditalic {
+    font-family: "intersemibolditalic", sans-serif;
+    font-weight: 600;
+}
+
+@mixin boxShadow {
+    box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 0px 14px -5px rgba(0, 0, 0, 0.4);
+}
+
+@mixin exSmallFont {
+    font-size: 1.5rem;
+}
+
+@mixin smallFont {
+    font-size: 1.8rem;
+
+    @include media($mobile) {
+        font-size: 1.6rem;
+    }
+}
+
+@mixin mediumFont {
+    font-size: 2.2rem;
+
+    @include media($mobile) {
+        font-size: 1.8rem;
+    }
+}
+
+@mixin medLargeFont {
+    font-size: 3.2rem;
+
+    @include media($mobile) {
+        font-size: 2.5rem;
+    }
+}
+
+@mixin largeFont {
+    font-size: 4.6rem;
+
+    @include media($tablet) {
+        font-size: 4.2rem;
+    }
+
+    @include media($mobile) {
+        font-size: 3.4rem;
+    }
+}
+
+@mixin smallContainer {
+    .small_container {
+        max-width: 60%;
+        margin: 0 auto;
+        display: inline-block;
+
+        @include media($tablet) {
+            max-width: 80%;
+        }
+
+        @include media($smallMobile) {
+            max-width: 100%;
+        }
+    }
+}
+
+@mixin basicButton {
+    @include interbold;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+    width: 28rem;
+    text-align: center;
+    border: none;
+
+    @include media($tablet) {
+        font-size: 1.4rem;
+        width: 26rem;
+    }
+
+    @include media($mobile) {
+        font-size: 1.3rem;
+        padding: 10px 15px;
+        width: 24rem;
+    }
+
+    span {
+        opacity: 0%;
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        width: 0;
+        position: absolute;
+        right: 8px;
+
+        img {
+            height: 25px;
+        }
+    }
+
+    &.black {
+        color: $red;
+        border: 1px;
+        border-style: inset;
+        border-color: $red;
+
+        &:hover {
+            color: $white;
+            border-color: $white;
+
+            span {
+                img {
+                    //filter: invert(10%) sepia(92%) saturate(7457%) hue-rotate(350deg) brightness(103%) contrast(90%);
+                    filter: invert(100%) sepia(100%) saturate(2%)
+                        hue-rotate(52deg) brightness(106%) contrast(101%);
+                }
+            }
+        }
+    }
+
+    &.yellow {
+        background: $yellow;
+        color: $black;
+
+        &:hover {
+            background: #c4a020;
+        }
+    }
+}
+
+@mixin boxShadow {
+    //box-shadow: 0px 80px 50px -30px rgba(19, 19, 19, 0.15);
+    //box-shadow: 0px 8px 20px 0px rgba(19, 19, 19, 0.15);
+    box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+}
+@mixin textEditorToolbar {
+    background: none;
+    border-bottom: none;
+    display: flex;
+    gap: 10px;
+    box-shadow: 3px 5px 26px -10px rgba(0, 0, 0, 0.2);
+
+    input {
+        border: 1px solid transparent;
+        color: $darkGray;
+        background: none;
+        font-size: 1.5rem !important;
+
+        &:hover {
+            background: none;
+            border-color: rgba(61, 61, 61, 0.2);
+            border-style: inset;
+        }
+    }
+}
+
+@mixin uploadButton {
+    height: 80px;
+    position: relative;
+
+    @include media($mobile) {
+        height: 65px;
+        margin: 0;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:before {
+        content: "";
+        background: $white url("../images/upload-icon.png") no-repeat;
+        background-size: 100px;
+        background-position: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        @include media($mobile) {
+            background-size: 80px;
+        }
+    }
+}
+
+@mixin numberedList {
+    p {
+        width: 100%;
+        margin-bottom: 0 !important;
+        padding: 10px 10px 10px 40px !important;
+        text-align: left;
+        background: rgba(155, 155, 155, 0.15);
+        border-radius: 4px;
+    }
+
+    .outer_circle {
+        background: $darkerGray;
+        padding: 8px;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        margin-right: -44px;
+        z-index: 1;
+
+        span {
+            display: inline-block;
+            padding: 11px 20px;
+            background: $yellow;
+            color: $black;
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+        }
+    }
+
+    .list_row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+@mixin makeLabelPlaceholder {
+    z-index: 1;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    color: $grayText;
+    font-size: 1.4rem;
+
+    @include media($mobile) {
+        top: 10px;
+    }
+
+    &.active {
+        display: none;
+    }
 }

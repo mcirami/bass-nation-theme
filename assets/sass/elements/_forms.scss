@@ -1,1137 +1,1381 @@
 .form_wrapper {
-	background: $lightGray;
-	-webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	-moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	border: 1px solid $borderGray;
-	padding: 40px;
-	color: $black;
-
-	@include media($tablet){
-		display: table;
-		padding: 20px;
-	}
-
-	@include media($mobile){
-		margin: 40px 0;
-		padding: 15px;
-	}
-
-	.top_section {
-
-		@include media($tablet){
-			text-align: center;
-		}
-
-		h2 {
-			font-size: 21px;
-
-			@include media($tablet){
-				font-size: 24px;
-			}
-
-			@include media($mobile){
-				font-size: 16px;
-			}
-		}
-
-		.list {
-			margin-top: 20px;
-
-			@include media($tablet){
-				text-align: left;
-			}
-			p {
-				width: 100%;
-			}
-		}
-
-		p {
-			font-family: 'robotoregular', sans-serif;
-			border-bottom: 1px solid $borderGray;
-			display: inline-block;
-			padding-bottom: 15px;
-			margin-bottom: 15px;
-			font-size: 15px;
-			float: left;
-
-			@include media($tablet){
-				@include span-columns(2.6);
-				font-size: 13px;
-				line-height: 1.4;
-			}
-
-			@include media($mobile){
-				@include span-columns(4);
-			}
-
-			span {
-				float: left;
-				padding: 1px 7px;
-				background: $black;
-				color: $white;
-				margin-right: 10px;
-				font-size: 15px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-
-				@include media($tablet){
-					font-size: 12px;
-					line-height: 1.6;
-					padding: 1px 6px;
-				}
-			}
-
-			&:last-child {
-				border-bottom: none;
-				margin-bottom: 10px;
-
-				@include media($tablet){
-					border-bottom: 1px solid $borderGray;
-				}
-
-				@include media($mobile){
-					border-bottom: none;
-				}
-			}
-		}
-
-		.white_box {
-			background: $white;
-			padding: 8px;
-			border: 1px solid $borderGray;
-			color: $grayText;
-			border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			margin-top: 15px;
-			//Temp for discount code
-			height: 90px;
-			text-align: center;
-
-			@include media($tablet){
-				height: 85px;
-			}
-
-			@include media($mobile){
-				height: 75px;
-			}
-
-			@include media($smallMobile){
-				height: 90px;
-			}
-
-			p {
-				font-family: 'robotobolditalic', sans-serif;
-				font-size: 16px;
-				margin: 0;
-				padding: 0;
-
-				@include media($tablet){
-					width: 100%;
-					border-bottom: none;
-				}
-
-				@include media($mobile){
-					font-size: 14px;
-				}
-			}
-		}
-
-		.sig {
-			text-align: center;
-			margin: 20px 0 0;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: horizontal;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: row;
-			flex-direction: row;
-			-ms-flex-wrap: nowrap;
-			flex-wrap: nowrap;
-			justify-content: center;
-			-webkit-justify-content: center;
-
-			p {
-				font-family: 'robotomediumitalic', sans-serif;
-				display: inline-block;
-				margin-bottom: 0;
-				margin-right: 10px;
-				padding-top: 18px;
-				vertical-align: top;
-				color: $red;
-				border: none;
-				float: none;
-
-				@include media($tablet){
-					width: auto;
-				}
-			}
-
-			.image_wrap {
-				position: relative;
-				display: inline-block;
-				width: 58px;
-
-				&:before {
-					content: '';
-					position: absolute;
-					width: 0;
-					height: 0;
-					right: 22.3%;
-					bottom: 63px;
-					border: 8px solid;
-					border-color: $borderGray transparent transparent $borderGray;
-
-					@include media($tablet){
-						right: 29.3%;
-					}
-				}
-
-				&:after {
-					content: '';
-					position: absolute;
-					width: 0;
-					height: 0;
-					right: 24%;
-					bottom: 65px;
-					border: 7px solid;
-					border-color: $white transparent transparent $white;
-
-					@include media($tablet){
-						right: 32.1%;
-					}
-				}
-			}
-		}
-	}
-
-	&.billing {
-		@include span-columns(12);
-
-		.pmpro_submit {
-			width: 100%;
-			float: left;
-			margin-top: 20px;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: horizontal;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: row;
-			flex-direction: row;
-			-ms-flex-wrap: nowrap;
-			flex-wrap: nowrap;
-			justify-content: space-between;
-			-webkit-justify-content: space-between;
-
-			input[type=submit] {
-				max-width: 100px;
-			}
-
-			.button.yellow {
-				max-width: 100px;
-				width: 100%;
-				text-decoration: none;
-
-				&:hover {
-					text-decoration: none;
-					color: $black;
-				}
-			}
-		}
-	}
-
-	.column {
-		@include span-columns(6);
-
-		@include media($tablet){
-			width: 100%;
-			float: none;
-			margin-bottom: 20px;
-		}
-
-		&:first-child {
-			display: table-footer-group;
-		}
-
-		&:last-child {
-			display: table-header-group;
-		}
-
-
-		h3 {
-			font-size: .98em;
-			background: $red;
-			color: $white;
-			text-align: center;
-			text-transform: uppercase;
-			padding: 10px 0 14px;
-			margin: 0;
-
-			@include media($smallMobile){
-				font-size: 3.3vw;
-				padding: 5px 0 10px;
-				line-height: 1.4
-			}
-		}
-
-		#pmpro_account_loggedin {
-			text-align: center;
-			padding-top: 20px;
-		}
-
-		.column_content {
-			border: 5px solid $red;
-			background: $white;
-			border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-
-			.row_wrap {
-				@include span-columns(12);
-
-
-				@include media($tablet){
-					display: -webkit-box;
-					display: -ms-flexbox;
-					display: flex;
-					-webkit-box-orient: horizontal;
-					-webkit-box-direction: normal;
-					-ms-flex-direction: row;
-					flex-direction: row;
-					-ms-flex-wrap: nowrap;
-					flex-wrap: nowrap;
-					border-bottom: 5px solid $red;
-				}
-
-				@include media($mobile){
-					@include span-columns(4);
-					border-bottom: none;
-				}
-
-				&:last-child {
-
-					@include media($tablet){
-						border-bottom: none;
-					}
-
-					.row {
-						border-bottom: none;
-
-						@include media($tablet){
-							@include span-columns(8);
-							border-right: none;
-						}
-					}
-				}
-			}
-
-			.row {
-				padding: 40px 20px;
-				border-bottom: 5px solid $red;
-				background: $white;
-
-				@include media($tablet){
-					width: 50%;
-					float: left;
-					margin-right: 0;
-					display: -webkit-box;
-					display: -ms-flexbox;
-					display: flex;
-					-webkit-box-orient: vertical;
-					-webkit-box-direction: normal;
-					-ms-flex-direction: column;
-					flex-direction: column;
-					-ms-flex-wrap: nowrap;
-					flex-wrap: nowrap;
-					border-bottom: none;
-					padding: 20px;
-					text-align: center;
-
-				}
-
-				@include media($mobile){
-					@include span-columns(4);
-					border-bottom: 5px solid $red;
-				}
-
-				&:first-child {
-					@include media($tablet){
-						border-right: 1px solid $red;
-					}
-
-					@include media($mobile){
-						border-right: none;
-					}
-				}
-
-				.image_wrap {
-					padding-top: 7px;
-					width: 8%;
-					float: left;
-					margin-right: 5%;
-
-					@include media($tablet){
-						@include span-columns(8);
-						padding-top: 0;
-					}
-
-					img {
-						@include media($tablet){
-							width: 35px;
-							margin: 0 auto;
-						}
-
-						&.advanced {
-							@include media($tablet){
-								width: 30px;
-							}
-						}
-
-						&.library {
-							@include media($tablet){
-								width: 46px;
-							}
-						}
-
-						&.throwdown {
-							@include media($tablet){
-								width: 22px;
-							}
-						}
-
-						&.army {
-							@include media($tablet){
-								width: 24px;
-							}
-						}
-					}
-				}
-
-				.copy {
-					width: 85%;
-					float: left;
-
-					@include media($tablet){
-						@include span-columns(8);
-					}
-
-					h3 {
-						font-size: 16px;
-						margin: 0;
-						color: $red;
-						background: none;
-						text-align: left;
-						padding: 0;
-
-						@include media($tablet){
-							text-align: center;
-						}
-
-						@include media($mobile){
-							font-size: 14px;
-						}
-					}
-
-					p {
-						font-size: 14px;
-
-						@include media($mobile){
-							font-size: 12px;
-						}
-					}
-				}
-			}
-		}
-
-		.pmpro_submit {
-			@include span-columns(12);
-			margin-top: 10px;
-			margin-left: 0;
-
-			@include media($tablet){
-				text-align: center;
-			}
-		}
-
-		#pmpro_submit_span {
-			position: relative;
-			float: left;
-			width: 302px;
-
-			@include media($smallMobile) {
-				width: 100%;
-			}
-
-			&:before {
-				content: '';
-				position: absolute;
-				background: url('../images/white-arrow.png') no-repeat;
-				width: 28px;
-				height: 12px;
-				right: 17px;
-				top: 15px;
-				z-index: 1;
-
-				@include media($mobile) {
-					right: 12px;
-					background-size: 85%;
-				}
-
-				@include media($smallMobile) {
-					background: none;
-				}
-			}
-
-		}
-
-		p.terms {
-			width: 100%;
-			float: left;
-			text-align: left;
-			margin-top: 5px;
-			font-size: 11px;
-
-			a {
-				font-family: 'robotobold', sans-serif;
-				color: $red;
-			}
-		}
-
-		#pmpro_processing_message {
-			@include span-columns(12);
-		}
-
-		input[type="submit"] {
-			font-family: 'robotobold', sans-serif;
-			width: 100%;
-			float: left;
-			border: none;
-			padding: 10px 20px;
-
-			@include media($mobile){
-				padding: 10px 20px;
-				display: inline-block;
-			}
-
-			@include media($smallMobile) {
-				width: 100%;
-			}
-		}
-
-		#pmpro_paypalexpress_checkout {
-			float: left;
-		}
-	}
-
-	.bottom_section {
-		padding: 20px 0;
-
-		@include media($tablet){
-			text-align: center;
-		}
-
-		@include media($mobile){
-			padding-bottom: 0;
-		}
-
-		p {
-			font-family: 'robotomediumitalic', sans-serif;
-			color: $grayText;
-			font-size: 20px;
-			line-height: 1.4;
-
-			@include media($mobile){
-				font-size: 15px;
-			}
-		}
-	}
+    color: $black;
+    display: flex;
+    gap: 1.5rem;
+
+    @include media($tablet) {
+        display: table;
+    }
+
+    @include media($mobile) {
+        margin: 40px 0;
+    }
+
+    .top_section {
+        h2 {
+            @include mediumFont;
+        }
+
+        .numbered_list {
+            margin: 20px 0;
+
+            .outer_circle {
+                background: $lightGray;
+            }
+        }
+
+        .white_box {
+            background: $white;
+            padding: 30px;
+            color: $darkGray;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            width: 70%;
+
+            @include media($smallMobile) {
+                width: 100%;
+            }
+
+            p {
+                @include exSmallFont;
+                margin: 0;
+                padding: 0;
+
+                @include media($tablet) {
+                    width: 100%;
+                    border-bottom: none;
+                }
+            }
+        }
+
+        .sig {
+            text-align: center;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            justify-content: center;
+            -webkit-justify-content: center;
+            align-items: center;
+            width: 30%;
+
+            @include media($smallMobile) {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            p {
+                @include intermediumitalic;
+                @include exSmallFont;
+                display: inline-block;
+                margin-bottom: 0;
+                color: $darkGray;
+
+                @include media($tablet) {
+                    width: auto;
+                }
+            }
+
+            .image_wrap {
+                position: relative;
+                display: inline-block;
+                width: 58px;
+            }
+        }
+
+        .bottom_content {
+            text-align: center;
+            color: $darkGray;
+            line-height: 1.6;
+
+            @include media($smallMobile) {
+                text-align: left;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    &.billing {
+        @include span-columns(12);
+
+        .pmpro_submit {
+            width: 100%;
+            float: left;
+            margin-top: 20px;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+
+            input[type="submit"] {
+                max-width: 100px;
+            }
+
+            .button.yellow {
+                max-width: 100px;
+                width: 100%;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    .column {
+        @include span-columns(6);
+
+        @include media($tablet) {
+            width: 100%;
+            float: none;
+            margin-bottom: 20px;
+        }
+
+        &:first-child {
+            display: table-footer-group;
+
+            .column_content {
+                padding: 40px;
+            }
+        }
+
+        &:last-child {
+            display: table-header-group;
+
+            .top_section {
+                background: $lightGray;
+                padding: 40px;
+
+                .two_columns {
+                    display: flex;
+                    margin: 20px 0 60px;
+
+                    @include media($smallMobile) {
+                        flex-wrap: wrap;
+                    }
+                }
+            }
+        }
+
+        h3 {
+            @include medLargeFont;
+            @include interbold;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        #pmpro_account_loggedin {
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        .column_content {
+            .row_wrap {
+                @include span-columns(12);
+
+                @include media($tablet) {
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: horizontal;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: row;
+                    flex-direction: row;
+                    -ms-flex-wrap: nowrap;
+                    flex-wrap: nowrap;
+                }
+
+                @include media($mobile) {
+                    @include span-columns(4);
+                    border-bottom: none;
+                }
+
+                &:last-child {
+                    @include media($tablet) {
+                        border-bottom: none;
+                    }
+
+                    .row {
+                        border-bottom: none;
+
+                        @include media($tablet) {
+                            @include span-columns(8);
+                            border-right: none;
+                        }
+                    }
+                }
+            }
+
+            .row {
+                width: 100%;
+                padding: 40px 20px 40px 0;
+                border-bottom: 1px solid $borderGray;
+                display: flex;
+                gap: 2rem;
+
+                @include media($tablet) {
+                    width: 50%;
+                    float: left;
+                    margin-right: 0;
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -ms-flex-direction: column;
+                    flex-direction: column;
+                    -ms-flex-wrap: nowrap;
+                    flex-wrap: nowrap;
+                    border-bottom: none;
+                    padding: 20px;
+                    text-align: center;
+                }
+
+                @include media($mobile) {
+                    @include span-columns(4);
+                }
+
+                .image_wrap {
+                    width: 8%;
+                    padding-left: 0;
+
+                    @include media($tablet) {
+                        @include span-columns(8);
+                    }
+
+                    img {
+                        @include media($tablet) {
+                            width: 35px;
+                            margin: 0 auto;
+                        }
+
+                        &.advanced {
+                            @include media($tablet) {
+                                width: 30px;
+                            }
+                        }
+
+                        &.library {
+                            @include media($tablet) {
+                                width: 46px;
+                            }
+                        }
+
+                        &.throwdown {
+                            @include media($tablet) {
+                                width: 22px;
+                            }
+                        }
+
+                        &.army {
+                            @include media($tablet) {
+                                width: 24px;
+                            }
+                        }
+                    }
+                }
+
+                .copy {
+                    width: 85%;
+                    float: left;
+
+                    @include media($tablet) {
+                        @include span-columns(8);
+                    }
+
+                    h4 {
+                        @include interregular;
+                        margin: 0 0 15px;
+                        color: $red;
+
+                        @include media($tablet) {
+                            text-align: center;
+                        }
+                    }
+
+                    p {
+                        @include exSmallFont;
+                        margin: 0;
+                        color: $darkGray;
+
+                        /*  @include media($mobile) {
+                            font-size: 12px;
+                        } */
+                    }
+                }
+            }
+        }
+
+        .pmpro_form_field-radio-item {
+            display: flex;
+            width: 100%;
+            gap: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .pmpro_submit {
+            @include span-columns(12);
+            margin-top: 10px;
+            margin-left: 0;
+
+            @include media($tablet) {
+                text-align: center;
+            }
+        }
+
+        #pmpro_submit_span {
+            position: relative;
+            float: left;
+            width: 100%;
+        }
+
+        p.terms {
+            max-width: 340px;
+            float: right;
+            text-align: right;
+            margin-top: 10px;
+            font-size: 11px;
+
+            a {
+                @include interbold;
+                color: $red;
+            }
+        }
+
+        #pmpro_processing_message {
+            @include span-columns(12);
+        }
+
+        input[type="submit"] {
+            @include interbold;
+            width: 100%;
+            float: left;
+            border: none;
+            padding: 10px 20px;
+
+            @include media($mobile) {
+                padding: 10px 20px;
+                display: inline-block;
+            }
+
+            @include media($smallMobile) {
+                width: 100%;
+            }
+        }
+
+        #pmpro_paypalexpress_checkout {
+            float: left;
+        }
+    }
+
+    .bottom_section {
+        padding: 20px;
+
+        @include media($tablet) {
+            text-align: center;
+        }
+
+        @include media($mobile) {
+            padding-bottom: 0;
+        }
+
+        p {
+            @include intermediumitalic;
+            color: $darkGray;
+            line-height: 1.4;
+        }
+    }
+
+    fieldset#pmpro_user_fields {
+        display: none;
+    }
 }
 
 form.pmpro_form div {
-	clear: none;
+    clear: none;
 }
 
 form.pmpro_form select {
-	max-width: none;
-	width: 100%;
-
-	@include media($mobile){
-		margin: 0;
-	}
+    max-width: none;
+    width: 100%;
 }
 
 .red_border_wrap {
-	margin: 0;
-	border: 5px solid $red;
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	background: $white;
-	padding-bottom: 15px;
-	margin-top: 0 !important;
+    margin: 0;
+    border: 5px solid $red;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    background: $white;
+    padding-bottom: 15px;
+    margin-top: 0 !important;
 }
 #pmpro_form .pmpro_checkout h3 {
-	margin: 0;
-	padding: 10px 0 14px;
+    margin: 0;
+    padding: 10px 0 14px;
 }
 
 form.pmpro_form .pmpro_checkout-fields div {
-	margin: 0;
+    margin: 0;
 }
 
 #pmpro_payment_information_fields .pmpro_checkout-fields-display-seal {
-	display: block;
-	padding: 0 10px;
+    display: block;
+    padding: 0 10px;
 }
 
 .pmpro_btn.pmpro_btn-submit-checkout {
-	width: 100%;
+    width: auto !important;
+    float: right !important;
 }
 
 .pmpro_form {
-	@include span-columns(12);
-	color: #000;
+    @include span-columns(12);
+    color: #000;
 
-	&.checkout_page {
-		background: transparent;
-	}
+    &.checkout_page {
+        background: transparent;
+    }
 
-	input[type="text"] {
-		padding: 0 10px !important;
-	}
+    input[type="text"] {
+        padding: 0 10px !important;
+    }
 
-	input[type="email"] {
-		padding: 0 10px !important;
-	}
+    input[type="email"] {
+        padding: 0 10px !important;
+    }
 
-	input[type="password"] {
-		padding: 0 10px !important;
-	}
+    input[type="password"] {
+        padding: 0 10px !important;
+    }
 
-	label span {
-		color: $red;
-		margin-left: 5px;
-		font-size: 18px;
-	}
+    label span {
+        color: $red;
+        margin-left: 5px;
+        font-size: 18px;
+    }
 
-	select {
-		width: 100%;
-		max-width: none;
-		height: 40px;
-		background: $white;
-		border: 1px solid $borderGray;
+    .content {
+        padding-top: 60px;
+        text-align: center;
+    }
 
-		@include media($mobile){
-			height: 35px;
-		}
-	}
+    #nav-below {
+        text-align: left;
+        margin-top: 40px;
+    }
 
-	.content {
-		padding-top: 60px;
-		text-align: center;
-	}
+    .pmpro_checkout {
+        @include span-columns(12);
+        padding: 20px;
 
-	#nav-below {
-		text-align: left;
-		margin-top: 40px;
-	}
+        tbody {
+            @include span-columns(12);
 
-	.pmpro_checkout {
-		@include span-columns(12);
-		padding: 20px;
+            tr {
+                @include span-columns(12);
 
-		tbody {
-			@include span-columns(12);
+                td {
+                    @include span-columns(12);
+                }
+            }
+        }
 
-			tr {
-				@include span-columns(12);
+        label {
+            @include span-columns(12);
+            text-align: left;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 10px 0 5px;
+        }
 
-				td {
-					@include span-columns(12);
-				}
-			}
-		}
+        input {
+            @include span-columns(12);
+            max-width: unset !important;
+            height: 40px;
+            border: 1px solid $borderGray;
+            border-radius: 4px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
 
-		label {
-			@include span-columns(12);
-			text-align: left;
-			font-size: 14px;
-			font-weight: normal;
-			margin: 10px 0 5px;
-		}
+            @include media($mobile) {
+                width: 100% !important;
+                height: 35px;
+            }
+        }
 
-		input {
-			@include span-columns(12);
-			max-width: unset !important;
-			height: 40px;
-			border: 1px solid $borderGray;
-			border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
+        .pmpro_asterisk {
+            display: none;
+        }
+    }
 
-			@include media($mobile){
-				width: 100% !important;
-				height: 35px;
-			}
-		}
+    .pmpro_checkout-fields.user_info {
+        padding: 0 10px;
+    }
 
-		.pmpro_asterisk {
-			display: none;
-		}
-	}
+    #pmpro_payment_method {
+        @include boxShadow;
+        padding: 40px;
+        margin: 40px 0;
+        background: $lightGray;
+        border: none;
 
-	.pmpro_checkout-fields.user_info {
-		padding: 0 10px;
-	}
+        h2 {
+            @include medLargeFont;
+        }
 
-	#pmpro_payment_method {
-		padding: 0 15px;
-		margin-bottom: 10px;
-		margin-top: 20px;
+        .pmpro_checkout-fields {
+            @include span-columns(12);
+            font-size: 14px;
+            line-height: 1;
 
-		@include media($mobile){
-			padding: 0 10px;
-		}
+            .gateway_braintree {
+                @include span-columns(12);
+                margin-bottom: 20px;
+            }
 
-		h3 {
-			font-size: 18px;
-			background: none;
-			color: $red;
+            .gateway_paypalexpress {
+                @include span-columns(12);
+            }
 
-			@include media($mobile){
-				font-size: 16px;
-			}
-		}
+            input {
+                width: auto;
+                height: auto;
 
-		.pmpro_checkout-fields {
-			@include span-columns(12);
-			font-size: 14px;
-			line-height: 1;
+                @include media($mobile) {
+                    width: auto !important;
+                }
+            }
 
-			.gateway_braintree {
-				@include span-columns(12);
-				margin-bottom: 20px;
-			}
+            a {
+                @include interregular;
+                float: left;
+                color: $black;
 
-			.gateway_paypalexpress {
-				@include span-columns(12);
-			}
+                @include media($mobile) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
 
-			input {
-				width: auto;
-				height: auto;
+    #pmpro_billing_address_fields {
+        margin-top: 0;
+        padding: 40px;
+        border: none;
 
-				@include media($mobile){
-					width: auto !important;
-				}
-			}
+        .pmpro_cols-2 {
+            width: 100%;
+        }
 
-			a {
-				font-family: 'robotoregular', sans-serif;
-				float: left;
-				color: $black;
+        h3 {
+            background: none;
+            padding-bottom: 0;
+        }
 
-				@include media($mobile){
-					font-size: 12px;
-				}
-			}
-		}
-	}
+        label {
+            margin-top: 10px;
+        }
 
-	#pmpro_billing_address_fields {
-		margin-top: 0;
+        .half_width {
+            width: 50%;
+        }
+    }
 
-		h3 {
-			font-size: 18px;
-			background: none;
-			color: $red;
-			padding-bottom: 0;
+    #pmpro_payment_information_fields {
+        @include boxShadow;
+        padding: 40px;
+        border: none;
+        background: $lightGray;
+        margin-top: 40px;
 
-			@include media($mobile){
-				font-size: 16px;
-			}
-		}
+        .pmpro_payment-discount-code {
+            display: none;
+        }
 
-		label {
-			margin-top: 10px;
-		}
+        h2 {
+            @include medLargeFont;
+        }
 
-		.half_width {
-			width: 48%;
-			float: left;
+        .pmpro_thead-name {
+            @include span-columns(12);
+            text-align: left;
+        }
 
-			@include media($mobile){
-				width: 48%;
-			}
+        .pmpro_thead-msg {
+            @include span-columns(12);
+            text-align: left;
+        }
 
-			&.right {
-				float: right;
-			}
-		}
-	}
+        .half_width {
+            width: 48%;
+            float: left;
 
-	#pmpro_payment_information_fields {
+            &.right {
+                float: right;
+            }
+        }
 
-		.pmpro_payment-discount-code {
-			display: none;
-		}
+        .pmpro_thead-msg {
+            font-size: 13px;
+        }
 
-		h3 {
-			font-size: 18px;
-			background: none;
-			color: $red;
-			padding-bottom: 0;
-			text-align: center;
+        .pmpro_payment-card-type {
+            width: 48%;
+            float: left;
+            margin: 0 0 5px;
 
-			@include media($mobile){
-				font-size: 16px;
-			}
+            @include media($mobile) {
+                width: 100%;
+            }
 
-			span {
-				width: 100%;
-				margin: 0;
-			}
-		}
+            select {
+                width: 100%;
+            }
+        }
 
-		.pmpro_thead-name {
-			@include span-columns(12);
-			text-align: left;
-		}
+        .pmpro_payment-account-number {
+            width: 100%;
+            float: left;
 
-		.pmpro_thead-msg {
-			@include span-columns(12);
-			text-align: left;
-		}
+            @include media($mobile) {
+                width: 100%;
+            }
+        }
 
-		.half_width {
-			width: 48%;
-			float: left;
+        .pmpro_payment-expiration {
+            width: 50%;
+            float: left;
+            margin-right: 2%;
 
-			&.right {
-				float: right;
-			}
-		}
+            select {
+                width: 48%;
 
-		.pmpro_thead-msg {
-			font-size: 13px;
-		}
+                &#ExpirationMonth {
+                    @include media($smallMobile) {
+                        width: 42%;
+                    }
+                }
 
-		.pmpro_payment-card-type {
-			width: 48%;
-			float: left;
-			margin: 0 0 5px;
+                &#ExpirationYear {
+                    @include media($smallMobile) {
+                        width: 54%;
+                    }
+                }
+            }
+        }
 
-			@include media($mobile){
-				width: 100%;
-			}
+        .pmpro_payment-cvv {
+            width: 48%;
+            float: left;
+            margin: 0 0 5px;
+        }
 
-			select {
-				width: 100%;
-			}
-		}
+        .pmpro_sslseal {
+            a {
+                float: right;
+            }
 
-		.pmpro_payment-account-number {
-			width: 48%;
-			float: right;
-			margin: 0 0 5px;
+            img {
+                width: auto;
+            }
 
-			@include media($mobile){
-				width: 100%;
-			}
-		}
-
-		.pmpro_payment-expiration {
-			width: 100%;
-			float: left;
-			margin: 0 0 5px;
-
-			select {
-				width: 48%;
-
-				&#ExpirationMonth  {
-					float: left;
-				}
-
-				&#ExpirationYear {
-					float:right;
-				}
-			}
-		}
-
-		.pmpro_payment-cvv {
-			width: 48%;
-			float: left;
-			margin: 0 0 5px;
-		}
-
-		.pmpro_sslseal {
-			a {
-				float: right;
-			}
-
-			img {
-				width: auto;
-			}
-
-			span {
-				padding-left: 12px;
-			}
-		}
-	}
+            span {
+                padding-left: 12px;
+            }
+        }
+    }
 }
 
 .billing_wrap {
-	padding: 0 10%;
+    padding: 0 10%;
 
-	@include media($tablet){
-		padding: 0 5%;
-	}
+    @include media($tablet) {
+        padding: 0 5%;
+    }
 
-	@include media($mobile){
-		padding: 0;
-	}
+    @include media($mobile) {
+        padding: 0;
+    }
 }
 
 .billing_content {
-	margin: 100px 0;
-	background: $lightGray;
-	padding: 40px;
-	-webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	-moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-	border: 1px solid $borderGray;
+    margin: 100px 0;
+    background: $lightGray;
+    padding: 40px;
+    @include boxShadow;
 
-	@include media($mobile){
-		padding: 20px;
-		margin: 40px 0;
-	}
+    @include media($mobile) {
+        padding: 20px;
+        margin: 40px 0;
+    }
 
-	.pmpro_form {
-		border: 1px solid $borderGray;
-		padding: 20px;
+    .pmpro_form {
+        border: 1px solid $borderGray;
+        padding: 20px;
 
-		@include media($mobile){
-			padding: 10px 0;
-		}
-	}
+        @include media($mobile) {
+            padding: 10px 0;
+        }
+    }
 
-	#pmpro_billing_address_fields {
-		.half_width {
-			width: 49%;
-		}
-	}
+    #pmpro_billing_address_fields {
+        .half_width {
+            width: 49%;
+        }
+    }
 
-	#pmpro_payment_information_fields {
-		.pmpro_payment-card-type {
-			width: 49%;
-		}
+    #pmpro_payment_information_fields {
+        .pmpro_payment-card-type {
+            width: 49%;
+        }
 
-		.pmpro_payment-account-number {
-			width: 49%;
-		}
+        .pmpro_payment-account-number {
+            width: 49%;
+        }
 
-		#ExpirationMonth {
-			width: 49%;
-		}
+        #ExpirationMonth {
+            width: 49%;
+        }
 
-		#ExpirationYear {
-			width: 49%;
-		}
+        #ExpirationYear {
+            width: 49%;
+        }
 
-		.pmpro_payment-cvv {
-			width: 49%;
-		}
-	}
+        .pmpro_payment-cvv {
+            width: 49%;
+        }
+    }
 
+    .buttons {
+        @include span-columns(12);
 
-	.buttons {
-		@include span-columns(12);
+        input {
+            padding: 7px 15px;
 
-		input {
-			padding: 7px 15px;
+            @include media($mobile) {
+                display: inline-block;
+                width: auto;
+                float: none;
+            }
+        }
+    }
 
-			@include media($mobile){
-				display: inline-block;
-				width: auto;
-				float: none;
-			}
-		}
-	}
+    input.three_col {
+        @include span-columns(4);
 
-	input.three_col {
-		@include span-columns(4);
+        @include media($mobile) {
+            width: 48% !important;
+        }
 
-		@include media($mobile){
-			width: 48% !important;
-		}
+        &:nth-child(3) {
+            @include media($mobile) {
+                margin-right: 0;
+            }
+        }
 
-		&:nth-child(3) {
-			@include media($mobile){
-				margin-right: 0;
-			}
-		}
-
-		&#bzipcode {
-			@include media($mobile){
-				margin-top: 10px;
-			}
-		}
-	}
+        &#bzipcode {
+            @include media($mobile) {
+                margin-top: 10px;
+            }
+        }
+    }
 }
 
 #ssl {
-	width: 100%;
-	height: 100%;
-	display: none;
+    width: 100%;
+    height: 100%;
+    display: none;
 }
 
 form.pmpro_form #other_discount_code.input {
-	max-width: 75% !important;
-	margin-right: 1% !important;
+    max-width: 75% !important;
+    margin-right: 1% !important;
 
-	@include media($mobile) {
-		max-width: unset;
-		margin-bottom: 10px;
-	}
+    @include media($mobile) {
+        max-width: unset;
+        margin-bottom: 10px;
+    }
 }
 
 .discount_form {
-	@include span-columns(12);
-	text-align: center;
+    @include span-columns(12);
+    text-align: center;
 
-	input[type="button"] {
-		width: 24%;
-		float: left;
-		background: $red !important;
-		color: $white !important;
-		margin-left: 0 !important;
-		text-decoration: none !important;
+    input[type="button"] {
+        width: 24%;
+        float: left;
+        background: $red !important;
+        color: $white !important;
+        margin-left: 0 !important;
+        text-decoration: none !important;
 
-		&:hover {
-			background: $darkRed !important;
-		}
+        &:hover {
+            background: $darkRed !important;
+        }
 
-		@include media($mobile) {
-			margin-top: 20px;
-		}
-	}
+        @include media($mobile) {
+            margin-top: 20px;
+        }
+    }
 
-	label {
-		margin-top: 0 !important;
-	}
+    label {
+        margin-top: 0 !important;
+    }
 }
 
 #other_discount_code_p {
-	@include span-columns(12);
-	font-size: 16px;
-	border: none;
-	padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 
-	@include media($smallMobile){
-		font-size: 14px;
-	}
-
-	a, button {
-		color: $red !important;
-		font-family: 'robotobolditalic', sans-serif !important;
-	}
+    a,
+    button {
+        color: $red !important;
+        @include interbolditalic;
+    }
 }
 
 #pmpro_message {
-	@include span-columns(12);
-	background: $lightYellow;
-	color: $red;
-	margin: 0;
-	text-align: center;
+    @include span-columns(12);
+    background: $lightYellow;
+    color: $red;
+    margin: 0;
+    text-align: center;
 
-	@include media($mobile){
-		font-size: 12px;
-	}
+    @include media($mobile) {
+        font-size: 12px;
+    }
 
-	h4 {
-		font-weight:bold;
-		text-transform: uppercase;
-		font-size:16px;
-		margin:0;
+    h4 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 16px;
+        margin: 0;
 
-		@include media($mobile){
-			font-size: 14px;
-		}
-	}
+        @include media($mobile) {
+            font-size: 14px;
+        }
+    }
 }
 
 #pmpro_user_fields h3 {
-	display: none;
+    display: none;
 }
 
 #pmpro_pricing_fields {
-	padding: 20px;
-	text-align: left;
-	border-bottom: 4px solid $red;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
 
-	h3, #pmpro_level_cost, .no_show {
-		display:none;
-	}
+    h2.pmpro_card_title {
+        display: none;
+    }
 
-	#other_discount_code_tr {
+    h3,
+    #pmpro_level_cost,
+    .no_show {
+        display: none;
+    }
 
-		label {
-			font-family: 'robotolight', sans-serif;
-			width: 100%;
-			float: left;
-			font-size: 14px;
-			color: $black;
-		}
+    #other_discount_code_tr {
+        label {
+            @include interregular;
+            width: 100%;
+            float: left;
+            font-size: 14px;
+            color: $black;
+        }
 
-		td {
-			padding: 0;
-		}
+        td {
+            padding: 0;
+        }
 
-		#other_discount_code {
-			float: left;
-			height: 40px;
-			margin-right: 1.2%;
-			padding: 0 10px;
+        #other_discount_code {
+            float: left;
+            height: 40px;
+            margin-right: 1.2%;
+            padding: 0 10px;
 
-			@include media($tablet){
-				height: 30px;
-			}
+            @include media($tablet) {
+                height: 30px;
+            }
 
-			@include media($smallMobile){
-				height: 25px;
-			}
-		}
+            @include media($smallMobile) {
+                height: 25px;
+            }
+        }
 
-		#other_discount_code_button {
-			width: 23.8%;
-			float: left;
-			border: none;
-		}
-	}
+        #other_discount_code_button {
+            width: 23.8%;
+            float: left;
+            border: none;
+        }
+    }
 }
 
 #pmpro_payment_method span.gateway_paypalexpress {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .pmpro_captcha {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 
-	.g-recaptcha {
-		@include media($mobile) {
-			margin: auto;
-		}
-	}
+    .g-recaptcha {
+        @include media($mobile) {
+            margin: auto;
+        }
+    }
 }
 
 .pmpro_level_description_text {
-	text-align: center;
+    text-align: center;
 
-	p {
-		margin: 0;
-	}
+    p {
+        margin: 0;
+    }
+}
+
+input[type="submit"] {
+    line-height: 1.6;
+}
+form {
+    input:not([type="submit"]):not(.ed_button):not([type="checkbox"]):not(
+            [type="radio"]
+        ),
+    input[type="text"],
+    input[type="email"],
+    select {
+        height: 55px;
+        width: 100%;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        border: 1px solid $borderGray;
+        padding: 10px 20px !important;
+        margin-bottom: 20px;
+        background: $black;
+        color: $white;
+
+        &:focus {
+            color: $white;
+        }
+
+        @include media($mobile) {
+            height: 45px;
+        }
+    }
+
+    input[type="text"] {
+        color: $white;
+    }
+
+    textarea {
+        width: 100%;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        padding: 10px 20px;
+        border: 1px solid $borderGray;
+        background: $black;
+        max-height: 145px;
+        color: $white;
+    }
+
+    input[type="submit"] {
+        @include interbold;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        padding: 10px 20px;
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -webkit-transition: 0.5s ease-in-out;
+        -moz-transition: 0.5s ease-in-out;
+        -o-transition: 0.5s ease-in-out;
+        transition: 0.5s ease-in-out;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        position: relative;
+        width: 28rem;
+        text-align: center;
+        background: $yellow;
+        color: $black;
+        margin-top: 30px;
+        border: none;
+
+        @include media($tablet) {
+            font-size: 1.4rem;
+            width: 26rem;
+        }
+
+        @include media($mobile) {
+            font-size: 1.3rem;
+            padding: 10px 15px;
+            width: 24rem;
+        }
+
+        &:hover {
+            background: #c4a020;
+        }
+    }
+
+    .login-submit {
+        position: relative;
+        width: 100%;
+
+        .button {
+            margin: 0;
+        }
+
+        &:before {
+            content: "";
+            opacity: 0%;
+            -webkit-transition: 0.5s ease-in-out;
+            -moz-transition: 0.5s ease-in-out;
+            -o-transition: 0.5s ease-in-out;
+            transition: 0.5s ease-in-out;
+            width: 0;
+            position: absolute;
+            right: 20px;
+            height: 25px;
+            top: 52px;
+        }
+
+        &:hover {
+            &:before {
+                content: "";
+                background: url("../images/arrow-right.png") no-repeat;
+                position: absolute;
+                right: 20px;
+                height: 25px;
+                opacity: 100%;
+                width: 30px;
+                top: 52px;
+                filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(41deg)
+                    brightness(103%) contrast(101%);
+                z-index: 1;
+            }
+        }
+    }
+
+    .acf-loading,
+    .acf-spinner {
+        background-image: none;
+        background: none;
+    }
+}
+
+.membership-billing {
+    .pmpro_form_fields {
+        width: 100%;
+    }
+    .pmpro_card {
+        overflow: visible;
+    }
+    .pmpro_section#pmpro_billing-1 {
+        > .pmpro_card:not(.pmpro_form) {
+            padding: 40px;
+            color: $black;
+            margin-bottom: 60px;
+            background: $lightGray;
+            @include boxShadow;
+
+            @include media($tablet) {
+                margin-bottom: 40px;
+            }
+
+            a {
+                color: $red;
+                &:hover {
+                    color: $darkRed;
+                }
+            }
+
+            h3 {
+                @include medLargeFont;
+                @include interbold;
+                margin-top: 0;
+            }
+
+            .pmpro_card_content {
+                flex-direction: column;
+            }
+        }
+    }
+
+    .pmpro_card_content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2rem;
+
+        #pmpro_billing_address_fields,
+        #pmpro_payment_information_fields {
+            width: 47.5%;
+            margin-top: 0;
+
+            @include media($tablet) {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .pmpro_payment-expiration {
+                width: 100%;
+                margin-right: 0;
+            }
+        }
+
+        h3,
+        h2 {
+            @include medLargeFont;
+            @include interbold;
+            margin-top: 0;
+        }
+    }
+
+    .pmpro_form_input {
+        height: 55px;
+        color: $black;
+        border-color: $borderGray;
+        border-radius: 6px;
+    }
+
+    form label {
+        color: $black !important;
+    }
+
+    .pmpro_form_submit {
+        margin-top: 10px;
+
+        @include media($tablet) {
+            margin-top: 0;
+        }
+
+        @include media($smallMobile) {
+            width: 100% !important;
+        }
+
+        input {
+            margin-top: 0;
+            width: 28rem !important;
+
+            @include media($smallMobile) {
+                width: 100% !important;
+            }
+
+            &.pmpro_btn-cancel {
+                display: none;
+            }
+        }
+    }
+}
+
+.logged-in {
+    form {
+        input:not([type="submit"]):not(.ed_button):not([type="checkbox"]):not(
+                [type="radio"]
+            ),
+        input[type="text"],
+        input[type="email"],
+        select {
+            border: 1px solid $borderGray;
+            background: $white;
+            color: $black;
+            outline: none !important;
+
+            &:focus {
+                color: $black;
+            }
+
+            @include media($mobile) {
+                height: 45px;
+            }
+        }
+
+        textarea {
+            background: $white;
+            color: $black;
+            border: 1px solid $borderGray;
+            padding: 10px 20px;
+            outline: none !important;
+        }
+
+        input[type="submit"] {
+            background: $yellow;
+            color: $black;
+            border: none !important;
+
+            &:hover {
+                background: $yellowHover;
+            }
+        }
+    }
+}
+.pmpro {
+    form {
+        margin-top: 0 !important;
+
+        label {
+            color: $white;
+            @include interregular;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            height: auto;
+            width: auto;
+        }
+    }
+
+    .pmpro_form_field-password-toggle {
+        button {
+            @include interregular;
+            color: $red;
+            font-size: 1.2rem;
+
+            .pmpro_icon-eye {
+                width: 15px;
+                height: 15px;
+
+                svg {
+                    stroke: $red;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            &:hover {
+                color: $darkRed;
+                font-size: 1.2rem;
+
+                svg {
+                    stroke: $darkRed;
+                }
+            }
+        }
+    }
+
+    .pmpro_card {
+        background-color: unset;
+        border: none;
+        margin: 0;
+        box-shadow: unset;
+    }
+
+    .pmpro_section {
+        margin: 0;
+
+        #loginform {
+            .login-submit {
+                .button {
+                    color: $black !important;
+                    border: none !important;
+                    text-transform: uppercase;
+                    margin-bottom: 10px;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: $yellowHover !important;
+                        border: none !important;
+                    }
+                }
+            }
+
+            .login-remember {
+                input[type="checkbox"] {
+                    margin: 0;
+                }
+            }
+
+            .input {
+                background-color: $black;
+                color: $white;
+
+                &:focus {
+                    background-color: unset;
+                    color: $white;
+                    border-color: unset;
+                }
+            }
+        }
+    }
+
+    .pmpro_card_actions {
+        padding: 0;
+        text-align: left;
+
+        .pmpro_actions_nav {
+            color: transparent;
+            margin-left: -5px;
+
+            @include media($mobile) {
+                text-align: left;
+            }
+        }
+
+        a,
+        a:visited {
+            color: $red;
+
+            &:hover {
+                color: $darkRed;
+            }
+
+            &:first-child {
+                display: none;
+            }
+        }
+    }
+
+    .pmpro_card_content {
+        padding-top: 0 !important;
+        padding: 0;
+        margin: 0;
+
+        + .pmpro_card_actions {
+            border-top: none;
+        }
+    }
+}
+
+.pmpro_login_wrap .pmpro_card_content,
+.pmpro_lost_password_wrap .pmpro_card_content {
+    padding: 0;
+}
+
+.wp-media-buttons {
+    display: none !important;
+}
+
+input[type="file"] {
+    &.file_selected {
+        &:before {
+            background: $white !important;
+        }
+    }
 }

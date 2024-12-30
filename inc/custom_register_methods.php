@@ -31,19 +31,15 @@ function red_registration_fields($reg_form_role) {	?>
 	<form id="red_registration_form" class="red_form" action="" method="POST">
 		<?php red_register_messages();	 ?>
 		<p>
-			<label for="red_user_login"><?php _e('Username'); ?></label>
 			<input name="red_user_login" id="red_user_login" class="red_input" placeholder="Username" type="text" required/>
 		</p>
 		<p>
-			<label for="red_user_email"><?php _e('Email'); ?></label>
 			<input name="red_user_email" id="red_user_email" class="red_input" placeholder="Email" type="email" required/>
 		</p>
 		<p>
-			<label for="password"><?php _e('Password'); ?></label>
 			<input name="red_user_pass" id="password" class="red_input" placeholder="Password" type="password" required/>
 		</p>
 		<p>
-			<label for="password_again"><?php _e('Password'); ?></label>
 			<input name="red_user_pass_confirm" id="password_again" placeholder="Password Again" class="red_input" type="password" required/>
 		</p>
 		<p>
@@ -52,10 +48,14 @@ function red_registration_fields($reg_form_role) {	?>
 			<input type="hidden" name="red_role" value="<?php echo $reg_form_role; ?>"/>
 			<!--<input type="submit" value="<?php /*_e('Register Now'); */?>"/>-->
 			<button id="submit_form_button"
-			        class="g-recaptcha"
+			        class="g-recaptcha button yellow"
 			        data-sitekey="6LeyQekUAAAAAFh_9Jmiy8YbcupXBYz0zBy4J4Rt"
 			        data-callback='onSubmit'
-			        data-action='submit'>Register Now</button>
+			        data-action='submit'>Register Now
+					<span>
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+				</span>
+			</button>
 		</p>
 
 	</form>

@@ -1,0 +1,950 @@
+#db_mode_button {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 999;
+
+    .toggle-radio {
+        transition: all 0.5s ease;
+        border-radius: 50px;
+        width: 124px;
+        height: 46px;
+        font-size: 1.2rem;
+
+        img {
+            max-width: 16px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .switch {
+            width: 100%;
+            height: 100%;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+        .switch label {
+            @include intersemibold;
+            cursor: pointer;
+            width: 50%;
+            transition: all 0.5s ease;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        label[for="dark"] {
+            position: absolute;
+            padding-left: 17px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            justify-content: flex-start;
+            left: 0;
+        }
+        label[for="light"] {
+            position: absolute;
+            padding-right: 16px;
+            right: 0;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            justify-content: flex-end;
+        }
+        #dark:checked ~ .switch label[for="dark"] {
+            img {
+                filter: invert(100%) sepia(100%) saturate(1%) hue-rotate(41deg)
+                    brightness(103%) contrast(101%);
+            }
+        }
+        /*  #light:checked ~ .switch label[for="light"] {
+            //background: $darkGray;
+
+ 
+        } */
+
+        .mode_ball {
+            width: 38px;
+            height: 38px;
+            display: block;
+            border-radius: 50px;
+            position: absolute;
+            top: 4px;
+            transition: all 1s ease;
+            background: transparent;
+        }
+
+        &.dark {
+            background: $white;
+            -webkit-box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            -moz-box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            box-shadow: inset -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+
+            .mode_ball {
+                background: $black;
+                right: 81px;
+            }
+        }
+
+        &.light {
+            background: $darkGray;
+            -webkit-box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            -moz-box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+            box-shadow: -1px 0px 8px 2px rgba(0, 0, 0, 0.85);
+
+            .mode_ball {
+                background: $white;
+                right: 6px;
+                width: 36px;
+                height: 36px;
+                top: 5px;
+            }
+        }
+    }
+}
+
+.db-dark-mode-active.logged-in {
+    #global_header {
+        .header_top.member,
+        .header_bottom.member {
+            background: rgba(0, 0, 0, 0.4);
+
+            &.scroll,
+            &.home_background {
+                background: rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
+    .page_content {
+        &.member {
+            background: $darkModeBg;
+
+            h2,
+            h3 {
+                color: $white;
+            }
+
+            h4 {
+                color: $grayText;
+            }
+
+            input:not([type="submit"]) {
+                background: $darkModeBg;
+                color: $white !important;
+            }
+
+            &.lessons_page {
+                .shuffle-container .lesson_content p {
+                    color: $darkModeRed;
+                }
+
+                .top_content {
+                    h3 {
+                        color: $grayText;
+                    }
+
+                    .simplefavorites-clear {
+                        color: $darkModeRed;
+                        border-bottom: 2px solid $darkModeRed;
+
+                        &:hover {
+                            color: $red;
+                            border-bottom: 2px solid $red;
+                        }
+                    }
+                }
+
+                .videos_wrap .column .vid_image_wrap {
+                    border: 1px solid $grayText;
+                    border-radius: 4px;
+                }
+            }
+
+            &.video_submit {
+                .top_section {
+                    p {
+                        color: $white;
+                    }
+                }
+                #post_submit_form {
+                    .acf-field p.description {
+                        color: $grayText;
+                    }
+                }
+
+                .row .column {
+                    h3,
+                    h4,
+                    p {
+                        color: $white;
+                    }
+
+                    a:not(.button) {
+                        color: $darkModeRed;
+                    }
+                }
+            }
+
+            &.single_video .column {
+                h4 a {
+                    color: $darkModeRed;
+                }
+                p {
+                    color: $white;
+                }
+            }
+
+            .epyt-gallery-title,
+            .epyt-gallery-title a {
+                color: $white;
+            }
+
+            &.two_column_template {
+                .column {
+                    &:last-child {
+                        .content_wrap {
+                            background: $darkerGray;
+                            border: none;
+                            border-radius: 0;
+
+                            p,
+                            h3 {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .member_home {
+                .bottom_section .info_wrap {
+                    a {
+                        color: $grayText;
+                        border-color: $grayText;
+
+                        &:hover {
+                            border-color: $darkModeRed;
+                            color: $darkModeRed;
+                        }
+
+                        &:first-child::after {
+                            background: $grayText;
+                        }
+                    }
+
+                    img {
+                        filter: invert(65%) sepia(3%) saturate(3%)
+                            hue-rotate(338deg) brightness(91%) contrast(85%);
+                    }
+                }
+
+                .top_section .text_column p,
+                a {
+                    color: $grayText;
+                }
+            }
+        }
+    }
+
+    form {
+        input:not([type="submit"]):not([type="radio"]),
+        input[type="text"],
+        input[type="email"],
+        select {
+            border: 1px solid $white;
+            background: $black !important;
+            color: $white;
+
+            &:focus {
+                color: $white;
+            }
+
+            @include media($mobile) {
+                height: 45px;
+            }
+        }
+
+        textarea {
+            background: $black !important;
+            color: $white;
+            border: 1px solid $white;
+        }
+    }
+
+    .forum_wrapper {
+        #bbpress-forums {
+            span.bbp-admin-links a {
+                color: $grayText;
+            }
+
+            p.bbp-topic-meta span.bbp-author-name {
+                color: $grayText;
+            }
+
+            .bbp-breadcrumb {
+                a {
+                    color: $darkModeRed;
+                }
+
+                .bbp-breadcrumb-current {
+                    color: $grayText;
+                }
+            }
+
+            li.bbp-body {
+                li.bbp-topic-title {
+                    a {
+                        color: $grayText;
+                    }
+
+                    p {
+                        color: $darkModeRed;
+                    }
+                }
+
+                div.bbp-reply-author .bbp-author-name {
+                    color: $darkModeRed;
+                }
+
+                ul {
+                    &.topic,
+                    &.forum {
+                        color: $grayText;
+                        background: $darkerGray;
+
+                        .bbp-forum-title {
+                            color: $grayText;
+                        }
+                    }
+                }
+
+                .type-reply,
+                .type-topic {
+                    background-color: $darkerGray;
+                }
+
+                li.bbp-topic-freshness a:last-child {
+                    color: $darkModeRed;
+                }
+            }
+
+            .wp-editor-container .quicktags-toolbar {
+                box-shadow: 3px 5px 50px -12px rgba(155, 155, 155, 0.2);
+
+                input {
+                    background: none;
+                    border: 1px solid transparent;
+
+                    &:hover {
+                        background: none;
+                        border: 1px solid;
+                        border-color: rgba(255, 255, 255, 0.4);
+                        border-style: inset;
+                        border-radius: 4px;
+                    }
+                }
+            }
+
+            div.bbp-template-notice,
+            div.indicator-hint {
+                background-color: rgba(255, 255, 224, 0.8);
+                color: $darkerGray;
+                border: 1px soild;
+                border-color: rgba(255, 255, 224, 0.8);
+            }
+
+            fieldset.bbp-form label,
+            .bbp-pagination-count,
+            fieldset.bbp-form legend {
+                color: $grayText;
+            }
+
+            .bbp-attachments-form input:before {
+                background-color: $black;
+            }
+
+            .bbp-topic-form,
+            .bbp-reply-form,
+            .bbp-topic-tag-form {
+                background: $darkerGray;
+            }
+        }
+    }
+
+    .sidebar {
+        .widget-title {
+            color: $grayText;
+        }
+
+        .widget {
+            border-color: $white;
+        }
+
+        #bbp-search-form input[type="text"] {
+            border-color: $white;
+        }
+
+        ul li a {
+            color: $grayText;
+
+            &:before {
+                filter: invert(65%) sepia(0%) saturate(0%) hue-rotate(193deg)
+                    brightness(90%) contrast(90%);
+            }
+
+            &:hover {
+                color: $yellow;
+
+                &:before {
+                    background: url("../images/icon-right-triangle.png")
+                        no-repeat;
+                    background-size: 100%;
+                    background-position: center;
+                    filter: none;
+                }
+            }
+        }
+    }
+
+    .directory_wrapper {
+        .pmpro_pagination {
+            .pmpro_page_numbers a:not(.pmpro_page_active) {
+                color: $darkModeRed;
+
+                &:hover {
+                    color: $darkRed;
+                }
+            }
+        }
+
+        .pmpro_member_directory {
+            .pmpro_member_directory-item {
+                background: $darkerGray;
+            }
+
+            .content_wrap {
+                p {
+                    color: $darkModeRed;
+                }
+                .label {
+                    p {
+                        color: $grayText;
+                    }
+                }
+
+                a {
+                    color: $darkModeRed;
+
+                    &.button {
+                        color: $black;
+                    }
+                }
+            }
+        }
+    }
+    #pmpro_levels {
+        .column:nth-child(3) {
+            .column_heading {
+                h2 {
+                    color: $black;
+                }
+            }
+        }
+
+        .cost p {
+            color: $lightGray;
+        }
+
+        .description ul li p {
+            color: $grayText;
+        }
+
+        .column .column_content {
+            background: $darkerGray;
+            border: none;
+        }
+    }
+
+    #pmpro_account {
+        border: none;
+        background: $darkerGray;
+
+        p {
+            color: $grayText;
+        }
+
+        .pmpro_box .content_wrap {
+            .top_row {
+                p {
+                    color: $white;
+                }
+            }
+
+            li {
+                color: $grayText;
+
+                strong {
+                    color: $grayText;
+                }
+            }
+        }
+    }
+
+    .profile_wrap {
+        .avatar_upload {
+            background: $darkerGray;
+
+            input#wpua-file-existing:before {
+                background: $black url("../images/upload-icon.png") no-repeat;
+                background-size: 100px;
+                background-position: center;
+
+                @include media($mobile) {
+                    background-size: 80px;
+                }
+            }
+
+            #wpua-upload-messages-existing {
+                color: $white;
+
+                code {
+                    color: $white;
+                }
+            }
+        }
+
+        .pmpro_form_label,
+        .pmpro_form_hint {
+            color: $grayText;
+        }
+
+        form .pmpro_card_content {
+            .pmpro_form_fieldset {
+                background: $darkerGray;
+            }
+
+            > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(
+                    .pmpro_member_profile_edit-field-hide_directory
+                ) {
+                background: $darkerGray;
+
+                label {
+                    color: $white;
+                }
+
+                .ets_assigned_role {
+                    color: $grayText;
+
+                    > span {
+                        i {
+                            color: $darkModeRed;
+                            border: 1px solid $darkModeRed;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .mce-menu .mce-container-body {
+        color: $black !important;
+    }
+
+    #fep-wrapper {
+        #fep-content {
+            background: $darkerGray;
+        }
+        #fep-header {
+            background: $darkerGray;
+
+            strong {
+                color: $grayText;
+            }
+
+            .fep-header-unread-text,
+            .fep-header-box-size {
+                color: $grayText;
+            }
+        }
+
+        #fep-menu {
+            #fep-menu-directory,
+            #fep-menu-settings,
+            .fep-button {
+                color: $grayText !important;
+            }
+        }
+
+        #fep_upload input:before {
+            background-color: $black;
+        }
+
+        .fep-column.fep-column-name,
+        .fep-form-field label {
+            color: $white;
+        }
+        .mce-top-part {
+            background: $black;
+
+            .mce-toolbar {
+                .mce-ico {
+                    color: $white;
+                }
+
+                .mce-btn-group .mce-btn:hover,
+                .mce-toolbar .mce-btn-group .mce-btn:focus,
+                .qt-dfw:focus,
+                .qt-dfw:hover {
+                    background: none;
+                    box-shadow: none;
+                    border-color: rgba(255, 255, 255, 0.4);
+                    border-style: inset;
+                    border-radius: 4px;
+                }
+                .mce-listbox {
+                    button {
+                        background: $black;
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        .quicktags-toolbar {
+            background: $black;
+
+            .ed_button {
+                background: unset !important;
+                border: 1px solid transparent;
+                border-radius: 4px;
+
+                &:hover {
+                    border-color: rgba(255, 255, 255, 0.4);
+                    border-style: inset;
+                }
+            }
+        }
+
+        .wp-editor-tabs .wp-switch-editor {
+            color: $white;
+            background: $darkerGray;
+            border-bottom: none;
+        }
+
+        .tmce-active .switch-tmce,
+        .html-active .switch-html {
+            background: $black;
+        }
+
+        .fep-message-author {
+            color: $white;
+        }
+
+        .fep-message-date,
+        .fep-message-excerpt {
+            opacity: 1;
+            color: $grayText;
+        }
+
+        a:not(.fep-button, .fep-button-active) {
+            color: $darkModeRed;
+        }
+    }
+
+    .light_gray_bg {
+        background: $darkerGray;
+    }
+
+    .pmpro_form #pmpro_payment_method,
+    .pmpro_form #pmpro_payment_information_fields {
+        background: $darkerGray;
+    }
+
+    .form_wrapper {
+        .top_section {
+            .numbered_list {
+                .outer_circle {
+                    background: $darkerGray;
+                }
+
+                p {
+                    color: $white;
+                }
+            }
+
+            .white_box {
+                color: $white;
+                background: $darkModeBg;
+            }
+
+            .bottom_content {
+                color: $white;
+            }
+
+            .sig p {
+                color: $white;
+            }
+        }
+
+        #other_discount_code_p,
+        .pmpro_form_field-radio-item .pmpro_form_label,
+        #pmpro_payment_information_fields .pmpro_form_fields label {
+            color: $white;
+        }
+
+        .column {
+            .column_content {
+                .row .copy p {
+                    color: $grayText;
+                }
+            }
+
+            &:last-child {
+                .top_section {
+                    background: $darkerGray;
+                }
+            }
+        }
+
+        .bottom_section p {
+            color: $white;
+        }
+
+        p.terms {
+            color: $grayText;
+        }
+    }
+
+    .membership-billing {
+        .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+            background: $darkerGray;
+            color: $grayText;
+        }
+
+        form label {
+            color: $white !important;
+        }
+    }
+
+    .video_submit {
+        .column {
+            h3 {
+                a {
+                    color: $white;
+                }
+            }
+
+            p {
+                color: $white;
+            }
+
+            h4 {
+                a {
+                    color: $darkModeRed;
+                }
+            }
+        }
+    }
+
+    .single_video .row.desc {
+        color: $grayText;
+    }
+
+    .live_stream {
+        .wp-block-columns .wp-block-column {
+            background: $darkerGray;
+        }
+
+        .wcContainer {
+            &.wcCrystalTheme {
+                * {
+                    color: $grayText;
+                }
+                .wcClassic {
+                    background-color: $darkerGray;
+
+                    .wcTitle {
+                        background: $darkerGray;
+                        color: $white;
+                    }
+                }
+
+                .wcChannel {
+                    .wcChannelData .wcMessages {
+                        background: $black !important;
+                        .wcMessage {
+                            background: $black;
+                            &.wcCurrentUser {
+                                color: $grayText;
+                                border-color: transparent;
+                                background: rgba(155, 155, 155, 0.1);
+
+                                .wcRowHead .wcUser {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                    .wcChannelInput .wcInputs div.wcInput {
+                        border: 1px solid $white;
+                        background: $black;
+                        color: $white;
+
+                        &:focus {
+                            background: $black;
+                        }
+                    }
+                }
+            }
+
+            .wcTabs .wcTab {
+                background: $darkModeBg;
+            }
+
+            .wcChannel
+                .wcChannelData
+                .wcMessages
+                .wcMessage
+                .wcRowBody
+                .wcContent
+                .wcInternalContent {
+                color: $white;
+            }
+        }
+    }
+
+    #pmpro_cancel {
+        .content_wrap {
+            background: $darkerGray;
+
+            h4 {
+                color: $darkModeRed;
+            }
+
+            > h3 {
+                color: $white;
+            }
+        }
+
+        .pmpro_form_submit {
+            input[type="submit"] {
+                &:hover {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    .directory_profile_wrap {
+        .content_wrap {
+            color: $white;
+        }
+
+        .pmpro_member_profile p {
+            color: $grayText;
+        }
+
+        .button.black {
+            &:hover {
+                border-color: $white;
+                color: $white;
+            }
+        }
+    }
+
+    .registration-confirmation {
+        background: $darkerGray;
+
+        h3 {
+            color: $darkModeRed !important;
+        }
+    }
+
+    .verify-account {
+        background: $darkerGray;
+    }
+
+    .confirmation_page {
+        background: $darkerGray;
+        color: $white;
+
+        ul {
+            li {
+                background: $black;
+                span {
+                    color: $darkModeRed;
+                }
+            }
+        }
+    }
+
+    input[type="file"] {
+        &.file_selected {
+            &:before {
+                background: $black !important;
+            }
+        }
+    }
+}
+
+body:not(.logged-in) {
+    .two_column_template
+        .two_column_section
+        .columns_wrap
+        .column:last-child
+        .content_wrap {
+        background: $darkerGray;
+    }
+
+    .two_column_template.not_member h2 {
+        color: $white;
+    }
+
+    .registration-confirmation {
+        background: $darkerGray;
+        color: $white;
+        margin-bottom: 80px;
+    }
+}
+
+.logged-in:not(.db-dark-mode-active) {
+    .lessons_page.free_lessons {
+        .intro_text {
+            color: $black;
+        }
+
+        .social_media_column .columns_wrap {
+            background: $white;
+
+            .column p a {
+                color: $darkGray;
+            }
+        }
+
+        .filter_controls .search_box input {
+            background-color: $white;
+            color: $black;
+        }
+    }
+
+    .directory_wrapper .pmpro_pagination {
+        .pmpro_next,
+        .pmpro_prev {
+            a {
+                &:hover {
+                    color: $black;
+                    border-color: $black;
+
+                    span img {
+                        filter: unset;
+                    }
+                }
+            }
+        }
+    }
+
+    .two_column_template.not_member .two_column_section .columns_wrap .column {
+        color: $darkerGray;
+        background: $lightGray;
+    }
+}

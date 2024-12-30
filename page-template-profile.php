@@ -9,31 +9,28 @@
  * @package boiler
  */
 
-get_header();?>
+get_header();
+$pageView = isset($_GET['view']) ? $_GET['view'] : "";
+
+?>
 
 <div class="full_width page_content member">
 
 
 		<header class="sub_header full_width">
 		    <div class="container">
-		        <h1><?php the_title(); ?></h1>
+		        <h2><?php echo $pageView !== "" ? "Change Password" : the_title(); ?></h2>
 			</div><!-- .container -->
 		</header>
 
 	<?php if (pmpro_hasMembershipLevel()) : ?>
-		<section class="profile_wrap">
+		<section class="profile_wrap <?php echo $pageView; ?>">
 			<div class="container">
-				<div class="cover_img full_width">
-					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/home-bass.jpg" alt="playing bass"/>
-				</div>
-				<div class="avatar_wrap full_width">
-					<?php echo get_avatar( get_current_user_id(), 96 );  ?>
-				</div>
 				<div class="form_wrap full_width">
-					<?php echo do_shortcode('[pmpro_member_profile_edit]');?>
 					<div class="avatar_upload">
-						<?php echo do_shortcode('[basic-user-avatars]');?>
+						<?php echo do_shortcode('[avatar_upload]');?>
 					</div>
+					<?php echo do_shortcode('[pmpro_member_profile_edit]');?>
 				</div>
 
 			</div>

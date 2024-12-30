@@ -15,7 +15,7 @@ get_header();
 <div class="full_width page_content <?php if (is_user_logged_in()){ echo "member";} ?>">
 	<header class="sub_header full_width">
 		<div class="container">
-			<h1><?php the_title(); ?></h1>
+			<h2><?php the_title(); ?></h2>
 		</div><!-- .container -->
 	</header>
 
@@ -29,8 +29,11 @@ get_header();
                 </section>
 
                 <div class="full_width button_row">
-	                <a class="button red" href="/live-streams">
+	                <a class="button yellow" href="/live-streams">
 		                View Past Streams
+						<span>
+							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+						</span>
 	                </a>
                 </div>
 

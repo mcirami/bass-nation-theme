@@ -1,418 +1,578 @@
 .profile_wrap {
-	@include span-columns(12);
-	position: relative;
-	border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	padding-bottom: 80px;
+    @include span-columns(12);
+    position: relative;
 
-	@include media($mobile) {
-		padding-bottom: 40px;
-	}
+    .pmpro_form_fields {
+        width: 100%;
+        flex-direction: column;
 
-	.pmpro_message.pmpro_success {
-		position: absolute;
-		z-index: 1;
-		right: 50%;
-		text-align: center;
-		transform: translateX(140px);
-		-webkit-transform: translateX(140px);
-		-ms-transform: translateX(140px);
-		-o-transform: translateX(140px);
-		-moz-transform: translateX(140px);
-		font-size: 18px;
-	}
-	
-	input {
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-	}
-	
-	#your-profile {
-		> h3 {
-			display: none;
-		}
-	}
+        @include media($mobile) {
+            gap: 0;
+        }
+    }
 
-	.cover_img {
-		max-height: 300px;
-		overflow-y: hidden;
-	}
+    .pmpro_message.pmpro_success {
+        position: absolute;
+        z-index: 1;
+        right: 50%;
+        text-align: center;
+        transform: translateX(140px);
+        -webkit-transform: translateX(140px);
+        -ms-transform: translateX(140px);
+        -o-transform: translateX(140px);
+        -moz-transform: translateX(140px);
+        font-size: 18px;
+    }
 
-	.avatar_wrap img {
-		position: absolute;
-		top: -88px;
-		left: 24px;
-		z-index: 1;
-		width: 150px;
-		border-radius: 100%;
-		-webkit-border-radius: 100%;
-		-moz-border-radius: 100%;
-		border: 4px solid $yellow;
+    input {
+        border-radius: 4px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+    }
 
-		@include media($mobile) {
-			top: -55px;
-			width: 100px;
-		}
-	}
+    .wpua-edit-container > h3,
+    .wpua-edit p.submit,
+    #wpua-thumbnail-existing {
+        display: none;
+    }
 
-	.form_wrap {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-		-ms-flex-wrap: nowrap;
-		flex-wrap: nowrap;
-		width: 100%;
-		padding: 40px;
-		background: $lightGray;
-		-webkit-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		-moz-box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		box-shadow: -2px 2px 3px 1px rgba(0, 0, 0, .14);
-		border: 1px solid $borderGray;
+    .wpua-edit-container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap-reverse;
 
-		@include media($tablet) {
-			flex-wrap: wrap;
-			-ms-flex-wrap: wrap;
-		}
-	}
+        @include media($mobile) {
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+    }
 
-	.pmpro_member_profile_edit_wrap {
-		padding: 40px 40px 0 0;
-		margin-bottom: 0;
+    #wpua-upload-button-existing {
+        display: flex;
+        flex-wrap: wrap;
+        width: 86%;
+        order: 2;
 
-		@include media($tablet) {
-			padding-right: 0;
-		}
-	}
+        @include media($mobile) {
+            width: 66%;
+        }
 
-	.image_wrap {
-		@include span-columns(6);
-		background: $white;
-		padding: 20px;
-		-webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		-moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-		border: 1px solid $borderGray;
-		border-radius: 4px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		
-		@include media($mobile){
-			@include span-columns(4);
-			line-height: 1.4;
-		}
-		
-		label {
-			font-family: 'robotoregular', sans-serif;
-			color: #000;
-			width: auto;
-			float: left;
-			font-size: 16px;
-			margin-right: 10px;
-			
-			@include media($mobile){
-				font-size: 14px;
-			}
-		}
-		
-		input {
-			border: none;
-			float: left;
-			width: auto;
-			padding: 1px 0 0 0;
-			height: auto;
-			margin: 0;
-			font-size: 16px;
-			background: $white;
-		}
-		
-		.description {
-			@include span-columns(12);
-			font-size: 13px;
-			
-			@include media($mobile){
-				font-size: 11px;
-			}
-		}
-	}
-	
-	form {
-		@include span-columns(12);
-		padding: 40px 40px 40px 0;
+        @include media($smallMobile) {
+            width: 100%;
+        }
 
-		.pmpro_checkout-field {
-			@include span-columns(12);
-		}
+        .button {
+            order: 3;
+            margin-left: auto;
+            margin-top: auto;
+            background: $yellow;
 
-		.pmpro_btn {
-			@include robotoreg;
-			font-size: 16px;
-			padding: 7px 15px;
-			border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-moz-border-radius: 4px;
-			background: $red;
-			color: $white;
-			border: none;
-			
-			&:hover {
-				background: $darkRed;
-				color: $white;
-			}
+            &:hover {
+                background: $yellowHover;
+            }
 
-			&.pmpro_btn-cancel {
-				background: $black;
+            @include media($mobile) {
+                width: 100%;
+            }
+        }
+    }
 
-				&:hover {
-					background: #4D4D54;
-				}
-			}
-			
-			@include media($tablet){
-				padding: 6px 12px;
-				font-size: 14px;
-			}
-			
-			@include media($mobile){
-				padding: 7px 10px;
-				font-size: 12px;
-			}
-			
-			@include media($smallMobile){
-				padding: 5px 8px;
-			}
-		}
+    #wpua-images-existing {
+        width: 14%;
+        padding-right: 30px;
 
-		input[type="text"], input[type="email"], select, textarea {
-			@include span-columns(12);
-			max-width: unset !important;
-			border: 1px solid $borderGray;
+        @include media($mobile) {
+            padding-right: 0;
+            width: 30%;
+        }
 
-			@include media($mobile) {
-				width: 100% !important;
-			}
-		}
+        @include media($smallMobile) {
+            width: 100%;
+        }
 
-		.pmpro_asterisk {
-			display: none;
-		}
+        #wpua-preview-existing {
+            width: 100%;
 
-		label {
-			@include media($mobile) {
-				font-size: 13px;
-			}
-		}
+            img {
+                object-position: center;
+                object-fit: cover;
+                max-height: 135px;
+                border-radius: 6px;
 
-		.pmpro_member_profile_edit-field-hide_directory {
-			display: none;
-		}
+                @include media($smallMobile) {
+                    max-height: unset;
+                }
+            }
 
-		.pmpro_checkout_box-user, .pmpro_checkout_box-more-information {
-			@include span-columns(6);
+            .description {
+                display: none;
+            }
+        }
 
-			@include media($mobile) {
-				@include span-columns(4);
-			}
-		}
+        .button {
+            padding: 0;
+            width: auto;
+            background: none;
+            color: $red;
+            font-size: 1.2rem;
+            margin: 0 auto;
 
-		.pmpro_checkout_box-more-information {
-			margin-right: 0;
+            &:hover {
+                color: $darkRed;
+            }
+        }
+    }
 
-			> h2 {
-				display: none;
-			}
-		}
+    #wpua-upload-messages-existing {
+        @include interregular;
+        font-size: 1.5rem;
+        width: 32%;
+        line-height: 1.4;
 
-		&.pmpro_form .pmpro_member_profile_edit-fields div {
-			margin: 0;
-		}
+        @include media($tablet) {
+            font-size: 1.1rem;
+        }
 
-		#description_div {
-			margin-top: 20px;
+        @include media($mobile) {
+            width: 100%;
+            font-size: 1.2rem;
+            text-align: center;
+        }
 
-			textarea {
-				padding: 10px;
-			}
-		}
+        code {
+            @include interregular;
+        }
+    }
 
-		.pmpro_submit {
-			@include span-columns(12);
+    .form_wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 20px 0 225px;
 
-			hr {
-				display: none;
-			}
+        @include media($tablet) {
+            padding: 20px 0 275px;
+        }
 
-			input {
-				background-color: $red;
-				color: $white;
-				margin-bottom: 0;
+        @include media($smallMobile) {
+            padding: 20px 0 300px;
+        }
+    }
 
-				&:hover {
-					background-color: $darkRed;
-				}
+    .pmpro_member_profile_edit_wrap {
+        margin-bottom: 0;
 
-				&.pmpro_btn-cancel {
-					display: none;
-				}
-			}
-		}
+        @include media($tablet) {
+            padding-right: 0;
+        }
+    }
 
-		input {
-			height: 40px;
-			margin-bottom: 20px;
+    .pmpro_form_label,
+    .pmpro_form_input {
+        color: $black;
+    }
 
-			@include media($tablet) {
-				margin-bottom: 10px;
-			}
+    input#wpua-file-existing {
+        @include uploadButton;
+    }
 
-			@include media($mobile) {
-				height: 35px;
-				margin-top: 5px;
-			}
-		}
+    form {
+        @include span-columns(12);
 
-		select {
-			background: $white;
-			height: 40px;
-			border: 1px solid $borderGray;
+        .pmpro_checkout-field {
+            @include span-columns(12);
+        }
 
-			@include media($mobile) {
-				font-size: 13px;
-				height: 35px;
-			}
-		}
+        .pmpro_card_content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding: 0 10px;
 
-		.password {
-			@include span-columns(12);
-			margin-bottom: 20px;
+            @include media($mobile) {
+                gap: 0;
+            }
 
-			tbody {
-				@include span-columns(12);
+            .pmpro_form_fieldset {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                width: 48.8%;
+                padding: 40px;
+                border-radius: 6px;
+                @include boxShadow;
+                background: $lightGray;
 
-				tr {
-					@include span-columns(12);
+                @include media($tablet) {
+                    width: 48.5%;
+                    padding: 20px;
+                }
 
-					label {
-						margin-bottom: 10px;
-					}
+                @include media($mobile) {
+                    width: 100%;
+                    margin-bottom: 40px;
+                }
+            }
 
-					button {
-						background: #ddb72e;
-					}
-				}
-			}
-		}
-	}
+            .pmpro_cols-2 > * {
+                width: 100%;
+            }
 
-	.avatar_upload {
-		border-left: 1px solid $red;
-		padding-top: 10px;
+            > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(
+                    .pmpro_member_profile_edit-field-hide_directory
+                ) {
+                @include boxShadow;
+                position: absolute;
+                width: 100%;
+                max-width: 98%;
+                bottom: 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                background: $lightGray;
+                padding: 40px;
+                border-radius: 6px;
 
-		@include media($tablet) {
-			border-left: none;
-			border-top: 1px solid $red;
-			margin-top: 40px;
-		}
+                label {
+                    @include mediumFont;
+                    @include interbold;
+                    color: $black;
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
 
-		#basic-user-avatar-form {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-orient: vertical;
-			-webkit-box-direction: normal;
-			-ms-flex-direction: column;
-			flex-direction: column;
-			-ms-flex-wrap: nowrap;
-			flex-wrap: nowrap;
-			padding: 40px 40px 0;
-			height: 100%;
+                .ets-btn {
+                    @include interbold;
+                    color: $black;
+                    width: 28rem;
+                    border-radius: 6px;
+                    text-align: center;
+                    padding: 15px 20px;
 
-			@include media($tablet) {
-				padding-left: 0;
-			}
+                    &:hover {
+                        background: $yellowHover;
+                    }
 
-			> img {
-				max-width: 100px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-			}
+                    @include media($smallMobile) {
+                        width: 100%;
+                        font-size: 12px;
+                    }
+                }
 
-			h3 {
-				margin-bottom: 10px;
-				margin-top: 0;
-				font-size: 24px;
-			}
+                .ets_assigned_role {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    flex-wrap: wrap;
+                    gap: 5px;
+                    margin-top: 0;
 
-			input[type="submit"] {
-				@include robotoreg;
-				font-size: 16px;
-				padding: 7px 15px;
-				border-radius: 4px;
-				-webkit-border-radius: 4px;
-				-moz-border-radius: 4px;
-				height: 40px;
-				background: $red;
-				color: $white;
-				border: none;
-				margin-bottom: 0;
-				width: 150px;
+                    @include media($tablet) {
+                        width: 100%;
+                        margin-top: 20px;
+                    }
 
-				&:hover {
-					background: $darkRed;
-				}
+                    > span {
+                        width: 47%;
+                        text-align: center;
+                        background-color: unset;
+                        margin-right: 0;
 
-				@include media($mobile) {
-					@include span-columns(4);
-				}
-			}
+                        @include media($tablet) {
+                            width: auto;
+                        }
 
-			input[type="file"] {
-				margin-bottom: 0;
-				height: auto;
-				margin-top: 10px;
-			}
+                        @include media($smallMobile) {
+                            width: 47%;
+                        }
 
-			input[type="checkbox"] {
-				margin: 20px 0 0;
-				height: auto;
-			}
+                        i {
+                            background-color: unset !important;
+                            height: auto;
+                            color: $red;
+                            border: 1px solid $red;
+                            border-radius: 6px;
+                            padding: 0 5px;
+                        }
+                    }
+                }
+            }
 
-			button {
-				background: #aeabab;
-				padding: 8px 5px;
-				height: 40px;
+            .pmpro_member_profile_edit-field-hide_directory {
+                display: none;
+            }
+        }
 
-				@include media($mobile) {
-					height: 35px;
-					padding: 8px 12px;
-					width: auto;
-				}
-			}
-		}
-	}
+        .pmpro_form_submit {
+            flex-basis: 100%;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+
+            @include media($mobile) {
+                margin-top: 0;
+            }
+
+            @include media($smallMobile) {
+                flex-wrap: wrap;
+            }
+        }
+
+        .pmpro_btn {
+            @include basicButton;
+            border: none;
+            color: $black;
+
+            &:hover {
+                color: $black;
+                background: $yellowHover;
+            }
+
+            &.pmpro_btn-cancel {
+                display: none;
+            }
+
+            @include media($tablet) {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+
+            @include media($mobile) {
+                padding: 7px 10px;
+                font-size: 12px;
+                width: 16rem;
+            }
+
+            @include media($smallMobile) {
+                padding: 5px 8px;
+                width: 100%;
+            }
+        }
+
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            @include span-columns(12);
+            max-width: unset !important;
+            border: 1px solid $borderGray;
+
+            @include media($mobile) {
+                width: 100% !important;
+            }
+        }
+
+        .pmpro_asterisk {
+            display: none;
+        }
+
+        label {
+            @include media($mobile) {
+                font-size: 13px;
+            }
+        }
+
+        .pmpro_checkout_box-user,
+        .pmpro_checkout_box-more-information {
+            @include span-columns(6);
+
+            @include media($mobile) {
+                @include span-columns(4);
+            }
+        }
+
+        .pmpro_checkout_box-more-information {
+            margin-right: 0;
+
+            > h2 {
+                display: none;
+            }
+        }
+
+        &.pmpro_form .pmpro_member_profile_edit-fields div {
+            margin: 0;
+        }
+
+        #description_div {
+            margin-top: 20px;
+
+            textarea {
+                padding: 10px;
+                border: 1px solid $borderGray;
+                border-radius: 6px;
+            }
+        }
+
+        .pmpro_submit {
+            @include span-columns(12);
+
+            hr {
+                display: none;
+            }
+
+            input {
+                background-color: $red;
+                color: $white;
+                margin-bottom: 0;
+
+                &:hover {
+                    background-color: $darkRed;
+                }
+
+                &.pmpro_btn-cancel {
+                    display: none;
+                }
+            }
+        }
+
+        input {
+            height: 40px;
+            margin-bottom: 20px;
+
+            @include media($tablet) {
+                margin-bottom: 10px;
+            }
+
+            @include media($mobile) {
+                height: 35px;
+                margin-top: 5px;
+            }
+        }
+
+        select {
+            background: $white;
+            height: 55px !important;
+            border: 1px solid $borderGray !important;
+            border-radius: 6px !important;
+        }
+
+        .password {
+            @include span-columns(12);
+            margin-bottom: 20px;
+
+            tbody {
+                @include span-columns(12);
+
+                tr {
+                    @include span-columns(12);
+
+                    label {
+                        margin-bottom: 10px;
+                    }
+
+                    button {
+                        background: #ddb72e;
+                    }
+                }
+            }
+        }
+    }
+
+    .avatar_upload {
+        @include boxShadow;
+        background: $lightGray;
+        width: 100%;
+        border-radius: 6px;
+        padding: 40px;
+        margin: 0 10px;
+
+        @include media($tablet) {
+            padding: 20px;
+        }
+
+        .success {
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    #pmpro_change_password {
+        .pmpro_form_fieldset {
+            @include media($tablet) {
+                width: 100%;
+            }
+
+            .pmpro_form_fields {
+                gap: 0;
+
+                input {
+                    margin-bottom: 0;
+                }
+            }
+
+            .pmpro_form_legend {
+                display: none;
+            }
+        }
+
+        .pmpro_form_submit {
+            margin-top: 0;
+            padding: 0 40px;
+
+            input[name="cancel"] {
+                display: none;
+            }
+
+            input[type="submit"] {
+                margin: 0;
+            }
+        }
+    }
+
+    &.change-password {
+        .avatar_upload {
+            display: none;
+        }
+
+        form .pmpro_card_content {
+            margin-top: 0;
+
+            .pmpro_form_fieldset {
+                max-width: 1200px;
+                margin: 0 auto;
+                width: 100%;
+            }
+        }
+
+        #pmpro_change_password {
+            .pmpro_form_submit {
+                max-width: 1200px;
+                margin: 20px auto 0;
+                justify-content: flex-end;
+                width: 100%;
+                padding: 0;
+            }
+        }
+
+        .form_wrap {
+            padding: 0;
+        }
+    }
 }
 
 #update-password {
-	.pw-weak {
-		text-align: left;
-		float: left;
-		
-		input {
-			height: auto;
-		}
-	}
-	.button_wrap {
-		float: right;
-	}
+    .pw-weak {
+        text-align: left;
+        float: left;
 
+        input {
+            height: auto;
+        }
+    }
+    .button_wrap {
+        float: right;
+    }
 }
 
 .entry-meta {
-	@include span-columns(12);
+    @include span-columns(12);
 }

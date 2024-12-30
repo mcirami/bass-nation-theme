@@ -25,10 +25,6 @@ get_header(); ?>
 
                             <a class="back_link" href="/video-q-and-a">back to submissions</a>
                             <?php
-                            the_post_navigation( array(
-                                'prev_text' => '<span class="screen-reader-text button black">' . __( 'Previous Submission', 'boiler' ) . '</span>',
-                                'next_text' => '<span class="screen-reader-text button black">' . __( 'Next Submission', 'boiler' ) . '</span>'
-                            ) );
 
                             get_template_part( 'template-parts/content', 'single-video' );
 
@@ -41,6 +37,16 @@ get_header(); ?>
                         ?>
 
                     </main><!-- #main -->
+                    <?php 
+                        the_post_navigation( array(
+                            'prev_text' => '<span><span>
+							<img src="' . esc_url( get_template_directory_uri() ) . '/images/arrow-right.svg" alt="Bass Nation Logo"/>
+						</span>' . __( 'Previous Submission', 'boiler' ) . '</span>',
+                            'next_text' => '<span>' . __( 'Next Submission', 'boiler' ) . '<span>
+							<img src="' . esc_url( get_template_directory_uri() ) . '/images/arrow-right.svg" alt="Bass Nation Logo"/>
+						</span></span>'
+                        ) );
+                    ?>
                 </div><!-- #primary -->
                 <?php //get_sidebar(); ?>
             </div><!-- .wrap -->

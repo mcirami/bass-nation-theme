@@ -22,6 +22,10 @@ function bass_nation_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	if ($_COOKIE["db_dark_mode"] == "dark") {
+		$classes[] = 'db-dark-mode-active';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'bass_nation_body_classes' );

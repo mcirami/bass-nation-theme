@@ -19,7 +19,7 @@ global $post;
 
         <header class="sub_header full_width">
             <div class="container">
-                <h1><?php the_field('page_header'); ?></h1>
+                <h2><?php the_field('page_header'); ?></h2>
             </div><!-- .container -->
         </header>
 

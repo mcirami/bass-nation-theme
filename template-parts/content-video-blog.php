@@ -13,9 +13,9 @@
 ?>
 
 
-<div class="row full_width">
+<div class="column full_width">
 
-    <div class="column">
+    <div class="row">
 
 	    <?php if ($postType == "videos") : ?>
 
@@ -70,37 +70,50 @@
 
 
     </div>
-    <div class="column">
-        <h1><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+    <div class="row text">
+        <h3><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
 
+		<?php
+            $post_id = get_the_ID();
+            $commentCount = wp_count_comments( $post_id );
+	    if($postType != "courses") :
+            ?>
+			<div class="desc_wrap">
+				<p><?php the_field('description'); ?></p>
+			</div>
+	    <?php endif; ?>
 	    <?php if ($postType == "videos") : ?>
 
 	        <?php $author = get_the_author_meta('user_login'); ?>
 	        <h4>Submitted by <a href="/membership-account/member-profile/?pu=<?php echo $author; ?>"><?php echo $author; ?></a></h4>
 
-	    <?php else : ?>
+		<?php endif; ?>
+
+		<?php if($postType != "courses") : ?>
+			<h4><?php  if ($postType == "videos") { echo "Thread Replies: "; } else { echo  "Episode Inquiries: "; } ?>
+		        <?php echo $commentCount->total_comments; ?>
+	        </h4>
+		<?php endif; ?>
+
+	    <?php if ($postType != "videos") : ?>
 
 	        <h4 class="sub_title"><?php the_field('sub_title'); ?></h4>
 
 	    <?php endif; ?>
 
 
-	    <?php
-            $post_id = get_the_ID();
-            $commentCount = wp_count_comments( $post_id );
-	    if($postType != "courses") :
-            ?>
-	        <h4><?php  if ($postType == "videos") { echo "Thread Replies: "; } else { echo  "Episode Inquiries: "; } ?>
-
-		                <?php echo $commentCount->total_comments; ?>
-	        </h4>
-
-	        <p><?php the_field('description'); ?></p>
-	    <?php endif; ?>
-	    <div class="button_wrap">
-            <a class="button red" href="<?php the_permalink(); ?>"><?php if ($postType == "videos") { echo "Open Thread"; } elseif ($postType == "courses"){ echo "Open Course"; } else {  the_field('button_text'); } ?></a>
-        </div>
+	    
     </div>
-
-
+	<div class="button_wrap">
+		<a class="button yellow" href="<?php the_permalink(); ?>">
+			<?php if ($postType == "videos") { 
+				echo "Open Thread"; 
+			} else {  
+				the_field('button_text'); 
+			} ?>
+				<span>
+					<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+				</span>
+		</a>
+	</div>
 </div>

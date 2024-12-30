@@ -1,47 +1,16 @@
 .video_submit {
+    h3 {
+        @include intersemibold;
+    }
 
-    .top_section {
-        padding-bottom: 20px;
-        text-align: center;
-
-        h3 {
-            text-transform: none;
-
-            @include media($mobile) {
-                font-size: 21px;
-            }
-        }
-
-        p {
-            padding: 0 10%;
-            margin-bottom: 20px;
-
-            @include media($mobile) {
-                font-size: 12px;
-                padding: 0;
-                line-height: 1.8;
-            }
-        }
-
-        .button {
-            display: block;
-            width: 40%;
-            font-size: 20px;
-            margin: 0 auto;
-            text-transform: uppercase;
-            padding: 10px 20px;
-            -webkit-transition: .7s ease-in-out;
-            -moz-transition: .7s ease-in-out;
-            -ms-transition: .7s ease-in-out;
-            -o-transition: .7s ease-in-out;
-            transition: .7s ease-in-out;
-
-            @include media($mobile) {
+    .banner_wrap {
+        #post_video_btn {
+            @include media($smallMobile) {
                 width: 100%;
-                font-size: 16px;
             }
         }
     }
+
     #post_submit_form {
         max-height: 0;
         overflow: auto;
@@ -50,23 +19,33 @@
         -ms-transition: 1s ease-in-out;
         -o-transition: 1s ease-in-out;
         transition: 1s ease-in-out;
-        padding: 0 40px;
 
-        @include media($mobile) {
-            padding: 0;
+        #acf-form {
+            @include media($smallMobile) {
+                padding-bottom: 60px;
+            }
+        }
+
+        .acf-required {
+            display: none;
+        }
+
+        .acf-fields > .acf-field {
+            border-top: none;
+        }
+
+        .acf-field--post-title {
+            .acf-label {
+                @include makeLabelPlaceholder;
+            }
         }
 
         .form_wrap {
-            padding: 0 40px 40px;
+            padding: 40px;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
             text-align: left;
-            background: #f1f1f1;
-            -webkit-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            -moz-box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            box-shadow: -2px 2px 3px 1px rgba(0,0,0,.14);
-            border: 1px solid #c8c8c8;
             width: 70%;
             float: none;
             margin: 0 auto;
@@ -75,164 +54,233 @@
                 width: 100%;
             }
 
-            @include media($mobile) {
-                padding: 10px 10px 20px;
+            @include media($smallMobile) {
+                padding: 30px;
             }
         }
 
         &.show {
             max-height: 1000px;
-            padding-bottom: 10px;
+            padding: 20px 0 50px;
         }
 
         h3 {
             text-align: center;
+            margin: 0 0 20px 0;
+        }
+
+        .acf-field-5a3d42a6c17cc label,
+        .acf-field-5a3d4282c17cb label,
+        .acf-field-5a42c5e21fff9 label,
+        .acf-field-5a42c5fe1fffa label,
+        .acf-field-5a43cb132c2c2 label,
+        .acf-field-5a43cb312c2c3 label {
+            display: none;
+        }
+
+        .acf-fields {
+            margin-bottom: 20px;
+
+            > .acf-field {
+                padding: 0;
+            }
+        }
+
+        .acf-field[data-name="video_link"] .acf-label {
+            margin-bottom: 0;
+        }
+
+        .acf-field p.description {
+            @include interbold;
+            font-size: 1.3rem;
+            color: $darkGray;
 
             @include media($mobile) {
-                font-size: 22px;
+                font-size: 1rem;
+            }
+        }
+
+        .acf-form-submit {
+            display: inline-block;
+
+            @include media($desktop) {
+                width: 40%;
+            }
+
+            @include media($smallMobile) {
+                width: 100%;
+            }
+
+            input {
+                background: $yellow;
+                @include basicButton;
+                margin: 0;
+                height: 45px;
+
+                @include media($desktop) {
+                    width: 100%;
+                }
+
+                @media all and (max-width: 400px) {
+                    font-size: 3.4vw;
+                }
+
+                &:hover {
+                    background: $yellowHover;
+                }
             }
         }
 
         .cancel_post {
             position: absolute;
-            right: 12px;
-        }
+            right: 0;
+            background: transparent;
+            bottom: -6.5rem;
 
-        .acf-field-5a3d42a6c17cc label, .acf-field-5a3d4282c17cb label, .acf-field-5a42c5e21fff9 label, .acf-field-5a42c5fe1fffa label, .acf-field-5a43cb132c2c2 label, .acf-field-5a43cb312c2c3 label {
-            display: none;
-        }
-
-        .acf-field .acf-label label {
-            @include media($mobile) {
-                font-size: 14px;
+            @include media($desktop) {
+                width: 40%;
             }
-        }
 
-        .acf-field p.description {
-            font-family: 'robotobold', sans-serif;
-
-            @include media($mobile) {
-                font-size: 14px;
+            @include media($smallMobile) {
+                width: 100%;
+                bottom: -12.5rem;
             }
-        }
 
-        .acf-field p.description span {
-            color: $red;
-        }
+            @media all and (max-width: 400px) {
+                font-size: 3.4vw;
+            }
 
-        .acf-form-submit {
-            display: inline-block;
-            margin-left: 12px;
-
-            input {
-                font-family: 'robotoregular', sans-serif;
-                font-size: 16px;
-                padding: 7px 15px;
-                border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -moz-border-radius: 4px;
-                background: $red;
+            &:hover {
+                background: $black;
                 color: $white;
-
-                @include media($tablet) {
-                    padding: 6px 12px;
-                    font-size: 14px;
-                }
-
-                @include media($mobile) {
-                    padding: 7px 10px;
-                    font-size: 12px;
-                }
-
-                @include media($smallMobile) {
-                    padding: 5px 8px;
-                }
-
-                &:hover {
-                    background: #c30b21;
-                }
             }
+        }
+
+        input,
+        textarea {
+            background: $white;
+        }
+    }
+
+    .acf-spinner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8) !important;
+
+        svg {
+            width: 100px;
+            height: 100px;
+            filter: invert(100%) sepia(0%) saturate(1%) hue-rotate(280deg)
+                brightness(103%) contrast(101%);
+        }
+
+        &.is-active {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
         }
     }
 
     .content {
         padding: 0 0 60px;
         width: 100%;
-        border-top: 1px solid $darkGray;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+
+        @include media($tablet) {
+            grid-template-columns: 1fr;
+        }
     }
 
-    .row {
-        padding: 40px 0;
-        border-bottom: 1px solid $darkGray;
+    .column {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
 
-        &:last-child {
-            border-bottom: none;
+        .row {
+            display: flex;
+            flex-direction: column;
+
+            &.text {
+                padding: 20px 0 10px;
+            }
+
+            .desc_wrap {
+                max-height: 120px;
+                overflow-y: scroll;
+                scrollbar-color: transparent transparent;
+
+                &:hover {
+                    scrollbar-color: $darkGray $white;
+                }
+            }
         }
 
-        .column {
-            @include span-columns(6);
-            text-align: left;
+        a {
+            text-transform: uppercase;
+            position: relative;
+            display: block;
 
-            @include media($mobile) {
-                @include span-columns(4);
-            }
+            img {
+                object-fit: cover;
+                height: 400px;
+                border-radius: 6px;
 
-            &:last-child {
-                padding-left: 40px;
-
-                @include media($mobile) {
-                    padding-left: 0;
+                @include media($tablet) {
+                    height: auto;
                 }
             }
+        }
+
+        h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
 
             a {
-                text-transform: uppercase;
-                position: relative;
+                color: $black;
+            }
+        }
+
+        h4 {
+            margin: 5px 0;
+            font-size: 12px;
+
+            a {
+                color: $red;
+                display: inline-block;
             }
 
-            h1 {
-                margin-top: 0;
-                font-size: 28px;
-                margin-bottom: 5px;
-
-                @include media($tablet) {
-                    font-size: 26px;
-                }
-
-                @include media($mobile) {
-                    margin-top: 10px;
-                }
-
-                a {
-                    color: $black;
-                }
+            &.sub_title {
+                font-size: 18px;
             }
+        }
 
-            h4 {
-                margin: 5px 0;
-                font-size: 12px;
-
-                a {
-                    color: $black;
-                    text-decoration: underline;
-                }
-
-                &.sub_title {
-                    font-size: 18px;
-                }
+        p {
+            @include media($tablet) {
+                font-size: 14px;
             }
+        }
 
-            p {
-                @include media($tablet) {
-                    font-size: 14px;
+        .button_wrap {
+            margin-top: auto;
+
+            .button {
+                width: 20rem;
+                padding: 10px 30px;
+
+                @include media($smallMobile) {
+                    width: 100%;
                 }
-            }
 
-            .button_wrap {
-                margin-top: 20px;
-
-                .button {
-                    padding: 10px 30px;
+                &:hover {
+                    span {
+                        width: 25px;
+                    }
                 }
             }
         }
@@ -242,8 +290,18 @@
 .single_video {
     color: $black;
 
+    .video {
+        margin-top: 40px;
+    }
+
     .wrap {
         padding: 40px 0;
+        display: flex;
+        flex-wrap: wrap;
+
+        @include media($mobile) {
+            padding: 0 0 40px;
+        }
     }
 
     .back_link {
@@ -251,145 +309,118 @@
         text-transform: uppercase;
         font-size: 14px;
         display: inline-block;
-        padding-left: 10px;
+        padding-left: 15px;
         margin-bottom: 40px;
 
         &:before {
-            content: '';
+            content: "";
             background: url(../images/yellow-arrow.png) no-repeat;
             position: absolute;
             left: 0;
             top: 8px;
-            width: 5px;
+            width: 10px;
             height: 10px;
             background-size: 100%;
+            -webkit-transform: rotateZ(180deg);
+            -moz-transform: rotateZ(180deg);
+            -ms-transform: rotateZ(180deg);
+            -o-transform: rotateZ(180deg);
+            transform: rotateZ(180deg);
         }
 
         &:hover {
             color: $yellow;
+        }
+    }
 
-            &:before {
-                content: '';
-                background: url(../images/yellow-arrow-alt.png) no-repeat;
-                position: absolute;
-                left: 0;
-                top: 8px;
-                width: 5px;
-                height: 10px;
-                background-size: 100%;
-            }
+    h3 {
+        @include intersemibold;
+        @include medLargeFont;
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+
+    .content-area {
+        max-width: 70%;
+        margin: 0 auto;
+
+        @include media($tablet) {
+            max-width: 100%;
         }
     }
 
     .navigation {
         @include span-columns(12);
-        margin-bottom: 40px;
+        margin-top: 80px;
 
         h2 {
             display: none;
         }
 
         .nav-links {
-            @include span-columns(12);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 20px;
+                height: 20px;
+                filter: invert(84%) sepia(10%) saturate(5111%)
+                    hue-rotate(352deg) brightness(94%) contrast(104%);
+            }
+
+            .nav-previous {
+                img {
+                    transform: rotateZ(180deg);
+                }
+            }
         }
 
-        .nav-previous {
-            float: left;
-
+        .nav-previous,
+        .nav-next {
             a {
                 position: relative;
+                color: $yellow;
 
-                &:before {
-                    content: '';
-                    background: url(../images/arrow_white.png) no-repeat;
-                    width: 6px;
-                    height: 10px;
-                    background-size: 100%;
-                    position: absolute;
-                    left: 13px;
-                    top: 4px;
-                    z-index: 1;
-                    -webkit-transform: rotateZ(180deg);
-                    -moz-transform: rotateZ(180deg);
-                    -ms-transform: rotateZ(180deg);
-                    -o-transform: rotateZ(180deg);
-                    transform: rotateZ(180deg);
-
-                    @include media($mobile) {
-                        left: 8px;
-                    }
+                &:hover {
+                    color: $yellowHover;
                 }
-
             }
 
             span {
-                padding: 8px 22px 8px 30px;
-
-                @include media($mobile) {
-                    padding: 8px 10px 8px 20px;
-                }
+                @include intersemibold;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+                gap: 5px;
             }
         }
 
         .nav-next {
-            float: right;
-            cursor: pointer;
-
-            a {
-                position: relative;
-
-                &:after {
-                    content: '';
-                    background: url(../images/arrow_white.png) no-repeat;
-                    width: 6px;
-                    height: 10px;
-                    background-size: 100%;
-                    position: absolute;
-                    right: 12px;
-                    top: 5px;
-
-                    @include media($mobile) {
-                        right: 8px;
-                    }
-                }
-            }
-
             span {
-                padding: 8px 30px 8px 22px;
-
-                @include media($mobile) {
-                    padding: 8px 20px 8px 10px;
-                }
+                justify-content: flex-end;
             }
         }
     }
 
-    .column {
-        @include span-columns(6);
+    .row {
+        @include span-columns(12);
 
         @include media($mobile) {
-            @include span-columns(4);
             margin-bottom: 20px;
         }
 
-        h3 {
-            font-family: 'robotomedium', sans-serif;
-            font-size: 30px;
-            margin-top: 0;
-            margin-bottom: 10px;
-
-            @include media($tablet) {
-                font-size: 26px;
-            }
+        &.desc {
+            padding: 20px 0;
         }
 
         h4 {
             font-size: 12px;
-            margin: 5px 0;
+            margin: 0;
+            padding: 0;
 
             a {
-                color: $black;
-                text-decoration: underline;
+                color: $red;
             }
 
             &.sub_title {
@@ -407,9 +438,9 @@
             display: inline-block;
         }
 
-
         p {
-            font-family: 'robotoregular', sans-serif;
+            @include interregular;
+            padding: 0;
 
             @include media($tablet) {
                 font-size: 14px;
@@ -420,7 +451,7 @@
 
 #reply-title span {
     @include span-columns(12);
-    font-family: 'robotoregular', sans-serif;
+    @include interregular;
     font-size: 14px;
     text-transform: none;
     padding: 5px 0 10px;

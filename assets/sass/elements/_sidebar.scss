@@ -1,148 +1,188 @@
 .sidebar {
-	@include span-columns(3);
-	padding-top: 90px;
-	
-	@include media($tablet){
-		padding-top: 85px;
-	}
-	
-	@include media($mobile){
-		@include span-columns(4);
-		padding-top: 0;
-	}
-	
-	.widget-title {
-		font-family: 'robotomedium', sans-serif;
-		color: $white;
-		padding: 8px 10px;
-		background: $orange;
-		font-size: 16px;
-		border-top-right-radius: 4px;
-		border-top-left-radius: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-moz-border-radius-topright: 4px;
-		margin: 0;
-		
-		@include media($tablet){
-			font-size: 14px;
-		}
-	}
-	
-	.widget {
-		background: $lightYellow;
-		border-top-right-radius: 4px;
-		border-top-left-radius: 4px;
-		-webkit-border-top-right-radius: 4px;
-		-webkit-border-top-left-radius: 4px;
-		-moz-border-radius-topleft: 4px;
-		-moz-border-radius-topright: 4px;
-		margin-bottom: 25px;
-	}
-	
-	#bbp-search-form {
-		padding: 20px 10px;
-		
-		@include media($tablet){
-			padding: 10px;
-		}
-		
-		input {
-			height: 30px;
-			
-			@include media($tablet){
-				height: 25px;
-			}
-		}
-		
-		input[type="text"] {
-			width: 70%;
-			float: left;
-			border-top-left-radius: 4px;
-			border-bottom-left-radius: 4px;
-			-moz-border-radius-bottomleft: 4px;
-			-moz-border-radius-topleft: 4px;
-			-webkit-border-top-left-radius: 4px;
-			-webkit-border-bottom-left-radius: 4px;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-			-moz-border-radius-bottomright: 0;
-			-moz-border-radius-topright: 0;
-			-webkit-border-top-right-radius: 0;
-			-webkit-border-bottom-right-radius: 0;
-			border: 2px solid $pink;
-		}
-		
-		.button {
-			font-family: 'robotoregular', sans-serif;
-			border: none;
-			width: 30%;
-			padding: 4px 0 5px;
-			font-size: 14px;
-			color: $black;
-			background: $pink;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			border-top-right-radius: 4px;
-			border-bottom-right-radius: 4px;
-			-moz-border-radius-bottomright: 4px;
-			-moz-border-radius-topright: 4px;
-			-moz-border-radius-bottomleft: 0;
-			-moz-border-radius-topleft: 0;
-			-webkit-border-top-right-radius: 4px;
-			-webkit-border-bottom-right-radius: 4px;
-			-webkit-border-top-left-radius: 0;
-			-webkit-border-bottom-left-radius: 0;
-			
-			@include media($tablet){
-				font-size: 12px;
-				padding: 5px 2px 5px 0px;
-			}
-		}
-	}
-	
-	a {
-		color: $black;
-	}
-	
-	label.screen-reader-text.hidden {
-		display: none;
-	}
-	
-	ul {
-		padding: 10px 0;
-		
-		@include media($tablet){
-			padding: 5px 0;
-		}
-		
-		li {
-			padding: 10px 10px 10px 30px;
-			border-bottom: 1px ridge $orange;
-			
-			a {
-				position: relative;
+    @include span-columns(3);
+    padding-top: 12px;
 
-				@include media($tablet){
-					font-size: 14px;
-				}
-				
-				&:before {
-					content: '';
-					background: url('../images/right-arrow-orange.png')no-repeat;
-					position: absolute;
-					left: -15px;
-					width: 10px;
-					height: 10px;
-					top: 7px;
-				}
-				
-			}
-			
-			&:last-child {
-				border-bottom: none;
-			}
-		}
-	}
+    @include media($mobile) {
+        @include span-columns(4);
+        padding-top: 0;
+    }
+
+    .widget-title {
+        @include interbold;
+        color: $darkGray;
+        padding: 15px 0 0;
+        font-size: 1.8rem;
+        margin: 0;
+
+        @include media($tablet) {
+            font-size: 1.5rem;
+        }
+    }
+
+    .widget {
+        margin-bottom: 20px;
+        border-bottom: 1px solid;
+        border-color: rgba(61, 61, 61, 0.3);
+
+        &.widget_display_search {
+            padding-bottom: 30px;
+
+            .widget-title {
+                margin-bottom: 20px;
+            }
+        }
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    #bbp-search-form {
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > div {
+            width: 100%;
+        }
+
+        input {
+            height: 40px;
+            margin: 0;
+            border: none;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            float: left;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+            -moz-border-radius-bottomleft: 4px;
+            -moz-border-radius-topleft: 4px;
+            -webkit-border-top-left-radius: 4px;
+            -webkit-border-bottom-left-radius: 4px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            -moz-border-radius-bottomright: 0;
+            -moz-border-radius-topright: 0;
+            -webkit-border-top-right-radius: 0;
+            -webkit-border-bottom-right-radius: 0;
+            border-top: 1px solid;
+            border-left: 1px solid;
+            border-bottom: 1px solid;
+            border-color: rgba(61, 61, 61, 0.2);
+
+            @media all and (max-width: 991px) and (min-width: 768px) {
+                width: 100%;
+                border-right: 1px solid;
+                border-color: rgba(61, 61, 61, 0.2);
+                margin-bottom: 5px;
+                border-radius: 4px;
+            }
+
+            @include media($smallMobile) {
+                width: 100%;
+                border-right: 1px solid;
+                border-color: rgba(61, 61, 61, 0.2);
+                margin-bottom: 5px;
+                border-radius: 4px;
+            }
+        }
+
+        .button {
+            @include interregular;
+            @include basicButton;
+            border: none;
+            width: 30%;
+            padding: 4px 0 5px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            -moz-border-radius-bottomright: 4px;
+            -moz-border-radius-topright: 4px;
+            -moz-border-radius-bottomleft: 0;
+            -moz-border-radius-topleft: 0;
+            -webkit-border-top-right-radius: 4px;
+            -webkit-border-bottom-right-radius: 4px;
+            -webkit-border-top-left-radius: 0;
+            -webkit-border-bottom-left-radius: 0;
+            font-size: 1.2rem;
+
+            @media all and (max-width: 991px) and (min-width: 768px) {
+                width: 100%;
+                font-size: 1.2rem;
+                border-radius: 4px;
+            }
+
+            @include media($tablet) {
+                padding: 5px 2px 5px 0px;
+            }
+
+            @include media($mobile) {
+                width: 30%;
+            }
+
+            @include media($smallMobile) {
+                width: 100%;
+                float: left;
+                margin-top: 10px;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    label.screen-reader-text.hidden {
+        display: none;
+    }
+
+    ul {
+        padding: 15px 0;
+        margin-left: 0;
+        //background: $darkGray;
+        border-radius: 6px;
+
+        @include media($tablet) {
+            padding: 5px 0;
+        }
+
+        li {
+            padding: 10px 10px 10px 25px;
+
+            a {
+                position: relative;
+                color: $darkGray;
+
+                @include media($tablet) {
+                    font-size: 14px;
+                }
+
+                &:before {
+                    content: "";
+                    background: url("../images/icon-right-triangle-dark-gray.png")
+                        no-repeat;
+                    position: absolute;
+                    left: -22px;
+                    top: 3px;
+                    background-size: 100%;
+                    background-position: center;
+                    display: block;
+                    width: 7px;
+                    height: 12px;
+                }
+
+                &:hover {
+                    color: $yellow;
+
+                    &:before {
+                        background: url("../images/icon-right-triangle.png")
+                            no-repeat;
+                        background-size: 100%;
+                        background-position: center;
+                    }
+                }
+            }
+        }
+    }
 }

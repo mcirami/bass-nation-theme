@@ -63,7 +63,7 @@ if ($topicResults != null) {
                 $topicID = bbp_get_topic_id();
                 foreach ($topicSubs as $topicSub) {
                     if ($topicSub == $topicID) {
-                        echo "<p>You Are Subscribed!</p>";
+                        echo "<p>(subscribed)</p>";
                         break;
                     }
                 }

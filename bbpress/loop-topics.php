@@ -11,7 +11,7 @@
 
 <?php do_action( 'bbp_template_before_topics_loop' ); ?>
 
-<a class="topic_button button red"href="#new-post">New Topic</a>
+<a class="topic_button button black"href="#new-post">New Topic</a>
 
 <ul id="bbp-forum-<?php bbp_forum_id(); ?>" class="bbp-topics">
 
@@ -21,7 +21,7 @@
 			<li class="bbp-topic-title"><?php _e( 'Topic', 'bbpress' ); ?></li>
 			<li class="bbp-topic-voice-count"><?php _e( 'Voices', 'bbpress' ); ?></li>
 			<li class="bbp-topic-reply-count"><?php bbp_show_lead_topic() ? _e( 'Replies', 'bbpress' ) : _e( 'Posts', 'bbpress' ); ?></li>
-			<li class="bbp-topic-freshness"><?php _e( 'Freshness', 'bbpress' ); ?></li>
+			<li class="bbp-topic-freshness"><?php _e( 'Last Post', 'bbpress' ); ?></li>
 		</ul>
 
 	</li>

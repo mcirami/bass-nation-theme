@@ -3,18 +3,28 @@
 
     .epyt-gallery {
         padding: 0 10%;
+
+        @include media($smallMobile) {
+            padding: 0;
+        }
     }
 
     .columns_wrap {
-        
+        @include boxShadow;
     }
 
-    .gallery .epyt-video-wrapper, .epyt-video-wrapper > div {
+    .gallery .epyt-video-wrapper,
+    .epyt-video-wrapper > div {
         width: 100%;
     }
 
     .epyt-facade {
         width: 100%;
+
+        img.epyt-facade-poster {
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+        }
     }
 
     .epyt-gallery-list {
@@ -35,23 +45,53 @@
         -webkit-justify-content: space-between;
         align-items: center;
         -webkit-align-items: center;
+        padding: 10px 0;
+
+        @include media($smallMobile) {
+            flex-wrap: wrap;
+        }
 
         &:first-child {
             display: none;
         }
 
         .epyt-pagebutton {
-            @include robotoreg;
-            font-size: 16px;
-            padding: 7px 15px;
-            border-radius: 4px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            background: $red;
-            color: $white;
+            @include interregular;
+            font-size: 1.8rem;
+            color: $yellow;
+            text-transform: uppercase;
+            padding: 0;
+
+            @include media($mobile) {
+                font-size: 1.4rem;
+            }
+
+            @include media($smallMobile) {
+                order: 2;
+                width: 50%;
+            }
 
             &:hover {
-                background: $darkRed;
+                color: $yellowHover;
+            }
+
+            &.epyt-prev {
+                text-align: left;
+            }
+
+            &.epyt-next {
+                text-align: right;
+            }
+        }
+
+        .epyt-pagenumbers {
+            color: $grayText;
+
+            @include media($mobile) {
+                width: 100%;
+                display: flex;
+                margin-bottom: 20px;
+                order: 1;
             }
         }
 
@@ -69,31 +109,15 @@
     }
 
     .button_row {
-        margin-top: 40px;
-        text-align: right;
+        margin-top: 80px;
+
+        .button {
+            float: right;
+        }
     }
 }
 
-
-.chatbox{
-    width: 100%;
-    height: 350px;
-    overflow-y:scroll;
-    background: rgba(146, 121, 110, 0.26);
-    border-radius: 0px;
-    border: solid 1px #BDBDBD;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    margin: 0px !important;
-}
-.chatbox li{
-    clear: both;
-    text-decoration: none;
-    list-style-type: none;
-    margin: 20px 0px 0px 20px;
-}
-.actual_msg{
+.actual_msg {
     display: inline-block;
     margin-right: 20px;
     padding: 25px 34px;
@@ -104,26 +128,13 @@
     box-shadow: 0px 3px 3px rgba(172, 172, 172, 0.73);
     line-height: 1.4;
     word-wrap: break-word;
-    color: #1A1A1A;
+    color: #1a1a1a;
     background-color: rgba(0, 0, 0, 0.11);
 }
-.date{
+.date {
     font-size: 9px;
     float: left;
     margin-top: 10px;
-}
-
-.wcWindowTitle {
-    background-color: #f1f1f1 !important;
-    color: #f1f1f1 !important;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
-    -webkit-border-top-left-radius: 6px;
-    -webkit-border-top-right-radius: 6px;
-    -moz-border-radius-topleft: 6px;
-    -moz-border-radius-topright: 6px;
-    font-size: 0;
-    height: 5px  !important;
 }
 
 .live_stream .wp-block-columns {
@@ -180,6 +191,11 @@
                 width: 100%;
             }
 
+            iframe {
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+            }
+
             p {
                 position: absolute;
                 color: $white;
@@ -197,18 +213,20 @@
 .wcContainer {
     width: 50% !important;
     height: 100% !important;
+    padding-right: 20px;
 
     @include media($tablet) {
         width: 100% !important;
         height: 500px !important;
+        padding-left: 20px;
     }
 
     input[type="button"] {
         background: #f20f2b !important;
         padding: 0 20px;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
         height: 40px;
         color: $white !important;
         margin: 10px 0;
@@ -218,17 +236,56 @@
         }
     }
 
-    &.wcCrystalTheme .wcChannel .wcChannelInput {
-        padding :0;
-        border-top: 1px solid $borderGray;
+    &.wcCrystalTheme {
+        .wcChannel .wcChannelInput {
+            padding: 0;
+            background-color: unset;
 
-        .wcInputs div.wcInput {
-            width: 100%;
-            margin-bottom: 10px;
+            .wcInputs div.wcInput {
+                width: 100%;
+                margin-bottom: 10px;
+                border: 1px solid $borderGray;
+
+                &:focus {
+                    border: 1px solid $borderGray !important;
+                }
+            }
+        }
+        .wcClassic {
+            background-color: $white;
+            box-shadow: unset;
+
+            .wcTitle {
+                background: $white;
+            }
+
+            &.wcMobile
+                .wcTabContent.wcTabContentChannel
+                .wcChannelContainer:not(.wcInvisible)
+                .wcChannel {
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        .wcChannel {
+            .wcChannelData .wcMessages {
+                .wcMessage.wcCurrentUser {
+                    background: $lightGray;
+                    border-radius: 6px;
+                }
+            }
         }
     }
 
-    .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsButtons .wcReactionsButtonsList {
+    .wcChannel
+        .wcChannelData
+        .wcMessages
+        .wcMessage
+        .wcRowBody
+        .wcContent
+        .wcReactionsButtons
+        .wcReactionsButtonsList {
         width: 100%;
 
         .wcReactionButton {
@@ -246,27 +303,49 @@
             }
         }
     }
-    .wcChannel .wcChannelData .wcMessages .wcMessage .wcRowBody .wcContent .wcReactionsCounters .wcReactionCounter.wcReactionLike img {
+    .wcChannel
+        .wcChannelData
+        .wcMessages
+        .wcMessage
+        .wcRowBody
+        .wcContent
+        .wcReactionsCounters
+        .wcReactionCounter.wcReactionLike
+        img {
         height: 1.2rem;
         width: auto;
     }
 
+    .wcTabs {
+        background-color: unset !important;
+        border-bottom: none !important;
+        gap: 2rem;
+
+        .wcTab {
+            background: $lightGray;
+        }
+    }
+
     .wcMessages {
-        @include robotoreg;
+        @include interregular;
         background-color: $white !important;
 
         .wcMessage {
-            background-color: $white !important;
+            background-color: $white;
+
+            &.wcCurrentUser {
+                background-color: $lightGray;
+            }
 
             img.wcMessageAvatar {
                 width: 38px;
             }
 
             .wcMessageContent {
-                background-color: rgba(241,241,241,.7) !important;
-                border-radius: 50px !important;
-                -webkit-border-radius: 50px !important;
-                -moz-border-radius: 50px !important;
+                background-color: rgba(241, 241, 241, 0.7) !important;
+                border-radius: 100% !important;
+                -webkit-border-radius: 100% !important;
+                -moz-border-radius: 100% !important;
             }
 
             > .wcMessageUser {
@@ -276,7 +355,6 @@
     }
 
     .wcControls {
-        background: rgba(241,241,241,.7) !important;
         border-bottom-left-radius: 6px;
         border-bottom-right-radius: 6px;
         -webkit-border-bottom-left-radius: 6px;
@@ -296,15 +374,15 @@
         }
 
         span {
-            background: rgba(241,241,241,.7) !important;
+            background: rgba(241, 241, 241, 0.7) !important;
         }
     }
 
     input.wcInput {
         background: $white !important;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
         padding: 10px;
         height: 40px;
         margin: 10px 0;

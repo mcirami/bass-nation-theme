@@ -9,7 +9,7 @@
 
             <div class="upgrade full_width">
 
-                <a href="<?php the_field('upgrade_link'); ?>"><?php the_field('upgrade_link_text'); ?></a>
+                <a href="<?php the_field('upgrade_link'); ?>"Get Full Access To Everything! Start FREE Today!</a>
 
             </div>
 
@@ -52,34 +52,9 @@
                 $str = explode("video/", $str);
                 $embedCode = preg_replace('/\s+/', '',$str[1]);
                 $type = "vimeo";
-            } elseif ( str_contains( $str, "soundslice" ) ) {
-
-                $displayKeyboard = get_field('display_keyboard_video');
-                $notation = get_field('has_notation');
-
-                if($notation) {
-                    $controls = '1';
-                } else {
-                    $controls = '0';
-                }
-
-                $str = explode("scores/", $str);
-                $str = explode("/embed", $str[1]);
-                $embedCode = preg_replace('/\s+/', '',$str[0]) . "/embed/?api=1&branding=2&fretboard=1&force_top_video=1&top_controls=" . $controls . "&scroll_type=2&narrow_video_height=48p&enable_waveform=0&synth_display_name=Keyboard";
-                if ($displayKeyboard) {
-                    $embedKeyboard = $embedCode . "&recording_idx=0&keyboard=1";
-                }
-                $type = "soundslice";
             }
 
-            $videoOnly = get_field('no_video');
-
-            if ($type == "soundslice" && $displayKeyboard) :
-                ?>
-                <div class="keyboard_popup">
-                    <a href="#">Want to watch this bass line played on a keyboard?</a>
-                </div>
-            <?php endif; ?>
+            $videoOnly = get_field('no_video'); ?>
 
 
             <div class="video_wrapper <?php if ($type == 'youtube' && $videoOnly == false) { echo "youtube_video";} elseif ($type == 'vimeo' && $videoOnly == false) {echo "vimeo_video"; } elseif ($type == 'soundslice' && $videoOnly == false) {echo "soundslice_video";}?> full_width" data-embed="<?php echo $embedCode;?>">

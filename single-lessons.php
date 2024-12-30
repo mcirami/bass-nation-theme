@@ -11,10 +11,10 @@ get_header(); ?>
 			
 			<header class="sub_header full_width">
 				<div class="container">
-					<h1><?php if (!is_user_logged_in()) { ?>Free Online Bass Lessons <?php } else { the_title(); }?></h1>
-				</div><!-- .container -->
+					<h2><?php if (!is_user_logged_in()) { ?>Free Online Bass Lessons <?php } else { the_title(); }?></h2>
+				</div>
 			 </header>
-			 
+			
 			<div class="video_section full_width">
 				<section class="container">
 					
@@ -45,16 +45,22 @@ get_header(); ?>
 			</div>
 			
 			<div class="social_media_section full_width">
-				<div class="text_wrap">
-					<h3>Are You Ready for Full Access to Every <span>Complete lesson?</span></h3>
-					<div class="button_wrap">
-						<a class="button yellow" href="<?php echo home_url(); ?>/register/">Start My Full Access Free Trial Now!</a>
+				<div class="container">
+					<div class="social_media_column">
+						<?php get_template_part( 'template-parts/content', 'social-media' ); ?>
 					</div>
-					
-					<?php get_template_part( 'template-parts/content', 'social-media' ); ?>
-					
+					<div class="text_wrap">
+						<h3>Are You Ready for Full Access to Every <span>Complete lesson?</span></h3>
+						<div class="button_wrap">
+							<a class="button yellow" href="<?php echo home_url(); ?>/register/">
+								Start My Full Access Free Trial Now!
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</a>
+						</div>
+					</div>
 				</div>
-				
 			</div>
 			
 			<div class="bottom_section full_width">
@@ -63,7 +69,7 @@ get_header(); ?>
 					<h3 class="full_width">Remember, with your Bass Nation Membership you will have access to:</h3>
 					<div class="columns full_width">
 						<div class="column">
-							<ul>
+							<ul class="check_list">
 								<li><p>Every Complete Lesson</p></li>
 								<li><p>Full Modes Series</p></li>
 								<li><p>Bass Nation Forums</p></li>
@@ -75,7 +81,7 @@ get_header(); ?>
 						</div>
 						<div class="column">
 							<div class="video_wrapper full_width">
-								<iframe src="https://www.youtube.com/embed/PiVqp3ZIJWs" frameborder="0" allowfullscreen></iframe>
+								<iframe src="https://player.vimeo.com/video/1006352212?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allowfullscreen></iframe>
 							</div>
 						</div>
 					</div><!-- columns -->

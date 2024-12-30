@@ -123,115 +123,8 @@ $username = $current_user->user_login;
 </script>
 <?php wp_body_open(); ?>
 
-<div class="mobile_menu cover">
-	<div class="logo">
-		<?php $logo = get_field('logo', 'option');
-
-		if (!empty($logo)) :
-			?>
-			<img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" />
-
-		<?php endif; ?>
-	</div>
-
-	<?php if (is_user_logged_in()) : ?>
-
-		<?php wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?>
-
-	<?php else : ?>
-		<nav role="navigation">
-			<?php wp_nav_menu( array( 'theme_location' => 'mobile', 'container' => false, 'menu_class' => 'header_menu' ) ); // remember to assign a menu in the admin to remove the container div ?>
-		</nav>
-
-	<?php endif; ?>
-</div>
-
 <div id="page" class="site">
-	<header id="global_header">
-
-		<?php if (!is_user_logged_in()) : ?>
-
-			<div class="header_top">
-				<div class="container">
-
-					<?php if (have_rows('top_header', 'option')) : ?>
-
-						<?php while (have_rows('top_header', 'option')) : the_row(); ?>
-
-							<?php if (get_row_layout() == 'without_buttons'): ?>
-
-								<div class="content_wrap">
-
-									<p class="desktop"><?php the_sub_field('header_text_desktop', 'option'); ?>
-
-										<?php if (get_sub_field('header_popup', 'option')) : ?>
-
-											<a class="fancybox" href="#email_join"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php else: ?>
-
-											<a  href="<?php the_sub_field('link', 'option'); ?>"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php endif; ?>
-									</p>
-
-									<p class="mobile"><?php the_sub_field('header_text_mobile', 'option'); ?><br>
-
-										<?php if (get_sub_field('header_popup', 'option')) : ?>
-
-											<a class="fancybox" href="#email_join"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php else: ?>
-
-											<a href="<?php the_sub_field('link', 'option'); ?>"><?php the_sub_field('link_text', 'option'); ?></a>
-
-										<?php endif; ?>
-
-									</p>
-
-								</div>
-							<?php elseif( get_row_layout() == 'with_buttons'): ?>
-
-								<div class="content_wrap_buttons">
-									<p class="desktop">
-										<?php the_sub_field('header_text_desktop'); ?>
-										<a href="<?php the_sub_field('link'); ?>">
-											<?php the_sub_field('text_link'); ?>
-										</a>
-									</p>
-									<p class="mobile">
-										<?php the_sub_field('header_text_mobile'); ?>
-										<a href="<?php the_sub_field('link'); ?>">
-										<?php the_sub_field('text_link', 'option'); ?>
-										</a>
-									</p>
-									<div class="buttons">
-										<div class="button_wrap">
-										<?php  the_field('white_button_link');?>
-											<a class="button white" href="<?php the_sub_field('white_button_link'); ?>">
-											<?php the_sub_field('white_button_text'); ?>
-											</a>
-										</div>
-										<div class="button_wrap">
-											<a class="button dark_red" href="<?php the_sub_field('red_button_link'); ?>">
-											<?php the_sub_field('red_button_text')?>
-											</a>
-										</div>
-									</div>
-								</div>
-							<?php endif;
-
-						endwhile;
-
-					else : ?>
-
-						// no layouts found
-					<?php endif; ?>
-
-				</div><!-- container -->
-			</div><!-- header top -->
-
-		<?php endif; ?>
+	<header id="global_header" class="<?php echo is_user_logged_in() ? "" : "external"; ?>">
 
 		<?php if (is_user_logged_in()) : ?>
 			<div class="header_top member">
@@ -242,7 +135,7 @@ $username = $current_user->user_login;
 			</div>
 		<?php endif; ?>
 
-		<div class="header_bottom <?php if(!is_front_page() && !is_page(5)){ echo "background"; } ?>">
+		<div class="header_bottom <?php echo is_user_logged_in() ? "member" : ""; ?>">
 			<?php wp_reset_query(); ?>
 			<div class="container">
 				<div class="content_wrap">
@@ -269,12 +162,33 @@ $username = $current_user->user_login;
 
 							<?php if (is_user_logged_in()): ?>
 
-								<?php wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); // remember to assign a menu in the admin to remove the container div ?
+								<?php 
+									// remember to assign a menu in the admin to remove the container div
+									wp_nav_menu( array( 'theme_location' => 'members', 'container' => false, 'menu_class' => 'member_menu' ) ); ?>
 
-							else : ?>
+							<?php else : ?>
 
-								<?php wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'header_menu' ) ); // remember to assign a menu in the admin to remove the container div ?>
-
+								<?php 
+									// remember to assign a menu in the admin to remove the container div
+									wp_nav_menu( array( 'theme_location' => 'primary', 'container' => false, 'menu_class' => 'header_menu' ) ); ?>
+									<div class="right_nav">
+										<ul>
+											<li>
+												<a href="/login">
+													Login
+												</a>
+											</li>
+											<li>
+												<a class="button black" href="/register">
+													Start My Free Trial
+													<span>
+														<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+													</span>
+												</a>
+												
+											</li>
+										</ul>
+									</div>
 							<?php endif; ?>
 
 						</nav>
@@ -284,11 +198,11 @@ $username = $current_user->user_login;
 		</div>
 	</header>
 	<div class="wrapper">
-		<?php if (!is_user_logged_in()) :?>
+		<?php /* if (!is_user_logged_in()) : */?>
 			<div style="display: none;" id="email_join">
 				<a href="/">
 					<div class="logo">
-						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo-black.png" alt="Bass Nation Logo"/>
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt="Bass Nation Logo"/>
 					</div>
 				</a>
 				<h2><?php the_field('heading_text', 'option'); ?></h2>
@@ -299,7 +213,12 @@ $username = $current_user->user_login;
 					<form action="https://daricbennett.us14.list-manage.com/subscribe/post?u=31b2e6fbc1efe1874039014fd&amp;id=08854914fe" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
 						<div id="mc_embed_signup_scroll">
 							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" />
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button" />
+							<div class="button_wrap">
+								<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button yellow" />
+								<span>
+									<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
+								</span>
+							</div>
 							<div id="mce-responses" class="clear">
 								<div class="response" id="mce-error-response" style="display:none"></div>
 								<div class="response" id="mce-success-response" style="display:none"></div>
@@ -311,4 +230,4 @@ $username = $current_user->user_login;
 				<script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
 				<script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[3]='PMPLEVELID';ftypes[3]='number';fnames[4]='PMPLEVEL';ftypes[4]='text';fnames[8]='TABLP';ftypes[8]='text';fnames[5]='TABDL';ftypes[5]='text';fnames[6]='PMPALLIDS';ftypes[6]='text';fnames[7]='FC6';ftypes[7]='text';fnames[9]='TABDL2';ftypes[9]='text';fnames[10]='TABDL3';ftypes[10]='text';fnames[1]='TABDL4';ftypes[1]='text';fnames[2]='TABDL5';ftypes[2]='text';fnames[11]='TABDL6';ftypes[11]='text';fnames[12]='TABDL7';ftypes[12]='text';fnames[13]='TABDL8';ftypes[13]='text';fnames[14]='TABDL9';ftypes[14]='text';fnames[15]='LIVESTRMLP';ftypes[15]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 			</div>
-		<?php endif; ?>
+		<?php /* endif;  */?>

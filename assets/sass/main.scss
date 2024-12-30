@@ -1,15 +1,16 @@
 // frameworks
-@import "libs/bourbon/bourbon"; 
-@import "partials/grid";  // custom grid params have to go here to override neat
-@import "libs/neat/neat"; 
-@import "libs/normalize"; 
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "libs/bourbon/bourbon";
+@import "partials/grid"; // custom grid params have to go here to override neat
+@import "libs/neat/neat";
+@import "libs/normalize";
 @import "libs/fa/font-awesome";
 
 // partials
 // @import "libs/animate"; // big lib add if needed
 @import "partials/colors";
-@import "partials/extends";  
-@import "partials/mixins"; 
+@import "partials/extends";
+@import "partials/mixins";
 @import "partials/base";
 @import "partials/typography";
 @import "partials/layouts";
@@ -24,7 +25,7 @@
 @import "elements/free-lessons";
 @import "elements/member-lessons";
 @import "elements/passions";
-@import "elements/contact-us";
+@import "elements/two-col-layout";
 @import "elements/member";
 @import "elements/forum";
 @import "elements/forms";
@@ -38,6 +39,8 @@
 @import "elements/live-stream";
 @import "elements/directory";
 @import "elements/register";
+@import "elements/dark-mode";
 
 // Import shame last. For quick fixes that will be worked into proper elements later.
 @import "elements/shame";
+@import "../../node_modules/swiper/swiper-bundle.min.css";

@@ -16,7 +16,7 @@
 		}
 
 		p {
-			font-family: 'robotolight', sans-serif;
+			@include interregular;
 			font-size: 22px;
 			line-height: 2;
 			color: $black;
@@ -91,17 +91,17 @@
 			}
 
 			p {
-				font-family: 'robotoregular', sans-serif;
+				@include interregular;
 				color: $grayText;
 				line-height: 2;
 
 				span {
-					font-family: 'robotoregular', sans-serif;
+					@include interregular;
 					padding: 0 5px;
 				}
 
 				&.name {
-					font-family: 'robotoitalic', sans-serif;
+					@include interitalic;
 					color: $black;
 					float: left;
 					line-height: 1;
@@ -113,7 +113,7 @@
 				}
 
 				&.date {
-					font-family: 'robotoitalic', sans-serif;
+					@include interitalic;
 					float: left;
 					color: $red;
 					line-height: 1;
@@ -150,7 +150,7 @@
 		margin: 30px 0 50px;
 		
 		.button {
-			font-family: 'robotobold', sans-serif;
+			@include interbold;
 			font-size: 30px;
 			padding: 7px 5%;
 			text-transform: uppercase;

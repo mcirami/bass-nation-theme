@@ -23,8 +23,10 @@
 	 	
 	 	<section class="top_section full_width">
 			<div class="container">
-				<h2><?php the_field('heading_text'); ?></h2>
-				<p><?php the_field('description' , false, false); ?></p>
+				<div class="text_wrap">
+					<h3><?php the_field('heading_text'); ?></h3>
+					<p><?php the_field('description' , false, false); ?></p>
+				</div>
 			</div>
 		</section>
 		<section class="photo_section gray full_width">
@@ -33,59 +35,45 @@
 					<h2><?php the_field('gear_heading'); ?></h2>
 				</div>
 				<?php if (have_rows('gear')) : ?>
-					<?php while (have_rows('gear')) : the_row(); ?>
-					
-						<div class="row full_width">
-							
-						<?php if (have_rows('gear_row')) : ?>
-							<?php while (have_rows('gear_row')) : the_row(); ?>
+					<div class="columns_wrap">
+						<?php while (have_rows('gear')) : the_row(); ?>
 								<?php $gearImage = get_sub_field('gear_image'); ?>
-							
-								<div class="image_wrap">
-									<a target="_blank" href="<?php the_sub_field('gear_link'); ?>">
-										<img src="<?php echo $gearImage['url'] ?>" alt="<?php echo $gearImage['alt']; ?>"/>
-									</a>
-									<a class="text" target="_blank" href="<?php the_sub_field('gear_link'); ?>">
-										<h3><?php the_sub_field('gear_title'); ?></h3>
-									</a>
+								<div class="column_wrap">
+									<div class="image_wrap">
+										<a target="_blank" href="https://<?php the_sub_field('gear_link'); ?>">
+											<img src="<?php echo $gearImage['url'] ?>" alt="<?php echo $gearImage['alt']; ?>"/>
+										</a>
+									</div>
+									<div class="text_wrap">
+										<a href="<?php the_sub_field('gear_link'); ?>"><?php the_sub_field('gear_link'); ?></a>
+									</div>
 								</div>
-							<?php endwhile; ?>
-						<?php endif; ?>
-						
-						</div>
-						
-					<?php endwhile; ?>
+						<?php endwhile; ?>
+					</div>
 				<?php endif; ?>
 			</div><!-- container -->
 		</section>
-		<section class="photo_section full_width">
+		<section class="photo_section full_width bass_players">
 			<div class="container">
 				<div class="full_width">
 					<h2><?php the_field('inspires_heading'); ?></h2>
 				</div>
 				<?php if (have_rows('bassists')) : ?>
-					<?php while (have_rows('bassists')) : the_row(); ?>
-					
-						<div class="row full_width">
-							
-						<?php if (have_rows('bassists_row')) : ?>
-							<?php while (have_rows('bassists_row')) : the_row(); ?>
+					<div class="columns_wrap">
+						<?php while (have_rows('bassists')) : the_row(); ?>
 								<?php $image = get_sub_field('image'); ?>
-							
-								<div class="image_wrap">
-									<a target="_blank" href="<?php  the_sub_field('link'); ?>">
-										<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt']; ?>"/>
-									</a>
-									<a class="text" target="_blank" href="<?php the_sub_field('link'); ?>">
-										<h3><?php the_sub_field('name'); ?></h3>
-									</a>
+								<div class="column_wrap">
+									<div class="image_wrap">
+										<a target="_blank" href="<?php  the_sub_field('link'); ?>">
+											<img src="<?php echo $image['url'] ?>" alt="<?php echo $image['alt']; ?>"/>
+										</a>
+									</div>
+									<div class="text_wrap">
+										<p><?php the_sub_field('name'); ?></p>
+									</div>
 								</div>
-							<?php endwhile; ?>
-						<?php endif; ?>
-						
-						</div>
-						
-					<?php endwhile; ?>
+						<?php endwhile; ?>
+					</div>
 				<?php endif; ?>
 			</div><!-- container -->
 		</section>

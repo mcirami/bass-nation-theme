@@ -25920,7 +25920,6 @@ input[type=file].file_selected:before {
   width: 100%;
   float: left;
   padding: 0 15px;
-  border-radius: 100% !important;
 }
 .directory_wrapper .pmpro_member_directory_search.search-form button {
   -moz-appearance: none;

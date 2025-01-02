@@ -15760,7 +15760,7 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background-size: cover !important;
   text-align: left;
   padding: 13% 0 8%;
-  background-position: center 70% !important;
+  background-position: left 70% !important;
 }
 .home_section .hero:last-child {
   margin-right: 0;

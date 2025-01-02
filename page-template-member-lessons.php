@@ -74,7 +74,7 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
     <header class="sub_header full_width">
         <div class="container">
-            <h2><?php echo $title; //the_field('page_header'); ?></h2>
+            <h2><?php echo $title; ?></h2>
         </div><!-- .container -->
     </header>
 
@@ -151,12 +151,6 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                     <div class="container">
                 
                     <div class="intro_text full_width">
-                    
-                        <?php $heading = get_field('heading_text');
-
-                        if ($heading != '') : ?>
-                            <h3><?php the_field('heading_text'); ?></h3>
-                        <?php endif; ?>
 
                         <?php $desc = get_field('description');
 

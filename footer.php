@@ -107,11 +107,9 @@ $username = $current_user->user_login;
 			</div>
 
 			<div class="column">
-				<h3><?php the_field('third_column_heading', 'option'); ?></h3>
-
 				<?php if (have_rows('third_column_group', 'option')) : ?>
+					<h3><?php the_field('last_column_heading', 'option'); ?></h3>
 					<ul>
-					
 						<?php while (have_rows('third_column_group', 'option')) : the_row(); 
 							$columnLinks = get_sub_field('third_column_links', 'option');
 							if ($columnLinks) :

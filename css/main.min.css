@@ -26226,11 +26226,11 @@ input[type=file].file_selected:before {
   padding-bottom: 100px;
 }
 .two_column_template.register .two_column_section .columns_wrap {
-  flex-wrap: wrap-reverse;
+  flex-wrap: wrap;
 }
 .two_column_template.register .two_column_section .columns_wrap .column:first-child {
   width: 100%;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 .two_column_template.register .two_column_section .columns_wrap .column:first-child .numbered_list {
   display: flex;
@@ -26269,6 +26269,12 @@ input[type=file].file_selected:before {
 .two_column_template.register .two_column_section .columns_wrap .column:last-child .content_wrap {
   background: unset !important;
   width: 100%;
+  padding-top: 0;
+}
+@media screen and (max-width: 991px) {
+  .two_column_template.register .two_column_section .columns_wrap .column:last-child .content_wrap {
+    padding: 40px 0 40px;
+  }
 }
 .two_column_template .list {
   max-width: 650px;

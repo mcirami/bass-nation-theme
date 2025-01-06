@@ -14,12 +14,12 @@
             padding-bottom: 100px;
 
             .columns_wrap {
-                flex-wrap: wrap-reverse;
+                flex-wrap: wrap;
 
                 .column {
                     &:first-child {
                         width: 100%;
-                        margin-top: 20px;
+                        margin: 20px 0;
 
                         .numbered_list {
                             display: flex;
@@ -53,6 +53,11 @@
                     &:last-child .content_wrap {
                         background: unset !important;
                         width: 100%;
+                        padding-top: 0;
+
+                        @include media($tablet) {
+                            padding: 40px 0 40px;
+                        }
                     }
                 }
             }

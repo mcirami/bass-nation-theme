@@ -51,7 +51,6 @@ get_header();
                         <?php if($pagename == "login") : ?>
                             <?php echo the_content(); ?>
                         <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
-                            <h2>Ready To <span>Join Bass Nation?</span></h2>
                             <?php echo do_shortcode('[register role="author"]');
                             ?>
                         <?php else: ?>   

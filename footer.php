@@ -105,28 +105,17 @@ $username = $current_user->user_login;
 					<?php endif; ?>
 				</ul>
 			</div>
-
-			<div class="column">
-				<?php if (have_rows('third_column_group', 'option')) : ?>
-					<h3><?php the_field('last_column_heading', 'option'); ?></h3>
+			<?php if (have_rows('third_column_links', 'option')) : ?>
+				<div class="column">
+					<h3><?php the_field('third_column_heading', 'option'); ?></h3>
 					<ul>
-						<?php while (have_rows('third_column_group', 'option')) : the_row(); 
-							$columnLinks = get_sub_field('third_column_links', 'option');
-							if ($columnLinks) :
+						<?php while (have_rows('third_column_links', 'option')) : the_row(); 
 						?>
-								<ul>
-									<?php foreach ($columnLinks as $link) : ?>
-										<li><a href="<?php echo $link['third_column_link']; ?>"><?php echo $link['third_column_link_text']; ?></a></li>
-									<?php endforeach; ?>
-								</ul>
-							<?php endif; ?>
+							<li><a href="<?php the_sub_field('third_column_link'); ?>"><?php the_sub_field('third_column_link_text'); ?></a></li>
 						<?php endwhile; ?>
-
 					</ul>
-
-				<?php endif; ?>
-	
-			</div>
+				</div>
+			<?php endif; ?>
 			<div class="column">
 				<div class="button_wrap">
 					<h3>Join my email list</h4>

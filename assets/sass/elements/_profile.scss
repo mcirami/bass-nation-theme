@@ -155,14 +155,14 @@
         -ms-flex-wrap: wrap;
         flex-wrap: wrap;
         width: 100%;
-        padding: 20px 0 225px;
+        padding: 20px 0 250px;
 
         @include media($tablet) {
-            padding: 20px 0 275px;
+            padding: 20px 0 325px;
         }
 
         @include media($smallMobile) {
-            padding: 20px 0 300px;
+            padding: 20px 0 375px;
         }
     }
 
@@ -283,7 +283,7 @@
                     }
 
                     > span {
-                        width: 47%;
+                        width: 48%;
                         text-align: center;
                         background-color: unset;
                         margin-right: 0;
@@ -293,7 +293,7 @@
                         }
 
                         @include media($smallMobile) {
-                            width: 47%;
+                            width: 48%;
                         }
 
                         i {

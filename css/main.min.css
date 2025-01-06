@@ -23182,16 +23182,16 @@ input[type=file].file_selected:before {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  padding: 20px 0 225px;
+  padding: 20px 0 250px;
 }
 @media screen and (max-width: 991px) {
   .profile_wrap .form_wrap {
-    padding: 20px 0 275px;
+    padding: 20px 0 325px;
   }
 }
 @media screen and (max-width: 550px) {
   .profile_wrap .form_wrap {
-    padding: 20px 0 300px;
+    padding: 20px 0 375px;
   }
 }
 .profile_wrap .pmpro_member_profile_edit_wrap {
@@ -23351,7 +23351,7 @@ input[type=file].file_selected:before {
   }
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
-  width: 47%;
+  width: 48%;
   text-align: center;
   background-color: unset;
   margin-right: 0;
@@ -23363,7 +23363,7 @@ input[type=file].file_selected:before {
 }
 @media screen and (max-width: 550px) {
   .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span {
-    width: 47%;
+    width: 48%;
   }
 }
 .profile_wrap form .pmpro_card_content > div:not(.pmpro_spacer):not(.pmpro_form_submit):not(.pmpro_member_profile_edit-field-hide_directory) .ets_assigned_role > span i {
@@ -26687,6 +26687,9 @@ input[type=file].file_selected:before {
 .db-dark-mode-active.logged-in .page_content.member .member_home .top_section .text_column p,
 .db-dark-mode-active.logged-in .page_content.member .member_home a {
   color: #959494;
+}
+.db-dark-mode-active.logged-in .page_content.member.passions .bass_players {
+  background: #070707;
 }
 .db-dark-mode-active.logged-in form input:not([type=submit]):not([type=radio]),
 .db-dark-mode-active.logged-in form input[type=text],

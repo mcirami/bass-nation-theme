@@ -242,6 +242,12 @@
                     color: $grayText;
                 }
             }
+
+            &.passions {
+                .bass_players {
+                    background: $darkModeBg;
+                }
+            }
         }
     }
 

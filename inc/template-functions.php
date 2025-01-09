@@ -22,7 +22,7 @@ function bass_nation_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
-	if ($_COOKIE["db_dark_mode"] == "dark") {
+	if (isset($_COOKIE["db_dark_mode"]) && $_COOKIE["db_dark_mode"] == "dark") {
 		$classes[] = 'db-dark-mode-active';
 	}
 

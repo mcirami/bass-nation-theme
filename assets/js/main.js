@@ -798,6 +798,14 @@ jQuery(document).ready(function ($) {
         });
     }
 
+    function debounce(func, delay) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), delay);
+        };
+    }
+
     function addSearchFilter(shuffleInstance) {
         const searchInput = document.querySelector(".js-shuffle-search");
         if (!searchInput) {
@@ -808,34 +816,16 @@ jQuery(document).ready(function ($) {
             const searchText = evt.target.value.toLowerCase();
             shuffleInstance.filter((element) => {
                 const titleElement = element.querySelector(".lesson__title");
+                // Ensure titleElement exists before accessing textContent
+                if (!titleElement) {
+                    return false; // Exclude elements without the expected structure
+                }
                 const titleText = titleElement.textContent.toLowerCase().trim();
-                return searchText === "" || titleText.includes(searchText);
+                return titleText.includes(searchText);
             });
-        }, 300); // Adjust the debounce delay as needed
+        }, 400); // Adjust the debounce delay as needed
 
         searchInput.addEventListener("input", handleSearch);
-    }
-
-    function debounce(func, delay) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), delay);
-        };
-    }
-
-    /**
-     * Filter the shuffle instance by items with a title that matches the search input.
-     * @param {Event} evt Event object.
-     */
-    function handleSearchKeyup() {
-        const searchText = evt.target.value.toLowerCase();
-        shuffleInstance.filter((element, shuffle) => {
-            const titleElement = element.querySelector(".lesson__title");
-            const titleText = titleElement.textContent.toLowerCase().trim();
-
-            return titleText.includes(searchText);
-        });
     }
 
     $(".play_video").on("click", function () {

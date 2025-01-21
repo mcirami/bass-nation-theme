@@ -729,6 +729,19 @@ jQuery(document).ready(function ($) {
     }
 
     if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
+        document.addEventListener("keydown", (event) => {
+            const isInput =
+                event.target.tagName === "INPUT" ||
+                event.target.tagName === "TEXTAREA";
+            if (!isInput && event.key === "Backspace") {
+                event.preventDefault(); // Prevent navigation
+            }
+
+            if (isInput && event.key === "Enter") {
+                event.preventDefault(); // Prevent form submission
+            }
+        });
+
         const Shuffle = window.Shuffle;
         const element = document.querySelector("#filter_images");
         const shuffleInstance = new Shuffle(element, {
@@ -802,33 +815,42 @@ jQuery(document).ready(function ($) {
         let timeout;
         return function (...args) {
             clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), delay);
+            timeout = setTimeout(() => {
+                console.log("Debounced function running...");
+                func.apply(this, args);
+            }, delay);
         };
     }
 
     function addSearchFilter(shuffleInstance) {
         const searchInput = document.querySelector(".js-shuffle-search");
 
-        searchInput.addEventListener("focus", () => {
-            searchInput.setAttribute("autocomplete", "off");
-        });
-
         if (!searchInput) {
+            console.error("Search input not found!");
             return;
         }
 
+        searchInput.addEventListener("focus", () => {
+            console.log("Search input focused");
+            searchInput.setAttribute("autocomplete", "off");
+        });
+
         const handleSearch = debounce((evt) => {
+            console.log("Search triggered:", evt.target.value);
             const searchText = evt.target.value.toLowerCase();
             shuffleInstance.filter((element) => {
                 const titleElement = element.querySelector(".lesson__title");
                 // Ensure titleElement exists before accessing textContent
                 if (!titleElement) {
-                    return false; // Exclude elements without the expected structure
+                    console.warn("Title element not found for:", element);
+                    const isMatch = titleText.includes(searchText);
+                    console.log(`Filtering: ${titleText} -> Match: ${isMatch}`);
+                    return isMatch; //Exclude elements without the expected structure
                 }
                 const titleText = titleElement.textContent.toLowerCase().trim();
                 return titleText.includes(searchText);
             });
-        }, 1000); // Adjust the debounce delay as needed
+        }, 500); // Adjust the debounce delay as needed
 
         searchInput.addEventListener("input", handleSearch);
     }

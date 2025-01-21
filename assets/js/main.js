@@ -803,16 +803,25 @@ jQuery(document).ready(function ($) {
         if (!searchInput) {
             return;
         }
-        searchInput.addEventListener("keyup", (evt) => {
-            evt.preventDefault();
+
+        const handleSearch = debounce((evt) => {
             const searchText = evt.target.value.toLowerCase();
-            shuffleInstance.filter((element, shuffle) => {
+            shuffleInstance.filter((element) => {
                 const titleElement = element.querySelector(".lesson__title");
                 const titleText = titleElement.textContent.toLowerCase().trim();
-
-                return titleText.includes(searchText);
+                return searchText === "" || titleText.includes(searchText);
             });
-        });
+        }, 300); // Adjust the debounce delay as needed
+
+        searchInput.addEventListener("input", handleSearch);
+    }
+
+    function debounce(func, delay) {
+        let timeout;
+        return function (...args) {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(this, args), delay);
+        };
     }
 
     /**

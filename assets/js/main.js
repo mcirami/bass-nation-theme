@@ -808,6 +808,11 @@ jQuery(document).ready(function ($) {
 
     function addSearchFilter(shuffleInstance) {
         const searchInput = document.querySelector(".js-shuffle-search");
+
+        searchInput.addEventListener("focus", () => {
+            searchInput.setAttribute("autocomplete", "off");
+        });
+
         if (!searchInput) {
             return;
         }
@@ -823,7 +828,7 @@ jQuery(document).ready(function ($) {
                 const titleText = titleElement.textContent.toLowerCase().trim();
                 return titleText.includes(searchText);
             });
-        }, 400); // Adjust the debounce delay as needed
+        }, 1000); // Adjust the debounce delay as needed
 
         searchInput.addEventListener("input", handleSearch);
     }

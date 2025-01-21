@@ -837,27 +837,38 @@ jQuery(document).ready(function ($) {
             console.error("Search input not found!");
             return;
         }
+        searchInput.setAttribute("autocomplete", "off");
+
+        const form = searchInput.closest("form");
+        if (form) {
+            form.addEventListener("submit", (event) => {
+                event.preventDefault();
+                console.log("Form submission prevented");
+            });
+        }
 
         searchInput.addEventListener("focus", () => {
             console.log("Search input focused");
-            searchInput.setAttribute("autocomplete", "off");
-        });
-
-        searchInput.addEventListener("submit", function (event) {
-            console.log("Event Listener submit");
-            event.preventDefault(); // Prevent default form submission
-            // Do something else instead of reloading the page
         });
 
         searchInput.addEventListener("input", (evt) => {
             evt.preventDefault();
             const searchText = evt.target.value.toLowerCase();
-            shuffleInstance.filter((element, shuffle) => {
+            shuffleInstance.filter((element) => {
                 const titleElement = element.querySelector(".lesson__title");
-                const titleText = titleElement.textContent.toLowerCase().trim();
-
-                return titleText.includes(searchText);
+                return (
+                    titleElement &&
+                    titleElement.textContent.toLowerCase().includes(searchText)
+                );
             });
+        });
+
+        searchInput.addEventListener("keyup", (evt) => {
+            console.log(evt.key);
+            if (evt.key === "Enter") {
+                evt.preventDefault(); // Prevent form submission or page reload
+                console.log("Enter key pressed");
+            }
         });
 
         /* const handleSearch = debounce((evt) => {

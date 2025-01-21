@@ -768,7 +768,12 @@ jQuery(document).ready(function ($) {
                 if (group === "all") {
                     removeActiveClassFromButtons();
                     button.classList.add("active");
-                    shuffleInstance.filter(Shuffle.ALL_ITEMS);
+
+                    try {
+                        shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                    } catch (error) {
+                        console.error("Shuffle.js Error:", error);
+                    }
                 } else if (isActive) {
                     button.classList.remove("active");
                     filterGroup = filterGroup.filter(
@@ -776,12 +781,20 @@ jQuery(document).ready(function ($) {
                     );
 
                     if (filterGroup.length > 0) {
-                        shuffleInstance.filter(filterGroup);
+                        try {
+                            shuffleInstance.filter(filterGroup);
+                        } catch (error) {
+                            console.error("Shuffle.js Error:", error);
+                        }
                     } else {
                         document
                             .querySelector("li.all")
                             .classList.add("active");
-                        shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                        try {
+                            shuffleInstance.filter(Shuffle.ALL_ITEMS);
+                        } catch (error) {
+                            console.error("Shuffle.js Error:", error);
+                        }
                     }
                 } else {
                     button.classList.add("active");
@@ -791,18 +804,27 @@ jQuery(document).ready(function ($) {
                             .classList.remove("active");
                     }
 
-                    shuffleInstance.filter(function (element) {
-                        const elGroups = element.getAttribute("data-groups");
+                    try {
+                        shuffleInstance.filter(function (element) {
+                            const elGroups =
+                                element.getAttribute("data-groups");
 
-                        if (
-                            elGroups.includes(group) &&
-                            !filterGroup.includes(group)
-                        ) {
-                            filterGroup.push(group);
-                        }
-                    });
+                            if (
+                                elGroups.includes(group) &&
+                                !filterGroup.includes(group)
+                            ) {
+                                filterGroup.push(group);
+                            }
+                        });
+                    } catch (error) {
+                        console.error("Shuffle.js Error:", error);
+                    }
 
-                    shuffleInstance.filter(filterGroup);
+                    try {
+                        shuffleInstance.filter(filterGroup);
+                    } catch (error) {
+                        console.error("Shuffle.js Error:", error);
+                    }
                 }
             });
         });
@@ -854,13 +876,20 @@ jQuery(document).ready(function ($) {
         searchInput.addEventListener("input", (evt) => {
             evt.preventDefault();
             const searchText = evt.target.value.toLowerCase();
-            shuffleInstance.filter((element) => {
-                const titleElement = element.querySelector(".lesson__title");
-                return (
-                    titleElement &&
-                    titleElement.textContent.toLowerCase().includes(searchText)
-                );
-            });
+            try {
+                shuffleInstance.filter((element) => {
+                    const titleElement =
+                        element.querySelector(".lesson__title");
+                    return (
+                        titleElement &&
+                        titleElement.textContent
+                            .toLowerCase()
+                            .includes(searchText)
+                    );
+                });
+            } catch (error) {
+                console.error("Shuffle.js Error:", error);
+            }
         });
 
         searchInput.addEventListener("keyup", (evt) => {

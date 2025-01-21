@@ -20,10 +20,10 @@ jQuery(document).ready(function ($) {
         $this.html($this.html().replace(/&nbsp;/g, ""));
     });
 
-    const fancybox = $(".fancybox");
+    /*  const fancybox = $(".fancybox");
     const fancybox2 = $(".fancybox2");
 
-    fancyboxInit();
+    fancyboxInit(); */
 
     function fancyboxInit() {
         if (fancybox.length > 0) {

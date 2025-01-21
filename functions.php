@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '3.0.2' );
+	define( '_S_VERSION', '3.0.3' );
 }
 
 /**
@@ -155,7 +155,7 @@ function bass_nation_scripts() {
 	/* My Added Scripts */
 	wp_enqueue_script( 'fancybox_js', get_template_directory_uri() . '/js/vendor/fancybox/jquery.fancybox.min.js', array('jquery'), '', true );
 	if ((is_page('lessons') && is_user_logged_in()) || get_the_ID() == 7){
-		wp_enqueue_script('shuffle-js', 'https://cdn.jsdelivr.net/npm/shufflejs@5/dist/shuffle.min.js', array('jquery'), null, true);
+		wp_enqueue_script('shuffle-js', 'https://cdn.jsdelivr.net/npm/shufflejs@6.1.1/dist/shuffle.min.js', array('jquery'), null, true);
 	}
 	wp_enqueue_script( 'main_js', get_template_directory_uri() . '/js/built.min.js', array('jquery'), _S_VERSION, true );
 	wp_enqueue_script( 'vimeo', get_template_directory_uri() . '/js/vendor/vimeothumb/jquery-vimeothumb.min.js', array('jquery'), '', true );

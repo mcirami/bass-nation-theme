@@ -729,7 +729,7 @@ jQuery(document).ready(function ($) {
     }
 
     if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
-        document.addEventListener("keydown", (event) => {
+        document.addEventListener("input", (event) => {
             const isInput =
                 event.target.tagName === "INPUT" ||
                 event.target.tagName === "TEXTAREA";
@@ -811,7 +811,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function debounce(func, delay) {
+    /* function debounce(func, delay) {
         let timeout;
         return function (...args) {
             clearTimeout(timeout);
@@ -820,7 +820,7 @@ jQuery(document).ready(function ($) {
                 func.apply(this, args);
             }, delay);
         };
-    }
+    } */
 
     function addSearchFilter(shuffleInstance) {
         const searchInput = document.querySelector(".js-shuffle-search");
@@ -835,11 +835,13 @@ jQuery(document).ready(function ($) {
             searchInput.setAttribute("autocomplete", "off");
         });
 
-        if (!searchInput) {
-            return;
-        }
+        searchInput.addEventListener("submit", function (event) {
+            console.log("Event Listener submit");
+            event.preventDefault(); // Prevent default form submission
+            // Do something else instead of reloading the page
+        });
 
-        searchInput.addEventListener("keyup", (evt) => {
+        searchInput.addEventListener("input", (evt) => {
             evt.preventDefault();
             const searchText = evt.target.value.toLowerCase();
             shuffleInstance.filter((element, shuffle) => {

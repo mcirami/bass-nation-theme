@@ -835,12 +835,27 @@ jQuery(document).ready(function ($) {
             searchInput.setAttribute("autocomplete", "off");
         });
 
-        const handleSearch = debounce((evt) => {
+        if (!searchInput) {
+            return;
+        }
+
+        searchInput.addEventListener("keyup", (evt) => {
+            evt.preventDefault();
+            const searchText = evt.target.value.toLowerCase();
+            shuffleInstance.filter((element, shuffle) => {
+                const titleElement = element.querySelector(".lesson__title");
+                const titleText = titleElement.textContent.toLowerCase().trim();
+
+                return titleText.includes(searchText);
+            });
+        });
+
+        /* const handleSearch = debounce((evt) => {
             console.log("Search triggered:", evt.target.value);
             const searchText = evt.target.value.toLowerCase();
             shuffleInstance.filter((element) => {
                 const titleElement = element.querySelector(".lesson__title");
-                // Ensure titleElement exists before accessing textContent
+                //Ensure titleElement exists before accessing textContent
                 if (!titleElement) {
                     console.warn("Title element not found for:", element);
                     const isMatch = titleText.includes(searchText);
@@ -853,6 +868,7 @@ jQuery(document).ready(function ($) {
         }, 500); // Adjust the debounce delay as needed
 
         searchInput.addEventListener("input", handleSearch);
+        */
     }
 
     $(".play_video").on("click", function () {

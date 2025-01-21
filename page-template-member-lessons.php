@@ -223,9 +223,7 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                                 </ul>
                             </div>
                             <div class="search_box">
-                                <form action="">
-                                    <input class="textfield filter__search js-shuffle-search" type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
-                                </form>
+                                <input class="textfield filter__search js-shuffle-search" type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
                             </div>
                         </div><!-- filter_controls -->
            

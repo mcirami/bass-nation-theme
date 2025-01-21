@@ -17,7 +17,7 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115393894-1"></script>

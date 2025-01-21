@@ -4,6 +4,14 @@ const { Swiper } = require("swiper/bundle");
 
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
+    window.addEventListener("error", (event) => {
+        console.error("Global Error:", event.error || event.message);
+    });
+
+    window.addEventListener("unhandledrejection", (event) => {
+        console.error("Unhandled Promise Rejection:", event.reason);
+    });
+
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
 
@@ -1088,7 +1096,7 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    const fbGroup = document.querySelector(".fb-group");
+    /* const fbGroup = document.querySelector(".fb-group");
     if (fbGroup) {
         if ($(window).width() < 500) {
             fbGroup.dataset.width = 350;
@@ -1101,7 +1109,7 @@ jQuery(document).ready(function ($) {
                 fbGroup.dataset.width = 500;
             }
         });
-    }
+    } */
 
     /* const bcountryDiv = jQuery('label[for="bcountry"]').closest("div");
     bcountryDiv.insertAfter(jQuery("#country_drop").closest("div")); */
@@ -1197,7 +1205,7 @@ jQuery(document).ready(function ($) {
     /**
      * Determines if _ is lodash or not
      */
-    const isLodash = () => {
+    /* const isLodash = () => {
         let isLodash = false;
 
         // If _ is defined and the function _.forEach exists then we know underscore OR lodash are in place
@@ -1221,14 +1229,14 @@ jQuery(document).ready(function ($) {
             // We know that lodash is NOT loaded
             return false;
         }
-    };
+    }; */
 
     /**
      * Address conflicts
      */
-    if (isLodash()) {
+    /* if (isLodash()) {
         _.noConflict();
-    }
+    } */
 
     if (currentPage.pageName.includes("Profile")) {
         const text = document.getElementById("wpua-upload-messages-existing");

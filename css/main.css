@@ -17562,23 +17562,20 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .lessons_page .filter_controls .search_box:last-child {
   margin-right: 0;
 }
-.lessons_page .filter_controls .search_box form {
-  width: 100%;
-}
-.lessons_page .filter_controls .search_box form input {
+.lessons_page .filter_controls .search_box input {
   width: 100%;
   height: 45px;
   padding: 0 10px;
   font-size: 16px;
-  border-radius: 50px !important;
-  background: #fff url(../images/icon-search.png) no-repeat !important;
-  background-size: 22px !important;
-  background-position: 98% 50% !important;
+  border-radius: 50px;
+  background: #fff url(../images/icon-search.png) no-repeat;
+  background-size: 22px;
+  background-position: 98% 50%;
   color: #3d3d3d;
   border: 2px solid #3d3d3d;
 }
 @media screen and (max-width: 767px) {
-  .lessons_page .filter_controls .search_box form input {
+  .lessons_page .filter_controls .search_box input {
     height: 40px;
     background-size: 18px;
   }

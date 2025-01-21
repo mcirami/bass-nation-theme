@@ -804,6 +804,7 @@ jQuery(document).ready(function ($) {
             return;
         }
         searchInput.addEventListener("keyup", (evt) => {
+            evt.preventDefault();
             const searchText = evt.target.value.toLowerCase();
             shuffleInstance.filter((element, shuffle) => {
                 const titleElement = element.querySelector(".lesson__title");

@@ -883,13 +883,26 @@ jQuery(document).ready(function ($) {
             });
         }
 
+        function debounce(func, delay) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        const handleSearchInput = debounce(() => {
+            applyFiltersAndRender();
+        }, 500);
+
         // Event listeners
         document
             .getElementById("search_input")
             .addEventListener("input", () => {
                 currentPage = 1; // Reset to first page
                 initializeItems();
-                applyFiltersAndRender();
+                //applyFiltersAndRender();
+                handleSearchInput();
             });
 
         // Initial setup

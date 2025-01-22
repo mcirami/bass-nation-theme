@@ -709,12 +709,11 @@ jQuery(document).ready(function ($) {
     }
 
     if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
-        const itemsPerPage = 100;
+        const itemsPerPage = 200;
         let filterContainer = document.querySelector("#filter_images");
         let currentPage = 1;
         let allItems = [];
         let activeCategories = []; // Tracks selected categories
-        let ads = [];
         let originalItems = [];
 
         function initializeItems() {
@@ -740,11 +739,44 @@ jQuery(document).ready(function ($) {
             const start = (currentPage - 1) * itemsPerPage;
             const end = start + itemsPerPage;
 
+            let left = 200;
+            let count = 0;
+            let module = 0;
+
+            if (window.innerWidth < 551) {
+                module = 1;
+            } else if (window.innerWidth < 768) {
+                module = 2;
+            } else if (window.innerWidth < 992) {
+                module = 3;
+            } else {
+                module = 4;
+            }
             // Show only items for the current page
             const pageItems = filteredData.slice(start, end);
             pageItems.forEach((item) => {
+                ++count;
+                item.classList.remove("show");
+                item.style.left = left + "px";
+                if (count % 2 === 0) {
+                    item.style.bottom = 40 + "px";
+                } else {
+                    item.style.top = 40 + "px";
+                }
                 item.style.display = ""; // Show
                 filterContainer.appendChild(item);
+                setTimeout(() => {
+                    item.classList.add("show");
+                    item.style.left = 0;
+                    item.style.top = 0;
+                    item.style.bottom = 0;
+                }, 100);
+
+                if (module === 1 || count % module === 0) {
+                    left = 200;
+                } else {
+                    left -= 50;
+                }
             });
         }
 
@@ -793,19 +825,6 @@ jQuery(document).ready(function ($) {
                 return matchesSearch && matchesFilter;
             });
             let allItemsCopy = [...filteredData];
-            /* let count = 0;
-              allItemsCopy.forEach((item, index) => {
-                if (
-                    ((index + 1) % 5 === 0 && ads.length > 0) ||
-                    (index == filteredData.length - 1 && count == 0)
-                ) {
-                    if (count > ads.length - 1) {
-                        count = 0;
-                    }
-                    filteredData.splice(index, 0, ads[count]);
-                    count++;
-                }
-            }); */
 
             // Filter items
             // If the current page has no items after filtering, reset to the last valid page
@@ -877,163 +896,8 @@ jQuery(document).ready(function ($) {
         initializeItems();
         initializeFilters();
         applyFiltersAndRender();
-
-        /* document.addEventListener("input", (event) => {
-            const isInput =
-                event.target.tagName === "INPUT" ||
-                event.target.tagName === "TEXTAREA";
-            if (!isInput && event.key === "Backspace") {
-                event.preventDefault(); // Prevent navigation
-            }
-
-            if (isInput && event.key === "Enter") {
-                event.preventDefault(); // Prevent form submission
-            }
-        });
-
-        const Shuffle = window.Shuffle;
-        const element = document.querySelector("#filter_images");
-        const shuffleInstance = new Shuffle(element, {
-            itemSelector: ".filtr-item",
-        });
-        shuffleInstance.layout();
-
-        var filterButtons = document.querySelectorAll("li[data-group]");
-        let filterGroup = [];
-
-        filterButtons.forEach(function (button) {
-            button.addEventListener("click", function (event) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                const isActive = button.classList.contains("active");
-                var group = button.getAttribute("data-group");
-
-                if (group === "all") {
-                    removeActiveClassFromButtons();
-                    button.classList.add("active");
-
-                    try {
-                        shuffleInstance.filter(Shuffle.ALL_ITEMS);
-                    } catch (error) {
-                        console.error("Shuffle.js Error:", error);
-                    }
-                } else if (isActive) {
-                    button.classList.remove("active");
-                    filterGroup = filterGroup.filter(
-                        (number) => number != group
-                    );
-
-                    if (filterGroup.length > 0) {
-                        try {
-                            shuffleInstance.filter(filterGroup);
-                        } catch (error) {
-                            console.error("Shuffle.js Error:", error);
-                        }
-                    } else {
-                        document
-                            .querySelector("li.all")
-                            .classList.add("active");
-                        try {
-                            shuffleInstance.filter(Shuffle.ALL_ITEMS);
-                        } catch (error) {
-                            console.error("Shuffle.js Error:", error);
-                        }
-                    }
-                } else {
-                    button.classList.add("active");
-                    if (document.querySelector("li.active.all")) {
-                        document
-                            .querySelector("li.active.all")
-                            .classList.remove("active");
-                    }
-
-                    try {
-                        shuffleInstance.filter(function (element) {
-                            const elGroups =
-                                element.getAttribute("data-groups");
-
-                            if (
-                                elGroups.includes(group) &&
-                                !filterGroup.includes(group)
-                            ) {
-                                filterGroup.push(group);
-                            }
-                        });
-                    } catch (error) {
-                        console.error("Shuffle.js Error:", error);
-                    }
-
-                    try {
-                        shuffleInstance.filter(filterGroup);
-                    } catch (error) {
-                        console.error("Shuffle.js Error:", error);
-                    }
-                }
-            });
-        });
-
-        addSearchFilter(shuffleInstance); */
     }
 
-    /* function removeActiveClassFromButtons() {
-        const activeFilters = document.querySelectorAll(
-            ".filter_list li.active"
-        );
-        activeFilters.forEach((filter) => {
-            filter.classList.remove("active");
-        });
-    }
-
-    function addSearchFilter(shuffleInstance) {
-        const searchInput = document.querySelector(".js-shuffle-search");
-
-        if (!searchInput) {
-            console.error("Search input not found!");
-            return;
-        }
-        searchInput.setAttribute("autocomplete", "off");
-
-        const form = searchInput.closest("form");
-        if (form) {
-            form.addEventListener("submit", (event) => {
-                event.preventDefault();
-                console.log("Form submission prevented");
-            });
-        }
-
-        searchInput.addEventListener("focus", () => {
-            console.log("Search input focused");
-        });
-
-        searchInput.addEventListener("input", (evt) => {
-            evt.preventDefault();
-            const searchText = evt.target.value.toLowerCase();
-            try {
-                shuffleInstance.filter((element) => {
-                    const titleElement =
-                        element.querySelector(".lesson__title");
-                    return (
-                        titleElement &&
-                        titleElement.textContent
-                            .toLowerCase()
-                            .includes(searchText)
-                    );
-                });
-            } catch (error) {
-                console.error("Shuffle.js Error:", error);
-            }
-        });
-
-        searchInput.addEventListener("keyup", (evt) => {
-            console.log(evt.key);
-            if (evt.key === "Enter") {
-                evt.preventDefault(); // Prevent form submission or page reload
-                console.log("Enter key pressed");
-            }
-        });
-    }
- */
     $(".play_video").on("click", function () {
         let videoPlayer = "";
         const htmlBody = $("html, body");

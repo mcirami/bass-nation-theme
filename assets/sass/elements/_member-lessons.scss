@@ -385,6 +385,18 @@
                 padding: 10px;
             }
 
+            &.filtr-item {
+                transition: 0.5s ease-in-out;
+                opacity: 0;
+                position: relative;
+            }
+
+            &.filtr-item.show {
+                opacity: 1;
+                left: 0;
+                top: 0;
+            }
+
             .vid_image_wrap {
                 position: relative;
 
@@ -1585,6 +1597,32 @@
             display: block;
             list-style: unset;
             padding-left: 2rem;
+        }
+    }
+}
+
+#pagination {
+    text-align: center;
+
+    button {
+        appearance: none;
+        -webkit-appearance: none;
+        border: none;
+        background: $white;
+        color: $black;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        margin: 5px;
+        box-shadow:
+            inset 0 5px 10px rgba(0, 0, 0, 0.1),
+            0 2px 5px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s ease;
+
+        &.active,
+        &:hover {
+            color: $white;
+            background: $black;
         }
     }
 }

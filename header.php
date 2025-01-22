@@ -20,17 +20,17 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115393894-1"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-115393894-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
 
 		gtag('config', 'UA-115393894-1');
-	</script> -->
+	</script>
 
 	<!-- Facebook Pixel Code -->
-	<!-- <script>
+	<script>
 		!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 			n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 			n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
@@ -39,7 +39,7 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 		fbq('init', '1092024584249788'); // Insert your pixel ID here.
 		fbq('track', 'PageView');
 	</script>
-	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1092024584249788&ev=PageView&noscript=1" alt=""/></noscript> -->
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1092024584249788&ev=PageView&noscript=1" alt=""/></noscript>
 	<!-- DO NOT MODIFY -->
 	<!-- End Facebook Pixel Code -->
 
@@ -101,7 +101,7 @@ $username = $current_user->user_login;
 ?>
 
 <body <?php body_class(); ?>>
-<!-- <div id="fb-root"></div>
+<div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0&appId=980121096073585&autoLogAppEvents=1" nonce="d1vPKtS3"></script>
 <script>
 	window.fbAsyncInit = function() {
@@ -120,7 +120,7 @@ $username = $current_user->user_login;
 		js.src = "//connect.facebook.net/en_US/sdk.js";
 		fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));
-</script> -->
+</script>
 <?php wp_body_open(); ?>
 
 <div id="page" class="site">

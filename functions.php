@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '3.1.3' );
+	define( '_S_VERSION', '3.1.4' );
 }
 
 /**
@@ -208,7 +208,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-require_once get_template_directory() . '/inc/helpers.php';
+//require_once get_template_directory() . '/inc/helpers.php';
 
 /**
  * Plugin specific

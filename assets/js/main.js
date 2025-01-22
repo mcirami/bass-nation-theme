@@ -1248,9 +1248,11 @@ jQuery(document).ready(function ($) {
 
         if (isLodash) {
             // We know that lodash is loaded in the _ variable
+            console.log("Lodash is loaded");
             return true;
         } else {
             // We know that lodash is NOT loaded
+            console.log("Lodash is NOT loaded");
             return false;
         }
     };

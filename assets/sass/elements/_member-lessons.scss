@@ -589,18 +589,18 @@
 
     .shuffle-container {
         overflow: hidden;
-        position: relative;
+        /* position: relative;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: wrap; */
 
-        .js-shuffle-sizer {
+        /* .js-shuffle-sizer {
             position: absolute;
             opacity: 0;
             visibility: hidden;
-        }
+        } */
 
-        .column {
+        /* .column {
             flex-basis: 25%;
             float: left;
             min-height: 320px;
@@ -626,9 +626,9 @@
                 max-width: 100%;
                 min-height: unset;
             }
-        }
+        } */
 
-        .text_wrap {
+        /* .text_wrap {
             text-align: center;
             margin: 10% 0 15%;
 
@@ -665,7 +665,7 @@
                     }
                 }
             }
-        }
+        } */
 
         .lesson_content {
             padding-top: 10px;

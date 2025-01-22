@@ -17636,83 +17636,80 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 }
 .lessons_page .shuffle-container {
   overflow: hidden;
-  position: relative;
+  /* position: relative;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-}
-.lessons_page .shuffle-container .js-shuffle-sizer {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-}
-.lessons_page .shuffle-container .column {
-  flex-basis: 25%;
-  float: left;
-  min-height: 320px;
-  max-width: 25%;
-}
-@media screen and (max-width: 1199px) {
-  .lessons_page .shuffle-container .column {
-    min-height: 290px;
-  }
-}
-@media screen and (max-width: 991px) {
-  .lessons_page .shuffle-container .column {
-    flex-basis: 33%;
-    max-width: 33%;
-  }
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .shuffle-container .column {
-    flex-basis: 50%;
-    max-width: 50%;
-    min-height: 300px;
-  }
-}
-@media screen and (max-width: 550px) {
-  .lessons_page .shuffle-container .column {
-    flex-basis: 100%;
-    max-width: 100%;
-    min-height: unset;
-  }
-}
-.lessons_page .shuffle-container .text_wrap {
-  text-align: center;
-  margin: 10% 0 15%;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .shuffle-container .text_wrap {
-    margin: 5% 0 15%;
-  }
-}
-.lessons_page .shuffle-container .text_wrap h2, .lessons_page .shuffle-container .text_wrap .h2 {
-  width: 100%;
-  float: left;
-  border: none;
-  text-transform: uppercase;
-}
-.lessons_page .shuffle-container .text_wrap .button {
-  padding: 10px 50px 10px 20px;
-  position: relative;
-}
-.lessons_page .shuffle-container .text_wrap .button:before {
-  content: "";
-  position: absolute;
-  background: url(../images/white-arrow.png) no-repeat;
-  width: 28px;
-  height: 12px;
-  right: 12px;
-  z-index: 1;
-  top: 16px;
-  background-size: 100%;
-}
-@media screen and (max-width: 767px) {
-  .lessons_page .shuffle-container .text_wrap .button:before {
-    top: 14px;
-    width: 25px;
-    right: 13px;
-  }
+  flex-wrap: wrap; */
+  /* .js-shuffle-sizer {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+  } */
+  /* .column {
+      flex-basis: 25%;
+      float: left;
+      min-height: 320px;
+      max-width: 25%;
+
+      @include media($desktop) {
+          min-height: 290px;
+      }
+
+      @include media($tablet) {
+          flex-basis: 33%;
+          max-width: 33%;
+      }
+
+      @include media($mobile) {
+          flex-basis: 50%;
+          max-width: 50%;
+          min-height: 300px;
+      }
+
+      @include media($smallMobile) {
+          flex-basis: 100%;
+          max-width: 100%;
+          min-height: unset;
+      }
+  } */
+  /* .text_wrap {
+      text-align: center;
+      margin: 10% 0 15%;
+
+      @include media($mobile) {
+          margin: 5% 0 15%;
+      }
+
+      h2 {
+          width: 100%;
+          float: left;
+          border: none;
+          text-transform: uppercase;
+      }
+
+      .button {
+          padding: 10px 50px 10px 20px;
+          position: relative;
+
+          &:before {
+              content: "";
+              position: absolute;
+              background: url(../images/white-arrow.png) no-repeat;
+              width: 28px;
+              height: 12px;
+              right: 12px;
+              z-index: 1;
+              top: 16px;
+              background-size: 100%;
+
+              @include media($mobile) {
+                  top: 14px;
+                  width: 25px;
+                  right: 13px;
+              }
+          }
+      }
+  } */
 }
 .lessons_page .shuffle-container .lesson_content {
   padding-top: 10px;

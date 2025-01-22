@@ -1,6 +1,7 @@
 "use strict";
 //const { filter } = require("lodash");
-const { Swiper } = require("swiper/bundle");
+//const { Swiper } = require("swiper/bundle");
+jQuery.noConflict();
 
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
@@ -10,6 +11,14 @@ jQuery(document).ready(function ($) {
 
     window.addEventListener("unhandledrejection", (event) => {
         console.error("Unhandled Promise Rejection:", event.reason);
+    });
+
+    document.addEventListener("click", (event) => {
+        console.log("Click event:", event.target);
+    });
+
+    document.addEventListener("touchstart", (event) => {
+        console.log("Touchstart event:", event.target);
     });
 
     const navIcon = $(".user_mobile_nav p span");
@@ -220,7 +229,7 @@ jQuery(document).ready(function ($) {
         $(".wrapper").toggleClass("slide");
     });
 
-    ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
+    /* ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
 
     function ajaxMailChimpForm($form, $resultElement) {
         // Hijack the submission. We'll submit the form manually.
@@ -236,7 +245,7 @@ jQuery(document).ready(function ($) {
                 submitSubscribeForm($form, $resultElement);
             }
         });
-    }
+    } */
 
     // Validate the email address in the form
     function isValidEmail($form) {
@@ -337,11 +346,11 @@ jQuery(document).ready(function ($) {
         }, 1000);
     });
 
-    $(".share_button").on("click", function () {
+    /* $(".share_button").on("click", function () {
         this.nextElementSibling.classList.toggle("show");
-    });
+    }); */
 
-    if (window.location.hash) {
+    /* if (window.location.hash) {
         let id = "";
 
         const hashTitle = window.location.hash;
@@ -363,7 +372,7 @@ jQuery(document).ready(function ($) {
                 $(window.location.hash).click();
             }, 10);
         }
-    }
+    } */
 
     // Throttle function to limit the number of times a function is called
     function throttle(func, limit) {
@@ -402,7 +411,7 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    $(window).on("scroll", function (event) {
+    /*  $(window).on("scroll", function (event) {
         if ($(window).scrollTop() > 40) {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
@@ -414,9 +423,9 @@ jQuery(document).ready(function ($) {
             ).removeClass("scroll");
             $(".header_bottom").removeClass("home_background");
         }
-    });
+    }); */
 
-    $(".user_mobile_nav").click(function () {
+    /* $(".user_mobile_nav").click(function () {
         if (!$(".nav_wrap ul").hasClass("open")) {
             //$('.nav_wrap ul').slideDown(400);
             $(".nav_wrap ul").addClass("open");
@@ -432,7 +441,7 @@ jQuery(document).ready(function ($) {
             }, 450);
             navIcon.html("+");
         }
-    });
+    }); */
 
     $("#bbp_reply_submit, #bbp_topic_submit").click(function () {
         if ($("#rtmedia_uploader_filelist").is(":visible")) {
@@ -459,7 +468,7 @@ jQuery(document).ready(function ($) {
         bbpContainer.parentsUntil(".even").addClass("attach");
     }
 
-    const youtube = document.querySelectorAll(".youtube_video");
+    /* const youtube = document.querySelectorAll(".youtube_video");
 
     if (youtube) {
         for (let a = 0; a < youtube.length; a++) {
@@ -479,9 +488,9 @@ jQuery(document).ready(function ($) {
                 this.appendChild(iframe);
             });
         }
-    }
+    } */
 
-    const vimeo = document.querySelectorAll(".vimeo_video");
+    /* const vimeo = document.querySelectorAll(".vimeo_video");
 
     if (vimeo.length) {
         for (let b = 0; b < vimeo.length; b++) {
@@ -501,17 +510,17 @@ jQuery(document).ready(function ($) {
                 this.appendChild(iframe);
             });
         }
-    }
+    } */
 
     const pageURL = currentPage.postSlug;
 
-    if (
+    /* if (
         pageURL.includes("video") ||
         pageURL.includes("lesson") ||
         pageURL.includes("bass-nation-tv")
     ) {
         commentVideoEmbed();
-    }
+    } */
 
     function commentVideoEmbed() {
         if ($(".comment-content .bottom_section p a").length > 0) {
@@ -608,7 +617,7 @@ jQuery(document).ready(function ($) {
     let replyToUser = null;
     //let commentReplyURL = null;
 
-    if (commentReply.length) {
+    /* if (commentReply.length) {
         replyToComment(commentReply);
     }
 
@@ -706,7 +715,7 @@ jQuery(document).ready(function ($) {
                 }, 800);
             }
         });
-    }
+    } */
 
     if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
         document.addEventListener("input", (event) => {
@@ -733,7 +742,10 @@ jQuery(document).ready(function ($) {
         let filterGroup = [];
 
         filterButtons.forEach(function (button) {
-            button.addEventListener("click", function () {
+            button.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+
                 const isActive = button.classList.contains("active");
                 var group = button.getAttribute("data-group");
 
@@ -1158,7 +1170,7 @@ jQuery(document).ready(function ($) {
         chatWindow.classList.add("resize");
     }
 
-    const SwiperSlider = new Swiper(".swiper", {
+    /* const SwiperSlider = new Swiper(".swiper", {
         loop: true,
         slidesPerView: 4,
         spaceBetween: 30,
@@ -1188,7 +1200,7 @@ jQuery(document).ready(function ($) {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-    });
+    }); */
 
     const titleInput = document.querySelector("#acf-_post_title");
 

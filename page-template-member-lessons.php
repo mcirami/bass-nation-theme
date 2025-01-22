@@ -204,11 +204,11 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                                 <p>(select as many as you like)</p>
                                 <ul id="lesson_grid" class="filter_list full_width filter-options">
                                     <!-- <li data-multifilter="all" class="active all">All</li> -->
-                                    <li data-group="all" class="active all">All</li>
+                                    <li data-group="all" class="active all filter_button">All</li>
                                     <?php foreach ($levelTerms as $levelTerm) : ?>
 
                                         <!-- <li data-multifilter="<?php echo $levelTerm->term_id;?>"><?php echo $levelTerm->name;?></li> -->
-                                        <li data-group="<?php echo $levelTerm->term_id; ?>"><?php echo $levelTerm->name;?></li>
+                                        <li class="filter_button" data-group="<?php echo $levelTerm->term_id; ?>"><?php echo $levelTerm->name;?></li>
                                     <?php endforeach; ?>
 
                                     <?php foreach ($catTerms as $catTerm) :
@@ -216,14 +216,14 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                                             if($catTerm->slug !== "members-only" && $catTerm->slug !== "uncategorized" && $catTerm->slug !== "free-lessons" && $catTerm->slug !== "ultra-beginner-series") :
                                         ?>
                                                     <!-- <li data-multifilter="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li> -->
-                                                    <li data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
+                                                    <li class="filter_button" data-group="<?php echo $catTerm->term_id;?>"><?php echo $catTerm->name;?></li>
                                             <?php endif; ?>
 
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
                             <div class="search_box">
-                                <input class="textfield js-shuffle-search" type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
+                                <input id="search_input" class="textfield js-shuffle-search" type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
                             </div>
                         </div><!-- filter_controls -->
            
@@ -294,6 +294,7 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                             <div class="js-shuffle-sizer"></div>
                         </div><!-- filtr-container -->
                     </div>
+                    <div id="pagination"></div>
                 </div><!-- container -->
             </section><!-- video_list -->
         </div><!-- full_width -->

@@ -178,7 +178,7 @@ $username = $current_user->user_login;
 	<?php endif; ?>
 
 <?php /* if (!pmpro_hasMembershipLevel() && !is_page(27) && !is_page(30) && !is_page(19)) : */ ?>
-	<!-- <script>
+	<script>
 		jQuery(document).ready(function($){
 			const popup = getCookie("popup");
 			const subscribed = getCookie("subscribed");
@@ -278,7 +278,7 @@ $username = $current_user->user_login;
 				document.cookie = name + "=" + value + expires + "; path=/";
 			}
 		});
-	</script> -->
+	</script>
 
 <?php /* endif;  */?>
 <?php if (is_user_logged_in()) : ?>

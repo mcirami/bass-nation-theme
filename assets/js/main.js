@@ -1,8 +1,7 @@
 "use strict";
-//const { filter } = require("lodash");
-//const { Swiper } = require("swiper/bundle");
+const { filter } = require("lodash");
+const { Swiper } = require("swiper/bundle");
 jQuery.noConflict();
-
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
     window.addEventListener("error", (event) => {
@@ -13,14 +12,6 @@ jQuery(document).ready(function ($) {
         console.error("Unhandled Promise Rejection:", event.reason);
     });
 
-    document.addEventListener("click", (event) => {
-        console.log("Click event:", event.target);
-    });
-
-    document.addEventListener("touchstart", (event) => {
-        console.log("Touchstart event:", event.target);
-    });
-
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
 
@@ -29,10 +20,10 @@ jQuery(document).ready(function ($) {
         $this.html($this.html().replace(/&nbsp;/g, ""));
     });
 
-    /*  const fancybox = $(".fancybox");
+    const fancybox = $(".fancybox");
     const fancybox2 = $(".fancybox2");
 
-    fancyboxInit(); */
+    fancyboxInit();
 
     function fancyboxInit() {
         if (fancybox.length > 0) {
@@ -229,7 +220,7 @@ jQuery(document).ready(function ($) {
         $(".wrapper").toggleClass("slide");
     });
 
-    /* ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
+    ajaxMailChimpForm($("#subscribe-form"), $("#subscribe-result"));
 
     function ajaxMailChimpForm($form, $resultElement) {
         // Hijack the submission. We'll submit the form manually.
@@ -245,7 +236,7 @@ jQuery(document).ready(function ($) {
                 submitSubscribeForm($form, $resultElement);
             }
         });
-    } */
+    }
 
     // Validate the email address in the form
     function isValidEmail($form) {
@@ -346,11 +337,11 @@ jQuery(document).ready(function ($) {
         }, 1000);
     });
 
-    /* $(".share_button").on("click", function () {
+    $(".share_button").on("click", function () {
         this.nextElementSibling.classList.toggle("show");
-    }); */
+    });
 
-    /* if (window.location.hash) {
+    if (window.location.hash) {
         let id = "";
 
         const hashTitle = window.location.hash;
@@ -372,7 +363,7 @@ jQuery(document).ready(function ($) {
                 $(window.location.hash).click();
             }, 10);
         }
-    } */
+    }
 
     // Throttle function to limit the number of times a function is called
     function throttle(func, limit) {
@@ -411,7 +402,7 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    /*  $(window).on("scroll", function (event) {
+    $(window).on("scroll", function (event) {
         if ($(window).scrollTop() > 40) {
             $(
                 ".header_top,.menu,#global_header .logo,.mobile_menu_icon,ul.member_menu > li"
@@ -423,9 +414,9 @@ jQuery(document).ready(function ($) {
             ).removeClass("scroll");
             $(".header_bottom").removeClass("home_background");
         }
-    }); */
+    });
 
-    /* $(".user_mobile_nav").click(function () {
+    $(".user_mobile_nav").click(function () {
         if (!$(".nav_wrap ul").hasClass("open")) {
             //$('.nav_wrap ul').slideDown(400);
             $(".nav_wrap ul").addClass("open");
@@ -441,7 +432,7 @@ jQuery(document).ready(function ($) {
             }, 450);
             navIcon.html("+");
         }
-    }); */
+    });
 
     $("#bbp_reply_submit, #bbp_topic_submit").click(function () {
         if ($("#rtmedia_uploader_filelist").is(":visible")) {
@@ -468,7 +459,7 @@ jQuery(document).ready(function ($) {
         bbpContainer.parentsUntil(".even").addClass("attach");
     }
 
-    /* const youtube = document.querySelectorAll(".youtube_video");
+    const youtube = document.querySelectorAll(".youtube_video");
 
     if (youtube) {
         for (let a = 0; a < youtube.length; a++) {
@@ -488,9 +479,9 @@ jQuery(document).ready(function ($) {
                 this.appendChild(iframe);
             });
         }
-    } */
+    }
 
-    /* const vimeo = document.querySelectorAll(".vimeo_video");
+    const vimeo = document.querySelectorAll(".vimeo_video");
 
     if (vimeo.length) {
         for (let b = 0; b < vimeo.length; b++) {
@@ -510,17 +501,17 @@ jQuery(document).ready(function ($) {
                 this.appendChild(iframe);
             });
         }
-    } */
+    }
 
     const pageURL = currentPage.postSlug;
 
-    /* if (
+    if (
         pageURL.includes("video") ||
         pageURL.includes("lesson") ||
         pageURL.includes("bass-nation-tv")
     ) {
         commentVideoEmbed();
-    } */
+    }
 
     function commentVideoEmbed() {
         if ($(".comment-content .bottom_section p a").length > 0) {
@@ -617,7 +608,7 @@ jQuery(document).ready(function ($) {
     let replyToUser = null;
     //let commentReplyURL = null;
 
-    /* if (commentReply.length) {
+    if (commentReply.length) {
         replyToComment(commentReply);
     }
 
@@ -715,10 +706,179 @@ jQuery(document).ready(function ($) {
                 }, 800);
             }
         });
-    } */
+    }
 
     if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
-        document.addEventListener("input", (event) => {
+        const itemsPerPage = 100;
+        let filterContainer = document.querySelector("#filter_images");
+        let currentPage = 1;
+        let allItems = [];
+        let activeCategories = []; // Tracks selected categories
+        let ads = [];
+        let originalItems = [];
+
+        function initializeItems() {
+            // Get all items dynamically from the page
+
+            if (originalItems.length == 0) {
+                originalItems = Array.from(
+                    document.querySelectorAll(".filtr-item")
+                );
+            } else {
+                allItems = [];
+            }
+
+            originalItems.forEach((item) => {
+                item.style.display = "none";
+                allItems.push(item);
+            });
+
+            filterContainer.innerHTML = "";
+        }
+
+        function renderItems(filteredData) {
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            // Show only items for the current page
+            const pageItems = filteredData.slice(start, end);
+            pageItems.forEach((item) => {
+                item.style.display = ""; // Show
+                filterContainer.appendChild(item);
+            });
+        }
+
+        function renderPagination(totalItems) {
+            const pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement("button");
+                button.textContent = i;
+                button.classList.toggle("active", i === currentPage);
+                button.addEventListener("click", () => {
+                    currentPage = i;
+                    initializeItems();
+                    applyFiltersAndRender();
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth", // Optional for smooth scrolling
+                    });
+                });
+                pagination.appendChild(button);
+            }
+        }
+
+        function applyFiltersAndRender() {
+            const searchInput = document
+                .getElementById("search_input")
+                .value.toLowerCase();
+
+            const filteredData = allItems.filter((item) => {
+                const matchesSearch = item.textContent
+                    .trim()
+                    .toLowerCase()
+                    .includes(searchInput);
+                const matchesFilter =
+                    activeCategories.length === 0 ||
+                    activeCategories.some((value) => {
+                        if (item.dataset.groups.includes(value)) {
+                            return item;
+                        }
+                    });
+
+                return matchesSearch && matchesFilter;
+            });
+            let allItemsCopy = [...filteredData];
+            /* let count = 0;
+              allItemsCopy.forEach((item, index) => {
+                if (
+                    ((index + 1) % 5 === 0 && ads.length > 0) ||
+                    (index == filteredData.length - 1 && count == 0)
+                ) {
+                    if (count > ads.length - 1) {
+                        count = 0;
+                    }
+                    filteredData.splice(index, 0, ads[count]);
+                    count++;
+                }
+            }); */
+
+            // Filter items
+            // If the current page has no items after filtering, reset to the last valid page
+            const totalPages = Math.ceil(allItemsCopy.length / itemsPerPage);
+            if (currentPage > totalPages) {
+                currentPage = totalPages || 1; // Reset to 1 if no items match
+            }
+
+            renderItems(allItemsCopy);
+            renderPagination(allItemsCopy.length);
+        }
+
+        function handleCategoryToggle(category) {
+            if (category === "all") {
+                document.querySelectorAll("li.filter_button").forEach((el) => {
+                    el.classList.remove("active");
+                });
+                activeCategories = [];
+            } else {
+                const index = activeCategories.indexOf(parseInt(category));
+
+                // Add or remove category from activeCategories
+                if (index === -1) {
+                    activeCategories.push(parseInt(category));
+                    document.querySelector("li.all").classList.remove("active");
+                } else {
+                    activeCategories.splice(index, 1);
+                }
+
+                // Update button appearance
+                const button = document.querySelector(
+                    `li[data-group="${parseInt(category)}"]`
+                );
+                button.classList.toggle("active", index === -1);
+            }
+
+            if (activeCategories.length < 1) {
+                document.querySelector("li.all").classList.add("active");
+            }
+
+            // Reset to first page and re-render
+            currentPage = 1;
+            initializeItems();
+            applyFiltersAndRender();
+        }
+
+        function initializeFilters() {
+            const filterButtons = document.querySelectorAll(".filter_button");
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    const category = event.target.dataset.group;
+                    if (category) {
+                        handleCategoryToggle(category);
+                    }
+                });
+            });
+        }
+
+        // Event listeners
+        document
+            .getElementById("search_input")
+            .addEventListener("input", () => {
+                currentPage = 1; // Reset to first page
+                initializeItems();
+                applyFiltersAndRender();
+            });
+
+        // Initial setup
+        initializeItems();
+        initializeFilters();
+        applyFiltersAndRender();
+
+        /* document.addEventListener("input", (event) => {
             const isInput =
                 event.target.tagName === "INPUT" ||
                 event.target.tagName === "TEXTAREA";
@@ -813,10 +973,10 @@ jQuery(document).ready(function ($) {
             });
         });
 
-        addSearchFilter(shuffleInstance);
+        addSearchFilter(shuffleInstance); */
     }
 
-    function removeActiveClassFromButtons() {
+    /* function removeActiveClassFromButtons() {
         const activeFilters = document.querySelectorAll(
             ".filter_list li.active"
         );
@@ -824,17 +984,6 @@ jQuery(document).ready(function ($) {
             filter.classList.remove("active");
         });
     }
-
-    /* function debounce(func, delay) {
-        let timeout;
-        return function (...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => {
-                console.log("Debounced function running...");
-                func.apply(this, args);
-            }, delay);
-        };
-    } */
 
     function addSearchFilter(shuffleInstance) {
         const searchInput = document.querySelector(".js-shuffle-search");
@@ -883,28 +1032,8 @@ jQuery(document).ready(function ($) {
                 console.log("Enter key pressed");
             }
         });
-
-        /* const handleSearch = debounce((evt) => {
-            console.log("Search triggered:", evt.target.value);
-            const searchText = evt.target.value.toLowerCase();
-            shuffleInstance.filter((element) => {
-                const titleElement = element.querySelector(".lesson__title");
-                //Ensure titleElement exists before accessing textContent
-                if (!titleElement) {
-                    console.warn("Title element not found for:", element);
-                    const isMatch = titleText.includes(searchText);
-                    console.log(`Filtering: ${titleText} -> Match: ${isMatch}`);
-                    return isMatch; //Exclude elements without the expected structure
-                }
-                const titleText = titleElement.textContent.toLowerCase().trim();
-                return titleText.includes(searchText);
-            });
-        }, 500); // Adjust the debounce delay as needed
-
-        searchInput.addEventListener("input", handleSearch);
-        */
     }
-
+ */
     $(".play_video").on("click", function () {
         let videoPlayer = "";
         const htmlBody = $("html, body");
@@ -1170,7 +1299,7 @@ jQuery(document).ready(function ($) {
         chatWindow.classList.add("resize");
     }
 
-    /* const SwiperSlider = new Swiper(".swiper", {
+    const SwiperSlider = new Swiper(".swiper", {
         loop: true,
         slidesPerView: 4,
         spaceBetween: 30,
@@ -1200,7 +1329,7 @@ jQuery(document).ready(function ($) {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-    }); */
+    });
 
     const titleInput = document.querySelector("#acf-_post_title");
 
@@ -1248,11 +1377,9 @@ jQuery(document).ready(function ($) {
 
         if (isLodash) {
             // We know that lodash is loaded in the _ variable
-            console.log("Lodash is loaded");
             return true;
         } else {
             // We know that lodash is NOT loaded
-            console.log("Lodash is NOT loaded");
             return false;
         }
     };

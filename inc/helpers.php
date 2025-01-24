@@ -331,3 +331,46 @@ function check_user_verified() {
 
 	return true;
 }
+
+function postToMailChimp($email, $tag) {
+
+	// Mailchimp API endpoint for adding/updating a list member
+    $api_url = "https://us14.api.mailchimp.com/3.0/lists/08854914fe/members/";
+    
+	$body = array(
+        'email_address' => $email,
+        'status'        => 'subscribed',   // or 'pending', 'unsubscribed', etc.
+        'tags'          => array($tag),
+    );
+
+	$args = array(
+        'headers' => array(
+            // Mailchimp API requires basic auth using any string as user and the API key as password
+            'Authorization' => 'Basic ' . base64_encode( 'anystring:' . '0513d13ceae3cf1a1282149b9007f4ba-us14' ),
+            'Content-Type'  => 'application/json',
+        ),
+        'body'    => json_encode($body),
+        'timeout' => 20, // seconds
+    );
+
+	 // Send POST request
+	 $response = wp_remote_post($api_url, $args);
+
+	 if (is_wp_error($response)) {
+        // There was an error making the request.
+        error_log('Mailchimp POST request failed: ' . $response->get_error_message());
+        return false;
+    } else {
+        $status_code = wp_remote_retrieve_response_code($response);
+        if ($status_code == 200) {
+            // Success. In Mailchimp's case, 200 usually indicates it was successful.
+            return true;
+        } else {
+            // Request made it to the endpoint but had a non-200 response
+            $body = wp_remote_retrieve_body($response);
+            error_log("Mailchimp returned status code $status_code. Response body: $body");
+            return false;
+        }
+    }
+    
+}

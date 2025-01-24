@@ -121,7 +121,10 @@ function red_add_new_user() {
 			);
 			if($new_user_id) {
 				wp_new_user_notification($new_user_id);
+				if ( isset($_GET['referer']) && $_GET['referer'] == "mcad") {
+					postToMailChimp($user_email, 'registered');
 
+				}
 				send_verification_email($new_user_id, $user_email);
 
 			}
@@ -225,4 +228,6 @@ function send_verification_email($new_user_id, $user_email) {
 	wp_redirect($redirectURL);
 	exit;
 }
+
+
 ?>

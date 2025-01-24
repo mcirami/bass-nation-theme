@@ -232,6 +232,7 @@
 			<div class="nav-next alignright">
 				<?php if(!empty($current_user->membership_level)) { ?>
 					<a href="<?php echo pmpro_url("account")?>"><?php _e('View Your Membership Account &rarr;', 'pmpro');?></a>
+					<?php postToMailChimp($user_email, 'purchased'); ?>
 				<?php } else { ?>
 					<?php _e('If your account is not activated within a few minutes, please contact the site owner.', 'pmpro');?>
 				<?php } ?>

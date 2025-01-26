@@ -49,7 +49,7 @@ get_header(); ?>
 								</ul>
 							</div>
 							<div class="search_box">
-								<input type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
+								<input id="search_input" type="text" name="search" placeholder="Search Lesson By Keyword" data-search>
 							</div>
 						</div><!-- filter_controls -->
 						<div id="filter_images" class="shuffle-container full_width">

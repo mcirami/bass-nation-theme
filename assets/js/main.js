@@ -711,7 +711,8 @@ jQuery(document).ready(function ($) {
     if (
         currentPage.pageName === "Lessons" ||
         currentPage.pageId == 7 ||
-        currentPage.pageName === "Courses"
+        currentPage.pageName === "Courses" ||
+        currentPage.postType === "courses"
     ) {
         const itemsPerPage = 200;
         let filterContainer = document.querySelector("#filter_images");
@@ -786,25 +787,28 @@ jQuery(document).ready(function ($) {
 
         function renderPagination(totalItems) {
             const pagination = document.getElementById("pagination");
-            pagination.innerHTML = "";
 
-            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            if (pagination) {
+                pagination.innerHTML = "";
 
-            for (let i = 1; i <= totalPages; i++) {
-                const button = document.createElement("button");
-                button.textContent = i;
-                button.classList.toggle("active", i === currentPage);
-                button.addEventListener("click", () => {
-                    currentPage = i;
-                    initializeItems();
-                    applyFiltersAndRender();
-                    window.scrollTo({
-                        top: 0,
-                        left: 0,
-                        behavior: "smooth", // Optional for smooth scrolling
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement("button");
+                    button.textContent = i;
+                    button.classList.toggle("active", i === currentPage);
+                    button.addEventListener("click", () => {
+                        currentPage = i;
+                        initializeItems();
+                        applyFiltersAndRender();
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth", // Optional for smooth scrolling
+                        });
                     });
-                });
-                pagination.appendChild(button);
+                    pagination.appendChild(button);
+                }
             }
         }
 
@@ -838,7 +842,9 @@ jQuery(document).ready(function ($) {
             }
 
             renderItems(allItemsCopy);
-            renderPagination(allItemsCopy.length);
+            if (currentPage.postType !== "courses") {
+                renderPagination(allItemsCopy.length);
+            }
         }
 
         function handleCategoryToggle(category) {

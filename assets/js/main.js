@@ -742,7 +742,8 @@ jQuery(document).ready(function ($) {
 
         function renderItems(filteredData) {
             const start = (currentPage - 1) * itemsPerPage;
-            const end = start + itemsPerPage;
+            //const end = start + itemsPerPage;
+            const end = filteredData.length;
 
             let left = 200;
             let count = 0;
@@ -842,9 +843,9 @@ jQuery(document).ready(function ($) {
             }
 
             renderItems(allItemsCopy);
-            if (currentPage.postType !== "courses") {
+            /* if (currentPage.postType !== "courses") {
                 renderPagination(allItemsCopy.length);
-            }
+            } */
         }
 
         function handleCategoryToggle(category) {
@@ -1045,7 +1046,7 @@ jQuery(document).ready(function ($) {
         html += '<div class="video_wrapper">';
 
         html +=
-            '<iframe frameborder="0" allowfullscreen src="' +
+            '<iframe id="current_video_player" frameborder="0" allowfullscreen src="' +
             videoSrc +
             '"></iframe>' +
             "</div>";
@@ -1095,6 +1096,7 @@ jQuery(document).ready(function ($) {
             document.querySelector("#global_header").style.zIndex = 999;
             videoPlayer.removeClass("open");
             $("body, html").css("overflow-y", "auto");
+            $("#current_video_player").remove();
         });
     }
 

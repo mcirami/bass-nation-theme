@@ -708,7 +708,11 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    if (currentPage.pageName === "Lessons" || currentPage.pageId == 7) {
+    if (
+        currentPage.pageName === "Lessons" ||
+        currentPage.pageId == 7 ||
+        currentPage.pageName === "Courses"
+    ) {
         const itemsPerPage = 200;
         let filterContainer = document.querySelector("#filter_images");
         let currentPage = 1;

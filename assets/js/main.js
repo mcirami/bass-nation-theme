@@ -712,7 +712,8 @@ jQuery(document).ready(function ($) {
         currentPage.pageName === "Lessons" ||
         currentPage.pageId == 7 ||
         currentPage.pageName === "Courses" ||
-        currentPage.postType === "courses"
+        currentPage.postType === "courses" ||
+        currentPage.pageName === "Favorite Lessons"
     ) {
         const itemsPerPage = 200;
         let filterContainer = document.querySelector("#filter_images");

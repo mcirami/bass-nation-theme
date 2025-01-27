@@ -346,7 +346,7 @@ function postToMailChimp($email, $tag) {
 	$args = array(
         'headers' => array(
             // Mailchimp API requires basic auth using any string as user and the API key as password
-            'Authorization' => 'Basic ' . base64_encode( 'anystring:' . '0513d13ceae3cf1a1282149b9007f4ba-us14' ),
+            'Authorization' => 'Basic ' . base64_encode( 'anystring:' . MAILCHIMP_API_KEY ),
             'Content-Type'  => 'application/json',
         ),
         'body'    => json_encode($body),

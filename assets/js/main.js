@@ -12,6 +12,8 @@ jQuery(document).ready(function ($) {
         console.error("Unhandled Promise Rejection:", event.reason);
     });
 
+    let firstPageLoad = true;
+    const htmlBody = $("html, body");
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
 
@@ -330,7 +332,7 @@ jQuery(document).ready(function ($) {
         }
 
         setTimeout(function () {
-            $("html,body").animate(
+            htmlBody.animate(
                 { scrollTop: $(hash).offset().top - headerHeight },
                 500
             );
@@ -341,28 +343,36 @@ jQuery(document).ready(function ($) {
         this.nextElementSibling.classList.toggle("show");
     });
 
-    if (window.location.hash) {
-        let id = "";
+    function getUrlHash() {
+        let id = null;
 
-        const hashTitle = window.location.hash;
+        if (window.location.hash) {
+            const hashTitle = window.location.hash;
 
-        if (hashTitle.indexOf("&") !== -1) {
-            id = hashTitle.replace(/&/g, "and");
-            $(id).click();
-        } else if (hashTitle === "#update-password") {
-            //hashID = hashTitle.replace('#','');
-            $("html,body").animate(
-                { scrollTop: $(hashTitle).offset().top - headerHeight },
-                1000
-            );
-        } else if (hashTitle.indexOf("/") !== -1) {
-            id = hashTitle.replace(/\//g, "-");
-            $(id).click();
-        } else {
-            setTimeout(function () {
-                $(window.location.hash).click();
-            }, 10);
+            if (hashTitle.indexOf("&") !== -1) {
+                id = hashTitle.replace(/&/g, "and");
+                //$(id).click();
+            } else if (hashTitle === "#update-password") {
+                //hashID = hashTitle.replace('#','');
+                htmlBody.animate(
+                    { scrollTop: $(hashTitle).offset().top - headerHeight },
+                    1000
+                );
+            } else if (hashTitle.indexOf("/") !== -1) {
+                id = hashTitle.replace(/\//g, "-");
+                //$(id).click();
+            } else {
+                /* setTimeout(function () {
+                    $(window.location.hash).click();
+                }, 100); */
+
+                id = window.location.hash;
+            }
+
+            return id.replace("#", "");
         }
+
+        return id;
     }
 
     // Throttle function to limit the number of times a function is called
@@ -708,235 +718,16 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    if (
-        currentPage.pageName === "Lessons" ||
-        currentPage.pageId == 7 ||
-        currentPage.pageName === "Courses" ||
-        currentPage.postType === "courses" ||
-        currentPage.pageName === "Favorite Lessons"
-    ) {
-        const itemsPerPage = 200;
-        let filterContainer = document.querySelector("#filter_images");
-        let currentPage = 1;
-        let allItems = [];
-        let activeCategories = []; // Tracks selected categories
-        let originalItems = [];
-
-        function initializeItems() {
-            // Get all items dynamically from the page
-
-            if (originalItems.length == 0) {
-                originalItems = Array.from(
-                    document.querySelectorAll(".filtr-item")
-                );
-            } else {
-                allItems = [];
-            }
-
-            originalItems.forEach((item) => {
-                item.style.display = "none";
-                allItems.push(item);
-            });
-
-            filterContainer.innerHTML = "";
-        }
-
-        function renderItems(filteredData) {
-            const start = (currentPage - 1) * itemsPerPage;
-            //const end = start + itemsPerPage;
-            const end = filteredData.length;
-
-            let left = 200;
-            let count = 0;
-            let module = 0;
-
-            if (window.innerWidth < 551) {
-                module = 1;
-            } else if (window.innerWidth < 768) {
-                module = 2;
-            } else if (window.innerWidth < 992) {
-                module = 3;
-            } else {
-                module = 4;
-            }
-            // Show only items for the current page
-            const pageItems = filteredData.slice(start, end);
-            pageItems.forEach((item) => {
-                ++count;
-                item.classList.remove("show");
-                item.style.left = left + "px";
-                if (count % 2 === 0) {
-                    item.style.bottom = 40 + "px";
-                } else {
-                    item.style.top = 40 + "px";
-                }
-                item.style.display = ""; // Show
-                filterContainer.appendChild(item);
-                setTimeout(() => {
-                    item.classList.add("show");
-                    item.style.left = 0;
-                    item.style.top = 0;
-                    item.style.bottom = 0;
-                }, 100);
-
-                if (module === 1 || count % module === 0) {
-                    left = 200;
-                } else {
-                    left -= 50;
-                }
-            });
-        }
-
-        function renderPagination(totalItems) {
-            const pagination = document.getElementById("pagination");
-
-            if (pagination) {
-                pagination.innerHTML = "";
-
-                const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-                for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement("button");
-                    button.textContent = i;
-                    button.classList.toggle("active", i === currentPage);
-                    button.addEventListener("click", () => {
-                        currentPage = i;
-                        initializeItems();
-                        applyFiltersAndRender();
-                        window.scrollTo({
-                            top: 0,
-                            left: 0,
-                            behavior: "smooth", // Optional for smooth scrolling
-                        });
-                    });
-                    pagination.appendChild(button);
-                }
-            }
-        }
-
-        function applyFiltersAndRender() {
-            const searchInput = document
-                .getElementById("search_input")
-                .value.toLowerCase();
-
-            const filteredData = allItems.filter((item) => {
-                const matchesSearch = item.textContent
-                    .trim()
-                    .toLowerCase()
-                    .includes(searchInput);
-                const matchesFilter =
-                    activeCategories.length === 0 ||
-                    activeCategories.some((value) => {
-                        if (item.dataset.groups.includes(value)) {
-                            return item;
-                        }
-                    });
-
-                return matchesSearch && matchesFilter;
-            });
-            let allItemsCopy = [...filteredData];
-
-            // Filter items
-            // If the current page has no items after filtering, reset to the last valid page
-            const totalPages = Math.ceil(allItemsCopy.length / itemsPerPage);
-            if (currentPage > totalPages) {
-                currentPage = totalPages || 1; // Reset to 1 if no items match
-            }
-
-            renderItems(allItemsCopy);
-            /* if (currentPage.postType !== "courses") {
-                renderPagination(allItemsCopy.length);
-            } */
-        }
-
-        function handleCategoryToggle(category) {
-            if (category === "all") {
-                document.querySelectorAll("li.filter_button").forEach((el) => {
-                    el.classList.remove("active");
-                });
-                activeCategories = [];
-            } else {
-                const index = activeCategories.indexOf(parseInt(category));
-
-                // Add or remove category from activeCategories
-                if (index === -1) {
-                    activeCategories.push(parseInt(category));
-                    document.querySelector("li.all").classList.remove("active");
-                } else {
-                    activeCategories.splice(index, 1);
-                }
-
-                // Update button appearance
-                const button = document.querySelector(
-                    `li[data-group="${parseInt(category)}"]`
-                );
-                button.classList.toggle("active", index === -1);
-            }
-
-            if (activeCategories.length < 1) {
-                document.querySelector("li.all").classList.add("active");
-            }
-
-            // Reset to first page and re-render
-            currentPage = 1;
-            initializeItems();
-            applyFiltersAndRender();
-        }
-
-        function initializeFilters() {
-            const filterButtons = document.querySelectorAll(".filter_button");
-            filterButtons.forEach((button) => {
-                button.addEventListener("click", (event) => {
-                    const category = event.target.dataset.group;
-                    if (category) {
-                        handleCategoryToggle(category);
-                    }
-                });
-            });
-        }
-
-        function debounce(func, delay) {
-            let timeout;
-            return function (...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), delay);
-            };
-        }
-
-        const handleSearchInput = debounce(() => {
-            applyFiltersAndRender();
-        }, 500);
-
-        // Event listeners
-        document
-            .getElementById("search_input")
-            .addEventListener("input", () => {
-                currentPage = 1; // Reset to first page
-                initializeItems();
-                //applyFiltersAndRender();
-                handleSearchInput();
-            });
-
-        // Initial setup
-        initializeItems();
-        initializeFilters();
-        applyFiltersAndRender();
-    }
-
-    $(".play_video").on("click", function () {
+    function bindPlayVideo() {
         let videoPlayer = "";
-        const htmlBody = $("html, body");
         const clickHash = $(this).attr("href");
-        $("body, html").css("overflow-y", "hidden");
+        htmlBody.css("overflow-y", "hidden");
         document.querySelector("#global_header").style.zIndex = 9;
 
         createCookie("clickHash", clickHash, 5);
 
         const videoSrc = $(this).data("src");
-        const videoType = $(this).data("type");
-        const replaceVideoLink = $(this).data("replace");
         const videoTitle = $(this).data("title");
-        const notation = $(this).data("notation");
         const postID = $(this).data("postid");
         const desc = $(this).data("desc");
         const files = $(this).data("files");
@@ -1012,7 +803,251 @@ jQuery(document).ready(function ($) {
                 commentVideoEmbed();
             }, 3000);
         }
-    });
+    }
+
+    if (
+        currentPage.pageName === "Lessons" ||
+        currentPage.pageId == 7 ||
+        currentPage.pageName === "Courses" ||
+        currentPage.postType === "courses" ||
+        currentPage.pageName === "Favorite Lessons"
+    ) {
+        const itemsPerPage = 200;
+        let filterContainer = document.querySelector("#filter_images");
+        let currentPage = 1;
+        let allItems = [];
+        let activeCategories = []; // Tracks selected categories
+        let originalItems = [];
+
+        function initializeItems() {
+            // Get all items dynamically from the page
+
+            if (originalItems.length == 0) {
+                originalItems = Array.from(
+                    document.querySelectorAll(".filtr-item")
+                );
+            } else {
+                allItems = [];
+            }
+
+            originalItems.forEach((item) => {
+                item.style.display = "none";
+                allItems.push(item);
+            });
+
+            filterContainer.innerHTML = "";
+        }
+
+        function renderItems(filteredData) {
+            const selector = getUrlHash();
+            if (selector && firstPageLoad) {
+                let itemIndex = null;
+                filteredData.find((el, index) => {
+                    if (el.querySelector(".play_video").id === selector) {
+                        itemIndex = index;
+                    }
+                });
+
+                if (itemIndex + 1 > itemsPerPage) {
+                    currentPage = Math.ceil((itemIndex + 1) / itemsPerPage);
+                }
+            }
+            firstPageLoad = false;
+            const start = (currentPage - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            //const end = filteredData.length;
+
+            let left = 200;
+            let count = 0;
+            let module = 0;
+
+            if (window.innerWidth < 551) {
+                module = 1;
+            } else if (window.innerWidth < 768) {
+                module = 2;
+            } else if (window.innerWidth < 992) {
+                module = 3;
+            } else {
+                module = 4;
+            }
+            // Show only items for the current page
+            const pageItems = filteredData.slice(start, end);
+            pageItems.forEach((item) => {
+                ++count;
+                item.classList.remove("show");
+                item.style.left = left + "px";
+                if (count % 2 === 0) {
+                    item.style.bottom = 40 + "px";
+                } else {
+                    item.style.top = 40 + "px";
+                }
+                item.style.display = ""; // Show
+                if (item.querySelector(".play_video")) {
+                    item.querySelector(".play_video").addEventListener(
+                        "click",
+                        bindPlayVideo
+                    );
+                }
+                filterContainer.appendChild(item);
+                setTimeout(() => {
+                    item.classList.add("show");
+                    item.style.left = 0;
+                    item.style.top = 0;
+                    item.style.bottom = 0;
+                }, 100);
+
+                if (module === 1 || count % module === 0) {
+                    left = 200;
+                } else {
+                    left -= 50;
+                }
+            });
+
+            if (selector) {
+                const element = document.getElementById(selector);
+                if (element) {
+                    element.click();
+                }
+            }
+        }
+
+        function renderPagination(totalItems) {
+            const pagination = document.getElementById("pagination");
+
+            if (pagination) {
+                pagination.innerHTML = "";
+
+                const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+                for (let i = 1; i <= totalPages; i++) {
+                    const button = document.createElement("button");
+                    button.textContent = i;
+                    button.classList.toggle("active", i === currentPage);
+                    button.addEventListener("click", () => {
+                        currentPage = i;
+                        initializeItems();
+                        applyFiltersAndRender();
+                        window.scrollTo({
+                            top: 0,
+                            left: 0,
+                            behavior: "smooth", // Optional for smooth scrolling
+                        });
+                    });
+                    pagination.appendChild(button);
+                }
+            }
+        }
+
+        function applyFiltersAndRender() {
+            const searchInput = document
+                .getElementById("search_input")
+                .value.toLowerCase();
+
+            const filteredData = allItems.filter((item) => {
+                const matchesSearch = item.textContent
+                    .trim()
+                    .toLowerCase()
+                    .includes(searchInput);
+                const matchesFilter =
+                    activeCategories.length === 0 ||
+                    activeCategories.some((value) => {
+                        if (item.dataset.groups.includes(value)) {
+                            return item;
+                        }
+                    });
+
+                return matchesSearch && matchesFilter;
+            });
+            let allItemsCopy = [...filteredData];
+
+            // Filter items
+            // If the current page has no items after filtering, reset to the last valid page
+            const totalPages = Math.ceil(allItemsCopy.length / itemsPerPage);
+            if (currentPage > totalPages) {
+                currentPage = totalPages || 1; // Reset to 1 if no items match
+            }
+
+            renderItems(allItemsCopy);
+            if (currentPage.postType !== "courses") {
+                renderPagination(allItemsCopy.length);
+            }
+        }
+
+        function handleCategoryToggle(category) {
+            if (category === "all") {
+                document.querySelectorAll("li.filter_button").forEach((el) => {
+                    el.classList.remove("active");
+                });
+                activeCategories = [];
+            } else {
+                const index = activeCategories.indexOf(parseInt(category));
+
+                // Add or remove category from activeCategories
+                if (index === -1) {
+                    activeCategories.push(parseInt(category));
+                    document.querySelector("li.all").classList.remove("active");
+                } else {
+                    activeCategories.splice(index, 1);
+                }
+
+                // Update button appearance
+                const button = document.querySelector(
+                    `li[data-group="${parseInt(category)}"]`
+                );
+                button.classList.toggle("active", index === -1);
+            }
+
+            if (activeCategories.length < 1) {
+                document.querySelector("li.all").classList.add("active");
+            }
+
+            // Reset to first page and re-render
+            currentPage = 1;
+            initializeItems();
+            applyFiltersAndRender();
+        }
+
+        function initializeFilters() {
+            const filterButtons = document.querySelectorAll(".filter_button");
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    location.hash = "";
+                    const category = event.target.dataset.group;
+                    if (category) {
+                        handleCategoryToggle(category);
+                    }
+                });
+            });
+        }
+
+        function debounce(func, delay) {
+            let timeout;
+            return function (...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        const handleSearchInput = debounce(() => {
+            applyFiltersAndRender();
+        }, 500);
+
+        // Event listeners
+        document
+            .getElementById("search_input")
+            .addEventListener("input", () => {
+                currentPage = 1; // Reset to first page
+                initializeItems();
+                //applyFiltersAndRender();
+                handleSearchInput();
+            });
+
+        // Initial setup
+        initializeItems();
+        initializeFilters();
+        applyFiltersAndRender();
+    }
 
     function commentsAjaxCall(url, postid) {
         return $.ajax({
@@ -1096,7 +1131,7 @@ jQuery(document).ready(function ($) {
         document.getElementById("close_video").addEventListener("click", () => {
             document.querySelector("#global_header").style.zIndex = 999;
             videoPlayer.removeClass("open");
-            $("body, html").css("overflow-y", "auto");
+            htmlBody.css("overflow-y", "auto");
             $("#current_video_player").remove();
         });
     }
@@ -1118,7 +1153,7 @@ jQuery(document).ready(function ($) {
             const headerHeight = $("#global_header").height();
 
             $("#post_submit_form").addClass("show");
-            $("html,body").animate(
+            htmlBody.animate(
                 { scrollTop: $(this).offset().top - headerHeight },
                 1000
             );
@@ -1131,7 +1166,7 @@ jQuery(document).ready(function ($) {
         cancelPost.click(function (e) {
             e.preventDefault();
             $("#post_submit_form").removeClass("show");
-            $("html, body").animate({ scrollTop: 100 }, "slow");
+            htmlBody.animate({ scrollTop: 100 }, "slow");
 
             setTimeout(function () {
                 $("#post_video_btn").css("opacity", "1");

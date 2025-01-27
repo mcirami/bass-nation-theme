@@ -43,6 +43,15 @@ function red_registration_fields($reg_form_role) {	?>
 			<input name="red_user_pass_confirm" id="password_again" placeholder="Password Again" class="red_input" type="password" required/>
 		</p>
 		<p>
+			<?php 
+				if ( isset($_GET['referer']) && $_GET['referer'] == "mcad") : 
+					setcookie('mc_referer', $_GET['referer'], strtotime( '+30 days' ) );
+				?>
+					<input id="referer" type="hidden" name="referer" value="<?php echo $_GET['referer']; ?>"/>
+			<?php	
+			endif;
+			?>
+			
 			<input id="website" type="hidden" name="website" value=""/>
 			<input type="hidden" name="red_csrf" value="<?php echo wp_create_nonce('red-csrf'); ?>"/>
 			<input type="hidden" name="red_role" value="<?php echo $reg_form_role; ?>"/>
@@ -121,9 +130,10 @@ function red_add_new_user() {
 			);
 			if($new_user_id) {
 				wp_new_user_notification($new_user_id);
-				if ( isset($_GET['referer']) && $_GET['referer'] == "mcad") {
+				if ( (isset($_POST['referer']) && $_POST['referer'] == "mcad") || 
+				isset($_COOKIE['mc_referer'] ) && $_COOKIE['mc_referer'] == "mcad"  )  {
 					postToMailChimp($user_email, 'registered');
-
+					setcookie('mc_referer', 'registered', strtotime( '+30 days' ) );
 				}
 				send_verification_email($new_user_id, $user_email);
 

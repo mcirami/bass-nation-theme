@@ -90,7 +90,12 @@
 
 <?php endif; ?>
 
-<?php postToMailChimp($current_user->user_email, 'purchased'); ?>
+<?php 
+	if(isset($_COOKIE['mc_referer'] ) && $_COOKIE['mc_referer'] == "registered"  ) {
+		postToMailChimp($current_user->user_email, 'purchased');
+		setcookie('mc_referer', 'purchased', strtotime( '+30 days' ) );
+	}
+?>
 
 	<div class="confirmation_page full_width">
 

@@ -334,13 +334,12 @@ function check_user_verified() {
 
 function postToMailChimp($email, $tag) {
 
+	$emailHash = md5($email);
 	// Mailchimp API endpoint for adding/updating a list member
-    $api_url = "https://us14.api.mailchimp.com/3.0/lists/08854914fe/members/";
+    $api_url = "https://us14.api.mailchimp.com/3.0/lists/ce78863601/members/$emailHash/tags";
     
 	$body = array(
-        'email_address' => $email,
-        'status'        => 'subscribed',   // or 'pending', 'unsubscribed', etc.
-        'tags'          => array($tag),
+		'tags' => [['name' => $tag, 'status' => 'active']]
     );
 
 	$args = array(
@@ -358,19 +357,25 @@ function postToMailChimp($email, $tag) {
 
 	 if (is_wp_error($response)) {
         // There was an error making the request.
+		print_r('Mailchimp POST request failed: ' . $response->get_error_message());
+		exit;
         error_log('Mailchimp POST request failed: ' . $response->get_error_message());
         return false;
     } else {
         $status_code = wp_remote_retrieve_response_code($response);
-        if ($status_code == 200) {
+        if ($status_code == 204) {
             // Success. In Mailchimp's case, 200 usually indicates it was successful.
             return true;
         } else {
             // Request made it to the endpoint but had a non-200 response
             $body = wp_remote_retrieve_body($response);
+			print_r("Mailchimp returned status code $status_code. Response body: $body");
+			exit;
             error_log("Mailchimp returned status code $status_code. Response body: $body");
             return false;
         }
     }
     
 }
+
+postToMailChimp('matteo@link.pro', 'registered');

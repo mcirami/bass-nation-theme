@@ -45,7 +45,7 @@ function red_registration_fields($reg_form_role) {	?>
 		<p>
 			<?php 
 				if ( isset($_GET['referer']) && $_GET['referer'] == "mcad") : 
-					setcookie('mc_referer', $_GET['referer'], strtotime( '+30 days' ) );
+					setcookie('mc_referer', $_GET['referer'], strtotime( '+30 days' ), '/' );
 				?>
 					<input id="referer" type="hidden" name="referer" value="<?php echo $_GET['referer']; ?>"/>
 			<?php	
@@ -132,7 +132,7 @@ function red_add_new_user() {
 				wp_new_user_notification($new_user_id);
 				if ( (isset($_POST['referer']) && $_POST['referer'] == "mcad") || 
 				isset($_COOKIE['mc_referer'] ) && $_COOKIE['mc_referer'] == "mcad"  )  {
-					setcookie('mc_referer', 'registered', strtotime( '+30 days' ) );
+					setcookie('mc_referer', 'registered', strtotime( '+30 days' ), '/' );
 					postToMailChimp($user_email, 'registered');
 				}
 				send_verification_email($new_user_id, $user_email);

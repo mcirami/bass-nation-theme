@@ -93,7 +93,7 @@
 <?php 
 	if(isset($_COOKIE['mc_referer'] ) && $_COOKIE['mc_referer'] == "registered"  ) {
 		postToMailChimp($current_user->user_email, 'purchased');
-		setcookie('mc_referer', 'purchased', strtotime( '+30 days' ) );
+		setcookie('mc_referer', 'purchased', strtotime( '+30 days' ), '/' );
 	}
 ?>
 

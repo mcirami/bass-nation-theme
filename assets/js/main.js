@@ -971,6 +971,8 @@ jQuery(document).ready(function ($) {
             if (currentPage.postType !== "courses") {
                 renderPagination(allItemsCopy.length);
             }
+
+            location.hash = "";
         }
 
         function handleCategoryToggle(category) {

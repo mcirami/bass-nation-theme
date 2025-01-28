@@ -336,7 +336,7 @@ function postToMailChimp($email, $tag) {
 
 	$emailHash = md5($email);
 	// Mailchimp API endpoint for adding/updating a list member
-    $api_url = "https://us14.api.mailchimp.com/3.0/lists/ce78863601/members/$emailHash/tags";
+    $api_url = "https://us14.api.mailchimp.com/3.0/lists/08854914fe/members/$emailHash/tags";
     
 	$body = array(
 		'tags' => [['name' => $tag, 'status' => 'active']]

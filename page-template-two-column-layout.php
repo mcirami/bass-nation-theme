@@ -11,16 +11,67 @@
 
 get_header();
 
+$referer = isset($_GET['referer']) ? $_GET['referer'] : null;
+
 ?>
  	<section class="two_column_template full_width page_content <?php echo $pagename; ?> <?php echo is_user_logged_in() ? "member" : ""; ?>">
 		<div class="container">
 			<header class="sub_header full_width">
-				<h2><?php echo the_title(); ?></h2>
+                <?php if ($referer) : ?>
+                    <h2>Welcome To Bass Nation!</h2>
+                <?php else: ?>
+ 				    <h2><?php echo the_title(); ?></h2>
+                <?php endif; ?>
 			</header>
 		 </div><!-- .container -->
 
 		<section class="two_column_section full_width">
 			<div class="container">
+                <?php if ($referer) : ?>
+                    <div class="confirmation_text">
+                        <h3 class="lh-lg">
+                            Thanks for joining our email list and taking the first step towards becoming a better bass player! </br> We’re excited to have you in the Bass Nation community.
+                        </h3>
+                       <div class="list_wrap">
+                            <p>
+                                Ready to Level Up Your Skills?
+                            </p>
+                            <ul class="check_list mb-5">
+                                <li>
+                                    <p>
+                                        <strong>Step-by-Step Lessons:</strong> Master the essentials or sharpen advanced techniques with our comprehensive video lessons.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Expert Feedback:</strong> Get personalized tips from pro bassists who’ve been exactly where you are now.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Community Support:</strong> Connect with fellow bass players from around the world, share progress, and stay motivated.
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <strong>Exclusive Resources:</strong> Discover specialized practice routines, downloadable tabs, and insider guides you won’t find anywhere else.
+                                    </p>
+                                </li>
+                            </ul>
+                       </div>
+                        <p>
+                            Imagine yourself grooving to your favorite tunes with total confidence.
+                        </p>
+                        <p class="lh-lg">
+                            Whether you’re just picking up the bass for the first time or looking to refine advanced techniques, 
+                            <strong>joining Bass Nation</strong> gives you all the tools you need to groove with confidence. 
+                            Take your playing to the next level—don’t settle for slow progress!
+                        </p>
+                        <h3 class="text-center my-5 text-uppercase lh-lg">
+                            Register below and start learning today. </br> We can’t wait to see you inside the members area!
+                        </h3>
+                    </div>
+                <?php endif; ?>
 				<div class="columns_wrap">
                 <?php if (str_contains(strtolower($pagename), 'register')) : ?>
                         <div class="column">

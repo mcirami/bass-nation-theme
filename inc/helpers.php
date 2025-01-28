@@ -377,5 +377,3 @@ function postToMailChimp($email, $tag) {
     }
     
 }
-
-postToMailChimp('matteo@link.pro', 'registered');

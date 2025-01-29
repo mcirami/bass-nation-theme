@@ -88,7 +88,7 @@ $level_groups  = pmpro_get_level_groups_in_order();
 				foreach($levels_to_show_for_group as $level)
 				{?>
 					<div class="column">
-						<?php if ($level->id == 4) : ?>
+						<?php if ($level->id == 3) : ?>
 							<div class="highlight">
 								<p>Most Bass For Your Buck!</p>
 							</div>
@@ -97,7 +97,6 @@ $level_groups  = pmpro_get_level_groups_in_order();
 							<div class="full_width">
 								<div class="column_heading full_width">
 									<?php if ($level->id == 1) : ?>
-										<!--<p>With FREE 3-Day Trial</p>-->
 										<h2>FREE 3 Day Trial</h2>
 										<p>then only <span>$9.99/month</span></p>
 									<?php elseif ($level->id == 2 ) :?>

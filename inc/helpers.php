@@ -311,7 +311,7 @@ function my_redirect()
 	if( ( is_page( 'membership-checkout' ) || is_page( 'membership-levels' ) ) && (! is_user_logged_in() || ! $approved ))
 	{
 		if (! is_user_logged_in()) {
-			wp_redirect( home_url() );
+			wp_redirect( wp_login_url() );
 		} else {
 			wp_redirect( get_site_url() . '/verify-account');
 		}

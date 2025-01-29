@@ -32,41 +32,47 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                         <h3 class="lh-lg">
                             Thanks for joining our email list and taking the first step towards becoming a better bass player! </br> We’re excited to have you in the Bass Nation community.
                         </h3>
-                       <div class="list_wrap">
-                            <p>
-                                Ready to Level Up Your Skills?
-                            </p>
-                            <ul class="check_list mb-5">
-                                <li>
-                                    <p>
-                                        <strong>Step-by-Step Lessons:</strong> Master the essentials or sharpen advanced techniques with our comprehensive video lessons.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <strong>Expert Feedback:</strong> Get personalized tips from pro bassists who’ve been exactly where you are now.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <strong>Community Support:</strong> Connect with fellow bass players from around the world, share progress, and stay motivated.
-                                    </p>
-                                </li>
-                                <li>
-                                    <p>
-                                        <strong>Exclusive Resources:</strong> Discover specialized practice routines, downloadable tabs, and insider guides you won’t find anywhere else.
-                                    </p>
-                                </li>
-                            </ul>
-                       </div>
-                        <p>
-                            Imagine yourself grooving to your favorite tunes with total confidence.
-                        </p>
-                        <p class="lh-lg">
-                            Whether you’re just picking up the bass for the first time or looking to refine advanced techniques, 
-                            <strong>joining Bass Nation</strong> gives you all the tools you need to groove with confidence. 
-                            Take your playing to the next level—don’t settle for slow progress!
-                        </p>
+                        <div class="top_columns_wrap">
+                            <div class="list_wrap column">
+                                <h3 class="mt-0">
+                                    Ready to Level Up Your Skills?
+                                </h3>
+                                <ul class="check_list mb-5">
+                                    <li>
+                                        <p>
+                                            <strong>Step-by-Step Lessons:</strong> Master the essentials or sharpen advanced techniques with our comprehensive video lessons.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <strong>Expert Feedback:</strong> Get personalized tips from pro bassists who’ve been exactly where you are now.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <strong>Community Support:</strong> Connect with fellow bass players from around the world, share progress, and stay motivated.
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            <strong>Exclusive Resources:</strong> Discover specialized practice routines, downloadable tabs, and insider guides you won’t find anywhere else.
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="column">
+                                <h3 class="mb-5 lh-base">
+                                    Imagine yourself grooving to your favorite tunes with total confidence!
+                                </h3>
+                                <p class="lh-lg">
+                                    Whether you’re just picking up the bass for the first time or looking to refine advanced techniques, 
+                                    <strong>joining Bass Nation</strong> gives you all the tools you need to groove with confidence.
+                                </p>
+                                <p class="text-uppercase text-center mt-5 lh-lg">
+                                    Take your playing to the next level—</br>don’t settle for slow progress!
+                                </p>
+                            </div>
+                        </div>
                         <h3 class="text-center my-5 text-uppercase lh-lg">
                             Register below and start learning today. </br> We can’t wait to see you inside the members area!
                         </h3>

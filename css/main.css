@@ -26287,11 +26287,11 @@ input[type=file].file_selected:before {
 .two_column_template.register .two_column_section .top_columns_wrap .column:last-child {
   display: flex;
   flex-direction: column;
-  border: 1px solid #b80008;
+  border: 1px solid #ff000a;
   border-radius: 6px;
 }
 .two_column_template.register .two_column_section .top_columns_wrap .column:last-child strong {
-  color: #b80008;
+  color: #ff000a;
 }
 .two_column_template.register .two_column_section .top_columns_wrap .column:last-child p:last-child {
   color: #c4a020;

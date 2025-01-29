@@ -32,7 +32,7 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                         <h3 class="lh-lg">
                             Thanks for joining our email list and taking the first step towards becoming a better bass player! </br> We’re excited to have you in the Bass Nation community.
                         </h3>
-                        <div class="top_columns_wrap">
+                        <div class="top_columns_wrap mb-5">
                             <div class="list_wrap column">
                                 <h3 class="mt-0">
                                     Ready to Level Up Your Skills?
@@ -73,12 +73,12 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                                 </p>
                             </div>
                         </div>
-                        <h3 class="text-center my-5 text-uppercase lh-lg">
-                            Register below and start learning today. </br> We can’t wait to see you inside the members area!
+                        <h3 class="text-center my-5 text-uppercase lh-lg call_to_action">
+                           <span>Register below and start learning today!</span> </br> We can’t wait to see you inside the members area!
                         </h3>
                     </div>
                 <?php endif; ?>
-				<div class="columns_wrap">
+				<div class="columns_wrap mt-5">
                 <?php if (str_contains(strtolower($pagename), 'register')) : ?>
                         <div class="column">
                             <div class="numbered_list">

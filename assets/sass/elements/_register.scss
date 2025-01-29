@@ -41,11 +41,11 @@
                     &:last-child {
                         display: flex;
                         flex-direction: column;
-                        border: 1px solid $darkModeRed;
+                        border: 1px solid $red;
                         border-radius: 6px;
 
                         strong {
-                            color: $darkModeRed;
+                            color: $red;
                         }
 
                         p {

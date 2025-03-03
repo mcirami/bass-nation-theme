@@ -805,6 +805,8 @@ jQuery(document).ready(function ($) {
         }
     }
 
+    console.log("pageName: ", currentPage.pageName);
+
     if (
         currentPage.pageName === "Lessons" ||
         currentPage.pageId == 7 ||

@@ -13,6 +13,50 @@
         .two_column_section {
             padding-bottom: 100px;
 
+            .top_columns_wrap {
+                display: flex;
+                gap: 40px;
+
+                @include media($tablet) {
+                    flex-wrap: wrap;
+                }
+
+                .column {
+                    width: 50%;
+                    padding: 40px;
+
+                    @include media($tablet) {
+                        width: 100%;
+                    }
+
+                    strong,
+                    h3 {
+                        @include interbold;
+                    }
+
+                    &.list_wrap {
+                        background: $darkerGray;
+                    }
+
+                    &:last-child {
+                        display: flex;
+                        flex-direction: column;
+                        border: 1px solid $red;
+                        border-radius: 6px;
+
+                        strong {
+                            color: $red;
+                        }
+
+                        p {
+                            &:last-child {
+                                color: $yellowHover;
+                            }
+                        }
+                    }
+                }
+            }
+
             .columns_wrap {
                 flex-wrap: wrap;
 

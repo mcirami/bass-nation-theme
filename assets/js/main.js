@@ -643,7 +643,6 @@ jQuery(document).ready(function ($) {
 
                 replyToUser = $(this).attr("aria-label").split("to");
                 replyToUser = replyToUser[1].trim();
-
                 //commentReplyURL = window.location.href;
 
                 commentParent = parseInt(
@@ -667,6 +666,7 @@ jQuery(document).ready(function ($) {
                     async: false,
                     success(response) {
                         //alert ("Email Sent");
+                        console.log("response: ", response);
                         return response;
                     },
                     error(xhRequest, errorThrown, resp) {
@@ -683,7 +683,7 @@ jQuery(document).ready(function ($) {
                 );
 
                 $(this)
-                    .closest(".reply")
+                    .closest(".comment-metadata")
                     .find("#comment_parent")
                     .val(commentParent);
             }, 300);

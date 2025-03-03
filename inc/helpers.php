@@ -82,7 +82,7 @@ function send_post_author_notification($comment_ID, $comment_approved, $commentd
 	$postURL     = preg_replace( '/%..|[^a-zA-Z0-9-]/', '', get_post_permalink( $postID ));
 	//$commentContent = $commentdata['comment_content'];
 
-	if(strpos($postURL, 'video-q-and-a') !== false && $commentAuthorEmail !== $postAuthorEmail) {
+	if( str_contains( $postURL, 'video-q-and-a' ) && $commentAuthorEmail !== $postAuthorEmail) {
 
 		$messageData = "
 			<div style='background: #000; padding: 20px 20px 100px 20px; text-align: center;'>
@@ -311,7 +311,7 @@ function my_redirect()
 	if( ( is_page( 'membership-checkout' ) || is_page( 'membership-levels' ) ) && (! is_user_logged_in() || ! $approved ))
 	{
 		if (! is_user_logged_in()) {
-			wp_redirect( home_url() );
+			wp_redirect( wp_login_url() );
 		} else {
 			wp_redirect( get_site_url() . '/verify-account');
 		}
@@ -330,4 +330,50 @@ function check_user_verified() {
 	}
 
 	return true;
+}
+
+function postToMailChimp($email, $tag) {
+
+	$emailHash = md5($email);
+	// Mailchimp API endpoint for adding/updating a list member
+    $api_url = "https://us14.api.mailchimp.com/3.0/lists/08854914fe/members/$emailHash/tags";
+    
+	$body = array(
+		'tags' => [['name' => $tag, 'status' => 'active']]
+    );
+
+	$args = array(
+        'headers' => array(
+            // Mailchimp API requires basic auth using any string as user and the API key as password
+            'Authorization' => 'Basic ' . base64_encode( 'anystring:' . MAILCHIMP_API_KEY ),
+            'Content-Type'  => 'application/json',
+        ),
+        'body'    => json_encode($body),
+        'timeout' => 20, // seconds
+    );
+
+	 // Send POST request
+	 $response = wp_remote_post($api_url, $args);
+
+	 if (is_wp_error($response)) {
+        // There was an error making the request.
+		print_r('Mailchimp POST request failed: ' . $response->get_error_message());
+		exit;
+        error_log('Mailchimp POST request failed: ' . $response->get_error_message());
+        return false;
+    } else {
+        $status_code = wp_remote_retrieve_response_code($response);
+        if ($status_code == 204) {
+            // Success. In Mailchimp's case, 200 usually indicates it was successful.
+            return true;
+        } else {
+            // Request made it to the endpoint but had a non-200 response
+            $body = wp_remote_retrieve_body($response);
+			print_r("Mailchimp returned status code $status_code. Response body: $body");
+			exit;
+            error_log("Mailchimp returned status code $status_code. Response body: $body");
+            return false;
+        }
+    }
+    
 }

@@ -82,7 +82,7 @@ function send_post_author_notification($comment_ID, $comment_approved, $commentd
 	$postURL     = preg_replace( '/%..|[^a-zA-Z0-9-]/', '', get_post_permalink( $postID ));
 	//$commentContent = $commentdata['comment_content'];
 
-	if(strpos($postURL, 'video-q-and-a') !== false && $commentAuthorEmail !== $postAuthorEmail) {
+	if( str_contains( $postURL, 'video-q-and-a' ) && $commentAuthorEmail !== $postAuthorEmail) {
 
 		$messageData = "
 			<div style='background: #000; padding: 20px 20px 100px 20px; text-align: center;'>

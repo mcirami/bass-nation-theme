@@ -3,22 +3,17 @@
     <div class="column">
 
             <?php $videoLink = get_field('video_link');
-
+            $embedLink = null;
             if ( str_contains( $videoLink, "embed" ) ) {
                 $embedLink = $videoLink . "/?rel=0&showinfo=0";
-            } elseif ( str_contains( $videoLink, "v=" ) ) {
-                $embedCode = getVideoEmbedCode($videoLink);
-                $embedLink =  "https://www.youtube.com/embed/" . $embedCode . "/?rel=0&showinfo=0";
-            } elseif ( str_contains( $videoLink, "youtu.be" ) ) {
-                $embedCode = getVideoEmbedCode($videoLink);
-                $embedLink = "https://www.youtube.com/embed/" . $embedCode . "/?rel=0&showinfo=0";
-            } elseif ( str_contains( $videoLink, "vimeo" ) ) {
-                    $embedCode = getVideoEmbedCode($videoLink);
-                    $embedLink = "https://player.vimeo.com/video/" . $embedCode . "/?autoplay=1";
             } else {
-                $embedLink = null;
+                $embedCode = getVideoEmbedCode($videoLink);
+                if ( (str_contains( $videoLink, "v=" ) && str_contains( $videoLink, "youtube" ) ) || str_contains( $videoLink, "youtu.be" ) ) {
+                    $embedLink =  "https://www.youtube.com/embed/" . $embedCode . "/?rel=0&showinfo=0";
+                } elseif ( str_contains( $videoLink, "vimeo" ) ) {
+                    $embedLink = "https://player.vimeo.com/video/" . $embedCode;
+                }
             }
-
 
             if ($embedLink != null) :
 

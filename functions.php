@@ -9,7 +9,7 @@
 
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.7.8' );
+	define( '_S_VERSION', '1.8.6' );
 }
 
 /**
@@ -174,9 +174,9 @@ function bass_nation_scripts() {
 	}
 
 	wp_localize_script( 'main_js', 'currentPage', array(
-		'pageName' => get_the_title(),
-		'postType' => get_post_type(),
-		'postSlug' => get_permalink(),
+		'pageName' 	=> get_the_title(),
+		'postType' 	=> get_post_type(),
+		'postSlug' 	=> get_permalink(),
 	) );
 
 }

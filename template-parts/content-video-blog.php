@@ -22,7 +22,19 @@
 	        <?php if ($embedCode) : ?>
 
 	            <a href="<?php the_permalink(); ?>">
-	                <img class="youtube_img" src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="Video Thumbnail" />
+					<?php if (str_contains($videoLink, "vimeo")) : ?>
+						<img class="youtube_img"
+							srcset="
+								https://vumbnail.com/<?php echo $embedCode; ?>_large.jpg 640w, 
+								https://vumbnail.com/<?php echo $embedCode; ?>_medium.jpg 200w, 
+								https://vumbnail.com/<?php echo $embedCode; ?>_small.jpg 100w
+							"
+							src="https://vumbnail.com/<?php echo $embedCode; ?>.jpg" 
+							alt="Video Thumbnail" 
+						/>
+					<?php else: ?>
+	                	<img class="youtube_img" src="https://img.youtube.com/vi/<?php echo $embedCode; ?>/mqdefault.jpg" alt="Video Thumbnail" />
+					<?php endif; ?>
 	            </a>
 	        <?php else:  ?>
 	            <a href="<?php the_permalink(); ?>">

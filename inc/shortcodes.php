@@ -4,7 +4,17 @@ function hash_shortcode() {
 		$hash = $_COOKIE['clickHash'];
 	}
 
-	return get_site_url() . "/lessons/" . $hash;
+	if ( isset( $_COOKIE['clickSlug'] ) ) {
+		$clickSlug = $_COOKIE['clickSlug'];
+	}
+
+	if (str_contains($hash, "course")) {
+		$slug = "courses/" . $clickSlug ;
+	} else {
+		$slug = "lessons";
+	}
+
+	return get_site_url() . "/" . $slug . "/" . $hash;
 }
 add_shortcode( 'lessonhash', 'hash_shortcode' );
 

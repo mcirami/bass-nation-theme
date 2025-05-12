@@ -1096,7 +1096,7 @@ form {
     .pmpro_card {
         overflow: visible;
     }
-    .pmpro_section#pmpro_billing-1 {
+    .pmpro_section#pmpro_billing-1, .pmpro_section#pmpro_billing-2 {
         > .pmpro_card:not(.pmpro_form) {
             padding: 40px;
             color: $black;
@@ -1154,6 +1154,17 @@ form {
             @include medLargeFont;
             @include interbold;
             margin-top: 0;
+        }
+    }
+
+    .pmpro_billing_gateway-stripe {
+        .pmpro_card_content {
+            #pmpro_payment_information_fields .pmpro_payment-expiration {
+                width: 48%;
+            }
+            .pmpro_form_submit {
+                width: 100%;
+            }
         }
     }
 

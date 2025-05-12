@@ -721,7 +721,7 @@
     }
 
     .membership-billing {
-        .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+        .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form), .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form)  {
             background: $darkerGray;
             color: $grayText;
         }

@@ -22544,7 +22544,7 @@ form .acf-spinner {
 .membership-billing .pmpro_card {
   overflow: visible;
 }
-.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form), .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) {
   padding: 40px;
   color: #000000;
   margin-bottom: 60px;
@@ -22552,28 +22552,28 @@ form .acf-spinner {
   box-shadow: 0px 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
 }
 @media screen and (max-width: 991px) {
-  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form), .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) {
     margin-bottom: 40px;
   }
 }
-.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a {
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) a {
   color: #ff000a;
 }
-.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a:hover {
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) a:hover, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) a:hover {
   color: #880415;
 }
-.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3 {
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) .h3 {
   font-size: 3.2rem;
   font-family: "interbold", sans-serif;
   font-weight: 700;
   margin-top: 0;
 }
 @media screen and (max-width: 767px) {
-  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3 {
+  .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .h3, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) h3, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) .h3 {
     font-size: 2.5rem;
   }
 }
-.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .pmpro_card_content {
+.membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) .pmpro_card_content, .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) .pmpro_card_content {
   flex-direction: column;
 }
 .membership-billing .pmpro_card_content {
@@ -22613,6 +22613,12 @@ form .acf-spinner {
   .membership-billing .pmpro_card_content .h2 {
     font-size: 2.5rem;
   }
+}
+.membership-billing .pmpro_billing_gateway-stripe .pmpro_card_content #pmpro_payment_information_fields .pmpro_payment-expiration {
+  width: 48%;
+}
+.membership-billing .pmpro_billing_gateway-stripe .pmpro_card_content .pmpro_form_submit {
+  width: 100%;
 }
 .membership-billing .pmpro_form_input {
   height: 55px;
@@ -27104,7 +27110,7 @@ input[type=file].file_selected:before {
 .db-dark-mode-active.logged-in .form_wrapper p.terms {
   color: #959494;
 }
-.db-dark-mode-active.logged-in .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form) {
+.db-dark-mode-active.logged-in .membership-billing .pmpro_section#pmpro_billing-1 > .pmpro_card:not(.pmpro_form), .db-dark-mode-active.logged-in .membership-billing .pmpro_section#pmpro_billing-2 > .pmpro_card:not(.pmpro_form) {
   background: #131313;
   color: #959494;
 }

@@ -16574,6 +16574,13 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   margin-top: 20px;
   float: none;
 }
+.confirmation_page .button_wrap .button:not(.ed_button):not([type=checkbox]) {
+  margin: 0 auto;
+}
+.confirmation_page .button_wrap .button:not(.ed_button):not([type=checkbox]).black.light_bg:hover {
+  background: #ff000a;
+  color: #fff;
+}
 .confirmation_page ul {
   margin-top: 60px;
   display: inline-block;

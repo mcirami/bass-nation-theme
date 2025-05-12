@@ -65,6 +65,15 @@
     .button_wrap {
         margin-top: 20px;
         float: none;
+
+        .button:not(.ed_button):not([type=checkbox]) {
+            margin: 0 auto;
+
+            &.black.light_bg:hover {
+                background: $red;
+                color: $white;
+            }
+        }
     }
 
     ul {

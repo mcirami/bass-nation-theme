@@ -21,7 +21,7 @@
 				<?php else : ?>
 					<header class="sub_header full_width">
         				<div class="container">
-							<h2><?php the_title(); ?></h2>
+							<h2 class="<?php if (is_page('registration-confirmation') || is_page('verify-account')) { echo "text-center"; } ?>"><?php the_title(); ?></h2>
 						</div>
 					</header>
 				<?php endif; ?>

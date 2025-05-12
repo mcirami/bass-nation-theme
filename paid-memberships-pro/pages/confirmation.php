@@ -161,7 +161,7 @@
 				-->
 			</ul>
 			<div class="button_wrap full_width">
-				<a class="button black" href="/member-home">Go To My Home Page</a>
+				<a class="button black light_bg" href="/member-home">Go To My Home Page</a>
 			</div>
 			<!--
 			<table id="pmpro_confirmation_table" class="pmpro_invoice" width="100%" cellpadding="0" cellspacing="0" border="0">

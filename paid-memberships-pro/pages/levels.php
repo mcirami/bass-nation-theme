@@ -87,7 +87,7 @@ $level_groups  = pmpro_get_level_groups_in_order();
 				$count = 0;
 				foreach($levels_to_show_for_group as $level)
 				{?>
-					<div class="column">
+					<div class="column <?php if ($level->id == 3) { echo "col_highlight"; }; ?>">
 						<?php if ($level->id == 3) : ?>
 							<div class="highlight">
 								<p>Most Bass For Your Buck!</p>

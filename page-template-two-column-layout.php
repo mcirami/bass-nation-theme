@@ -23,7 +23,57 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
  				    <h2><?php echo the_title(); ?></h2>
                 <?php endif; ?>
 			</header>
-		 </div><!-- .container -->
+		<?php if (str_contains(strtolower($pagename), 'register')) : ?>
+			<div class="full_width membership-levels">
+				<div class="pmpro">
+					<section id="pmpro_levels" class="pmpro_section mt-0">
+						<div class="pmpro_section_content">
+							<div class="pmpro_card mt-5">
+								<!--<h3 class="text-uppercase">Membership Levels</h3>-->
+								<div class="pmpro_card_content pb-0 mb-2 register">
+									<div class="column">
+										<div class="column_content">
+											<div class="column_heading full_width">
+												<h2>MONTHLY</h2>
+												<p><span>$9.99/month</span></p>
+											</div>
+										</div>
+									</div>
+									<div class="column">
+										<div class="column_content">
+											<div class="column_heading full_width">
+												<h2>EVERY 3 MONTHS</h2>
+												<p><span>$28.99/3 months</span></p>
+											</div>
+										</div>
+									</div>
+									<div class="column">
+										<div class="column_content">
+											<div class="column_heading full_width">
+												<h2>EVERY 6 MONTHS</h2>
+												<p><span>$54.99/6 months</span></p>
+											</div>
+										</div>
+									</div>
+									<div class="column">
+										<div class="column_content">
+											<div class="column_heading full_width">
+												<h2>YEARLY</h2>
+												<p><span>$99.99/year</span></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<small class="full_width text-uppercase"><span>*</span> All Levels Include a 3-Day Trial</small>
+						</div>
+					</section>
+				</div>
+
+			</div>
+		<?php endif; ?>
+
+		</div><!-- .container -->
 
 		<section class="two_column_section full_width">
 			<div class="container">

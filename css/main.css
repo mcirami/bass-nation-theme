@@ -16635,6 +16635,9 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
     margin-top: 0;
   }
 }
+#pmpro_levels small, #pmpro_levels .small {
+  color: #c4a020;
+}
 #pmpro_levels .pmpro_card_content {
   display: flex;
   flex-direction: row;

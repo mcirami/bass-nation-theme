@@ -726,7 +726,7 @@ jQuery(document).ready(function ($) {
 
         const pageName = currentPage.pageName.toLowerCase();
         if (pageName.includes("course")) {
-            clickHash = pageName.replace(" ", "-") + clickHash;
+            clickHash = pageName.replaceAll(" ", "-") + clickHash;
         }
         createCookie("clickHash", clickHash, 5);
 

@@ -10,7 +10,7 @@ function hash_shortcode() {
 	}*/
 
 	if (str_contains($hash, "course")) {
-		$slug = "courses";
+		$slug = "courses/";
 	} else {
 		$slug = "lessons";
 	}

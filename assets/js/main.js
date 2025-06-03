@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
 
-    $(".bbp-topic-freshness-author").each(function () {
+    $(".bbp-topic-freshness-author").each(function () {x
         const $this = $(this);
         $this.html($this.html().replace(/&nbsp;/g, ""));
     });
@@ -720,10 +720,14 @@ jQuery(document).ready(function ($) {
 
     function bindPlayVideo() {
         let videoPlayer = "";
-        const clickHash = $(this).attr("href");
+        let clickHash = $(this).attr("href");
         htmlBody.css("overflow-y", "hidden");
         document.querySelector("#global_header").style.zIndex = 9;
 
+        const pageName = currentPage.pageName.toLowerCase();
+        if (pageName.includes("course")) {
+            clickHash = pageName.replace(" ", "-") + clickHash;
+        }
         createCookie("clickHash", clickHash, 5);
 
         const videoSrc = $(this).data("src");

@@ -112,6 +112,7 @@ add_action('comment_post', 'send_post_author_notification', 10, 3);
 
 
 function custom_post_comment_action($location, $commentData) {
+	$hash = '';
 	if ( isset( $_COOKIE['clickHash'] ) ) {
 		$hash = $_COOKIE['clickHash'];
 	}

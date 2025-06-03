@@ -1,20 +1,21 @@
 <?php
 function hash_shortcode() {
+	$hash = "";
 	if ( isset( $_COOKIE['clickHash'] ) ) {
 		$hash = $_COOKIE['clickHash'];
 	}
 
-	if ( isset( $_COOKIE['clickSlug'] ) ) {
+	/*if ( isset( $_COOKIE['clickSlug'] ) ) {
 		$clickSlug = $_COOKIE['clickSlug'];
-	}
+	}*/
 
 	if (str_contains($hash, "course")) {
-		$slug = "courses/" . $clickSlug ;
+		$slug = "courses";
 	} else {
 		$slug = "lessons";
 	}
 
-	return get_site_url() . "/" . $slug . "/" . $hash;
+	return get_site_url() . "/" . $slug . $hash;
 }
 add_shortcode( 'lessonhash', 'hash_shortcode' );
 

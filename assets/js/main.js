@@ -17,7 +17,7 @@ jQuery(document).ready(function ($) {
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
 
-    $(".bbp-topic-freshness-author").each(function () {x
+    $(".bbp-topic-freshness-author").each(function () {
         const $this = $(this);
         $this.html($this.html().replace(/&nbsp;/g, ""));
     });

@@ -1,12 +1,12 @@
 <?php
 /**
  * Template: Checkout
- * Version: 3.4.3
+ * Version: 3.5
  *
  * See documentation for how to override the PMPro templates.
  * @link https://www.paidmembershipspro.com/documentation/templates/
  *
- * @version 3.4.3
+ * @version 3.5
  *
  * @author Paid Memberships Pro
  */

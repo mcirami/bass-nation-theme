@@ -781,7 +781,7 @@ switch($checkoutLevel) {
 							<input type="hidden" name="token" value="<?php echo esc_attr($pmpro_paypal_token); ?>" />
 							<input type="hidden" name="gateway" value="<?php echo esc_attr($gateway); ?>" />
 							<input type="hidden" name="submit-checkout" value="1" />
-							<input type="submit" id="pmpro_btn-submit" class="button yellow <?php echo esc_attr( pmpro_get_element_class( 'pmpro_btn pmpro_btn-submit-checkout', 'pmpro_btn-submit-checkout' ) ); ?>" value="<?php esc_attr_e('Complete Payment', 'paid-memberships-pro' );?>" />
+							<input type="submit" id="pmpro_btn-submit" class=" <?php echo esc_attr( pmpro_get_element_class( 'pmpro_btn pmpro_btn-submit-checkout', 'pmpro_btn-submit-checkout' ) ); ?>" value="<?php esc_attr_e('Complete Payment', 'paid-memberships-pro' );?>" />
 						</span>
 
 					<?php } else { ?>
@@ -798,9 +798,16 @@ switch($checkoutLevel) {
 							?>
 							<span id="pmpro_submit_span">
 								<input type="hidden" name="submit-checkout" value="1" />
-								<input type="submit" id="pmpro_btn-submit" class="<?php echo esc_attr( pmpro_get_element_class(  'pmpro_btn pmpro_btn-submit-checkout', 'pmpro_btn-submit-checkout' ) ); ?>" value="<?php if($pmpro_requirebilling) { esc_html_e('Submit and Check Out', 'paid-memberships-pro' ); } else { esc_html_e('Submit and Confirm', 'paid-memberships-pro' );}?>" />
+								<button type="submit" id="pmpro_btn-submit" class="<?php echo esc_attr( pmpro_get_element_class(  'button yellow pmpro_btn pmpro_btn-submit-checkout', 'pmpro_btn-submit-checkout' ) ); ?>"
+								       value="" >
+									<?php if($pmpro_requirebilling) {
+										esc_html_e('Check Out With', 'paid-memberships-pro' );
+									} else { esc_html_e('Submit and Confirm', 'paid-memberships-pro' );}?>
+									<img src='<?php  echo esc_url( get_template_directory_uri() ); ?>/images/icon-cc.png' />
+								</button>
+
 							</span>
-							<p class="terms">By clicking "Submit And Check Out" you agree to our <a target="_blank" href="<?php echo $webroot; ?>privacy">Privacy Policy</a>, <a target="_blank" href="<?php echo $webroot?>terms-of-use">Terms of Service</a> and <a target="_blank" href="<?php echo $webroot?>terms-of-use/#refund">Refund Policy</a>.
+							<p class="terms">By purchasing a subscription you agree to our <a target="_blank" href="<?php echo $webroot; ?>privacy">Privacy Policy</a>, <a target="_blank" href="<?php echo $webroot?>terms-of-use">Terms of Service</a> and <a target="_blank" href="<?php echo $webroot?>terms-of-use/#refund">Refund Policy</a>.
 							<?php
 							}
 						?>

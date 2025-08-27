@@ -382,6 +382,7 @@
         }
 
         #pmpro_paypalexpress_checkout {
+            width: 100%;
             float: left;
         }
     }
@@ -443,8 +444,39 @@ form.pmpro_form .pmpro_checkout-fields div {
 }
 
 .pmpro_btn.pmpro_btn-submit-checkout {
-    width: auto !important;
+    width: 100% !important;
     float: right !important;
+    box-shadow: 0 3px 15.04px 0.96px rgba(0, 0, 0, 0.11);
+    font-weight: bold;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px !important;
+    border: none;
+    border-radius: 8px !important;
+    padding: 7px 20px !important;
+    text-transform: uppercase;
+
+    p {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    img {
+        max-width: 45px;
+    }
+
+    &.pmpro_btn-submit-checkout-paypal {
+        background-color: #ffc439;
+    }
 }
 
 .pmpro_form {
@@ -1388,5 +1420,10 @@ input[type="file"] {
         &:before {
             background: $white !important;
         }
+    }
+}
+.membership-checkout {
+    form input[type=submit] {
+        margin-top: 0;
     }
 }

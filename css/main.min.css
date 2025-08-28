@@ -21841,6 +21841,24 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   display: block;
   margin-right: 2.3576515979%;
   width: 100%;
+  font-family: "interbold", sans-serif;
+  font-weight: 700;
+  color: #ff000a;
+  font-size: 2rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.9);
 }
 .form_wrapper .column #pmpro_processing_message:last-child {
   margin-right: 0;
@@ -27218,6 +27236,13 @@ input[type=file].file_selected:before {
 .db-dark-mode-active.logged-in .form_wrapper .pmpro_form_field-radio-item .pmpro_form_label,
 .db-dark-mode-active.logged-in .form_wrapper #pmpro_payment_information_fields .pmpro_form_fields label {
   color: #fff;
+}
+.db-dark-mode-active.logged-in .form_wrapper #pmpro_processing_message {
+  background: rgba(0, 0, 0, 0.9);
+}
+.db-dark-mode-active.logged-in .form_wrapper .column .column_content .column {
+  background: rgba(170, 170, 170, 0.1);
+  border: none;
 }
 .db-dark-mode-active.logged-in .form_wrapper .column .column_content .column .copy p {
   color: #959494;

@@ -702,13 +702,24 @@
             color: $white;
         }
 
+        #pmpro_processing_message {
+             background: rgba(0, 0, 0, .9);
+        }
+
         .column {
             .column_content {
-                .column .copy {
-                    p {
-                        color: $grayText;
+                .column {
+                    background: rgba(170, 170, 170, 0.1);
+                    border: none;
+
+                    .copy {
+                        p {
+                            color: $grayText;
+                        }
                     }
                 }
+
+
             }
 
             &:last-child {

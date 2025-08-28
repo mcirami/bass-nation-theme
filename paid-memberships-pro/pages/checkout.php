@@ -769,7 +769,7 @@ switch($checkoutLevel) {
 							do_action('pmpro_checkout_after_captcha');
 						?>
 
-					<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_form_submit' ) ); ?>">
+					<div class="full_width <?php echo esc_attr( pmpro_get_element_class( 'pmpro_form_submit' ) ); ?>">
 
 						<?php if ( $pmpro_review ) { ?>
 							<span id="pmpro_submit_span">

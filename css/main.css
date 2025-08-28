@@ -18845,10 +18845,12 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
 .two_column_template .two_column_section .columns_wrap {
   display: flex;
   justify-content: center;
+  gap: 5rem;
 }
 @media screen and (max-width: 991px) {
   .two_column_template .two_column_section .columns_wrap {
     flex-wrap: wrap;
+    gap: 0;
   }
 }
 .two_column_template .two_column_section .columns_wrap .column > p {
@@ -27193,10 +27195,13 @@ input[type=file].file_selected:before {
 .db-dark-mode-active.logged-in .pmpro_form #pmpro_payment_information_fields {
   background: #131313;
 }
-.db-dark-mode-active.logged-in .form_wrapper .top_section .numbered_list .outer_circle {
+.db-dark-mode-active.logged-in .pmpro_level_description_text p {
+  color: #fff;
+}
+.db-dark-mode-active.logged-in .numbered_list .outer_circle {
   background: #131313;
 }
-.db-dark-mode-active.logged-in .form_wrapper .top_section .numbered_list p {
+.db-dark-mode-active.logged-in .numbered_list p {
   color: #fff;
 }
 .db-dark-mode-active.logged-in .form_wrapper .top_section .white_box {
@@ -27214,7 +27219,7 @@ input[type=file].file_selected:before {
 .db-dark-mode-active.logged-in .form_wrapper #pmpro_payment_information_fields .pmpro_form_fields label {
   color: #fff;
 }
-.db-dark-mode-active.logged-in .form_wrapper .column .column_content .row .copy p {
+.db-dark-mode-active.logged-in .form_wrapper .column .column_content .column .copy p {
   color: #959494;
 }
 .db-dark-mode-active.logged-in .form_wrapper .column:last-child .top_section {

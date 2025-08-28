@@ -665,17 +665,22 @@
         background: $darkerGray;
     }
 
+    .pmpro_level_description_text p {
+        color: $white;
+    }
+
+    .numbered_list {
+        .outer_circle {
+            background: $darkerGray;
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
     .form_wrapper {
         .top_section {
-            .numbered_list {
-                .outer_circle {
-                    background: $darkerGray;
-                }
-
-                p {
-                    color: $white;
-                }
-            }
 
             .white_box {
                 color: $white;
@@ -699,8 +704,10 @@
 
         .column {
             .column_content {
-                .row .copy p {
-                    color: $grayText;
+                .column .copy {
+                    p {
+                        color: $grayText;
+                    }
                 }
             }
 

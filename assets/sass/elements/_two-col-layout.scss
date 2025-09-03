@@ -7,11 +7,9 @@
         .columns_wrap {
             display: flex;
             justify-content: center;
-            gap: 5rem;
 
             @include media($tablet) {
                 flex-wrap: wrap;
-                gap: 0;
             }
 
             .column {
@@ -53,7 +51,7 @@
                     }
 
                     .content_wrap {
-                        padding: 40px;
+                        padding: 40px 0 0 40px;
                         background: $lightGray;
 
                         @include media($desktop) {

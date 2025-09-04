@@ -401,8 +401,7 @@
                 color: $yellow;
 
                 &:before {
-                    background: url("../images/icon-right-triangle.png")
-                        no-repeat;
+                    background: url("../images/icon-right-triangle.png") no-repeat;
                     background-size: 100%;
                     background-position: center;
                     filter: none;
@@ -455,13 +454,53 @@
                 }
             }
         }
-
-        .cost p {
-            color: $lightGray;
+        .highlight {
+            background: $darkModeRed;
         }
 
-        .description ul li p {
-            color: $grayText;
+
+        .cost {
+
+            h4 {
+                color: $white;
+            }
+            p {
+                color: $lightGray;
+            }
+            .discount_text {
+                 p {
+                    color: $yellow;
+                }
+
+                h3 .original_price {
+                    color: $darkModeRed;
+                }
+            }
+
+            &.highlighted {
+
+                h4 {
+                    color: $black !important;
+                }
+
+                .discount_text {
+
+                }
+
+                p {
+                    color: $black !important;
+                }
+            }
+        }
+
+        .description {
+            .top p {
+                color: $white;
+            }
+
+            ul li p {
+                color: $grayText;
+            }
         }
 
         .column .column_content {

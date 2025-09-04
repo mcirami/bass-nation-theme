@@ -142,7 +142,7 @@
         text-align: center;
         gap: 40px;
         padding-bottom: 100px;
-        padding-top: 50px !important;
+        padding-top: 85px !important;
         padding-left: 15px;
         padding-right: 15px;
 
@@ -199,8 +199,10 @@
 
                 h2 {
                     @include interbold;
-                    font-size: 2.2rem;
-                    margin-top: 0;
+                    font-size: 3rem;
+                    max-width: 60%;
+                    text-transform: uppercase;
+                    margin: 0 auto;
 
                     @include media($desktop) {
                         font-size: 2rem;
@@ -266,10 +268,9 @@
         width: 100%;
         text-align: center;
         background: $darkerGray;
-        padding: 10px 0;
+        padding: 20px 10px;
         border-top-right-radius: 6px;
         border-top-left-radius: 6px;
-        margin-top: -44px;
 
         @include media($smallMobile) {
             margin-top: 0;
@@ -283,12 +284,15 @@
         }
 
         p {
-            @include intermedium;
+            @include interbold;
             display: inline-block;
             margin: 0;
-            font-size: 18px;
+            font-size: 2.5rem;
             vertical-align: top;
             color: $yellow;
+            line-height: 1.2;
+            text-transform: uppercase;
+            max-width: 68%;
 
             @include media($desktop) {
                 font-size: 1.6vw;
@@ -301,13 +305,17 @@
     }
 
     .cost {
-        padding: 30px 20px;
+        padding: 20px;
+        margin-bottom: 15px;
 
+        h4 {
+            margin: 0;
+        }
         h3 {
             @include interbold;
             display: inline-block;
-            font-size: 30px;
-            margin: 20px 0;
+            font-size: 4rem;
+            margin: 0;
         }
 
         p {
@@ -316,6 +324,55 @@
             margin: 0;
             line-height: 1.4;
         }
+
+        .discount_text {
+            color: $yellow;
+            margin-bottom: 20px;
+
+            h3 {
+                position: relative;
+                color: $yellow;
+                margin-right: 55px;
+                margin-top: -12px;
+
+                .slash {
+                    position: absolute;
+                    left: -1px;
+                    top: 25px;
+                    transform: rotate(350deg);
+                    width: 104%;
+                    height: 4px;
+                    background: $red;
+                    border-radius: 100%;
+                }
+
+                .original_price {
+                    color: $black;
+                }
+
+                &:first-child {
+                    font-size: 4.5rem;
+                    width: 100%;
+                    transform: rotate(12deg);
+                    margin-top: 10px;
+                    margin-left: 46px;
+                    margin-right: 0;
+                }
+            }
+
+            p {
+                font-size: 2rem;
+            }
+        }
+
+        &.highlighted {
+            background: $yellow;
+
+            .discount_text, p, h3, h4 {
+                color: $black;
+            }
+        }
+
     }
 
     .button_wrap {
@@ -340,7 +397,6 @@
         }
 
         ul {
-            margin: 0;
             text-align: left;
             color: $black;
             padding: 0;
@@ -378,6 +434,13 @@
                     font-size: 1.5rem;
                 }
             }
+        }
+
+        .top p {
+            color: $black;
+            line-height: 1.4;
+            font-size: 1.4rem;
+            margin: 0;
         }
     }
 }

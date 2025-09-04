@@ -33,32 +33,74 @@ if ( empty( $default_gateway ) ) {
 	$pmpro_checkout_gateway_class = 'pmpro_checkout_gateway-' . $default_gateway;
 }
 
-$checkoutLevel = $_GET["level"];
+$checkoutLevel = $_GET["pmpro_level"];
+$discountCode = $_GET["pmpro_discount_code"];
 
 $protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
 $webroot = $protocol . $_SERVER['HTTP_HOST'] . '/';
 
 switch($checkoutLevel) {
 	case 1:
-		$membershipLevel = "Monthly";
-		$price = "$9.99/mo";
-		break;
+		if ($discountCode == "BNATION25") {
+			$price = "$7.99";
+			$originalPrice = "$9.99";
+			$levelText = "for the first month!";
+			$afterText = "for each additional month thereafter.";
+			$freeTrial = "7";
+			break;
+		} else {
+			$price = "$9.99/mo";
+			$originalPrice = null;
+			$levelText = "to keep your Membership!";
+			$freeTrial = "3";
+			break;
+		}
 	case 2:
-		$membershipLevel = "3 Months";
-		$price = "$28.99/3mo";
-		break;
+		if ($discountCode == "BNATION25") {
+			$price = "$25.99";
+			$originalPrice = "$28.99";
+			$levelText = "for the first 3 months!";
+			$afterText = "every 3 months thereafter.";
+			$freeTrial = "7";
+			break;
+		} else {
+			$price = "$28.99/3mo";
+			$originalPrice = null;
+			$levelText = "to keep your Membership!";
+			$freeTrial = "3";
+			break;
+		}
 	case 3:
-		$membershipLevel = "6 Months";
-		$price = "$54.99/6mo";
-		break;
+		if ($discountCode == "BNATION25") {
+			$price = "$43.99";
+			$originalPrice = "$54.99";
+			$levelText = "for the first 6 months!";
+			$afterText = "every 6 months thereafter.";
+			$freeTrial = "7";
+			break;
+		} else {
+			$price = "$54.99/6mo";
+			$originalPrice = null;
+			$levelText = "to keep your Membership!";
+			$freeTrial = "3";
+			break;
+		}
 	case 4:
-		$membershipLevel = "Yearly";
-		$price = "$99.99/yr";
-		break;
-	default:
-		$membershipLevel = "Monthly";
-		$price = "$9.99/mo";
-		break;
+		if ($discountCode == "BNATION25") {
+			$price = "$74.99";
+			$originalPrice = "$99.99";
+			$levelText = "for the first year!";
+			$afterText = "every year thereafter.";
+			$freeTrial = "7";
+			break;
+		} else {
+			$price = "$99.99/year";
+			$originalPrice = null;
+			$levelText = "to keep your Membership!";
+			$freeTrial = "3";
+			break;
+		}
+
 }
 
 ?>
@@ -70,14 +112,16 @@ switch($checkoutLevel) {
 				<div class="outer_circle">
 					<span>1</span>
 				</div>
-				<p>Join RISK FREE with our 3-Day Free Trial Offer!</p>
+				<p>Join RISK FREE with our
+					<?php echo $freeTrial . "-Day"; ?>
+					Free Trial Offer!</p>
 			</div>
 			<?php if ($checkoutLevel == 1) : ?>
 				<div class="list_row">
 					<div class="outer_circle">
 						<span>2</span>
 					</div>
-					<p>Then Only <?php echo $price; ?> to keep your Membership!</p>
+					<p>Then Only <?php echo $price . " " . $levelText; ?></p>
 				</div>
 				<div class="list_row">
 					<div class="outer_circle">
@@ -90,7 +134,7 @@ switch($checkoutLevel) {
 					<div class="outer_circle">
 						<span>2</span>
 					</div>
-					<p>Then Only <?php echo $price; ?>  to keep your Membership!</p>
+					<p>Then Only <?php echo $price  . " " . $levelText; ?></p>
 				</div>
 				<div class="list_row">
 					<div class="outer_circle">
@@ -103,7 +147,7 @@ switch($checkoutLevel) {
 					<div class="outer_circle">
 						<span>2</span>
 					</div>
-					<p>Then Only <?php echo $price; ?>  to keep your Membership!</p>
+					<p>Then Only <?php echo $price  . " " . $levelText; ?></p>
 				</div>
 				<div class="list_row">
 					<div class="outer_circle">
@@ -116,7 +160,7 @@ switch($checkoutLevel) {
 					<div class="outer_circle">
 						<span>2</span>
 					</div>
-					<p>Then Only <?php echo $price; ?> to keep your Membership!</p>
+					<p>Then Only <?php echo $price . " " . $levelText; ?></p>
 				</div>
 				<div class="list_row">
 					<div class="outer_circle">
@@ -228,13 +272,13 @@ switch($checkoutLevel) {
 
 			<div class="top_section full_width light_gray_bg box_shadow">
 				<?php if ($checkoutLevel == 1) : ?>
-					<h3>Free for 3 days - then only $9.99/mo!</h3>
+					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
 				<?php elseif ($checkoutLevel == 2) : ?>
-					<h3>Free for 3 days - then only $28.99/3 months!</h3>
+					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
 				<?php elseif ($checkoutLevel == 3) : ?>
-					<h3>Free for 3 days - then only $54.99/6 months!</h3>
+					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
 				<?php elseif ($checkoutLevel == 4) : ?>
-					<h3>Free for 3 days - then only $99.99/yr!</h3>
+					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
 				<?php endif; ?>
 
 				<div class="two_columns">
@@ -258,8 +302,11 @@ switch($checkoutLevel) {
 						?>
 					</p>
 					<p>
-						You are registering for a 3 day trial. After 3 days you will be charged <?php echo $price; ?>.
+						You are registering for a <?php echo $freeTrial; ?> day trial. After <?php echo $freeTrial; ?> days you will be charged <?php echo $price . " "; ?> <?php echo $levelText; ?>
 					</p>
+					<?php if ($discountCode == "BNATION25") : ?>
+						<p>After <?php echo $pmpro_level->name; ?> you will be charged <?php echo $originalPrice . " " . $afterText; ?></p>
+					<?php endif; ?>
 
 				</div>
 			</div><!-- top_section -->
@@ -333,13 +380,13 @@ switch($checkoutLevel) {
 									 * @param string $description The level description.
 									 * @param object $pmpro_level The PMPro Level object.
 									 */
-									$level_description = apply_filters('pmpro_level_description', $pmpro_level->description, $pmpro_level);
-									if ( ! empty( $level_description ) ) { ?>
-										<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_level_description_text' ) );?>">
-											<?php echo wp_kses_post( $level_description ); ?>
+									/*$level_description = apply_filters('pmpro_level_description', $pmpro_level->description, $pmpro_level);
+									if ( ! empty( $level_description ) ) { */?><!--
+										<div class="<?php /*echo esc_attr( pmpro_get_element_class( 'pmpro_level_description_text' ) );*/?>">
+											<?php /*echo wp_kses_post( $level_description ); */?>
 										</div>
-										<?php
-									}
+										--><?php
+/*									}*/
 									?>
 
 									<div id="pmpro_level_cost">

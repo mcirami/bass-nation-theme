@@ -16,7 +16,7 @@ $pmpro_levels = pmpro_sort_levels_by_order( pmpro_getAllLevels(false, true) );
 $pmpro_levels = apply_filters( 'pmpro_levels_array', $pmpro_levels );
 
 $level_groups  = pmpro_get_level_groups_in_order();
-
+$isWinBackVisit = db_is_winback_visit();
 ?>
 <div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro' ) ); ?>">
 	<?php if($pmpro_msg)
@@ -88,45 +88,110 @@ $level_groups  = pmpro_get_level_groups_in_order();
 				foreach($levels_to_show_for_group as $level)
 				{?>
 					<div class="column <?php if ($level->id == 3) { echo "col_highlight"; }; ?>">
-						<?php if ($level->id == 3) : ?>
-							<div class="highlight">
-								<p>Most Bass For Your Buck!</p>
-							</div>
-						<?php endif; ?>
 						<div class="column_content">
 							<div class="full_width">
-								<div class="column_heading full_width">
-									<?php if ($level->id == 1) : ?>
-										<h2>FREE 3 Day Trial</h2>
-										<p>then only <span>$9.99/month</span></p>
-									<?php elseif ($level->id == 2 ) :?>
-										<h2>FREE 3 Day Trial</h2>
-										<p>then only <span>$28.99/3 months</span></p>
-									<?php elseif ($level->id == 3) : ?>
-										<h2>FREE 3 Day Trial</h2>
-										<p>then only <span>$54.99/6 months</span></p>
-									<?php elseif ($level->id == 4) : ?>
-										<h2>FREE 3 Day Trial</h2>
-										<p>then only <span>$99.99/year</span></p>
-									<?php endif; ?>
-								</div>
+								<?php if ($level->id == 3) : ?>
+									<div class="highlight">
+										<p>Most Bass For Your Buck!</p>
+									</div>
+								<?php  else :?>
+									<div class="column_heading full_width">
+										<h2>
+											FREE
+											<?php if ($isWinBackVisit) : ?>
+												7
+											<?php else : ?>
+												3
+											<?php endif; ?>
+											Day Trial
+										</h2>
+									</div>
+								<?php endif; ?>
 							</div>
-							<div class="full_width cost">
-								<!-- <?php if ($level->id == 1) : ?>
-									<h3>Monthly</h3>
-								<?php elseif ($level->id == 2 ) :?>
-									<h3>3 Months</h3>
+							<div class="full_width cost <?php if ($level->id == 3) { echo "highlighted";  } ?>">
+							<?php if ($isWinBackVisit) : ?>
+								<?php if ($level->id == 1) : ?>
+									<h4>First Month</h4>
+									<div class="discount_text">
+										<h3>$7.99</h3>
+										<h3>
+											<span class="original_price">
+												$9.99
+												<span class="slash"></span>
+											</span>
+										</h3>
+										<p>20% OFF</p>
+									</div>
+								<?php elseif ($level->id == 2) : ?>
+									<h4>First 3 Months</h4>
+									<div class="discount_text">
+										<h3>$25.99</h3>
+										<h3 class="relative">
+											<span class="original_price">
+												$28.99
+												<span class="slash"></span>
+											</span>
+										</h3>
+										<p>10% OFF</p>
+									</div>
 								<?php elseif ($level->id == 3) : ?>
-									<h3>6 Months</h3>
+									<h4>First 6 Months</h4>
+									<div class="discount_text">
+										<h3>$43.99</h3>
+										<h3>
+											<span class="original_price">
+												$54.99
+												<span class="slash"></span>
+											</span>
+										</h3>
+										<p>20% OFF</p>
+									</div>
 								<?php elseif ($level->id == 4) : ?>
-									<h3>Annual</h3>
-								<?php endif; ?> -->
-								<p>Recurring</p>
-								<p>Bass Nation Membership</p>
+									<h4>First Year</h4>
+									<div class="discount_text">
+										<h3>$74.99</h3>
+										<h3>
+											<span class="original_price">
+												$99.99
+												<span class="slash"></span>
+											</span>
+										</h3>
+										<p>25% OFF</p>
+									</div>
+								<?php endif; ?>
+							<?php else: ?>
+								<?php if ($level->id == 1) : ?>
+									<p>then only</p>
+									<h3>$9.99</h3>
+									<h4>a month</h4>
+								<?php elseif ($level->id == 2 ) :?>
+									<p>then only</p>
+									<h3>$28.99</h3>
+									<h4>Every 3 months</h4>
+								<?php elseif ($level->id == 3) : ?>
+									<p>only</p>
+									<h3>$54.99</h3>
+									<h4>Every 6 months</h4>
+								<?php elseif ($level->id == 4) : ?>
+									<p>then only</p>
+									<h3>$99.99</h3>
+									<h4>Every Year</h4>
+								<?php endif; ?>
+							<?php endif; ?>
 							</div> <!-- cost -->
 							<div class="description full_width">
+								<div class="top">
+									<p>Recurring</p>
+									<p>Bass Nation Membership</p>
+								</div>
 								<ul>
-									<li><p>FREE for 3 days</p></li>
+									<li><p>FREE for
+											<?php if ($isWinBackVisit) : ?>
+												7
+											<?php else : ?>
+												3
+											<?php endif; ?>
+											days</p></li>
 									<li><p>ALL Complete Lessons</p></li>
 									<li><p>Lesson Commenting</p></li>
 									<li><p>Bass Nation Forum Access</p></li>
@@ -136,13 +201,13 @@ $level_groups  = pmpro_get_level_groups_in_order();
 							</div>
 							<div class="button_wrap full_width">
 								<?php if(empty($current_user->membership_level->ID)) { ?>
-									<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?>
+									<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo db_checkout_url_with_passthrough( $level->id); ?>"><?php _e('GET STARTED!', 'pmpro');?>
 										<span>
 											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
 										</span>
 									</a>
 								<?php } elseif ( $level->id != $current_user->membership_level->ID) { ?>
-									<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('GET STARTED!', 'pmpro');?>
+									<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo db_checkout_url_with_passthrough( $level->id); ?>"><?php _e('GET STARTED!', 'pmpro');?>
 										<span>
 											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
 										</span>
@@ -153,7 +218,7 @@ $level_groups  = pmpro_get_level_groups_in_order();
 									//if it's a one-time-payment level, offer a link to renew
 									if( pmpro_isLevelExpiringSoon( $current_user->membership_level) && $current_user->membership_level->allow_signups ) {
 										?>
-										<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo pmpro_url("checkout", "?level=" . $level->id, "https")?>"><?php _e('Renew', 'pmpro');?>
+										<a class="pmpro_btn pmpro_btn-select button yellow" href="<?php echo db_checkout_url_with_passthrough( $level->id); ?>"><?php _e('Renew', 'pmpro');?>
 										<span>
 											<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/arrow-right.svg" alt="Bass Nation Logo"/>
 										</span>

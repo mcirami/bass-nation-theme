@@ -33,7 +33,9 @@ if ( empty( $default_gateway ) ) {
 	$pmpro_checkout_gateway_class = 'pmpro_checkout_gateway-' . $default_gateway;
 }
 
-$checkoutLevel = $_GET["pmpro_level"];
+
+$checkoutLevel =  $pmpro_level->id;
+
 $discountCode = $_GET["pmpro_discount_code"];
 
 $protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
@@ -338,7 +340,7 @@ switch($checkoutLevel) {
 						$include_pricing_fields = apply_filters( 'pmpro_include_pricing_fields', true );
 						if ( $include_pricing_fields ) {
 							?>
-							<div id="pmpro_pricing_fields" class="box_shadow light_gray_bg <?php echo esc_attr( pmpro_get_element_class( 'pmpro_card', 'pmpro_pricing_fields' ) ); ?>">
+							<div id="pmpro_pricing_fields" style="<?php if($discountCode === "BNATION25") { echo 'display: none;';} ?>" class="box_shadow light_gray_bg <?php echo esc_attr( pmpro_get_element_class( 'pmpro_card', 'pmpro_pricing_fields' ) ); ?>">
 							<h2 class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_card_title pmpro_font-large' ) ); ?>"><?php esc_html_e( 'Membership Information', 'paid-memberships-pro' ); ?></h2>
 							<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_card_content' ) ); ?>">
 								<p class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_level_name_text' ) );?>">
@@ -418,7 +420,7 @@ switch($checkoutLevel) {
 									</div> <!-- end #pmpro_level_cost -->
 
 									<?php do_action("pmpro_checkout_after_level_cost"); ?>
-
+								style="display: none;"
 									<?php if($pmpro_show_discount_code) { ?>
 										<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_card_actions' ) ); ?>">
 											<?php if($discount_code && !$pmpro_review) { ?>
@@ -432,7 +434,7 @@ switch($checkoutLevel) {
 												<label for="pmpro_other_discount_code" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_form_label' ) ); ?>"><?php esc_html_e('Discount Code', 'paid-memberships-pro' );?></label>
 												<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_form_fields-inline' ) ); ?>">
 													<input id="pmpro_other_discount_code" name="pmpro_other_discount_code" type="text" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_form_input pmpro_form_input-text pmpro_alter_price', 'other_discount_code' ) ); ?>" value="<?php echo esc_attr($discount_code); ?>" />
-													<input aria-label="<?php esc_html_e( 'Apply discount code', 'paid-memberships-pro' ); ?>" type="button" name="other_discount_code_button" id="other_discount_code_button" value="<?php esc_attr_e('Apply', 'paid-memberships-pro' );?>" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_btn pmpro_btn-submit-discount-code', 'other_discount_code_button' ) ); ?>" />
+													<input aria-label="<?php esc_html_e( 'Apply discount code', 'paid-memberships-pro' ); ?>" type="button" name="other_discount_code_button" id="other_discount_code_button" value="<?php esc_attr_e('Apply', 'paid-memberships-pro' );?>" class="<?php echo esc_attr( pmpro_get_element_class( 'button yellow pmpro_btn pmpro_btn-submit-discount-code', 'other_discount_code_button' ) ); ?>" />
 												</div>
 											</div>
 										</div> <!-- end pmpro_card_actions -->

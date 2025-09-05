@@ -21484,6 +21484,10 @@ ul.member_menu > li ul.sub-menu li .sub-menu a:hover:before {
   background-color: unset;
 }
 
+.checkout_page .pmpro_discount_code_msg,
+.checkout_page #pmpro_message.pmpro_success {
+  display: none !important;
+}
 .checkout_page .top_section {
   padding: 30px 40px;
   border-radius: 8px;
@@ -22521,9 +22525,19 @@ form.pmpro_form #other_discount_code.input {
 
 #pmpro_pricing_fields {
   padding: 40px;
-  display: flex;
-  justify-content: center;
   margin: 40px 0;
+}
+#pmpro_pricing_fields #other_discount_code_fields .pmpro_form_fields-inline {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+#pmpro_pricing_fields #other_discount_code_fields .pmpro_form_fields-inline #pmpro_other_discount_code {
+  width: 85%;
+}
+#pmpro_pricing_fields #other_discount_code_fields .pmpro_form_fields-inline #other_discount_code_button {
+  width: 15%;
 }
 #pmpro_pricing_fields h2.pmpro_card_title, #pmpro_pricing_fields .pmpro_card_title.h2 {
   display: none;
@@ -22822,26 +22836,26 @@ form .acf-spinner {
   display: none;
 }
 
-.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]),
-.logged-in form input[type=text],
-.logged-in form input[type=email],
-.logged-in form select {
+.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]):not(#other_discount_code_button),
+.logged-in form input[type=text]:not(#other_discount_code_button),
+.logged-in form input[type=email]:not(#other_discount_code_button),
+.logged-in form select:not(#other_discount_code_button) {
   border: 1px solid #c8c8c8;
   background: #fff;
   color: #000000;
   outline: none !important;
 }
-.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]):focus,
-.logged-in form input[type=text]:focus,
-.logged-in form input[type=email]:focus,
-.logged-in form select:focus {
+.logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]):not(#other_discount_code_button):focus,
+.logged-in form input[type=text]:not(#other_discount_code_button):focus,
+.logged-in form input[type=email]:not(#other_discount_code_button):focus,
+.logged-in form select:not(#other_discount_code_button):focus {
   color: #000000;
 }
 @media screen and (max-width: 767px) {
-  .logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]),
-  .logged-in form input[type=text],
-  .logged-in form input[type=email],
-  .logged-in form select {
+  .logged-in form input:not([type=submit]):not(.ed_button):not([type=checkbox]):not([type=radio]):not(#other_discount_code_button),
+  .logged-in form input[type=text]:not(#other_discount_code_button),
+  .logged-in form input[type=email]:not(#other_discount_code_button),
+  .logged-in form select:not(#other_discount_code_button) {
     height: 45px;
   }
 }

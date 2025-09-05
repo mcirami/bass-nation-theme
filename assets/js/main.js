@@ -1342,4 +1342,78 @@ jQuery(document).ready(function ($) {
             this.classList.add("file_selected");
         };
     }
+
+    (function () {
+        var CODE_STRIPE = 'BNATION25';
+        var CODE_PAYPAL = 'BNATION25PP';
+        console.log("func top");
+        function $(sel){ return document.querySelector(sel); }
+
+        function ensureDiscountFieldVisible() {
+
+            var box = $('#other_discount_code_fields');
+            if (!box) return;
+            var isHidden = getComputedStyle(box).display === 'none';
+            if (isHidden) {
+                var toggle = $('#other_discount_code_toggle');
+                if (toggle) { try { toggle.click(); } catch(e){} }
+                // fallback if theme blocks the click:
+                box.style.display = '';
+            }
+        }
+
+        function setHiddenDiscount(code) {
+            var hidden = document.querySelector('input[name="pmpro_discount_code"]');
+            if (hidden) hidden.value = code;
+        }
+
+        var busy = false;
+        function applyCode(code) {
+            if (busy) return;
+            var input = $('#pmpro_other_discount_code');
+            var btn   = $('#other_discount_code_button');
+            if (!input || !btn) return;
+
+            var current = (input.value || '').trim().toUpperCase();
+
+            if (current === code.toUpperCase()) return;
+
+            busy = true;
+            //ensureDiscountFieldVisible();
+
+            // set both visible and hidden fields
+            input.value = code;
+            setHiddenDiscount(code);
+
+            // click Apply so PMPro recalculates totals via AJAX
+            setTimeout(function(){
+                btn.click();
+                // release the lock after a short delay; PMPro AJAX will update totals
+                setTimeout(function(){ busy = false; }, 1500);
+            }, 50);
+        }
+
+        function onGatewayChange() {
+            var stripe = $('#gateway_stripe');
+            var ppex   = $('#gateway_paypalexpress');
+
+            if (ppex && ppex.checked) {
+                applyCode(CODE_PAYPAL);
+            } else if (stripe && stripe.checked) {
+                applyCode(CODE_STRIPE);
+            }
+        }
+
+
+        var stripe = $('#gateway_stripe');
+        var ppex   = $('#gateway_paypalexpress');
+
+        if(stripe && ppex) {
+            if (stripe) stripe.addEventListener('change', onGatewayChange);
+            if (ppex) ppex.addEventListener('change', onGatewayChange);
+            // set the correct code for the initial selection on load
+            onGatewayChange();
+        }
+
+    })();
 });

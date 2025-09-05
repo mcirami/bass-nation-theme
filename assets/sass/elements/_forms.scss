@@ -1,4 +1,8 @@
 .checkout_page {
+
+    .pmpro_discount_code_msg,
+    #pmpro_message.pmpro_success { display: none !important; }
+
     .top_section {
         padding: 30px 40px;
         border-radius: 8px;
@@ -995,9 +999,34 @@ form.pmpro_form #other_discount_code.input {
 
 #pmpro_pricing_fields {
     padding: 40px;
-    display: flex;
-    justify-content: center;
     margin: 40px 0;
+
+    #other_discount_code_fields {
+
+        .pmpro_form_fields-inline {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            gap: 10px;
+
+            #pmpro_other_discount_code {
+                width: 85%;
+            }
+
+            #other_discount_code_button {
+                width: 15%;
+            }
+
+        }
+    }
+
+
 
     h2.pmpro_card_title {
         display: none;
@@ -1324,17 +1353,19 @@ form {
         input[type="text"],
         input[type="email"],
         select {
-            border: 1px solid $borderGray;
-            background: $white;
-            color: $black;
-            outline: none !important;
-
-            &:focus {
+            &:not(#other_discount_code_button) {
+                border: 1px solid $borderGray;
+                background: $white;
                 color: $black;
-            }
+                outline: none !important;
 
-            @include media($mobile) {
-                height: 45px;
+                &:focus {
+                    color: $black;
+                }
+
+                @include media($mobile) {
+                    height: 45px;
+                }
             }
         }
 

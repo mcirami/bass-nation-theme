@@ -87,14 +87,18 @@ $isWinBackVisit = db_is_winback_visit();
 				$count = 0;
 				foreach($levels_to_show_for_group as $level)
 				{?>
-					<div class="column <?php if ($level->id == 3) { echo "col_highlight"; }; ?>">
+					<div class="column <?php
+					if (($level->id == 4 && $isWinBackVisit) || ($level->id == 3 && !$isWinBackVisit)) {
+						echo "col_highlight";
+					}; ?>">
 						<div class="column_content">
 							<div class="full_width">
-								<?php if ($level->id == 3) : ?>
+								<?php if ( ($level->id == 4 && $isWinBackVisit) ||
+								           ($level->id == 3 && !$isWinBackVisit)) : ?>
 									<div class="highlight">
 										<p>Most Bass For Your Buck!</p>
 									</div>
-								<?php  else :?>
+								<?php  else : ?>
 									<div class="column_heading full_width">
 										<h2>
 											FREE
@@ -108,7 +112,11 @@ $isWinBackVisit = db_is_winback_visit();
 									</div>
 								<?php endif; ?>
 							</div>
-							<div class="full_width cost <?php if ($level->id == 3) { echo "highlighted";  } ?>">
+							<div class="full_width cost <?php
+							if (($level->id == 3 && !$isWinBackVisit) || ($level->id == 4 && $isWinBackVisit)){
+								echo "highlighted";
+							}
+							?>">
 							<?php if ($isWinBackVisit) : ?>
 								<?php if ($level->id == 1) : ?>
 									<h4>First Month</h4>

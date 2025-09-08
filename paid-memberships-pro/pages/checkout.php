@@ -420,7 +420,6 @@ switch($checkoutLevel) {
 									</div> <!-- end #pmpro_level_cost -->
 
 									<?php do_action("pmpro_checkout_after_level_cost"); ?>
-								style="display: none;"
 									<?php if($pmpro_show_discount_code) { ?>
 										<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_card_actions' ) ); ?>">
 											<?php if($discount_code && !$pmpro_review) { ?>

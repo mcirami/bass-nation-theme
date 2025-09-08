@@ -1343,76 +1343,68 @@ jQuery(document).ready(function ($) {
         };
     }
 
+    var params = new URLSearchParams(location.search);
+    var IS_WINBACK = (params.get('pmpro_discount_code') || '').toUpperCase() === 'BNATION25';
+
+    function clearDiscountEverywhere() {
+        // visible input (if present)
+        var $vis = $('#pmpro_other_discount_code');
+        if ($vis.length) { $vis.val('').attr('value', ''); }
+        // hidden field PMPro submits
+        $('input[name="pmpro_discount_code"]').val('');
+        // optional: hide any discount success message
+        $('#pmpro_message.pmpro_success, .pmpro_discount_code_msg').hide();
+    }
+
+    function killWinbackCookies() {
+        // expire any prior “winback” cookies so they don't auto-apply later
+        document.cookie = 'db_campaign=; Max-Age=0; path=/; SameSite=Lax';
+        document.cookie = 'db_dc=; Max-Age=0; path=/; SameSite=Lax';
+    }
+
+    if (!IS_WINBACK) {
+        // No code in URL => do NOT auto-apply; make sure nothing lingers
+        clearDiscountEverywhere();
+        killWinbackCookies();
+        return; // stop here; do not bind gateway handlers
+    }
+
     (function () {
         var CODE_STRIPE = 'BNATION25';
         var CODE_PAYPAL = 'BNATION25PP';
-        console.log("func top");
-        function $(sel){ return document.querySelector(sel); }
-
-        function ensureDiscountFieldVisible() {
-
-            var box = $('#other_discount_code_fields');
-            if (!box) return;
-            var isHidden = getComputedStyle(box).display === 'none';
-            if (isHidden) {
-                var toggle = $('#other_discount_code_toggle');
-                if (toggle) { try { toggle.click(); } catch(e){} }
-                // fallback if theme blocks the click:
-                box.style.display = '';
-            }
-        }
-
-        function setHiddenDiscount(code) {
-            var hidden = document.querySelector('input[name="pmpro_discount_code"]');
-            if (hidden) hidden.value = code;
-        }
 
         var busy = false;
         function applyCode(code) {
-            if (busy) return;
-            var input = $('#pmpro_other_discount_code');
-            var btn   = $('#other_discount_code_button');
-            if (!input || !btn) return;
+            var $input = $('#pmpro_other_discount_code');
+            var $btn   = $('#other_discount_code_button');
+            $('input[name="pmpro_discount_code"]').val(code); // always set hidden
 
-            var current = (input.value || '').trim().toUpperCase();
-
-            if (current === code.toUpperCase()) return;
-
-            busy = true;
-            //ensureDiscountFieldVisible();
-
-            // set both visible and hidden fields
-            input.value = code;
-            setHiddenDiscount(code);
-
-            // click Apply so PMPro recalculates totals via AJAX
-            setTimeout(function(){
-                btn.click();
-                // release the lock after a short delay; PMPro AJAX will update totals
-                setTimeout(function(){ busy = false; }, 1500);
-            }, 50);
-        }
-
-        function onGatewayChange() {
-            var stripe = $('#gateway_stripe');
-            var ppex   = $('#gateway_paypalexpress');
-
-            if (ppex && ppex.checked) {
-                applyCode(CODE_PAYPAL);
-            } else if (stripe && stripe.checked) {
-                applyCode(CODE_STRIPE);
+            if ($input.length && $btn.length) {
+                if (($input.val() || '').toUpperCase() !== code.toUpperCase()) {
+                    $input.val(code);
+                    // click Apply so totals refresh; optional if you’re fine with server-side apply on submit
+                    setTimeout(function(){ $btn.trigger('click'); }, 50);
+                }
             }
         }
 
+        function selectedGateway() {
+            var $checked = $('input[name="gateway"]:checked');
+            return $checked.length ? $checked.val() : '';
+        }
 
-        var stripe = $('#gateway_stripe');
-        var ppex   = $('#gateway_paypalexpress');
+        function syncToGateway() {
+            var gw = selectedGateway();
+            if (gw === 'paypalexpress') applyCode(CODE_PAYPAL);
+            else if (gw === 'stripe')   applyCode(CODE_STRIPE);
+        }
 
-        if(stripe && ppex) {
-            if (stripe) stripe.addEventListener('change', onGatewayChange);
-            if (ppex) ppex.addEventListener('change', onGatewayChange);
-            // set the correct code for the initial selection on load
-            onGatewayChange();
+        syncToGateway();
+        $(document).on('change', 'input[name="gateway"]', syncToGateway);
+        if (window.jQuery) {
+            $(document).ajaxComplete(function (_e, _xhr, s) {
+                if (s && s.url && s.url.indexOf('pmpro') !== -1) setTimeout(syncToGateway, 100);
+            });
         }
 
     })();

@@ -133,7 +133,7 @@ $isWinBackVisit = db_is_winback_visit();
 								<?php elseif ($level->id == 2) : ?>
 									<h4>First 3 Months</h4>
 									<div class="discount_text">
-										<h3>$25.99</h3>
+										<h3>$22.99</h3>
 										<h3 class="relative">
 											<span class="original_price">
 												$28.99

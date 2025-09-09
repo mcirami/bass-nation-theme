@@ -59,7 +59,7 @@ switch($checkoutLevel) {
 		}
 	case 2:
 		if ($discountCode == "BNATION25") {
-			$price = "$25.99";
+			$price = "$22.99";
 			$originalPrice = "$28.99";
 			$levelText = "for the first 3 months!";
 			$afterText = "every 3 months thereafter.";

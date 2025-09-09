@@ -25,7 +25,7 @@ $isWinBackVisit = db_is_winback_visit();
 		<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_message ' . $pmpro_msgt, $pmpro_msgt ) ); ?>"><?php echo wp_kses_post( $pmpro_msg ); ?></div>
 		<?php
 	} ?>
-	<section id="pmpro_levels" class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_section', 'pmpro_levels' ) ); ?>" class="pmpro_checkout">
+	<section id="pmpro_levels" class="pmpro_checkout <?php echo esc_attr( pmpro_get_element_class( 'pmpro_section', 'pmpro_levels' ) ); ?>">
 		<div class="<?php echo esc_attr( pmpro_get_element_class( 'pmpro_section_content' ) ); ?>">
 		<?php
 

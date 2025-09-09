@@ -140,7 +140,7 @@ $isWinBackVisit = db_is_winback_visit();
 												<span class="slash"></span>
 											</span>
 										</h3>
-										<p>10% OFF</p>
+										<p>20% OFF</p>
 									</div>
 								<?php elseif ($level->id == 3) : ?>
 									<h4>First 6 Months</h4>

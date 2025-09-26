@@ -9,6 +9,13 @@ function my_pmpro_paypal_button_image($url)
 }
 add_filter('pmpro_paypal_button_image', 'my_pmpro_paypal_button_image');
 
+add_filter('pmpro_send_email', function($send, $email){
+	if (!empty($email->template) && in_array($email->template, ['cancelled','cancelled_admin'])) {
+		return false; // suppress member + admin cancel emails during migration
+	}
+	return $send;
+}, 10, 2);
+
 /**
  * Require user's checking out for any level that requires billing to match their IP address with billing country address fields.
  * Only works with levels that require billing fields.

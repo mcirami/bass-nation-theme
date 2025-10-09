@@ -809,8 +809,6 @@ jQuery(document).ready(function ($) {
         }
     }
 
-    console.log("pageName: ", currentPage.pageName);
-
     if (
         currentPage.pageName === "Lessons" ||
         currentPage.pageId == 7 ||
@@ -846,12 +844,16 @@ jQuery(document).ready(function ($) {
 
         function renderItems(filteredData) {
             const selector = getUrlHash();
+
             if (selector && firstPageLoad) {
                 let itemIndex = null;
                 filteredData.find((el, index) => {
-                    if (el.querySelector(".play_video").id === selector) {
-                        itemIndex = index;
-                    }
+					if(el.querySelector(".play_video")) {
+						if (el.querySelector(".play_video")?.id === selector) {
+							itemIndex = index;
+						}
+					}
+
                 });
 
                 if (itemIndex + 1 > itemsPerPage) {

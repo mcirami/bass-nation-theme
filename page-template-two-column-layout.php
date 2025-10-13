@@ -168,7 +168,7 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
 					</div>
 					<div class="column">
 						<div class="content_wrap pb-5">
-                            <?php if($pagename == "login") : ?>
+                            <?php if($pagename == "login" || $pagename == "reset-password") : ?>
                                 <h2>Don't Have An Account Yet?</h2>
                                 <p>We've crafted a comprehensive platform to help you become the bassist you've always wanted to be</p>
                                 <h3>Join Now! <span>FREE</span> For 3 Days!</h3>

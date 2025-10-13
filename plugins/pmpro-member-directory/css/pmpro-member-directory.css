@@ -1,0 +1,238 @@
+/* CSS Document */
+form.pmpro_member_directory_search {
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	gap: var(--pmpro--base--spacing--small);
+	justify-content: flex-end;
+
+	.pmpro_form_submit {
+		margin: 0;
+	}
+}
+
+.pmpro_member_directory {clear: both; }
+.pmpro_pagination {margin: 1em 0;}
+.pmpro_pagination .pmpro_prev {float: left; width: 250px;}
+.pmpro_pagination .pmpro_next {float: right; width: 250px; text-align: right;}
+
+/* div/column type layouts */
+div.pmpro_member_directory div h2 {clear: none; }
+div.pmpro_member_directory div p {margin: .5rem 0 0 0; } 
+div.pmpro_member_profile strong {display: block; }
+
+/* table type layouts */
+.pmpro_member_directory table h2.pmpro_member_directory_display-name {margin-top: 0; }
+.pmpro_member_directory table tbody td {vertical-align: top; }
+.pmpro_member_directory table tbody td p {margin: 0 0 .5rem 0; }
+
+/* column type layouts */
+.pmpro_member_directory.pmpro_member_directory-2col,
+.pmpro_member_directory.pmpro_member_directory-3col,
+.pmpro_member_directory.pmpro_member_directory-4col {
+	display: grid;
+	grid-column-gap: 2.9rem;
+	grid-row-gap: 2.9rem;
+
+	.pmpro_card {
+		margin: 0;
+
+		.pmpro_card_content {
+			display: flex;
+			flex-direction: column;
+			gap: var(--pmpro--base--spacing--small);
+			margin-top: var(--pmpro--base--spacing--medium);
+
+			.pmpro_member_profile_field_label {
+				font-weight: 700;
+			}
+
+			.pmpro_member_profile_field-display_name {
+
+				h2 {
+					font-weight: 700;
+					margin: 0;
+				}
+			}
+		}
+
+		.pmpro_card_actions {
+			margin-top: auto;
+		}
+	}
+}
+.pmpro_member_directory.pmpro_member_directory-2col {
+	grid-template-columns: 1fr 1fr;
+}
+.pmpro_member_directory.pmpro_member_directory-3col {
+	grid-template-columns: 1fr 1fr 1fr;
+}
+.pmpro_member_directory.pmpro_member_directory-4col {
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* single directory item in list */
+.pmpro_member_directory {
+	.pmpro_member_directory-item {
+		word-break: break-word;
+	}
+
+	.pmpro_member_directory_row {
+		word-break: break-word;
+	}
+
+	.pmpro_member_directory_link {
+		word-break: normal;
+	}
+}
+
+/* single profile item */
+.pmpro_member_profile {
+
+	.pmpro_card_content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--pmpro--base--spacing--medium);
+		margin-top: var(--pmpro--base--spacing--medium);
+
+		.pmpro_member_profile_field {
+			box-sizing: border-box;
+			flex: 1 1 calc(50% - var(--pmpro--base--spacing--medium));
+
+			&:has(iframe) {
+				flex-basis: 100%;
+				width: 100%;
+
+				.pmpro_member_profile_field_data {
+
+					height: 0;
+					overflow: hidden;
+					padding-bottom: 56.25%;
+					position: relative;
+
+					iframe {
+						height: 100%;
+						left: 0;
+						position: absolute;
+						top: 0;
+						width: 100%;
+					}
+				}
+
+			}
+
+			&:has(audio) {
+				flex-basis: 100%;
+
+				audio {
+					width: 100%;
+				}
+			}
+
+			&:has(video) {
+				flex-basis: 100%;
+
+				video {
+					width: 100%;
+				}
+			}
+
+		}
+
+		.pmpro_member_profile_field_label {
+			font-weight: 700;
+		}
+
+		/* Full width profile items */
+		.pmpro_member_profile_field-avatar,
+		.pmpro_member_profile_field-display_name,
+		.pmpro_member_profile_field-description {
+			flex: 1 1 100%;
+		}
+
+		.pmpro_member_profile_field-display_name h2 {
+			margin: 0;
+		}
+	}
+}
+
+.pmpro_member_profile .pmpromd_filename {
+	display: block;
+}
+
+@media only screen and (max-width: 767px) {
+	.pmpro_member_directory.pmpro_member_directory-2col,
+	.pmpro_member_directory.pmpro_member_directory-3col,
+	.pmpro_member_directory.pmpro_member_directory-4col {
+		grid-template-columns: 1fr;
+	}
+}
+
+/**
+ * Special user field formatting.
+ */
+.pmpro_member_profile_field_data:has([class*="pmpro_form_field-file-subtype_"]) {
+
+	a {
+		align-items: center;
+		display: flex;
+		gap: var(--pmpro--base--spacing--small);
+
+		img {
+			max-height: 40px;
+			width: auto;
+		}
+	}
+}
+
+/* This is legacy core PMPro pagination styling to support sites that are running PMPro < 3.4.3 */
+.pmpro_pagination {
+	align-items: center;
+	display: flex;
+	gap: var(--pmpro--base--spacing--small);
+	justify-content: center;
+	margin: var(--pmpro--base--spacing--medium) 0;
+
+	a {
+		background-color: var(--pmpro--color--base);
+		border: 1px solid var(--pmpro--color--border--variation);
+		border-radius: var(--pmpro--base--border-radius);
+		color: var(--pmpro--color--contrast);
+		padding: 2px var(--pmpro--base--spacing--small);
+		text-decoration: none;
+		transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+
+		&:hover {
+			background-color: var(--pmpro--color--accent--variation);
+			border-color: var(--pmpro--color--accent--variation);
+			color: var(--pmpro--color--base);
+		}
+
+	}
+
+	span.current {
+		background-color: var(--pmpro--color--accent);
+		border: 1px solid var(--pmpro--color--border--variation);
+		border-radius: var(--pmpro--base--border-radius);
+		color: var(--pmpro--color--base);
+		font-weight: 700;
+		padding: 2px var(--pmpro--base--spacing--small);
+	}
+
+}
+
+/* This is legacy pagination styling we can leave in here until we remove templating. */
+.pmpro_page_numbers a {
+	padding: 6px;
+}
+
+.pmpro_page_numbers a.pmpro_page_active {
+	font-weight: bold;
+}
+
+/* Membership Maps Styling */
+.pmpromd_infowindow h2,
+.pmpromd_infowindow h3,
+.pmpromd_infowindow p{margin: 4px 0 8px 0;}
+
+.pmpromd_map {margin-bottom: 2%;}

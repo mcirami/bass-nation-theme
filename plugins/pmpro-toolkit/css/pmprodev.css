@@ -1,0 +1,4 @@
+
+button#pmprodev-generate:disabled {
+	opacity: 0.5;
+}

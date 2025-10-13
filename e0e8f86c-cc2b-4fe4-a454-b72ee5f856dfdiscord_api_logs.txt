@@ -1,0 +1,7 @@
+2024-12-26 16:52:29==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2024-12-26 17:07:38==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2024-12-26 17:08:00==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2024-12-26 17:08:02==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2024-12-26 17:08:05==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2024-12-27 16:26:15==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized
+2025-01-06 16:34:32==>File:/var/www/daricbennett/wp-includes/class-wp-hook.php::User Id:103::Line:324::Function:ets_pmpro_discord_load_discord_roles::0:401: Unauthorized

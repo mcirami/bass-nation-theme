@@ -1,0 +1,72 @@
+2023-11-13T18:54:43+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+
+2023-11-13T18:54:52+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+
+2023-11-13T21:25:45+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+
+2023-11-13T21:32:51+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+
+2023-11-13T21:33:12+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+
+2023-11-13T21:33:52+00:00 CRITICAL Uncaught Error: Call to undefined function boiler_categorized_blog() in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php:150
+Stack trace:
+#0 /var/www/daricbennett/wp-includes/template.php(792): require()
+#1 /var/www/daricbennett/wp-includes/template.php(725): load_template('/var/www/daricb...', false, Array)
+#2 /var/www/daricbennett/wp-includes/general-template.php(206): locate_template(Array, true, false, Array)
+#3 /var/www/daricbennett/wp-content/themes/bass-nation/single-lessons.php(23): get_template_part('template-parts/...', 'single-lesson')
+#4 /var/www/daricbennett/wp-includes/template-loader.php(106): include('/var/www/daricb...')
+#5 /var/www/daricbennett/wp-blog-header.php(19): require_once('/var/www/daricb...')
+#6 /var/www/daricbennett/index.php(17): require('/var/www/daricb...')
+#7 {main}
+  thrown in /var/www/daricbennett/wp-content/themes/bass-nation/template-parts/content-single-lesson.php on line 150
+

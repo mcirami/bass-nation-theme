@@ -23025,6 +23025,7 @@ input[type=file].file_selected:before {
   width: 100% !important;
   background-color: #000000;
   color: #fff;
+  max-width: unset;
 }
 #password-lost-form-wrap input:focus {
   background-color: unset;
@@ -23035,6 +23036,10 @@ input[type=file].file_selected:before {
   border: none !important;
   background-color: #000000 !important;
   color: #b7951b !important;
+}
+#password-lost-form-wrap .somfrp-password-wrapper {
+  width: 100%;
+  max-width: unset;
 }
 
 .member_home {

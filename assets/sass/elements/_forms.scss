@@ -1577,6 +1577,7 @@ input[type="file"] {
         width: 100% !important;
         background-color: $black;
         color: $white;
+        max-width: unset;
 
         &:focus {
             background-color: unset;
@@ -1589,5 +1590,10 @@ input[type="file"] {
         border: none !important;
         background-color: $black !important;
         color: $green !important;
+    }
+
+    .somfrp-password-wrapper {
+        width: 100%;
+        max-width: unset;
     }
 }

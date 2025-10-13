@@ -155,7 +155,7 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                         </div>
                     <?php endif; ?>
 					<div class="column">
-                        <?php if($pagename == "login") : ?>
+                        <?php if($pagename == "login" || $pagename == "reset-password") : ?>
                             <?php echo the_content(); ?>
                         <?php elseif (str_contains(strtolower($pagename), 'register')) : ?>
                             <?php echo do_shortcode('[register role="author"]');

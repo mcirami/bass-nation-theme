@@ -128,7 +128,7 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                         </h3>
                     </div>
                 <?php endif; ?>
-				<div class="columns_wrap mt-5">
+				<div class="columns_wrap mt-5 gap-5">
                 <?php if (str_contains(strtolower($pagename), 'register')) : ?>
                         <div class="column">
                             <div class="numbered_list">
@@ -167,7 +167,7 @@ $referer = isset($_GET['referer']) ? $_GET['referer'] : null;
                         <?php endif; ?>
 					</div>
 					<div class="column">
-						<div class="content_wrap">
+						<div class="content_wrap pb-5">
                             <?php if($pagename == "login") : ?>
                                 <h2>Don't Have An Account Yet?</h2>
                                 <p>We've crafted a comprehensive platform to help you become the bassist you've always wanted to be</p>

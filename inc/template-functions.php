@@ -39,3 +39,25 @@ function bass_nation_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'bass_nation_pingback_header' );
+
+// Send all "Lost your password?" links to /password instead of the default.
+add_filter('lostpassword_url', function ($lostpassword_url, $redirect) {
+	return home_url('/reset-password/');
+}, 10, 2);
+
+add_action('template_redirect', function () {
+	// Adjust this if your login page has a different slug.
+	if (is_page('login') && isset($_GET['action'])) {
+		$action = $_GET['action'];
+
+		// Only redirect the *request* screens.
+		// Do NOT redirect the actual reset form from the email (action=rp with key/login).
+		$is_request_screen = in_array($action, ['lostpassword', 'reset_pass', 'retrievepassword'], true);
+		$has_reset_key     = isset($_GET['key']) || isset($_GET['login']) || $action === 'rp';
+
+		if ($is_request_screen && !$has_reset_key) {
+			wp_safe_redirect(home_url('/reset-password/'));
+			exit;
+		}
+	}
+});

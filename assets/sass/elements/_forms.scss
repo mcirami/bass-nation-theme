@@ -1537,3 +1537,30 @@ input[type="file"] {
         margin-top: 0;
     }
 }
+
+#password-lost-form-wrap {
+
+    .button {
+        color: $black !important;
+        border: none !important;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: $yellowHover !important;
+            border: none !important;
+        }
+    }
+
+    .input {
+        background-color: $black;
+        color: $white;
+
+        &:focus {
+            background-color: unset;
+            color: $white;
+            border-color: unset;
+        }
+    }
+}

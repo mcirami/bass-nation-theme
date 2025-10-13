@@ -1540,12 +1540,32 @@ input[type="file"] {
 
 #password-lost-form-wrap {
 
+    fieldsset {
+        border: none;
+    }
+
+    .somfrp-lost-pass-form-text {
+        p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+    }
+
+    label {
+        font-size: 1.5rem;
+    }
+    legend {
+        display: none;
+    }
     .button {
+        background-color: $yellow !important;
         color: $black !important;
         border: none !important;
         text-transform: uppercase;
         margin-bottom: 10px;
         border-radius: 4px;
+        padding: 10px 20px;
+        width: 100%;
 
         &:hover {
             background-color: $yellowHover !important;
@@ -1554,6 +1574,7 @@ input[type="file"] {
     }
 
     .input {
+        width: 100% !important;
         background-color: $black;
         color: $white;
 

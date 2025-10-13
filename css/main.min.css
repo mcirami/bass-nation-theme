@@ -22994,18 +22994,35 @@ input[type=file].file_selected:before {
   margin-top: 0;
 }
 
+#password-lost-form-wrap fieldsset {
+  border: none;
+}
+#password-lost-form-wrap .somfrp-lost-pass-form-text p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+#password-lost-form-wrap label {
+  font-size: 1.5rem;
+}
+#password-lost-form-wrap legend {
+  display: none;
+}
 #password-lost-form-wrap .button {
+  background-color: #f5bf04 !important;
   color: #000000 !important;
   border: none !important;
   text-transform: uppercase;
   margin-bottom: 10px;
   border-radius: 4px;
+  padding: 10px 20px;
+  width: 100%;
 }
 #password-lost-form-wrap .button:hover {
   background-color: #c4a020 !important;
   border: none !important;
 }
 #password-lost-form-wrap .input {
+  width: 100% !important;
   background-color: #000000;
   color: #fff;
 }

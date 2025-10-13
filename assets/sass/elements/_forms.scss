@@ -1573,7 +1573,7 @@ input[type="file"] {
         }
     }
 
-    .input {
+    input {
         width: 100% !important;
         background-color: $black;
         color: $white;
@@ -1583,5 +1583,11 @@ input[type="file"] {
             color: $white;
             border-color: unset;
         }
+    }
+
+    .som-password-sent-message {
+        border: none !important;
+        background-color: $black !important;
+        color: $green !important;
     }
 }

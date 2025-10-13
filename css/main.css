@@ -23021,15 +23021,20 @@ input[type=file].file_selected:before {
   background-color: #c4a020 !important;
   border: none !important;
 }
-#password-lost-form-wrap .input {
+#password-lost-form-wrap input {
   width: 100% !important;
   background-color: #000000;
   color: #fff;
 }
-#password-lost-form-wrap .input:focus {
+#password-lost-form-wrap input:focus {
   background-color: unset;
   color: #fff;
   border-color: unset;
+}
+#password-lost-form-wrap .som-password-sent-message {
+  border: none !important;
+  background-color: #000000 !important;
+  color: #b7951b !important;
 }
 
 .member_home {

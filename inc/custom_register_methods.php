@@ -51,6 +51,13 @@ function red_registration_fields($reg_form_role) {	?>
 			<?php	
 			endif;
 			?>
+
+			<?php
+			if ( isset($_GET['c']) && $_GET['c'] != "") : ?>
+				<input id="mc_campaign" type="hidden" name="mc_campaign" value="<?php echo $_GET['c']; ?>"/>
+			<?php
+			endif;
+			?>
 			
 			<input id="website" type="hidden" name="website" value=""/>
 			<input type="hidden" name="red_csrf" value="<?php echo wp_create_nonce('red-csrf'); ?>"/>
@@ -95,7 +102,13 @@ function red_add_new_user() {
 		$pass_confirm 	= $_POST["red_user_pass_confirm"];
 		$red_role 		= sanitize_text_field( $_POST["red_role"] );
 
-		if ($red_role == (int) filter_var(AUTH_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "shop_manager"; }  elseif ($red_role == (int) filter_var(SECURE_AUTH_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "customer"; } elseif ($red_role == (int) filter_var(NONCE_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "contributor"; } elseif ($red_role == (int) filter_var(AUTH_SALT, FILTER_SANITIZE_NUMBER_INT)  ) { $role = "author"; } elseif ($red_role ==  (int) filter_var(SECURE_AUTH_SALT, FILTER_SANITIZE_NUMBER_INT) ) { $role = "editor"; }   elseif ($red_role == (int) filter_var(LOGGED_IN_SALT, FILTER_SANITIZE_NUMBER_INT) ) { $role = "administrator"; } else { $role = "subscriber"; }
+		$mcCampaign = isset($_POST['mc_campaign']) && $_POST['mc_campaign'] != '' ? $_POST['mc_campaign'] : null;
+		if ($mcCampaign) {
+			postToMailChimp($user_email, $mcCampaign);
+		}
+		print_r($mcCampaign);
+
+		/*if ($red_role == (int) filter_var(AUTH_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "shop_manager"; }  elseif ($red_role == (int) filter_var(SECURE_AUTH_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "customer"; } elseif ($red_role == (int) filter_var(NONCE_KEY, FILTER_SANITIZE_NUMBER_INT) ) { $role = "contributor"; } elseif ($red_role == (int) filter_var(AUTH_SALT, FILTER_SANITIZE_NUMBER_INT)  ) { $role = "author"; } elseif ($red_role ==  (int) filter_var(SECURE_AUTH_SALT, FILTER_SANITIZE_NUMBER_INT) ) { $role = "editor"; }   elseif ($red_role == (int) filter_var(LOGGED_IN_SALT, FILTER_SANITIZE_NUMBER_INT) ) { $role = "administrator"; } else { $role = "subscriber"; }
 
 		if(username_exists($user_login)) {
 			red_errors()->add('username_unavailable', __('Username already taken'));
@@ -135,10 +148,13 @@ function red_add_new_user() {
 					setcookie('mc_referer', 'registered', strtotime( '+30 days' ), '/' );
 					postToMailChimp($user_email, 'registered');
 				}
+				$mcCampaign = isset($_POST['c']) && $_POST['c'] != '' ? $_POST['c'] : null;
+				if ($mcCampaign) {
+					postToMailChimp($user_email, $mcCampaign);
+				}
 				send_verification_email($new_user_id, $user_email);
-
 			}
-		}
+		}*/
 	} elseif (isset( $_POST["red_user_login"] ) && $_POST["website"] != "") {
 		red_errors()->add('register_failed', __('Unable To Create Your Account.'));
 	}

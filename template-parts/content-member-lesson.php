@@ -10,10 +10,19 @@
     $type = null;
     $videoLink = get_field('member_lesson_link');
     $id = get_the_ID();
-	$desc = get_field('lesson_description');
     $videoOnly = get_field('no_video');
     $pageId = get_query_var('pageId');
+	$desc = get_field('lesson_description');
+	$desc_output = '';
+	if (!empty($desc)) {
+		$desc_output = apply_filters('the_content', $desc);
+	}
 
+	$quiz_id = get_field('quiz_id');
+
+	if ($quiz_id) {
+		bn_register_quiz_id($quiz_id); // <-- this is the only extra line you need
+	}
 
     if (strpos($videoLink, "youtube") !== false) {
         $str = explode("embed/", $videoLink);
@@ -90,6 +99,10 @@
                     data-title="<?php echo the_title();?>"
                     data-postid="<?php echo $id; ?>"
                     data-desc="<?php echo htmlspecialchars($desc); ?>"
+                    data-quiz="<?php echo $quiz_id; ?>"
+	                <?php if (!empty($desc_output)) : ?>
+		                data-desc-target="lesson-description-<?php echo esc_attr($hash); ?>"
+	                <?php endif; ?>
                     data-permalink="<?php echo the_permalink(); ?>"
                     data-files='[<?php
                         foreach($fileArray as $file) {
@@ -154,4 +167,9 @@
                 <p>Date Added <?php echo get_the_date('n/j/Y'); ?></p>
             </div>
 
+	        <?php if (!empty($desc_output)) : ?>
+		        <div id="lesson-description-<?php echo esc_attr($hash); ?>" class="lesson-description-content" hidden>
+			        <?php echo $desc_output; ?>
+		        </div>
+	        <?php endif; ?>
         </div><!-- column -->

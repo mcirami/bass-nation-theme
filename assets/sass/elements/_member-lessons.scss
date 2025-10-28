@@ -187,12 +187,15 @@
         }
 
         .lesson_title {
-            text-align: center;
+            text-align: left;
             color: $white;
-            padding: 15px;
+            padding: 15px 0;
+            text-transform: uppercase;
+            margin-bottom: 20px;
 
             h3 {
                 margin: 0;
+                font-size: 3rem;
             }
         }
 
@@ -1625,4 +1628,9 @@
             background: $black;
         }
     }
+}
+
+.ays-quiz-container {
+    max-width: unset !important;
+    width: 100% !important;
 }

@@ -2,6 +2,7 @@
 const { filter } = require("lodash");
 const { Swiper } = require("swiper/bundle");
 jQuery.noConflict();
+
 // eslint-disable-next-line no-undef
 jQuery(document).ready(function ($) {
     window.addEventListener("error", (event) => {
@@ -16,6 +17,8 @@ jQuery(document).ready(function ($) {
     const htmlBody = $("html, body");
     const navIcon = $(".user_mobile_nav p span");
     const videoPlayer = document.querySelector("#video_player");
+	let activeDescTarget = null;
+	let activeDescHtml = null;
 
     $(".bbp-topic-freshness-author").each(function () {
         const $this = $(this);
@@ -718,50 +721,114 @@ jQuery(document).ready(function ($) {
         });
     }
 
-    function bindPlayVideo() {
-        let videoPlayer = "";
-        let clickHash = $(this).attr("href");
+	function restoreActiveLessonDescription() {
+		if (!activeDescTarget) {
+			return;
+		}
+
+		const targetElement = document.getElementById(activeDescTarget);
+
+		if (targetElement) {
+			targetElement.innerHTML = activeDescHtml || "";
+		}
+
+		activeDescTarget = null;
+		activeDescHtml = null;
+	}
+
+	function decodeHtmlEntities(value) {
+		if (!value) {
+			return "";
+		}
+
+		const textarea = document.createElement("textarea");
+		textarea.innerHTML = value;
+		return textarea.value;
+	}
+
+    async function bindPlayVideo() {
+	    restoreActiveLessonDescription();
+
         htmlBody.css("overflow-y", "hidden");
         document.querySelector("#global_header").style.zIndex = 9;
 
-        const pageName = currentPage.pageName.toLowerCase();
-        if (pageName.includes("course")) {
-            clickHash = pageName.replaceAll(" ", "-") + clickHash;
-        }
-        createCookie("clickHash", clickHash, 5);
+	    const $el       = $(this);
+	    let clickHash = $el.attr("href");
+        const videoSrc = $el.data("src");
+        const videoTitle = $el.data("title");
+        const postID = $el.data("postid");
+        const files = $el.data("files");
+        const permalink = $el.data("permalink");
+	    const quizId = $el.data("quiz");
 
-        const videoSrc = $(this).data("src");
-        const videoTitle = $(this).data("title");
-        const postID = $(this).data("postid");
-        const desc = $(this).data("desc");
-        const files = $(this).data("files");
-        const permalink = $(this).data("permalink");
+	    const pageName = currentPage.pageName.toLowerCase();
+	    if (pageName.includes("course")) {
+		    clickHash = pageName.replaceAll(" ", "-") + clickHash;
+	    }
+	    createCookie("clickHash", clickHash, 5);
 
-        let favoriteButton = "";
+	    let desc = "";
+	    const descTarget = $el.data("descTarget");
+	    if (descTarget) {
+		    const descElement = document.getElementById(descTarget);
+		    if (descElement) {
+			    activeDescTarget = descTarget;
+			    activeDescHtml = descElement.innerHTML;
+			    desc = activeDescHtml;
+			    descElement.innerHTML = "";
+		    }
+	    }
 
-        let videoDesc = "";
+	    if (!desc) {
+		    const rawDesc = $(this).attr("data-desc");
+		    if (rawDesc) {
+			    desc = decodeHtmlEntities(rawDesc);
+		    }
+	    }
 
-        if (desc) {
-            videoDesc = '<div class="description"><p>' + desc + "</p></div>";
-        }
+	    // QUIZ MAKER fetch (REST → do_shortcode) 	    // e.g., 123
+	    const quizProvider = ($el.data('quizProvider') || 'quizmaker').toString().toLowerCase();
+	    // prepare async calls
+	    const root  = (window.wpApiSettings && wpApiSettings.root)  || '/wp-json/';
+	    const nonce = (window.wpApiSettings && wpApiSettings.nonce) || '';
 
-        videoPlayer = $("#video_player").empty();
-        videoPlayer.addClass("open");
 
-        favoriteButton = $(this).parent().children(".button_wrap").html();
+	    const quizPromise = quizId
+		    ? fetch(`${root}bn/v1/quiz?id=${encodeURIComponent(quizId)}&provider=${encodeURIComponent(quizProvider)}`, {
+			    credentials: 'same-origin',
+			    headers: nonce ? { 'X-WP-Nonce': nonce } : {}
+		    }).then(r => r.json()).catch(() => null)
+		    : Promise.resolve(null);
+
+	    const commentsPromise = (currentPage.pageId === 7)
+		    ? Promise.resolve(false) // free page: no comments AJAX
+		    : commentsAjaxCall(myAjaxurl.ajaxurl, postID).catch(() => false);
+
+	    const [quizData, comments]  = await Promise.all([quizPromise, commentsPromise]);
+	    // build HTML
+	    let videoDesc = desc ? `<div class="description">${desc}</div>` : "";
+	    /*if (quizData && quizData.html) {
+		    videoDesc += `<div class="quiz_wrap">${quizData.html}</div>`;
+	    }*/
+
+	    if (quizId) {
+		    const holder = document.getElementById(`bn-quiz-${quizId}`);
+		    if (holder) {
+			    // Wrap a slot where the quiz will live in your modal content
+			    videoDesc += `<div class="quiz_wrap" id="quiz-slot-${quizId}"></div>`;
+		    }
+	    }
+
+        const videoPlayer = $("#video_player").empty().addClass("open");
+        const favoriteButton = $el.parent().children(".button_wrap").html() || '';
 
         let fileElements = "";
 
         if (files.length > 0 && currentPage.pageId !== 7) {
             files.forEach((file) => {
-                if (file["file"]) {
-                    fileElements +=
-                        '<div class="column"><a target="_blank" href="' +
-                        file["file"] +
-                        '">' +
-                        file["text"] +
-                        "</a></div>";
-                }
+	            if (file && file.file) {
+		            fileElements += `<div class="column"><a target="_blank" href="${file.file}">${file.text || 'Download'}</a></div>`;
+	            }
             });
         }
 
@@ -783,24 +850,27 @@ jQuery(document).ready(function ($) {
                 videoShareHTML
             );
         } else {
-            const ajaxURL = myAjaxurl.ajaxurl;
-            commentsAjaxCall(ajaxURL, postID).then(
-                function (response) {
-                    getVideoHTML(
-                        videoTitle,
-                        videoSrc,
-                        favoriteButton,
-                        fileElements,
-                        videoDesc,
-                        response,
-                        videoPlayer
-                    );
-                },
-                function (reason) {
-                    console.log("error", reason);
-                }
-            );
+                getVideoHTML(
+                    videoTitle,
+                    videoSrc,
+                    favoriteButton,
+                    fileElements,
+                    videoDesc,
+                    comments,
+                    videoPlayer
+                );
         }
+
+	    if (quizId) {
+		    const holder = document.getElementById(`bn-quiz-${quizId}`);
+		    const slot   = document.getElementById(`quiz-slot-${quizId}`);
+		    if (holder && slot) {
+			    // Important: move the existing node (preserves all event handlers)
+			    slot.innerHTML = '';
+			    slot.appendChild(holder);      // MOVE from the cache to the modal
+			    holder.style.display = '';     // unhide
+		    }
+	    }
 
         if (currentPage.pageId !== 7) {
             setTimeout(function () {
@@ -1081,12 +1151,12 @@ jQuery(document).ready(function ($) {
         let html =
             '<div class="lesson_content_wrap">' +
             '<span id="close_video"></span>' +
-            '<div class="lesson_title">' +
-            "<h3>" +
-            videoTitle +
-            "</h3>" +
-            "</div>" +
             '<div class="content_wrap">' +
+	        '<div class="lesson_title">' +
+	        "<h3>" +
+	        videoTitle +
+	        "</h3>" +
+	        "</div>" +
             '<div class="video_iframe_wrap">';
 
         html += '<div class="video_wrapper">';
@@ -1143,6 +1213,7 @@ jQuery(document).ready(function ($) {
             videoPlayer.removeClass("open");
             htmlBody.css("overflow-y", "auto");
             $("#current_video_player").remove();
+	        restoreActiveLessonDescription();
         });
     }
 

@@ -6,6 +6,7 @@
  * Time: 9:31 AM
  */
 
+
 //$title = get_query_var('pagename');
     $type = null;
     $videoLink = get_field('member_lesson_link');
@@ -92,6 +93,7 @@
            
             <div class="vid_image_wrap">
                 <?php $totalFileCount = count($fileArray); $fileCount = 0; ?>
+
                 <a id="<?php echo $hash; ?>" class="<?php echo $videoOnly && $pageId == 7 && !is_user_logged_in() ? 'members_only_video_pop' : 'play_video'; ?>"
                     href="#<?php echo $hash;?>"
                     data-type="<?php echo $type;?>"

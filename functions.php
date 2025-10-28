@@ -177,22 +177,6 @@ function bass_nation_scripts() {
 		'postSlug' 	=> get_permalink(),
 		'pageId'	=> get_the_ID()
 	) );
-
-	/*if (is_page('lessons') || is_page('courses')) {
-		// Try common handles first (harmless if nonexistent):
-		wp_enqueue_style('ays-quiz-public');
-		wp_enqueue_script('ays-quiz-public');
-		wp_enqueue_script('ays-quiz-front');
-
-		// Fallback: trigger the plugin to enqueue by rendering a dummy, hidden quiz.
-		// Replace 123 with a real small quiz ID you have.
-		add_action('wp_footer', function () {
-			echo '<div style="display:none!important;visibility:hidden" aria-hidden="true">';
-			echo do_shortcode('[ays_quiz id="1"]');
-			echo '</div>';
-		}, 1);
-	}*/
-
 }
 add_action( 'wp_enqueue_scripts', 'bass_nation_scripts' );
 

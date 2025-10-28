@@ -10,7 +10,7 @@
  */
 
 get_header();
-
+echo "<h1>Hello</h1>";
 $title = get_the_title();
 $pageId = get_the_ID();
 

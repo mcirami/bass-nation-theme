@@ -1,4 +1,10 @@
 <?php
+use Stripe\Customer;
+use Stripe\Exception\ApiErrorException;
+use Stripe\PaymentMethod;
+use Stripe\Stripe;
+use Stripe\Subscription;
+
 /*
 	Add this code to your active theme's functions.php or a custom plugin
 	to change the PayPal button image on the PMPro checkout page.
@@ -15,6 +21,72 @@ add_filter('pmpro_send_email', function($send, $email){
 	}
 	return $send;
 }, 10, 2);
+
+add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 10, 2);
+function set_stripe_default_payment_method($user_id, $order) {
+	global $gateway;
+
+	// Only run for Stripe gateway
+	if ($gateway !== 'stripe') {
+		return;
+	}
+
+	// Make sure we have the necessary Stripe data
+	if (empty($order->payment_method_id) || empty($order->Gateway->customer)) {
+		return;
+	}
+
+	try {
+		// Get Stripe customer ID
+		$stripe_customer_id = $order->Gateway->customer->id;
+		$payment_method_id = $order->payment_method_id;
+
+		// Initialize Stripe
+		if (!class_exists('\Stripe\Stripe')) {
+			require_once(PMPRO_DIR . '/includes/lib/Stripe/init.php');
+		}
+
+		$stripe_secret_key = get_option('pmpro_stripe_secretkey');
+		if (pmpro_getOption('gateway_environment') === 'sandbox') {
+			$stripe_secret_key = get_option('pmpro_stripe_secretkey_test');
+		}
+
+		Stripe::setApiKey($stripe_secret_key);
+
+		// Attach payment method to customer (if not already attached)
+		$payment_method = PaymentMethod::retrieve($payment_method_id);
+
+		if (empty($payment_method->customer)) {
+			$payment_method->attach(['customer' => $stripe_customer_id]);
+		}
+
+		// Set as default payment method for invoices/subscriptions
+		Customer::update(
+			$stripe_customer_id,
+			[
+				'invoice_settings' => [
+					'default_payment_method' => $payment_method_id
+				]
+			]
+		);
+
+		// Optional: Also set on subscription if this is a recurring membership
+		if (pmpro_isLevelRecurring($order->membership_level) && !empty($order->subscription_transaction_id)) {
+			Subscription::update(
+				$order->subscription_transaction_id,
+				[
+					'default_payment_method' => $payment_method_id
+				]
+			);
+		}
+
+	} catch ( ApiErrorException $e) {
+		// Log error for debugging
+		error_log('PMPro Stripe Default PM Error: ' . $e->getMessage());
+	} catch (\Exception $e) {
+		error_log('PMPro Stripe Default PM Error: ' . $e->getMessage());
+	}
+}
 
 /**
  * Require user's checking out for any level that requires billing to match their IP address with billing country address fields.

@@ -27,8 +27,8 @@ function set_stripe_default_payment_method($user_id, $order) {
 	global $gateway;
 
 	// Only run for Stripe gateway
-	if ($gateway !== 'stripe') {
-		error_log('$gateway !== stripe');
+	if (strtolower($gateway) !== 'stripe') {
+		error_log('$gateway !== stripe :' . $gateway);
 		return;
 	}
 

@@ -28,11 +28,13 @@ function set_stripe_default_payment_method($user_id, $order) {
 
 	// Only run for Stripe gateway
 	if ($gateway !== 'stripe') {
+		error_log('$gateway !== stripe');
 		return;
 	}
 
 	// Make sure we have the necessary Stripe data
 	if (empty($order->payment_method_id) || empty($order->Gateway->customer)) {
+		error_log('PMPro Stripe empty($order->payment_method_id) || empty($order->Gateway->customer): ');
 		return;
 	}
 

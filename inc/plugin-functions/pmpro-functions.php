@@ -25,10 +25,10 @@ add_filter('pmpro_send_email', function($send, $email){
 add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 10, 2);
 function set_stripe_default_payment_method($user_id, $order) {
 	global $gateway;
-
+	error_log('$gateway !== stripe $order->Gateway:' . $order->Gateway);
 	// Only run for Stripe gateway
-	if (strtolower($gateway) !== 'stripe') {
-		error_log('$gateway !== stripe :' . $gateway);
+	if (strtolower($order->Gateway) !== 'stripe') {
+		error_log('$gateway !== stripe $order->Gateway:' . $order->Gateway);
 		return;
 	}
 

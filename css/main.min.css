@@ -22651,6 +22651,9 @@ form textarea {
   max-height: 145px;
   color: #fff;
 }
+form textarea:focus {
+  color: #fff;
+}
 form input[type=submit] {
   font-family: "interbold", sans-serif;
   font-weight: 700;
@@ -27062,7 +27065,7 @@ input[type=file].file_selected:before {
 }
 .db-dark-mode-active.logged-in form textarea {
   background: #000000 !important;
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #fff;
 }
 .db-dark-mode-active.logged-in .forum_wrapper #bbpress-forums span.bbp-admin-links a {

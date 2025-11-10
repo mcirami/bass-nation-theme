@@ -1140,6 +1140,10 @@ form {
         background: $black;
         max-height: 145px;
         color: $white;
+
+        &:focus {
+            color: $white;
+        }
     }
 
     input[type="submit"] {

@@ -27,7 +27,7 @@ add_filter('pmpro_send_email', function($send, $email){
  * Set the Stripe payment method used at checkout as the default for the customer.
  * Works with Paid Memberships Pro using Stripe Checkout.
  */
-add_action( 'pmpro_stripe_checkout_session_completed', function( $session ) {
+/*add_action( 'pmpro_stripe_checkout_session_completed', function( $session ) {
 	error_log( '$session->customer: ' . $session->customer );
 	error_log( '$session->payment_method: ' . $session->payment_method );
 
@@ -66,8 +66,8 @@ add_action( 'pmpro_stripe_checkout_session_completed', function( $session ) {
 	} catch ( Exception $e ) {
 		error_log( 'Stripe default payment method update failed: ' . $e->getMessage() );
 	}
-});
-/*
+});*/
+
 add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 10, 2);
 function set_stripe_default_payment_method($user_id, $order) {
 	global $gateway;
@@ -97,15 +97,15 @@ function set_stripe_default_payment_method($user_id, $order) {
 		$stripe = new StripeClient($stripe_secret_key);
 
 		$subscription = $stripe->subscriptions->retrieve($order->subscription_transaction_id);
-		$customer = $stripe->customers->retrieve($subscription->customer);
+		//$customer = $stripe->customers->retrieve($subscription->customer);
 
 
-		$paymentMethod = $stripe->customers->allPaymentMethods($customer->id, ['limit'=> 1]);
+		$paymentMethod = $stripe->customers->allPaymentMethods($subscription->customer, ['limit'=> 5]);
 		$payment_methodID = strval($paymentMethod[0]->id);
 
 		// Set as default payment method for invoices/subscriptions
 		$stripe->customers->update(
-			$customer->id,
+			$subscription->customer,
 			[
 				'invoice_settings' => [
 					'default_payment_method' => $payment_methodID
@@ -114,7 +114,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 		);
 
 		// Optional: Also set on subscription if this is a recurring membership
-		if (pmpro_isLevelRecurring($order->membership_level) && !empty($order->subscription_transaction_id)) {
+		if (!empty($order->subscription_transaction_id)) {
 			$stripe->subscriptions->update(
 				$order->subscription_transaction_id,
 				[
@@ -129,7 +129,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 	} catch (\Exception $e) {
 		error_log('PMPro Stripe Default PM Error: ' . $e->getMessage());
 	}
-}*/
+}
 
 /**
  * Require user's checking out for any level that requires billing to match their IP address with billing country address fields.

@@ -1,6 +1,7 @@
 <?php
 use Stripe\Customer;
 use Stripe\Exception\ApiErrorException;
+use Stripe\Invoice;
 use Stripe\PaymentMethod;
 use Stripe\Stripe;
 use Stripe\StripeClient;
@@ -68,60 +69,106 @@ add_filter('pmpro_send_email', function($send, $email){
 	}
 });*/
 
-add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 10, 2);
+add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 20, 2);
 function set_stripe_default_payment_method($user_id, $order) {
-	global $gateway;
-
-	// Only run for Stripe gateway
-	if (strtolower($order->Gateway->gateway) !== 'stripe') {
+	// Must have an order and gateway = stripe
+	if (empty($order) || empty($order->Gateway->gateway) || strtolower($order->Gateway->gateway) !== 'stripe') {
 		return;
 	}
 
 	error_log('subscription_transaction_id:' . print_r($order->subscription_transaction_id,true));
 
+	// Load Stripe library via PMPro if not already loaded
+	if (!class_exists('\Stripe\Stripe')) {
+		if (class_exists('PMProGateway_stripe') && method_exists('PMProGateway_stripe', 'loadStripeLibrary')) {
+			PMProGateway_stripe::loadStripeLibrary();
+		} else {
+			// Fallback include path if needed:
+			if (defined('PMPRO_DIR') && file_exists(PMPRO_DIR . '/includes/lib/Stripe/init.php')) {
+				require_once PMPRO_DIR . '/includes/lib/Stripe/init.php';
+			}
+		}
+	}
+	if (!class_exists('\Stripe\Stripe')) {
+		error_log('[DB default PM] Stripe library not loaded');
+		return;
+	}
+
+	// Get correct secret key from PMPro options
+	$env = pmpro_getOption('gateway_environment'); // 'live' or 'sandbox'
+	$secret = ($env === 'sandbox')
+		? pmpro_getOption('stripe_secretkey_test')
+		: pmpro_getOption('stripe_secretkey');
+
+	if (empty($secret) || !is_string($secret)) {
+		error_log('[DB default PM] Missing Stripe secret key for env=' . $env);
+		return;
+	}
+
+	Stripe::setApiKey($secret);
+
+	// Determine the Stripe customer id
+	$stripe_cus = get_user_meta($user_id, 'pmpro_stripe_customerid', true);
+	// If we have a subscription id from the order, we can read the customer off it
+	$sub_id = !empty($order->subscription_transaction_id) ? trim($order->subscription_transaction_id) : '';
+
 	try {
-		// Get Stripe customer ID
-		//$stripe_customer_id = $order->Gateway->customer->id;
-		//$payment_method_id = $order->payment_method_id;
-
-		// Initialize Stripe
-		if (!class_exists('\Stripe\Stripe')) {
-			require_once(PMPRO_DIR . '/includes/lib/Stripe/init.php');
+		if (!$stripe_cus && $sub_id) {
+			$sub = Subscription::retrieve($sub_id);
+			$stripe_cus = $sub && !empty($sub->customer) ? $sub->customer : $stripe_cus;
 		}
 
-		$stripe_secret_key = get_option('pmpro_stripe_secretkey');
-		if (pmpro_getOption('gateway_environment') === 'sandbox') {
-			$stripe_secret_key = get_option('pmpro_stripe_secretkey_test');
+		if (empty($stripe_cus)) {
+			error_log('[DB default PM] No Stripe customer id for user ' . $user_id);
+			return;
 		}
 
-		$stripe = new StripeClient($stripe_secret_key);
+		// Prefer the PM that actually succeeded on the latest paid invoice
+		$invoices = Invoice::all([
+			'customer' => $stripe_cus,
+			'limit'    => 1,
+			'status'   => 'paid',
+			'expand'   => ['data.payment_intent.payment_method'],
+		]);
 
-		$subscription = $stripe->subscriptions->retrieve($order->subscription_transaction_id);
-		//$customer = $stripe->customers->retrieve($subscription->customer);
-
-
-		$paymentMethod = $stripe->customers->allPaymentMethods($subscription->customer, ['limit'=> 5]);
-		$payment_methodID = strval($paymentMethod[0]->id);
-
-		// Set as default payment method for invoices/subscriptions
-		$stripe->customers->update(
-			$subscription->customer,
-			[
-				'invoice_settings' => [
-					'default_payment_method' => $payment_methodID
-				]
-			]
-		);
-
-		// Optional: Also set on subscription if this is a recurring membership
-		if (!empty($order->subscription_transaction_id)) {
-			$stripe->subscriptions->update(
-				$order->subscription_transaction_id,
-				[
-					'default_payment_method' => $payment_methodID
-				]
-			);
+		$pm_id = null;
+		if (!empty($invoices->data)) {
+			$inv = $invoices->data[0];
+			if (!empty($inv->payment_intent) && !empty($inv->payment_intent->payment_method)) {
+				$pm_id = $inv->payment_intent->payment_method->id;
+			}
 		}
+
+		// Fallback: first attached card on the customer
+		if (!$pm_id) {
+			$pms = PaymentMethod::all([
+				'customer' => $stripe_cus,
+				'type'     => 'card',
+				'limit'    => 1,
+			]);
+			if (!empty($pms->data)) {
+				$pm_id = $pms->data[0]->id;
+			}
+		}
+
+		if (!$pm_id) {
+			error_log('[DB default PM] No payment method found for customer ' . $stripe_cus);
+			return;
+		}
+
+		// Set as customer default for future invoices
+		Customer::update($stripe_cus, [
+			'invoice_settings' => ['default_payment_method' => $pm_id],
+		]);
+
+		// Also set on subscription if we have one
+		if ($sub_id) {
+			Subscription::update($sub_id, [
+				'default_payment_method' => $pm_id,
+			]);
+		}
+
+		error_log('[DB default PM] Set default PM ' . $pm_id . ' for customer ' . $stripe_cus . ' (user ' . $user_id . ')');
 
 	} catch ( ApiErrorException $e) {
 		// Log error for debugging

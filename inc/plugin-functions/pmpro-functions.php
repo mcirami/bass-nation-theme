@@ -3,6 +3,7 @@ use Stripe\Customer;
 use Stripe\Exception\ApiErrorException;
 use Stripe\PaymentMethod;
 use Stripe\Stripe;
+use Stripe\StripeClient;
 use Stripe\Subscription;
 
 /*
@@ -54,14 +55,14 @@ function set_stripe_default_payment_method($user_id, $order) {
 			$stripe_secret_key = get_option('pmpro_stripe_secretkey_test');
 		}
 
-		Stripe::setApiKey($stripe_secret_key);
+		$stripe = new StripeClient($stripe_secret_key);
 
-		$subscription = Subscription::retrieve($order->subscription_transaction_id);
-		$customer = Customer::retrieve($subscription->customer);
+		$subscription = $stripe->subscriptions->retrieve($order->subscription_transaction_id);
+		$customer = $stripe->customers->retrieve($subscription->customer);
 
 
-		$paymentMethod = Customer::allPaymentMethods($customer->id, ['limit'=> 1]);
-		$payment_methodID = $paymentMethod[0]->id;
+		$paymentMethod = $stripe->customers->allPaymentMethods($customer->id, ['limit'=> 1]);
+		$payment_methodID = strval($paymentMethod[0]->id);
 
 		// Set as default payment method for invoices/subscriptions
 		Customer::update(

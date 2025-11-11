@@ -1,6 +1,7 @@
 <?php
 use Stripe\Customer;
 use Stripe\Exception\ApiErrorException;
+use Stripe\Invoice;
 use Stripe\PaymentMethod;
 use Stripe\Stripe;
 use Stripe\StripeClient;
@@ -23,72 +24,58 @@ add_filter('pmpro_send_email', function($send, $email){
 	return $send;
 }, 10, 2);
 
-add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 10, 2);
-function set_stripe_default_payment_method($user_id, $order) {
-	global $gateway;
+add_action('pmpro_after_checkout', 'db_set_default_pm_from_latest_invoice', 20, 2);
+add_action('pmpro_subscription_payment_completed', 'db_set_default_pm_from_latest_invoice_on_renewal', 10, 2);
 
-	// Only run for Stripe gateway
-	if (strtolower($order->Gateway->gateway) !== 'stripe') {
-		return;
+function db_set_default_pm_from_latest_invoice($user_id, $morder): void {
+	db__stripe_set_default_pm_for_user($user_id, $morder);
+}
+function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user): void {
+	db__stripe_set_default_pm_for_user($user->ID, $morder);
+}
+
+function db__stripe_set_default_pm_for_user($user_id, $morder = null): void {
+	$cus = get_user_meta($user_id, 'pmpro_stripe_customerid', true);
+	if (!$cus) return;
+
+	if (!class_exists('\\Stripe\\Stripe')) {
+		// Load Stripe via PMPro gateway if available
+		if (class_exists('PMProGateway_stripe') && method_exists('PMProGateway_stripe', 'loadStripeLibrary')) {
+			PMProGateway_stripe::loadStripeLibrary();
+		}
 	}
+	if (!class_exists('\\Stripe\\Stripe')) return;
 
-	error_log('subscription_transaction_id:' . print_r($order->subscription_transaction_id,true));
-
-	// Make sure we have the necessary Stripe data
-	/*if (empty($order->payment_method_id) || empty($order->Gateway->customer)) {
-		error_log('PMPro Stripe empty($order->payment_method_id) || empty($order->Gateway->customer): ');
-		return;
-	}*/
+	$secret = pmpro_getOption('stripe_secretkey');
+	if (pmpro_getOption('gateway_environment') === 'sandbox') {
+		$secret = get_option('pmpro_stripe_secretkey_test');
+	}
+	if (!$secret) return;
+	Stripe::setApiKey($secret);
 
 	try {
-		// Get Stripe customer ID
-		//$stripe_customer_id = $order->Gateway->customer->id;
-		//$payment_method_id = $order->payment_method_id;
+		// Find the latest PAID invoice for this customer
+		$invoices = Invoice::all([
+			'customer' => $cus,
+			'limit'    => 1,
+			'status'   => 'paid',
+			'expand'   => ['data.payment_intent.payment_method'],
+		]);
+		if (empty($invoices->data)) return;
 
-		// Initialize Stripe
-		if (!class_exists('\Stripe\Stripe')) {
-			require_once(PMPRO_DIR . '/includes/lib/Stripe/init.php');
+		$inv = $invoices->data[0];
+		$pm  = $inv->payment_intent && $inv->payment_intent->payment_method
+			? $inv->payment_intent->payment_method->id
+			: null;
+
+		if ($pm) {
+			// Set as customer's default payment method for future invoices
+			Customer::update($cus, [
+				'invoice_settings' => ['default_payment_method' => $pm],
+			]);
 		}
-
-		$stripe_secret_key = get_option('pmpro_stripe_secretkey');
-		if (pmpro_getOption('gateway_environment') === 'sandbox') {
-			$stripe_secret_key = get_option('pmpro_stripe_secretkey_test');
-		}
-
-		$stripe = new StripeClient($stripe_secret_key);
-
-		$subscription = $stripe->subscriptions->retrieve($order->subscription_transaction_id);
-		$customer = $stripe->customers->retrieve($subscription->customer);
-
-
-		$paymentMethod = $stripe->customers->allPaymentMethods($customer->id, ['limit'=> 1]);
-		$payment_methodID = strval($paymentMethod[0]->id);
-
-		// Set as default payment method for invoices/subscriptions
-		$stripe->customers->update(
-			$customer->id,
-			[
-				'invoice_settings' => [
-					'default_payment_method' => $payment_methodID
-				]
-			]
-		);
-
-		// Optional: Also set on subscription if this is a recurring membership
-		if (pmpro_isLevelRecurring($order->membership_level) && !empty($order->subscription_transaction_id)) {
-			$stripe->subscriptions->update(
-				$order->subscription_transaction_id,
-				[
-					'default_payment_method' => $payment_methodID
-				]
-			);
-		}
-
-	} catch ( ApiErrorException $e) {
-		// Log error for debugging
-		error_log('PMPro Stripe Default PM Error: ' . $e->getMessage());
 	} catch (\Exception $e) {
-		error_log('PMPro Stripe Default PM Error: ' . $e->getMessage());
+		error_log('[DB default PM] ' . $e->getMessage());
 	}
 }
 

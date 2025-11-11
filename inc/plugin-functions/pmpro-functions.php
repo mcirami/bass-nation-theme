@@ -31,18 +31,18 @@ function set_stripe_default_payment_method($user_id, $order) {
 		return;
 	}
 
-	error_log('Order Object:' . print_r($order,true));
+	error_log('subscription_transaction_id:' . print_r($order->subscription_transaction_id,true));
 
 	// Make sure we have the necessary Stripe data
-	if (empty($order->payment_method_id) || empty($order->Gateway->customer)) {
+	/*if (empty($order->payment_method_id) || empty($order->Gateway->customer)) {
 		error_log('PMPro Stripe empty($order->payment_method_id) || empty($order->Gateway->customer): ');
 		return;
-	}
+	}*/
 
 	try {
 		// Get Stripe customer ID
-		$stripe_customer_id = $order->Gateway->customer->id;
-		$payment_method_id = $order->payment_method_id;
+		//$stripe_customer_id = $order->Gateway->customer->id;
+		//$payment_method_id = $order->payment_method_id;
 
 		// Initialize Stripe
 		if (!class_exists('\Stripe\Stripe')) {
@@ -56,19 +56,19 @@ function set_stripe_default_payment_method($user_id, $order) {
 
 		Stripe::setApiKey($stripe_secret_key);
 
-		// Attach payment method to customer (if not already attached)
-		$payment_method = PaymentMethod::retrieve($payment_method_id);
+		$subscription = Subscription::retrieve($order->subscription_transaction_id);
+		$customer = Customer::retrieve($subscription->customer);
 
-		if (empty($payment_method->customer)) {
-			$payment_method->attach(['customer' => $stripe_customer_id]);
-		}
+
+		$paymentMethod = Customer::allPaymentMethods($customer->id, ['limit'=> 1]);
+		$payment_methodID = $paymentMethod[0]->id;
 
 		// Set as default payment method for invoices/subscriptions
 		Customer::update(
-			$stripe_customer_id,
+			$customer->id,
 			[
 				'invoice_settings' => [
-					'default_payment_method' => $payment_method_id
+					'default_payment_method' => $payment_methodID
 				]
 			]
 		);
@@ -78,7 +78,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 			Subscription::update(
 				$order->subscription_transaction_id,
 				[
-					'default_payment_method' => $payment_method_id
+					'default_payment_method' => $payment_methodID
 				]
 			);
 		}

@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+global $current_user;
 function my_avatar_filter() {
     // Remove from show_user_profile hook
     remove_action( 'show_user_profile', array( 'wp_user_avatar', 'wpua_action_show_user_profile' ) );
@@ -20,4 +21,3 @@ if ( ! is_admin() ) {
 }
 
 do_action( 'edit_user_avatar',  $current_user  );
-?>

@@ -14,7 +14,7 @@ function my_pmpro_paypal_button_image($url)
 {
 	return "https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png";
 }
-add_filter('pmpro_paypal_button_image', 'my_pmpro_paypal_button_image');
+//add_filter('pmpro_paypal_button_image', 'my_pmpro_paypal_button_image');
 
 add_filter('pmpro_send_email', function($send, $email){
 	if (!empty($email->template) && in_array($email->template, ['cancelled','cancelled_admin'])) {
@@ -65,7 +65,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 		$payment_methodID = strval($paymentMethod[0]->id);
 
 		// Set as default payment method for invoices/subscriptions
-		Customer::update(
+		$stripe->customers->update(
 			$customer->id,
 			[
 				'invoice_settings' => [
@@ -76,7 +76,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 
 		// Optional: Also set on subscription if this is a recurring membership
 		if (pmpro_isLevelRecurring($order->membership_level) && !empty($order->subscription_transaction_id)) {
-			Subscription::update(
+			$stripe->subscriptions->update(
 				$order->subscription_transaction_id,
 				[
 					'default_payment_method' => $payment_methodID

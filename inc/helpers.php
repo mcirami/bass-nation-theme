@@ -26,7 +26,7 @@ add_action( 'init', 'blockusers_init' );
  *
  * @return bool
  */
-function bass_nation_favorites_ready() {
+function bass_nation_favorites_ready(): bool {
 	return function_exists( 'get_user_favorites' ) && did_action( 'init' );
 }
 

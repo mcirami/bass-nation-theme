@@ -11,7 +11,7 @@
  * the `acf` text domain too early and produces PHP notices. Hooking into
  * `acf/init` ensures ACF is ready and translations load at the correct time.
  */
-function bass_nation_initialize_acf_features() {
+function bass_nation_initialize_acf_features(): void {
 	if ( function_exists( 'acf_add_options_page' ) ) {
 		acf_add_options_page( 'Header' );
 		acf_add_options_page( 'Footer' );

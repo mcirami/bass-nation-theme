@@ -19,7 +19,6 @@ if ($env === 'sandbox') {
 	}
 }
 
-
 /*
 	Add this code to your active theme's functions.php or a custom plugin
 	to change the PayPal button image on the PMPro checkout page.
@@ -36,51 +35,6 @@ add_filter('pmpro_send_email', function($send, $email){
 	}
 	return $send;
 }, 10, 2);
-
-/**
- * Set the Stripe payment method used at checkout as the default for the customer.
- * Works with Paid Memberships Pro using Stripe Checkout.
- */
-/*add_action( 'pmpro_stripe_checkout_session_completed', function( $session ) {
-	error_log( '$session->customer: ' . $session->customer );
-	error_log( '$session->payment_method: ' . $session->payment_method );
-
-	if ( empty( $session->customer ) || empty( $session->payment_method ) ) {
-		return;
-	}
-
-	try {
-
-		$stripe_secret_key =  pmpro_getOption( 'stripe_secretkey' );
-		if (pmpro_getOption('gateway_environment') === 'sandbox') {
-			$stripe_secret_key = get_option('pmpro_stripe_secretkey_test');
-		}
-		// Initialize Stripe client with PMPro's stored secret key.
-		$stripe = new StripeClient($stripe_secret_key) ;
-
-		// Update the customer's default payment method.
-		$stripe->customers->update(
-			$session->customer,
-			[
-				'invoice_settings' => [
-					'default_payment_method' => $session->payment_method,
-				],
-			]
-		);
-
-		// Optional: Update any active subscriptions to use this payment method.
-		$subscriptions = $stripe->subscriptions->all(['customer' => $session->customer, 'limit' => 10]);
-		foreach ( $subscriptions->data as $sub ) {
-			$stripe->subscriptions->update(
-				$sub->id,
-				['default_payment_method' => $session->payment_method]
-			);
-		}
-
-	} catch ( Exception $e ) {
-		error_log( 'Stripe default payment method update failed: ' . $e->getMessage() );
-	}
-});*/
 
 add_action('pmpro_subscription_payment_completed','db_set_default_pm_from_latest_invoice_on_renewal',10,2);
 function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user) {

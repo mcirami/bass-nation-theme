@@ -6,9 +6,9 @@ use Stripe\PaymentMethod;
 use Stripe\Stripe;
 use Stripe\Subscription;
 
-if (defined('STRIPE_SECRET_KEY') && !getenv('STRIPE_SECRET_KEY')) {
-	putenv('STRIPE_SECRET_KEY=' . STRIPE_SECRET_KEY);
-	$_ENV['STRIPE_SECRET_KEY'] = STRIPE_SECRET_KEY;
+if (defined('STRIPE_TEST_SECRET_KEY') && !getenv('STRIPE_TEST_SECRET_KEY')) {
+	putenv('STRIPE_TEST_SECRET_KEY=' . STRIPE_SECRET_KEY);
+	$_ENV['STRIPE_TEST_SECRET_KEY'] = STRIPE_SECRET_KEY;
 }
 /*
 	Add this code to your active theme's functions.php or a custom plugin

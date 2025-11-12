@@ -101,8 +101,8 @@ function set_stripe_default_payment_method($user_id, $morder = null) {
 	// Get correct secret key from PMPro options
 	$env = pmpro_getOption('gateway_environment'); // 'live' or 'sandbox'
 	$secret = ($env === 'sandbox')
-		? getenv('stripe_secretkey_test')
-		: pmpro_getOption('stripe_secretkey');
+		? getenv('STRIPE_TEST_SECRET_KEY')
+		: getenv('STRIPE_SECRET_KEY');
 
 	if (empty($secret) || !is_string($secret)) {
 		error_log('[DB default PM] Missing Stripe secret key for env=' . $env);

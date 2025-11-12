@@ -11,14 +11,17 @@
  * the `acf` text domain too early and produces PHP notices. Hooking into
  * `acf/init` ensures ACF is ready and translations load at the correct time.
  */
-function bass_nation_register_acf_options_pages() {
+function bass_nation_initialize_acf_features() {
 	if ( function_exists( 'acf_add_options_page' ) ) {
 		acf_add_options_page( 'Header' );
 		acf_add_options_page( 'Footer' );
 		acf_add_options_page( 'Popup' );
 	}
+
+	add_action( 'acf/save_post', 'my_save_post', 1 );
+	add_filter( 'acf/load_field/name=lesson_page_url', 'my_acf_load_field' );
 }
-add_action( 'acf/init', 'bass_nation_register_acf_options_pages' );
+add_action( 'acf/init', 'bass_nation_initialize_acf_features' );
 function my_save_post( $post_id )
 {
 
@@ -51,7 +54,6 @@ function my_save_post( $post_id )
 
 	httpPost('https://', ' ');
 }
-add_action('acf/save_post', 'my_save_post', 1);
 
 function httpPost($url, $params) {
 
@@ -90,6 +92,3 @@ function my_acf_load_field( $field ) {
 	return $field;
 
 }
-add_filter('acf/load_field/name=lesson_page_url', 'my_acf_load_field');
-
-?>

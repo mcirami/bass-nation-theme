@@ -11,6 +11,10 @@
 
 use Stripe\Stripe;
 
+if (defined('STRIPE_SECRET_KEY') && !getenv('STRIPE_SECRET_KEY')) {
+	putenv('STRIPE_SECRET_KEY=' . STRIPE_SECRET_KEY);
+	$_ENV['STRIPE_SECRET_KEY'] = STRIPE_SECRET_KEY;
+}
 if ( defined('WP_CLI') && WP_CLI) {
 
 	// Ensure PMPro is loaded (some CLI invocations skip plugins)
@@ -274,7 +278,7 @@ if (defined('WP_CLI') && WP_CLI && class_exists('\Stripe\Stripe')) {
 		if (!$secret && defined('STRIPE_SECRET_KEY') && STRIPE_SECRET_KEY) $secret = STRIPE_SECRET_KEY;
 		if (!$secret && getenv('STRIPE_SECRET_KEY')) $secret = getenv('STRIPE_SECRET_KEY');
 		if (!$secret) WP_CLI::error('Stripe secret key not configured.');
-		\Stripe\Stripe::setApiKey($secret);
+		Stripe::setApiKey($secret);
 
 		// read csv
 		$h = fopen($path, 'r'); $header = fgetcsv($h);
@@ -337,7 +341,7 @@ if (defined('WP_CLI') && WP_CLI) {
 		if (!$secret && defined('STRIPE_SECRET_KEY') && STRIPE_SECRET_KEY) $secret = STRIPE_SECRET_KEY;
 		if (!$secret && getenv('STRIPE_SECRET_KEY')) $secret = getenv('STRIPE_SECRET_KEY');
 		if (!$secret) WP_CLI::error('Stripe secret key not configured.');
-		\Stripe\Stripe::setApiKey($secret);
+		Stripe::setApiKey($secret);
 
 		global $wpdb;
 		$t = $wpdb->pmpro_membership_orders;

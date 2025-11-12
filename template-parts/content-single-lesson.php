@@ -22,7 +22,9 @@
     </div>
 		
 		<div class="videos full_width">
-            <?php if(pmpro_hasMembershipLevel()) { echo do_shortcode('[favorite_button]'); }?>
+            <?php if ( pmpro_hasMembershipLevel() && bass_nation_favorites_ready() && shortcode_exists( 'favorite_button' ) ) {
+				echo do_shortcode('[favorite_button]');
+			}?>
 			
 			<?php
 				

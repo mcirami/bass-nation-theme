@@ -126,9 +126,11 @@ if ($posts) : ?>
 					<div class="lesson_content full_width">
 						<h1><?php the_title(); ?></h1>
 					</div>
-					<div class="button_wrap full_width">
-						<?php the_favorites_button();?>
-					</div>
+					<?php if ( bass_nation_favorites_ready() ) : ?>
+						<div class="button_wrap full_width">
+							<?php the_favorites_button();?>
+						</div>
+					<?php endif; ?>
 					<div class="button_wrap">
 						<?php if ($type == 'youtube') : ?>
 

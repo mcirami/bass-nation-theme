@@ -16,6 +16,21 @@ function blockusers_init() {
 
 add_action( 'init', 'blockusers_init' );
 
+/**
+ * Determine if the Simple Favorites plugin is available and fully initialized.
+ *
+ * The plugin loads its translations at `init`, so calling its helpers before
+ * then triggers `_load_textdomain_just_in_time()` notices. This guard lets us
+ * defer any interaction until WordPress (and the plugin) have finished
+ * bootstrapping.
+ *
+ * @return bool
+ */
+function bass_nation_favorites_ready() {
+	return function_exists( 'get_user_favorites' ) && did_action( 'init' );
+}
+
+
 add_filter( 'the_content', 'make_clickable');
 
 

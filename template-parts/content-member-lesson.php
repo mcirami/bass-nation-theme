@@ -157,7 +157,7 @@
 
                     <?php endif; ?><!-- video thumbnail -->
                 </a>
-                <?php if (is_user_logged_in()) : ?>
+                <?php if (is_user_logged_in() && bass_nation_favorites_ready()) : ?>
                     <div class="button_wrap full_width">
                         <?php the_favorites_button();?>
                     </div>

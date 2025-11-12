@@ -16,7 +16,7 @@ $pageId = get_the_ID();
 
 if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
-    $favorites = get_user_favorites();
+    $favorites = bass_nation_favorites_ready() ? get_user_favorites() : array();
 
     global $post;
 
@@ -230,13 +230,15 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
                         <?php if ($title == "Favorite Lessons") : ?>
 
                             <div class="top_content full_width">
-                                <?php if ($favorites != null) :
-                                        $favCount = get_user_favorites_count();
-                                    ?>
-                                    <h3><?php echo $favCount; ?> <?php if( $favCount == 1) { echo "Favorite"; } else {echo "Favorites";}?></h3>
-                                <?php endif; ?>
+	                            <?php if ( bass_nation_favorites_ready() ) : ?>
+		                            <?php if ( ! empty( $favorites ) ) :
+			                            $favCount = get_user_favorites_count();
+			                            ?>
+			                            <h3><?php echo $favCount; ?> <?php if( $favCount == 1) { echo "Favorite"; } else {echo "Favorites";}?></h3>
+		                            <?php endif; ?>
 
-                                <?php the_clear_favorites_button(); ?>
+	                                <?php the_clear_favorites_button(); ?>
+	                            <?php endif; ?>
                             </div>
 
                         <?php endif; ?>
@@ -244,7 +246,7 @@ if (pmpro_hasMembershipLevel() || $pageId == 7) {
 
                         <div id="filter_images" class="shuffle-container full_width">
 
-                            <?php if ($favorites == null && $title == "Favorite Lessons") : ?>
+	                        <?php if ( empty( $favorites ) && $title == "Favorite Lessons") : ?>
 
                                 <div class="text_wrap full_width">
                                     <h2>You have no Favorite Lessons</h2>

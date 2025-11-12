@@ -3,12 +3,22 @@
  * ACF Option Pages
  */
 
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page('Header');
-	acf_add_options_page('Footer');
-	acf_add_options_page('Popup');
+/**
+ * Register ACF options pages once ACF has been initialized.
+ *
+ * Loading the pages immediately when the file is included would execute before
+ * WordPress's `init` hook, which triggers `_load_textdomain_just_in_time()` for
+ * the `acf` text domain too early and produces PHP notices. Hooking into
+ * `acf/init` ensures ACF is ready and translations load at the correct time.
+ */
+function bass_nation_register_acf_options_pages() {
+	if ( function_exists( 'acf_add_options_page' ) ) {
+		acf_add_options_page( 'Header' );
+		acf_add_options_page( 'Footer' );
+		acf_add_options_page( 'Popup' );
+	}
 }
-
+add_action( 'acf/init', 'bass_nation_register_acf_options_pages' );
 function my_save_post( $post_id )
 {
 

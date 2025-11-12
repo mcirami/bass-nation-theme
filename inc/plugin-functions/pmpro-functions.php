@@ -69,14 +69,18 @@ add_filter('pmpro_send_email', function($send, $email){
 	}
 });*/
 
+add_action('pmpro_subscription_payment_completed','db_set_default_pm_from_latest_invoice_on_renewal',10,2);
+function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user) {
+	set_stripe_default_payment_method($user->ID, $morder);
+}
 add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 20, 2);
-function set_stripe_default_payment_method($user_id, $order) {
+function set_stripe_default_payment_method($user_id, $morder = null) {
 	// Must have an order and gateway = stripe
-	if (empty($order) || empty($order->Gateway->gateway) || strtolower($order->Gateway->gateway) !== 'stripe') {
+	if (empty($morder) || empty($morder->Gateway->gateway) || strtolower($morder->Gateway->gateway) !== 'stripe') {
 		return;
 	}
 
-	error_log('subscription_transaction_id:' . print_r($order->subscription_transaction_id,true));
+	error_log('subscription_transaction_id:' . print_r($morder->subscription_transaction_id,true));
 
 	// Load Stripe library via PMPro if not already loaded
 	if (!class_exists('\Stripe\Stripe')) {
@@ -110,7 +114,7 @@ function set_stripe_default_payment_method($user_id, $order) {
 	// Determine the Stripe customer id
 	$stripe_cus = get_user_meta($user_id, 'pmpro_stripe_customerid', true);
 	// If we have a subscription id from the order, we can read the customer off it
-	$sub_id = !empty($order->subscription_transaction_id) ? trim($order->subscription_transaction_id) : '';
+	$sub_id = !empty($morder->subscription_transaction_id) ? trim($morder->subscription_transaction_id) : '';
 
 	try {
 		if (!$stripe_cus && $sub_id) {
@@ -225,3 +229,6 @@ function set_stripe_default_payment_method($user_id, $order) {
 	return $okay;
 }
 add_filter('pmpro_registration_checks', 'pmpro_require_location_match_IP');*/
+
+print_r("key: " . getenv('STRIPE_SECRET_KEY'));
+exit;

@@ -242,6 +242,3 @@ function set_stripe_default_payment_method($user_id, $morder = null) {
 	return $okay;
 }
 add_filter('pmpro_registration_checks', 'pmpro_require_location_match_IP');*/
-
-print_r("key: " . getenv('STRIPE_TEST_SECRET_KEY'));
-exit;

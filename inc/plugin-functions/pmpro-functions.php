@@ -4,9 +4,12 @@ use Stripe\Exception\ApiErrorException;
 use Stripe\Invoice;
 use Stripe\PaymentMethod;
 use Stripe\Stripe;
-use Stripe\StripeClient;
 use Stripe\Subscription;
 
+if (defined('STRIPE_SECRET_KEY') && !getenv('STRIPE_SECRET_KEY')) {
+	putenv('STRIPE_SECRET_KEY=' . STRIPE_SECRET_KEY);
+	$_ENV['STRIPE_SECRET_KEY'] = STRIPE_SECRET_KEY;
+}
 /*
 	Add this code to your active theme's functions.php or a custom plugin
 	to change the PayPal button image on the PMPro checkout page.

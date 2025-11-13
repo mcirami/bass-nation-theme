@@ -31,6 +31,49 @@ function bass_nation_favorites_ready(): bool {
 }
 
 
+/**
+ * Prevent the Favorites plugin from loading translations before WordPress is ready.
+ *
+ * WordPress 6.7+ triggers a notice when `_load_textdomain_just_in_time()` attempts to load
+ * a textdomain before the `init` hook. Some Favorites integrations execute early and rely on
+ * just-in-time loading, so we intercept those requests and defer them until `init` fires.
+ *
+ * @param bool   $override Whether to override the textdomain loading logic.
+ * @param string $domain   Textdomain being loaded.
+ * @param string $mofile   Path to the MO file WordPress is trying to load.
+ *
+ * @return bool True when the load should be short-circuited, original override otherwise.
+ */
+function bass_nation_delay_favorites_textdomain( $override, $domain, $mofile ) {
+	if ( 'favorites' !== $domain || did_action( 'init' ) || doing_action( 'init' ) ) {
+		return $override;
+	}
+
+	static $queued = array();
+
+	if ( isset( $queued[ $mofile ] ) ) {
+		return true;
+	}
+
+	$queued[ $mofile ] = true;
+
+	add_action(
+		'init',
+		static function () use ( $domain, $mofile ) {
+			// The file path passed by `_load_textdomain_just_in_time()` may not exist when a
+			// translation hasn't been generated yet. Only attempt to load it when present.
+			if ( file_exists( $mofile ) ) {
+				load_textdomain( $domain, $mofile );
+			} else {
+				load_plugin_textdomain( $domain );
+			}
+		}
+	);
+
+	return true;
+}
+add_filter( 'pre_load_textdomain', 'bass_nation_delay_favorites_textdomain', 10, 3 );
+
 add_filter( 'the_content', 'make_clickable');
 
 

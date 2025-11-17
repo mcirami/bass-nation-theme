@@ -167,9 +167,7 @@ function bass_nation_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	if(is_user_logged_in()) {
-		wp_localize_script( 'main_js', 'myAjaxurl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
-	}
+	wp_localize_script( 'main_js', 'myAjaxurl', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 
 	wp_localize_script( 'main_js', 'currentPage', array(
 		'pageName' 	=> get_the_title(),

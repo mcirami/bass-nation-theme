@@ -807,9 +807,6 @@ jQuery(document).ready(function ($) {
 	    const [quizData, comments]  = await Promise.all([quizPromise, commentsPromise]);
 	    // build HTML
 	    let videoDesc = desc ? `<div class="description">${desc}</div>` : "";
-	    /*if (quizData && quizData.html) {
-		    videoDesc += `<div class="quiz_wrap">${quizData.html}</div>`;
-	    }*/
 
 	    if (quizId) {
 		    const holder = document.getElementById(`bn-quiz-${quizId}`);

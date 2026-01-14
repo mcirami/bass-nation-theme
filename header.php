@@ -63,7 +63,7 @@ $actual_link = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP
 
 			?>
 
-			<?php if (str_contains($str, "youtube")) :
+			<?php if ($str && str_contains($str, "youtube")) :
 
 			$str = explode("embed/", $str);
 			$embedCode = preg_replace('/\s+/', '',$str[1]);

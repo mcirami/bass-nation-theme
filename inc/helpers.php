@@ -266,9 +266,11 @@ if( !function_exists('sc_after_login_redirection') ):
 		if ( isset( $user->roles ) && is_array( $user->roles ) ) {
 			if ( ($result[0]->status == "cancelled" || empty($result)) && !in_array('administrator',  $user->roles  )) :
 				$redirect_to  =  site_url() . '/membership-account/membership-levels';
-			elseif ( isset($_COOKIE['login_redirect']) ):
+			elseif ( isset($_COOKIE['login_redirect']) && !str_contains($_COOKIE['login_redirect'], 'membership-levels') ):
 				$redirect_to  = $_COOKIE['login_redirect'];
 				unset( $_COOKIE['login_redirect'] );
+				else :
+					$redirect_to  = site_url() . '/member-home/';
 			endif;
 
 			if (session_status() === PHP_SESSION_NONE) {

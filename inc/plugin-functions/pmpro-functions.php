@@ -29,6 +29,70 @@ function my_pmpro_paypal_button_image($url)
 }
 //add_filter('pmpro_paypal_button_image', 'my_pmpro_paypal_button_image');
 
+/**
+ * Prevent users from purchasing a new subscription when an active/trialing/past_due subscription exists.
+ */
+function bass_nation_user_has_open_subscription( $user_id ) {
+	$statuses_to_block = array( 'active', 'trialing', 'past_due' );
+	$subscriptions = array();
+
+	if ( empty( $user_id ) ) {
+		return false;
+	}
+
+	if ( function_exists( 'pmpro_getSubscriptions' ) ) {
+		$subscriptions = pmpro_getSubscriptions( array( 'user_id' => $user_id ) );
+	} elseif ( class_exists( 'PMPro_Subscription' ) ) {
+		if ( method_exists( 'PMPro_Subscription', 'get_subscriptions_for_user' ) ) {
+			$subscriptions = PMPro_Subscription::get_subscriptions_for_user( $user_id );
+		} elseif ( method_exists( 'PMPro_Subscription', 'get_subscriptions' ) ) {
+			$subscriptions = PMPro_Subscription::get_subscriptions( array( 'user_id' => $user_id ) );
+		}
+	}
+
+	if ( empty( $subscriptions ) ) {
+		return false;
+	}
+
+	foreach ( $subscriptions as $subscription ) {
+		if ( ! is_object( $subscription ) ) {
+			continue;
+		}
+
+		$status = '';
+		if ( property_exists( $subscription, 'status' ) ) {
+			$status = $subscription->status;
+		} elseif ( method_exists( $subscription, 'get_status' ) ) {
+			$status = $subscription->get_status();
+		}
+
+		if ( $status && in_array( $status, $statuses_to_block, true ) ) {
+			return true;
+		}
+	}
+
+	return false;
+}
+
+function bass_nation_block_duplicate_subscriptions( $continue ) {
+	if ( ! $continue || ! is_user_logged_in() ) {
+		return $continue;
+	}
+
+	$user_id = get_current_user_id();
+	if ( bass_nation_user_has_open_subscription( $user_id ) ) {
+		pmpro_setMessage(
+			'You already have an active, trialing, or past due subscription. Please resolve any payment issues or update your existing subscription before starting a new one.',
+			'pmpro_error'
+		);
+		return false;
+	}
+
+	return $continue;
+}
+add_filter( 'pmpro_registration_checks', 'bass_nation_block_duplicate_subscriptions' );
+
+
 add_filter('pmpro_send_email', function($send, $email){
 	if (!empty($email->template) && in_array($email->template, ['cancelled','cancelled_admin'])) {
 		return false; // suppress member + admin cancel emails during migration

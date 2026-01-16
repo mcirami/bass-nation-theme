@@ -257,21 +257,22 @@ add_action('init','crunchify_clean_header_hook');
 
 if( !function_exists('sc_after_login_redirection') ):
 	function sc_after_login_redirection($redirect_to, $request, $user) {
-		global $wpdb;
-		$result = $wpdb->get_results( "SELECT status FROM a02_pmpro_subscriptions WHERE user_id = $user->ID " );
-		if ( $wpdb->last_error ) {
-			//echo 'wpdb error: ' . $wpdb->last_error;
-			echo 'Sorry there has been an error, please try again';
-		  }
+		if ( is_wp_error($user) ) {
+			return $redirect_to;
+		}
 		if ( isset( $user->roles ) && is_array( $user->roles ) ) {
-			if ( ($result[0]->status == "cancelled" || empty($result)) && !in_array('administrator',  $user->roles  )) :
-				$redirect_to  =  site_url() . '/membership-account/membership-levels';
-			elseif ( isset($_COOKIE['login_redirect']) && !str_contains($_COOKIE['login_redirect'], 'membership-levels') ):
-				$redirect_to  = $_COOKIE['login_redirect'];
+			if ( isset($_COOKIE['login_redirect']) ) {
+				$redirect_to = esc_url_raw($_COOKIE['login_redirect']);
 				unset( $_COOKIE['login_redirect'] );
-				else :
-					$redirect_to  = site_url() . '/member-home/';
-			endif;
+			}
+
+			if (
+				function_exists('pmpro_hasMembershipLevel')
+				&& pmpro_hasMembershipLevel(null, $user->ID)
+				&& str_contains( $redirect_to, '/membership-account/membership-levels' )
+			) {
+				$redirect_to = home_url('/member-home');
+			}
 
 			if (session_status() === PHP_SESSION_NONE) {
 				session_write_close();

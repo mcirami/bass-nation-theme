@@ -101,10 +101,6 @@ add_filter('pmpro_send_email', function($send, $email){
 add_action('pmpro_subscription_payment_completed','db_set_default_pm_from_latest_invoice_on_renewal',10,2);
 function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user = null) {
 
-	if (empty($morder->gateway) || strtolower($morder->gateway) !== 'stripe') {
-		return;
-	}
-
 	// Determine user ID safely
     $user_id = 0;
 	if (is_object($user) && !empty($user->ID)) {
@@ -128,6 +124,12 @@ function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user = null)
 }
 add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 20, 2);
 function set_stripe_default_payment_method($user_id, $morder = null) {
+
+	if (empty($morder)) {
+		return;
+	}
+
+	// Defensive gateway detection (PMPro order objects vary by context)
 	$gateway = '';
 	if (!empty($morder->Gateway) && !empty($morder->Gateway->gateway)) {
 		$gateway = strtolower($morder->Gateway->gateway);
@@ -138,6 +140,7 @@ function set_stripe_default_payment_method($user_id, $morder = null) {
 	if ($gateway !== 'stripe') {
 		return;
 	}
+
 	if (defined('WP_DEBUG') && WP_DEBUG) {
 	error_log('subscription_transaction_id:' . print_r($morder->subscription_transaction_id,true));
 	}
@@ -191,14 +194,25 @@ function set_stripe_default_payment_method($user_id, $morder = null) {
 			'customer' => $stripe_cus,
 			'limit'    => 1,
 			'status'   => 'paid',
-			'expand'   => ['data.payment_intent.payment_method'],
+			'expand'   => ['data.payment_intent'],
 		]);
 
 		$pm_id = null;
+
 		if (!empty($invoices->data)) {
 			$inv = $invoices->data[0];
-			if (!empty($inv->payment_intent) && !empty($inv->payment_intent->payment_method)) {
-				$pm_id = $inv->payment_intent->payment_method->id;
+
+			if (!empty($inv->payment_intent)) {
+				$pi = $inv->payment_intent;
+				$pm = $pi->payment_method ?? null;
+
+				// payment_method may be an ID string or an object
+				if (is_string($pm)) {
+					$pmObj = \Stripe\PaymentMethod::retrieve($pm);
+					$pm_id = $pmObj->id ?? null;
+				} elseif (is_object($pm) && !empty($pm->id)) {
+					$pm_id = $pm->id;
+				}
 			}
 		}
 

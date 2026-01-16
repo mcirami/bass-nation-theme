@@ -357,7 +357,10 @@ function verify_user_code(){
 			wp_set_auth_cookie($user->ID, true);
 			wp_set_current_user($user->ID, $user->user_login);
 			do_action('wp_login', $user->user_login, wp_get_current_user());
-			wp_redirect( get_site_url() . '/membership-account/membership-levels');
+			$has_membership = function_exists( 'pmpro_hasMembershipLevel' ) &&
+			                  pmpro_hasMembershipLevel( null, $user->ID );
+			$redirect_path = $has_membership ? '/member-home' : '/membership-account/membership-levels';
+			wp_redirect( get_site_url() . $redirect_path );
 			exit();
 		} else {
 			wp_redirect( get_site_url() );

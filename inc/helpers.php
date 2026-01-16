@@ -357,8 +357,15 @@ function verify_user_code(){
 			wp_set_auth_cookie($user->ID, true);
 			wp_set_current_user($user->ID, $user->user_login);
 			do_action('wp_login', $user->user_login, wp_get_current_user());
-			$has_membership = function_exists( 'pmpro_hasMembershipLevel' ) &&
-			                  pmpro_hasMembershipLevel( null, $user->ID );
+
+			if (function_exists('pmpro_getMembershipLevelForUser')) {
+				$membership_level = pmpro_getMembershipLevelForUser($user->ID);
+				$has_membership = !empty($membership_level);
+			} elseif (function_exists('pmpro_hasMembershipLevel')) {
+				$has_membership = pmpro_hasMembershipLevel(null, $user->ID);
+			} else {
+				$has_membership = false;
+			}
 			$redirect_path = $has_membership ? '/member-home' : '/membership-account/membership-levels';
 			wp_redirect( get_site_url() . $redirect_path );
 			exit();

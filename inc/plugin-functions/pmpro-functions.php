@@ -60,9 +60,7 @@ function bass_nation_user_has_open_subscription( $user_id ) {
 		}
 
 		$status = '';
-		if ( property_exists( $subscription, 'status' ) ) {
-			$status = $subscription->status;
-		} elseif ( method_exists( $subscription, 'get_status' ) ) {
+		if ( method_exists( $subscription, 'get_status' ) ) {
 			$status = $subscription->get_status();
 		}
 

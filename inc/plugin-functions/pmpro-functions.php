@@ -37,18 +37,48 @@ add_filter('pmpro_send_email', function($send, $email){
 }, 10, 2);
 
 add_action('pmpro_subscription_payment_completed','db_set_default_pm_from_latest_invoice_on_renewal',10,2);
-function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user) {
-	set_stripe_default_payment_method($user->ID, $morder);
-}
-add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 20, 2);
-function set_stripe_default_payment_method($user_id, $morder = null) {
-	// Must have an order and gateway = stripe
-	if (empty($morder) || empty($morder->Gateway->gateway) || strtolower($morder->Gateway->gateway) !== 'stripe') {
+function db_set_default_pm_from_latest_invoice_on_renewal($morder, $user = null) {
+
+	if (empty($morder->gateway) || strtolower($morder->gateway) !== 'stripe') {
 		return;
 	}
 
-	error_log('subscription_transaction_id:' . print_r($morder->subscription_transaction_id,true));
+	// Determine user ID safely
+    $user_id = 0;
+	if (is_object($user) && !empty($user->ID)) {
+		$user_id = (int) $user->ID;
+	} elseif (is_object($morder) && !empty($morder->user_id)) {
+		$user_id = (int) $morder->user_id;
+	} elseif (is_object($morder) && !empty($morder->userID)) {
+		$user_id = (int) $morder->userID;
+	}
+	if ($user_id <= 0) {
+		error_log('[PMPro] db_set_default_pm_from_latest_invoice_on_renewal: could not determine user_id');
+		return;
+	}
+	// Only run if helper exists
+	if (!function_exists('set_stripe_default_payment_method')) {
+		error_log('[PMPro] set_stripe_default_payment_method() not found');
+		return;
+	}
 
+	set_stripe_default_payment_method($user_id, $morder);
+}
+add_action('pmpro_after_checkout', 'set_stripe_default_payment_method', 20, 2);
+function set_stripe_default_payment_method($user_id, $morder = null) {
+	$gateway = '';
+	if (!empty($morder->Gateway) && !empty($morder->Gateway->gateway)) {
+		$gateway = strtolower($morder->Gateway->gateway);
+	} elseif (!empty($morder->gateway)) {
+		$gateway = strtolower($morder->gateway);
+	}
+
+	if ($gateway !== 'stripe') {
+		return;
+	}
+	if (defined('WP_DEBUG') && WP_DEBUG) {
+	error_log('subscription_transaction_id:' . print_r($morder->subscription_transaction_id,true));
+	}
 	// Load Stripe library via PMPro if not already loaded
 	if (!class_exists('\Stripe\Stripe')) {
 		if (class_exists('PMProGateway_stripe') && method_exists('PMProGateway_stripe', 'loadStripeLibrary')) {

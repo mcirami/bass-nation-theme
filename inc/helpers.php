@@ -341,7 +341,7 @@ function getVideoEmbedCode($videoLink) {
 
 	return $embedCode;
 }
-
+/*
 add_action( 'init', 'verify_user_code' );
 function verify_user_code(){
 	if( isset($_GET['act']) && isset($_GET['id']) ) {
@@ -389,7 +389,7 @@ function my_redirect()
 		die;
 	}
 }
-add_action( 'template_redirect', 'my_redirect' );
+add_action( 'template_redirect', 'my_redirect' );*/
 
 function check_user_verified() {
 	$userID = get_current_user_id();

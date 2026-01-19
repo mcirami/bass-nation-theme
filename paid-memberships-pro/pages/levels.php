@@ -100,15 +100,26 @@ $isWinBackVisit = db_is_winback_visit();
 									</div>
 								<?php  else : ?>
 									<div class="column_heading full_width">
-										<h2>
-											FREE
-											<?php if ($isWinBackVisit) : ?>
-												7
-											<?php else : ?>
-												3
-											<?php endif; ?>
-											Day Trial
-										</h2>
+										<?php if (!empty($current_user->membership_level->ID)) : ?>
+											<h2>
+												<?php  if ($level->id == $current_user->membership_level->ID) : ?>
+													CURRENT LEVEL
+												<?php else: ?>
+													UPGRADE NOW
+												<?php endif; ?>
+											</h2>
+										<?php else :?>
+											<h2>
+												FREE
+												<?php if ($isWinBackVisit) : ?>
+													7
+												<?php else : ?>
+													3
+												<?php endif; ?>
+												Day Trial
+											</h2>
+										<?php endif; ?>
+
 									</div>
 								<?php endif; ?>
 							</div>
@@ -168,20 +179,20 @@ $isWinBackVisit = db_is_winback_visit();
 									</div>
 								<?php endif; ?>
 							<?php else: ?>
-								<?php if ($level->id == 1) : ?>
+								<?php if (empty($current_user->membership_level->ID)) : ?>
 									<p>then only</p>
+								<?php endif; ?>
+
+								<?php if ($level->id == 1) : ?>
 									<h3>$9.99</h3>
 									<h4>a month</h4>
 								<?php elseif ($level->id == 2 ) :?>
-									<p>then only</p>
 									<h3>$28.99</h3>
 									<h4>Every 3 months</h4>
 								<?php elseif ($level->id == 3) : ?>
-									<p>only</p>
 									<h3>$54.99</h3>
 									<h4>Every 6 months</h4>
 								<?php elseif ($level->id == 4) : ?>
-									<p>then only</p>
 									<h3>$99.99</h3>
 									<h4>Every Year</h4>
 								<?php endif; ?>
@@ -193,13 +204,18 @@ $isWinBackVisit = db_is_winback_visit();
 									<p>Bass Nation Membership</p>
 								</div>
 								<ul>
-									<li><p>FREE for
-											<?php if ($isWinBackVisit) : ?>
-												7
-											<?php else : ?>
-												3
-											<?php endif; ?>
-											days</p></li>
+									<?php if (empty($current_user->membership_level->ID)) : ?>
+										<li>
+											<p>FREE for
+												<?php if ($isWinBackVisit) : ?>
+													7
+												<?php else : ?>
+													3
+												<?php endif; ?>
+												days</p>
+										</li>
+									<?php endif; ?>
+
 									<li><p>ALL Complete Lessons</p></li>
 									<li><p>Lesson Commenting</p></li>
 									<li><p>Bass Nation Forum Access</p></li>

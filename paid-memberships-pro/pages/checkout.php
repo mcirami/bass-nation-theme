@@ -1,12 +1,12 @@
 <?php
 /**
  * Template: Checkout
- * Version: 3.5
+ * Version: 3.6.3
  *
  * See documentation for how to override the PMPro templates.
  * @link https://www.paidmembershipspro.com/documentation/templates/
  *
- * @version 3.5
+ * @version 3.6.3
  *
  * @author Paid Memberships Pro
  */
@@ -15,6 +15,13 @@ global $gateway, $pmpro_review, $skip_account_fields, $pmpro_paypal_token, $wpdb
 global $discount_code, $username, $password, $password2, $bfirstname, $blastname, $baddress1, $baddress2, $bcity, $bstate, $bzipcode, $bcountry, $bphone, $bemail, $bconfirmemail, $CardType, $AccountNumber, $ExpirationMonth,$ExpirationYear;
 
 $pmpro_levels = pmpro_getAllLevels();
+$has_current_membership = false;
+if ( is_user_logged_in() && function_exists( 'pmpro_getMembershipLevelsForUser' ) ) {
+	$has_current_membership = ! empty( pmpro_getMembershipLevelsForUser( $current_user->ID ) );
+} elseif ( is_user_logged_in() && function_exists( 'pmpro_hasMembershipLevel' ) ) {
+	$has_current_membership = pmpro_hasMembershipLevel( null, $current_user->ID );
+}
+$show_trial_offer = ! $has_current_membership;
 
 /**
  * Filter to set if PMPro uses email or text as the type for email field inputs.
@@ -114,9 +121,13 @@ switch($checkoutLevel) {
 				<div class="outer_circle">
 					<span>1</span>
 				</div>
-				<p>Join RISK FREE with our
-					<?php echo $freeTrial . "-Day"; ?>
-					Free Trial Offer!</p>
+				<?php if ( $show_trial_offer ) : ?>
+					<p>Join RISK FREE with our
+						<?php echo $freeTrial . "-Day"; ?>
+						Free Trial Offer!</p>
+				<?php else : ?>
+					<p>Upgrade your membership instantly.</p>
+				<?php endif; ?>
 			</div>
 			<?php if ($checkoutLevel == 1) : ?>
 				<div class="list_row">
@@ -273,14 +284,18 @@ switch($checkoutLevel) {
 		<div class="column">
 
 			<div class="top_section full_width light_gray_bg box_shadow">
-				<?php if ($checkoutLevel == 1) : ?>
-					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
-				<?php elseif ($checkoutLevel == 2) : ?>
-					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
-				<?php elseif ($checkoutLevel == 3) : ?>
-					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
-				<?php elseif ($checkoutLevel == 4) : ?>
-					<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
+				<?php if ( $show_trial_offer ) : ?>
+					<?php if ($checkoutLevel == 1) : ?>
+						<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
+					<?php elseif ($checkoutLevel == 2) : ?>
+						<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
+					<?php elseif ($checkoutLevel == 3) : ?>
+						<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
+					<?php elseif ($checkoutLevel == 4) : ?>
+						<h3>Free for <?php echo $freeTrial; ?> days - then only <?php echo $price . " " . $levelText; ?></h3>
+					<?php endif; ?>
+				<?php else : ?>
+					<h3>Upgrade to <?php echo esc_html( $pmpro_level->name ); ?> for <?php echo $price . " " . $levelText; ?></h3>
 				<?php endif; ?>
 
 				<div class="two_columns">
@@ -291,7 +306,11 @@ switch($checkoutLevel) {
 						<p>Daric Bennett, Bassist & Founder</p>
 					</div>
 					<div class="white_box full_width">
-						<p>" Thanks in advance for starting your free trial! I look forward to learning, growing and sharing with you and everyone else in our amazing Bass Nation community! "</p>
+						<?php if ( $show_trial_offer ) : ?>
+							<p>" Thanks in advance for starting your free trial! I look forward to learning, growing and sharing with you and everyone else in our amazing Bass Nation community! "</p>
+						<?php else : ?>
+							<p>" Thanks for continuing your journey with Bass Nation! I look forward to learning, growing and sharing with you and everyone else in our amazing Bass Nation community! "</p>
+						<?php endif; ?>
 					</div>
 				</div>
 
@@ -303,9 +322,15 @@ switch($checkoutLevel) {
 
 						?>
 					</p>
-					<p>
-						You are registering for a <?php echo $freeTrial; ?> day trial. After <?php echo $freeTrial; ?> days you will be charged <?php echo $price . " "; ?> <?php echo $levelText; ?>
-					</p>
+					<?php if ( $show_trial_offer ) : ?>
+						<p>
+							You are registering for a <?php echo $freeTrial; ?> day trial. After <?php echo $freeTrial; ?> days you will be charged <?php echo $price . " "; ?> <?php echo $levelText; ?>
+						</p>
+					<?php else : ?>
+						<p>
+							Your membership will change immediately. You will now be charged <?php echo $price . " "; ?> <?php echo $levelText; ?>
+						</p>
+					<?php endif; ?>
 					<?php if ($discountCode == "BNATION25") : ?>
 						<p>After <?php echo $pmpro_level->name; ?> you will be charged <?php echo $originalPrice . " " . $afterText; ?></p>
 					<?php endif; ?>

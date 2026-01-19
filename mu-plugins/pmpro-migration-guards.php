@@ -9,11 +9,12 @@
 
 // 1) Don't cancel "previous subscriptions" at gateway if user already has a Stripe customer.
 // This path is typically hit on gateway webhooks/level changes. Keep it narrow and temporary.
-add_filter('pmpro_cancel_previous_subscriptions', function ($cancel, $user_id, $old_level_id) {
-	// If user has a Stripe customer on file, skip canceling previous subs at *other* gateways.
-	$has_stripe_customer = (bool) get_user_meta($user_id, 'pmpro_stripe_customerid', true);
-	return $has_stripe_customer ? false : $cancel;
-}, 10, 3);
+add_filter('pmpro_cancel_previous_subscriptions',
+	function ($cancel, $user_id) {
+		// If user has a Stripe customer on file, skip canceling previous subs at *other* gateways.
+		$has_stripe_customer = (bool) get_user_meta($user_id, 'pmpro_stripe_customerid', true);
+		return $has_stripe_customer ? false : $cancel;
+}, 10, 2);
 
 // 2) Only block gateway-cancel calls when they are NOT for a Stripe order.
 //    This lets real cancels of Stripe subs from your site proceed normally.

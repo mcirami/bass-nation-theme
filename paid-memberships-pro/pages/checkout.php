@@ -43,7 +43,7 @@ if ( empty( $default_gateway ) ) {
 
 $checkoutLevel =  $pmpro_level->id;
 
-$discountCode = $_GET["pmpro_discount_code"];
+$discountCode = isset($_GET["pmpro_discount_code"]) ? $_GET["pmpro_discount_code"] : null;
 
 $protocol = $_SERVER['HTTPS'] == '' ? 'http://' : 'https://';
 $webroot = $protocol . $_SERVER['HTTP_HOST'] . '/';
